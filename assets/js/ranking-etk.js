@@ -49,6 +49,7 @@ $(function() {
       // console.log(data.key);
     });
     $(document).ready(function() {
+      toDayToNight();
       setTimeout(function() {
         var t = $('.game-tbl').DataTable({
           data: users,
@@ -130,3 +131,14 @@ $(function() {
     //
     // console.log(nameUsers);
 });
+
+
+var d = new Date();
+function toDayToNight(){
+  if(d.getHours() >= 6 && d.getHours() < 17) {
+    $('body').css({background: 'linear-gradient(#9acbd8, #ade0ee)'});
+  }
+  else {
+    $('body').css({background: 'linear-gradient(#141123, #1d3c5c)'});
+  }
+}
