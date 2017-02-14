@@ -30,7 +30,7 @@ body {
   background-repeat: repeat-x;
   position: absolute;
   width: 160%;
-  left: -10px;
+  left: -30px;
   bottom: 1.5em;
   z-index: -3;
   animation-name: wave;
@@ -664,7 +664,7 @@ and (orientation : portrait){
       z-index: -10;
       position: absolute;
       width: 120vw;
-      height: 150%;
+      height: 135vh;
       background: linear-gradient(#09706b, #188c83, #29a599);
     }
 }
