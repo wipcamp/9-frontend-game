@@ -413,6 +413,24 @@ and (orientation : portrait){
       left: 1.75em;
       position: absolute;
     }
+    .backgroundBehind{
+      margin: 3em 0 0 0;
+      /*bottom: 0em;*/
+      z-index: -10;
+      position: absolute;
+      width: 120vw;
+      height: 150%;
+      background: linear-gradient(#09706b, #188c83, #29a599);
+    }
+    .backgroundBehind{
+      margin: 3em 0 0 0;
+      /*bottom: 0em;*/
+      z-index: -10;
+      position: absolute;
+      width: 120vw;
+      height: 150%;
+      background: linear-gradient(#09706b, #188c83, #29a599);
+    }
 }
 
 @media (min-width: 1025px) and (max-width: 1199px) {
@@ -473,6 +491,15 @@ and (orientation : portrait){
       width: 1.8em;
       left: 1.6em;
       position: absolute;
+    }
+    .backgroundBehind{
+      margin: 3em 0 0 0;
+      /*bottom: 0em;*/
+      z-index: -10;
+      position: absolute;
+      width: 120vw;
+      height: 150%;
+      background: linear-gradient(#09706b, #188c83, #29a599);
     }
 }
 
@@ -540,6 +567,15 @@ and (orientation : portrait){
       width: 1.8em;
       left: 1.9em;
       position: absolute;
+    }
+    .backgroundBehind{
+      margin: 3em 0 0 0;
+      /*bottom: 0em;*/
+      z-index: -10;
+      position: absolute;
+      width: 120vw;
+      height: 150%;
+      background: linear-gradient(#09706b, #188c83, #29a599);
     }
 }
 
@@ -622,6 +658,15 @@ and (orientation : portrait){
       left: 2.1em;
       position: absolute;
     }
+    .backgroundBehind{
+      margin: 3em 0 0 0;
+      /*bottom: 0em;*/
+      z-index: -10;
+      position: absolute;
+      width: 120vw;
+      height: 150%;
+      background: linear-gradient(#09706b, #188c83, #29a599);
+    }
 }
 
 @media (min-width: 1460px) {
@@ -658,7 +703,17 @@ and (orientation : portrait){
       left: 1.7em;
       position: absolute;
     }
+    .backgroundBehind{
+      margin: 3em 0 0 0;
+      /*bottom: 0em;*/
+      z-index: -10;
+      position: absolute;
+      width: 120vw;
+      height: 150%;
+      background: linear-gradient(#09706b, #188c83, #29a599);
+    }
 }
+
 
 
 /*========================================================================*/
