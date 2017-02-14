@@ -1296,13 +1296,14 @@ and (min-width: 1200px){
       width: 103vw;
       position: absolute;
       bottom: 0em !important;
+      top: 10em;
     }
     .underwater2{
      width: 75vw;
      height: 50vh;
      position: absolute;
      z-index: -3 !important;
-     top: 15em;
+     top: 10em;
      animation-name: wave;
      animation-duration: 4.3s;
      animation-delay: .1s;
