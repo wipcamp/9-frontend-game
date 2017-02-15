@@ -23,7 +23,10 @@ body {
 
 }
 
-
+.controlWater{
+  position:absolute;
+  height:100vh;
+}
 
 .wave1{
   background-image: url('../img/object/wave1.svg');
@@ -121,6 +124,13 @@ table.dataTable thead th.sorting_desc:after {
 
 
 /*========================================================================*/
+@media only screen
+and (min-height:0px)
+and (max-height:800px) {
+  .backgroundBehind{
+    height:55em !important;
+  }
+}
 
 @media (min-width: 0px) {
     .game-fontLeaderboard {
@@ -204,9 +214,9 @@ table.dataTable thead th.sorting_desc:after {
       margin: 3em 0 0 0;
       /*bottom: 0em;*/
       z-index: -10;
-      position: absolute;
-      width: 120vw;
-      height: 100vh;
+      position: relative;
+      width: 101vw;
+      height: 105vh;
       background: linear-gradient(#09706b, #188c83, #29a599);
     }
 }
@@ -275,9 +285,9 @@ table.dataTable thead th.sorting_desc:after {
       margin: 3em 0 0 0;
       /*bottom: 0em;*/
       z-index: -10;
-      position: absolute;
-      width: 100vw;
-      height: 150vh;
+      position: relative;
+      width: 101vw;
+      height: 130vh;
       background: linear-gradient(#09706b, #188c83, #29a599);
     }
 }
@@ -346,11 +356,22 @@ table.dataTable thead th.sorting_desc:after {
       margin: 3em 0 0 0;
       /*bottom: 0em;*/
       z-index: -10;
-      position: absolute;
-      width: 100vw;
-      height: 125vh;
+      position: relative;
+      width: 101vw;
+      height: 130vh;
       background: linear-gradient(#09706b, #188c83, #29a599);
     }
+}
+@media (min-width:1200px) {
+  .backgroundBehind{
+    margin: 3em 0 0 0;
+    /*bottom: 0em;*/
+    z-index: -10;
+    position: relative;
+    width: 101vw;
+    height: 105vh;
+    background: linear-gradient(#09706b, #188c83, #29a599);
+  }
 }
 
 @media (min-width: 1260px) {
@@ -436,9 +457,9 @@ table.dataTable thead th.sorting_desc:after {
       margin: 3em 0 0 0;
       /*bottom: 0em;*/
       z-index: -10;
-      position: absolute;
-      width: 100vw;
-      height: 120vh;
+      position: relative;
+      width: 101vw;
+      height: 110vh;
       background: linear-gradient(#09706b, #188c83, #29a599);
     }
 }
@@ -513,9 +534,9 @@ table.dataTable thead th.sorting_desc:after {
       margin: 3em 0 0 0;
       /*bottom: 0em;*/
       z-index: -10;
-      position: absolute;
-      width: 120vw;
-      height: 120vh;
+      position: relative;
+      width: 105vw;
+      height: 110vh;
       background: linear-gradient(#09706b, #188c83, #29a599);
     }
 }
@@ -603,7 +624,7 @@ table.dataTable thead th.sorting_desc:after {
       margin: 3em 0 0 0;
       /*bottom: 0em;*/
       z-index: -10;
-      position: absolute;
+      position: relative;
       width: 100vw;
       height: 140vh;
       background: linear-gradient(#09706b, #188c83, #29a599);
@@ -630,9 +651,9 @@ table.dataTable thead th.sorting_desc:after {
       margin: 3em 0 0 0;
       /*bottom: 0em;*/
       z-index: -10;
-      position: absolute;
+      position: relative;
       width: 100vw;
-      height: 100vh;
+      height: 120vh;
       background: linear-gradient(#09706b, #188c83, #29a599);
     }
 }
@@ -657,7 +678,7 @@ table.dataTable thead th.sorting_desc:after {
       margin: 3em 0 0 0;
       /*bottom: 0em;*/
       z-index: -10;
-      position: absolute;
+      position: relative;
       width: 120vw;
       height: 100vh;
       background: linear-gradient(#09706b, #188c83, #29a599);
@@ -1182,7 +1203,7 @@ and (orientation : portrait) {
       z-index: -10;
       position: absolute;
       width: 120vw;
-      height: 90vh;
+      height: 100vh;
       background: linear-gradient(#09706b, #188c83, #29a599);
     }
 }
@@ -1264,6 +1285,9 @@ and (orientation : landscape){
 and (device-width: 1024px)
 and (device-height: 1366px)
 and (orientation : portrait) {
+    body{
+      overflow-y: hidden;
+    }
     .game-fontLeaderboard {
         margin: 40px 0 0 0;
         text-align: center;
@@ -1328,7 +1352,7 @@ and (orientation : portrait) {
       z-index: -10;
       position: absolute;
       width: 120vw;
-      height: 78vh;
+      height: 100vh;
       background: linear-gradient(#09706b, #188c83, #29a599);
     }
 }
