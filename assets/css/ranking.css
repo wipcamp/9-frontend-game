@@ -23,7 +23,10 @@ body {
 
 }
 
-
+.controlWater{
+  position:absolute;
+  height:100vh;
+}
 
 .wave1{
   background-image: url('../img/object/wave1.svg');
@@ -121,8 +124,15 @@ table.dataTable thead th.sorting_desc:after {
 
 
 /*========================================================================*/
+@media only screen
+and (min-height:0px)
+and (max-height:800px) {
+  .backgroundBehind{
+    height:55em !important;
+  }
+}
 
-@media (min-width: 0px) and (max-width:568px) {
+@media (min-width: 0px) {
     .game-fontLeaderboard {
         margin: 50px 0 10px 0;
         text-align: center;
@@ -204,236 +214,15 @@ table.dataTable thead th.sorting_desc:after {
       margin: 3em 0 0 0;
       /*bottom: 0em;*/
       z-index: -10;
-      position: absolute;
-      width: 120vw;
-      height: 150%;
+      position: relative;
+      width: 101vw;
+      height: 105vh;
       background: linear-gradient(#09706b, #188c83, #29a599);
     }
 }
 
-@media (min-width: 375px) and (max-width: 767px) {
-    .game-fontLeaderboard {
-        margin: 50px 0 10px 0;
-        text-align: center;
-        font-size: 280% !important;
-    }
-    .game-fontGameName {
-        text-align: center;
-        font-size: 170% !important;
-        margin-bottom: 50px;
-    }
-    .game-fontHeadTable {
-        font-size: 15px;
-        text-align: center;
-    }
-    .game-fontInTable {
-        font-size: 15px;
-        text-align: center;
-    }
-    .buttonButtom {
-        margin: 30px 0 30px 0 !important;
-    }
-    .game-forCenter {
-        text-align: center;
-    }
-    .rounded-circle {
-        height: 35px;
-        width: auto;
-    }
-    .wipgamebody {
-        min-width: 200px;
-        padding: 0 0 30px 0;
-        border-width: 5px;
-        border-style: solid;
-        border-radius: 14px;
-        text-align: center;
-        background-color: white;
-        opacity: .8;
-    }
 
-    .btn-width {
-        width: 130px;
-        background-color: #eeeeee;
-        font-family: 'Itim', sans-serif;
-        height: 38px;
-        padding: 0;
-        margin: 0 5px 0 5px;
-        color: white;
-        font-size: 17px !important;
-    }
-    .rankinglogo{
-      margin: 10vh 0 0 0;
-      width: 15em;
-    }
-    .prize {
-      width: 1.8em;
-      left: 5.5%;
-      position: absolute;
-    }
-    .backgroundBehind{
-      margin: 3em 0 0 0;
-      /*bottom: 0em;*/
-      z-index: -10;
-      position: absolute;
-      width: 120vw;
-      height: 125vh;
-      background: linear-gradient(#09706b, #188c83, #29a599);
-    }
-}
-
-@media only screen
-and (device-width: 375px)
-and (device-height: 736px)
-and (orientation : portrait){
-    .game-fontLeaderboard {
-        margin: 50px 0 10px 0;
-        text-align: center;
-        font-size: 280% !important;
-    }
-    .game-fontGameName {
-        text-align: center;
-        font-size: 170% !important;
-        margin-bottom: 50px;
-    }
-    .game-fontHeadTable {
-        font-size: 15px;
-        text-align: center;
-    }
-    .game-fontInTable {
-        font-size: 15px;
-        text-align: center;
-    }
-    .buttonButtom {
-        margin: 30px 0 30px 0 !important;
-    }
-    .game-forCenter {
-        text-align: center;
-    }
-    .rounded-circle {
-        height: 35px;
-        width: auto;
-    }
-    .wipgamebody {
-        min-width: 200px;
-        padding: 0 0 30px 0;
-        border-width: 5px;
-        border-style: solid;
-        border-radius: 14px;
-        text-align: center;
-        background-color: white;
-        opacity: .8;
-    }
-
-    .btn-width {
-        width: 130px;
-        background-color: #eeeeee;
-        font-family: 'Itim', sans-serif;
-        height: 38px;
-        padding: 0;
-        margin: 0 5px 0 5px;
-        color: white;
-        font-size: 17px !important;
-    }
-    .rankinglogo{
-      margin: 10vh 0 0 0;
-      width: 15em;
-    }
-    .prize {
-      width: 1.8em;
-      left: 5.5%;
-      position: absolute;
-    }
-    .backgroundBehind{
-      margin: 3em 0 0 0;
-      /*bottom: 0em;*/
-      z-index: -10;
-      position: absolute;
-      width: 120vw;
-      height: 125vh;
-      background: linear-gradient(#09706b, #188c83, #29a599);
-    }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-    .game-fontLeaderboard {
-        margin: 40px 0 0 0;
-        text-align: center;
-        font-size: 60px !important;
-    }
-    .game-fontGameName {
-        text-align: center;
-        font-size: 40px !important;
-        margin-bottom: 30px;
-    }
-    .game-fontHeadTable {
-        font-size: 20px;
-        text-align: center;
-    }
-    .game-fontInTable {
-        font-size: 20px;
-        text-align: center;
-    }
-    .buttonButtom {
-        margin: 30px 0 30px 0;
-    }
-    .game-forCenter {
-        text-align: center;
-    }
-    .rounded-circle {
-        width: auto;
-        ;
-        height: 45px;
-    }
-    .wipgamebody {
-        min-width: 300px;
-        padding: 0 0 30px 0;
-        border-width: 5px;
-        border-style: solid;
-        border-radius: 14px;
-        text-align: center;
-        background-color: white;
-        opacity: .8;
-    }
-    .btn-width {
-        width: 140px;
-        background-color: #eeeeee;
-        font-family: 'Itim', sans-serif;
-        height: 45px;
-        padding: 0;
-        margin: 0 10px 0 10px;
-        color: white;
-        font-size: 20px !important;
-    }
-    .rankinglogo{
-      margin: 10vh 0 0 0;
-      width: 15em;
-    }
-    .prize {
-      width: 1.8em;
-      left: 1.75em;
-      position: absolute;
-    }
-    .backgroundBehind{
-      margin: 3em 0 0 0;
-      /*bottom: 0em;*/
-      z-index: -10;
-      position: absolute;
-      width: 120vw;
-      height: 150%;
-      background: linear-gradient(#09706b, #188c83, #29a599);
-    }
-    .backgroundBehind{
-      margin: 3em 0 0 0;
-      /*bottom: 0em;*/
-      z-index: -10;
-      position: absolute;
-      width: 120vw;
-      height: 75vh;
-      background: linear-gradient(#09706b, #188c83, #29a599);
-    }
-}
-
-@media (min-width: 1025px) and (max-width: 1199px) {
+@media (min-width: 800px)  {
     .game-fontLeaderboard {
         margin: 40px 0 0 0;
         text-align: center;
@@ -496,14 +285,15 @@ and (orientation : portrait){
       margin: 3em 0 0 0;
       /*bottom: 0em;*/
       z-index: -10;
-      position: absolute;
-      width: 120vw;
-      height: 120%;
+      position: relative;
+      width: 101vw;
+      height: 130vh;
       background: linear-gradient(#09706b, #188c83, #29a599);
     }
 }
 
-@media (min-width: 1200px) {
+
+@media (min-width: 1024px)  {
     .game-fontLeaderboard {
         margin: 40px 0 0 0;
         text-align: center;
@@ -514,15 +304,8 @@ and (orientation : portrait){
         font-size: 40px !important;
         margin-bottom: 30px;
     }
-    .game-fontLeaderboard {
-        font-size: 60px !important;
-    }
-    .game-fontGameName {
-        font-size: 35px !important;
-        margin-bottom: 40px;
-    }
     .game-fontHeadTable {
-        font-size: 27px;
+        font-size: 20px;
         text-align: center;
     }
     .game-fontInTable {
@@ -537,10 +320,11 @@ and (orientation : portrait){
     }
     .rounded-circle {
         width: auto;
-        height: 60px;
+        ;
+        height: 45px;
     }
     .wipgamebody {
-        min-width: 500px;
+        min-width: 300px;
         padding: 0 0 30px 0;
         border-width: 5px;
         border-style: solid;
@@ -550,14 +334,14 @@ and (orientation : portrait){
         opacity: .8;
     }
     .btn-width {
-        width: 150px;
+        width: 140px;
         background-color: #eeeeee;
         font-family: 'Itim', sans-serif;
         height: 40px;
         padding: 0;
-        margin: 0 10px 0 10px;
+        margin: 0 5px 0 5px;
         color: white;
-        font-size: 20px !important;
+        font-size: 18px !important;
     }
     .rankinglogo{
       margin: 10vh 0 0 0;
@@ -565,18 +349,29 @@ and (orientation : portrait){
     }
     .prize {
       width: 1.8em;
-      left: 1.9em;
+      left: 1.6em;
       position: absolute;
     }
     .backgroundBehind{
       margin: 3em 0 0 0;
       /*bottom: 0em;*/
       z-index: -10;
-      position: absolute;
-      width: 120vw;
-      height: 150%;
+      position: relative;
+      width: 101vw;
+      height: 130vh;
       background: linear-gradient(#09706b, #188c83, #29a599);
     }
+}
+@media (min-width:1200px) {
+  .backgroundBehind{
+    margin: 3em 0 0 0;
+    /*bottom: 0em;*/
+    z-index: -10;
+    position: relative;
+    width: 101vw;
+    height: 105vh;
+    background: linear-gradient(#09706b, #188c83, #29a599);
+  }
 }
 
 @media (min-width: 1260px) {
@@ -662,14 +457,181 @@ and (orientation : portrait){
       margin: 3em 0 0 0;
       /*bottom: 0em;*/
       z-index: -10;
-      position: absolute;
-      width: 120vw;
-      height: 90vh;
+      position: relative;
+      width: 101vw;
+      height: 110vh;
       background: linear-gradient(#09706b, #188c83, #29a599);
     }
 }
 
-@media (min-width: 1460px) {
+
+@media (min-width: 1280px) {
+    .game-fontLeaderboard {
+        margin: 40px 0 0 0;
+        text-align: center;
+        font-size: 60px !important;
+    }
+    .game-fontGameName {
+        text-align: center;
+        font-size: 40px !important;
+        margin-bottom: 30px;
+    }
+    .game-fontLeaderboard {
+        font-size: 60px !important;
+    }
+    .game-fontGameName {
+        font-size: 35px !important;
+        margin-bottom: 40px;
+    }
+    .game-fontHeadTable {
+        font-size: 27px;
+        text-align: center;
+    }
+    .game-fontInTable {
+        font-size: 20px;
+        text-align: center;
+    }
+    .buttonButtom {
+        margin: 30px 0 30px 0;
+    }
+    .game-forCenter {
+        text-align: center;
+    }
+    .rounded-circle {
+        width: auto;
+        height: 60px;
+    }
+    .wipgamebody {
+        min-width: 500px;
+        padding: 0 0 30px 0;
+        border-width: 5px;
+        border-style: solid;
+        border-radius: 14px;
+        text-align: center;
+        background-color: white;
+        opacity: .8;
+    }
+    .btn-width {
+        width: 150px;
+        background-color: #eeeeee;
+        font-family: 'Itim', sans-serif;
+        height: 40px;
+        padding: 0;
+        margin: 0 10px 0 10px;
+        color: white;
+        font-size: 20px !important;
+    }
+    .rankinglogo{
+      margin: 10vh 0 0 0;
+      width: 15em;
+    }
+    .prize {
+      width: 1.8em;
+      left: 1.9em;
+      position: absolute;
+    }
+    .backgroundBehind{
+      margin: 3em 0 0 0;
+      /*bottom: 0em;*/
+      z-index: -10;
+      position: relative;
+      width: 105vw;
+      height: 110vh;
+      background: linear-gradient(#09706b, #188c83, #29a599);
+    }
+}
+
+@media (min-width: 1360px) {
+    .rankinglogo{
+      margin: 10vh 0 0 0;
+      width: 15em;
+    }
+    .game-fontLeaderboard {
+        margin: 40px 0 0 0;
+        text-align: center;
+        font-size: 60px !important;
+    }
+    .game-fontGameName {
+        text-align: center;
+        font-size: 40px !important;
+        margin-bottom: 30px;
+    }
+    .game-fontLeaderboard {
+        font-size: 60px !important;
+    }
+    .game-fontGameName {
+        font-size: 35px !important;
+        margin-bottom: 40px;
+    }
+    .game-fontHeadTable {
+        font-size: 27px;
+        text-align: center;
+    }
+    .game-fontInTable {
+        font-size: 20px;
+        text-align: center;
+    }
+    .buttonButtom {
+        margin: 30px 0 30px 0;
+    }
+    .game-forCenter {
+        text-align: center;
+    }
+    .rounded-circle {
+        width: auto;
+        height: 60px;
+    }
+    .wipgamebody {
+        min-width: 500px;
+        padding: 0 0 30px 0;
+        border-width: 5px;
+        border-style: solid;
+        border-radius: 14px;
+        text-align: center;
+        background-color: white;
+        opacity: .8;
+    }
+    .btn-width {
+        width: 160px;
+        background-color: #eeeeee;
+        font-family: 'Itim', sans-serif;
+        height: 45px;
+        padding: 0;
+        margin: 0 10px 0 10px;
+        color: white;
+        font-size: 22px !important;
+    }
+    .backButton{
+      padding: 1% 0px 0 1%;
+      font-size: 50px;
+      color: white;
+      position: absolute;
+    }
+    .homeButton{
+      padding: 0px 0px 0 0px;
+      font-size: 30px;
+      color: white;
+    }
+    .buttonSet{
+      margin: 70px 0px 0 0px;
+    }
+    .prize {
+      width: 1.8em;
+      left: 1.7em;
+      position: absolute;
+    }
+    .backgroundBehind{
+      margin: 3em 0 0 0;
+      /*bottom: 0em;*/
+      z-index: -10;
+      position: relative;
+      width: 100vw;
+      height: 140vh;
+      background: linear-gradient(#09706b, #188c83, #29a599);
+    }
+}
+
+@media (min-width: 1440px) {
     .game-fontLeaderboard {
         margin: 40px 0 0 0;
         text-align: center;
@@ -685,9 +647,18 @@ and (orientation : portrait){
       left: 1.9em;
       position: absolute;
     }
+    .backgroundBehind{
+      margin: 3em 0 0 0;
+      /*bottom: 0em;*/
+      z-index: -10;
+      position: relative;
+      width: 100vw;
+      height: 120vh;
+      background: linear-gradient(#09706b, #188c83, #29a599);
+    }
 }
 
-@media (min-width: 1625px) {
+@media (min-width: 1600px) {
     .game-fontLeaderboard {
         margin: 40px 0 0 0;
         text-align: center;
@@ -707,14 +678,684 @@ and (orientation : portrait){
       margin: 3em 0 0 0;
       /*bottom: 0em;*/
       z-index: -10;
-      position: absolute;
+      position: relative;
       width: 120vw;
-      height: 150%;
+      height: 100vh;
+      background: linear-gradient(#09706b, #188c83, #29a599);
+    }
+}
+
+/* Mobile ******************************************** */
+@media only screen
+and (device-width: 320px)
+and (device-height: 568px)
+and (orientation : portrait){
+    .game-fontLeaderboard {
+        margin: 50px 0 10px 0;
+        text-align: center;
+        font-size: 280% !important;
+    }
+    .game-fontGameName {
+        text-align: center;
+        font-size: 170% !important;
+        margin-bottom: 50px;
+    }
+    .game-fontHeadTable {
+        font-size: 15px;
+        text-align: center;
+    }
+    .game-fontInTable {
+        font-size: 15px;
+        text-align: center;
+    }
+    .buttonButtom {
+        margin: 30px 0 30px 0 !important;
+    }
+    .game-forCenter {
+        text-align: center;
+    }
+    .rounded-circle {
+        height: 35px;
+        width: auto;
+    }
+    .wipgamebody {
+        min-width: 200px;
+        padding: 0 0 30px 0;
+        border-width: 5px;
+        border-style: solid;
+        border-radius: 14px;
+        text-align: center;
+        background-color: white;
+        opacity: .8;
+    }
+
+    .btn-width {
+        width: 130px;
+        background-color: #eeeeee;
+        font-family: 'Itim', sans-serif;
+        height: 38px;
+        padding: 0;
+        margin: 0 5px 0 5px;
+        color: white;
+        font-size: 17px !important;
+    }
+    .rankinglogo{
+      margin: 10vh 0 0 0;
+      width: 15em;
+    }
+    .prize {
+      width: 1.8em;
+      left: 2.2em;
+      position: absolute;
+    }
+    .backgroundBehind{
+      margin: 3em 0 0 0;
+      /*bottom: 0em;*/
+      z-index: -10;
+      position: absolute;
+      width: 100vw;
+      height: 150vh;
+      background: linear-gradient(#09706b, #188c83, #29a599);
+    }
+}
+
+@media only screen
+and (device-width: 568px)
+and (device-height: 320px)
+and (orientation : landscape){
+    .game-fontLeaderboard {
+        margin: 50px 0 10px 0;
+        text-align: center;
+        font-size: 280% !important;
+    }
+    .game-fontGameName {
+        text-align: center;
+        font-size: 170% !important;
+        margin-bottom: 50px;
+    }
+    .game-fontHeadTable {
+        font-size: 15px;
+        text-align: center;
+    }
+    .game-fontInTable {
+        font-size: 15px;
+        text-align: center;
+    }
+    .buttonButtom {
+        margin: 30px 0 30px 0 !important;
+    }
+    .game-forCenter {
+        text-align: center;
+    }
+    .rounded-circle {
+        height: 35px;
+        width: auto;
+    }
+    .wipgamebody {
+        min-width: 200px;
+        padding: 0 0 30px 0;
+        border-width: 5px;
+        border-style: solid;
+        border-radius: 14px;
+        text-align: center;
+        background-color: white;
+        opacity: .8;
+    }
+
+    .btn-width {
+        width: 130px;
+        background-color: #eeeeee;
+        font-family: 'Itim', sans-serif;
+        height: 38px;
+        padding: 0;
+        margin: 0 5px 0 5px;
+        color: white;
+        font-size: 17px !important;
+    }
+    .rankinglogo{
+      margin: 10vh 0 0 0;
+      width: 15em;
+    }
+    .prize {
+      width: 1.8em;
+      left: 2.2em;
+      position: absolute;
+    }
+    .backgroundBehind{
+      margin: 3em 0 0 0;
+      /*bottom: 0em;*/
+      z-index: -10;
+      position: absolute;
+      width: 100vw;
+      height: 250vh;
       background: linear-gradient(#09706b, #188c83, #29a599);
     }
 }
 
 
+@media only screen
+and (device-width: 667px)
+and (device-height: 375px)
+and (orientation : landscape){
+    .game-fontLeaderboard {
+        margin: 50px 0 10px 0;
+        text-align: center;
+        font-size: 280% !important;
+    }
+    .game-fontGameName {
+        text-align: center;
+        font-size: 170% !important;
+        margin-bottom: 50px;
+    }
+    .game-fontHeadTable {
+        font-size: 15px;
+        text-align: center;
+    }
+    .game-fontInTable {
+        font-size: 15px;
+        text-align: center;
+    }
+    .buttonButtom {
+        margin: 30px 0 30px 0 !important;
+    }
+    .game-forCenter {
+        text-align: center;
+    }
+    .rounded-circle {
+        height: 35px;
+        width: auto;
+    }
+    .wipgamebody {
+        min-width: 200px;
+        padding: 0 0 30px 0;
+        border-width: 5px;
+        border-style: solid;
+        border-radius: 14px;
+        text-align: center;
+        background-color: white;
+        opacity: .8;
+    }
+
+    .btn-width {
+        width: 130px;
+        background-color: #eeeeee;
+        font-family: 'Itim', sans-serif;
+        height: 38px;
+        padding: 0;
+        margin: 0 5px 0 5px;
+        color: white;
+        font-size: 17px !important;
+    }
+    .rankinglogo{
+      margin: 10vh 0 0 0;
+      width: 15em;
+    }
+    .prize {
+      width: 1.8em;
+      left: 2.2em;
+      position: absolute;
+    }
+    .backgroundBehind{
+      margin: 3em 0 0 0;
+      /*bottom: 0em;*/
+      z-index: -10;
+      position: absolute;
+      width: 100vw;
+      height: 215vh;
+      background: linear-gradient(#09706b, #188c83, #29a599);
+    }
+}
+
+@media only screen
+and (device-width: 375px)
+and (device-height: 667px)
+and (orientation : portrait){
+    .game-fontLeaderboard {
+        margin: 50px 0 10px 0;
+        text-align: center;
+        font-size: 280% !important;
+    }
+    .game-fontGameName {
+        text-align: center;
+        font-size: 170% !important;
+        margin-bottom: 50px;
+    }
+    .game-fontHeadTable {
+        font-size: 15px;
+        text-align: center;
+    }
+    .game-fontInTable {
+        font-size: 15px;
+        text-align: center;
+    }
+    .buttonButtom {
+        margin: 30px 0 30px 0 !important;
+    }
+    .game-forCenter {
+        text-align: center;
+    }
+    .rounded-circle {
+        height: 35px;
+        width: auto;
+    }
+    .wipgamebody {
+        min-width: 200px;
+        padding: 0 0 30px 0;
+        border-width: 5px;
+        border-style: solid;
+        border-radius: 14px;
+        text-align: center;
+        background-color: white;
+        opacity: .8;
+    }
+
+    .btn-width {
+        width: 130px;
+        background-color: #eeeeee;
+        font-family: 'Itim', sans-serif;
+        height: 38px;
+        padding: 0;
+        margin: 0 5px 0 5px;
+        color: white;
+        font-size: 17px !important;
+    }
+    .rankinglogo{
+      margin: 10vh 0 0 0;
+      width: 15em;
+    }
+    .prize {
+      width: 1.8em;
+      left: 5.5%;
+      position: absolute;
+    }
+    .backgroundBehind{
+      margin: 3em 0 0 0;
+      /*bottom: 0em;*/
+      z-index: -10;
+      position: absolute;
+      width: 120vw;
+      height: 125vh;
+      background: linear-gradient(#09706b, #188c83, #29a599);
+    }
+}
+
+@media only screen
+and (device-width: 414px)
+and (device-height: 736px)
+and (orientation : portrait){
+    .game-fontLeaderboard {
+        margin: 50px 0 10px 0;
+        text-align: center;
+        font-size: 280% !important;
+    }
+    .game-fontGameName {
+        text-align: center;
+        font-size: 170% !important;
+        margin-bottom: 50px;
+    }
+    .game-fontHeadTable {
+        font-size: 15px;
+        text-align: center;
+    }
+    .game-fontInTable {
+        font-size: 15px;
+        text-align: center;
+    }
+    .buttonButtom {
+        margin: 30px 0 30px 0 !important;
+    }
+    .game-forCenter {
+        text-align: center;
+    }
+    .rounded-circle {
+        height: 35px;
+        width: auto;
+    }
+    .wipgamebody {
+        min-width: 200px;
+        padding: 0 0 30px 0;
+        border-width: 5px;
+        border-style: solid;
+        border-radius: 14px;
+        text-align: center;
+        background-color: white;
+        opacity: .8;
+    }
+
+    .btn-width {
+        width: 130px;
+        background-color: #eeeeee;
+        font-family: 'Itim', sans-serif;
+        height: 38px;
+        padding: 0;
+        margin: 0 5px 0 5px;
+        color: white;
+        font-size: 17px !important;
+    }
+    .rankinglogo{
+      margin: 10vh 0 0 0;
+      width: 15em;
+    }
+    .prize {
+      width: 1.8em;
+      left: 5.5%;
+      position: absolute;
+    }
+    .backgroundBehind{
+      margin: 3em 0 0 0;
+      /*bottom: 0em;*/
+      z-index: -10;
+      position: absolute;
+      width: 120vw;
+      height: 115vh;
+      background: linear-gradient(#09706b, #188c83, #29a599);
+    }
+}
+
+
+@media only screen
+and (device-width: 736px)
+and (device-height: 414px)
+and (orientation : landscape){
+    .game-fontLeaderboard {
+        margin: 50px 0 10px 0;
+        text-align: center;
+        font-size: 280% !important;
+    }
+    .game-fontGameName {
+        text-align: center;
+        font-size: 170% !important;
+        margin-bottom: 50px;
+    }
+    .game-fontHeadTable {
+        font-size: 15px;
+        text-align: center;
+    }
+    .game-fontInTable {
+        font-size: 15px;
+        text-align: center;
+    }
+    .buttonButtom {
+        margin: 30px 0 30px 0 !important;
+    }
+    .game-forCenter {
+        text-align: center;
+    }
+    .rounded-circle {
+        height: 35px;
+        width: auto;
+    }
+    .wipgamebody {
+        min-width: 200px;
+        padding: 0 0 30px 0;
+        border-width: 5px;
+        border-style: solid;
+        border-radius: 14px;
+        text-align: center;
+        background-color: white;
+        opacity: .8;
+    }
+
+    .btn-width {
+        width: 130px;
+        background-color: #eeeeee;
+        font-family: 'Itim', sans-serif;
+        height: 38px;
+        padding: 0;
+        margin: 0 5px 0 5px;
+        color: white;
+        font-size: 17px !important;
+    }
+    .rankinglogo{
+      margin: 10vh 0 0 0;
+      width: 15em;
+    }
+    .prize {
+      width: 1.8em;
+      left: 2.2em;
+      position: absolute;
+    }
+    .backgroundBehind{
+      margin: 3em 0 0 0;
+      /*bottom: 0em;*/
+      z-index: -10;
+      position: absolute;
+      width: 100vw;
+      height: 190vh;
+      background: linear-gradient(#09706b, #188c83, #29a599);
+    }
+}
+
+@media only screen
+and (device-width: 768px)
+and (device-height: 1024px)
+and (orientation : portrait) {
+    .game-fontLeaderboard {
+        margin: 40px 0 0 0;
+        text-align: center;
+        font-size: 60px !important;
+    }
+    .game-fontGameName {
+        text-align: center;
+        font-size: 40px !important;
+        margin-bottom: 30px;
+    }
+    .game-fontHeadTable {
+        font-size: 20px;
+        text-align: center;
+    }
+    .game-fontInTable {
+        font-size: 20px;
+        text-align: center;
+    }
+    .buttonButtom {
+        margin: 30px 0 30px 0;
+    }
+    .game-forCenter {
+        text-align: center;
+    }
+    .rounded-circle {
+        width: auto;
+        ;
+        height: 45px;
+    }
+    .wipgamebody {
+        min-width: 300px;
+        padding: 0 0 30px 0;
+        border-width: 5px;
+        border-style: solid;
+        border-radius: 14px;
+        text-align: center;
+        background-color: white;
+        opacity: .8;
+    }
+    .btn-width {
+        width: 140px;
+        background-color: #eeeeee;
+        font-family: 'Itim', sans-serif;
+        height: 45px;
+        padding: 0;
+        margin: 0 10px 0 10px;
+        color: white;
+        font-size: 20px !important;
+    }
+    .rankinglogo{
+      margin: 10vh 0 0 0;
+      width: 15em;
+    }
+    .prize {
+      width: 1.8em;
+      left: 1.25em;
+      position: absolute;
+    }
+    .backgroundBehind{
+      margin: 3em 0 0 0;
+      /*bottom: 0em;*/
+      z-index: -10;
+      position: absolute;
+      width: 120vw;
+      height: 150%;
+      background: linear-gradient(#09706b, #188c83, #29a599);
+    }
+    .backgroundBehind{
+      margin: 3em 0 0 0;
+      /*bottom: 0em;*/
+      z-index: -10;
+      position: absolute;
+      width: 120vw;
+      height: 100vh;
+      background: linear-gradient(#09706b, #188c83, #29a599);
+    }
+}
+
+@media only screen
+and (device-width: 1024px)
+and (device-height: 768px)
+and (orientation : landscape){
+    .game-fontLeaderboard {
+        margin: 50px 0 10px 0;
+        text-align: center;
+        font-size: 280% !important;
+    }
+    .game-fontGameName {
+        text-align: center;
+        font-size: 170% !important;
+        margin-bottom: 50px;
+    }
+    .game-fontHeadTable {
+        font-size: 15px;
+        text-align: center;
+    }
+    .game-fontInTable {
+        font-size: 15px;
+        text-align: center;
+    }
+    .buttonButtom {
+        margin: 30px 0 30px 0 !important;
+    }
+    .game-forCenter {
+        text-align: center;
+    }
+    .rounded-circle {
+        height: 35px;
+        width: auto;
+    }
+    .wipgamebody {
+        min-width: 200px;
+        padding: 0 0 30px 0;
+        border-width: 5px;
+        border-style: solid;
+        border-radius: 14px;
+        text-align: center;
+        background-color: white;
+        opacity: .8;
+    }
+
+    .btn-width {
+        width: 130px;
+        background-color: #eeeeee;
+        font-family: 'Itim', sans-serif;
+        height: 38px;
+        padding: 0;
+        margin: 0 5px 0 5px;
+        color: white;
+        font-size: 17px !important;
+    }
+    .rankinglogo{
+      margin: 10vh 0 0 0;
+      width: 15em;
+    }
+    .prize {
+      width: 1.8em;
+      left: 2.2em;
+      position: absolute;
+    }
+    .backgroundBehind{
+      margin: 3em 0 0 0;
+      /*bottom: 0em;*/
+      z-index: -10;
+      position: absolute;
+      width: 100vw;
+      height: 105vh;
+      background: linear-gradient(#09706b, #188c83, #29a599);
+    }
+}
+
+@media only screen
+and (device-width: 1024px)
+and (device-height: 1366px)
+and (orientation : portrait) {
+    body{
+      overflow-y: hidden;
+    }
+    .game-fontLeaderboard {
+        margin: 40px 0 0 0;
+        text-align: center;
+        font-size: 60px !important;
+    }
+    .game-fontGameName {
+        text-align: center;
+        font-size: 40px !important;
+        margin-bottom: 30px;
+    }
+    .game-fontHeadTable {
+        font-size: 20px;
+        text-align: center;
+    }
+    .game-fontInTable {
+        font-size: 20px;
+        text-align: center;
+    }
+    .buttonButtom {
+        margin: 30px 0 30px 0;
+    }
+    .game-forCenter {
+        text-align: center;
+    }
+    .rounded-circle {
+        width: auto;
+        ;
+        height: 45px;
+    }
+    .wipgamebody {
+        min-width: 300px;
+        padding: 0 0 30px 0;
+        border-width: 5px;
+        border-style: solid;
+        border-radius: 14px;
+        text-align: center;
+        background-color: white;
+        opacity: .8;
+    }
+    .btn-width {
+        width: 140px;
+        background-color: #eeeeee;
+        font-family: 'Itim', sans-serif;
+        height: 45px;
+        padding: 0;
+        margin: 0 10px 0 10px;
+        color: white;
+        font-size: 20px !important;
+    }
+    .rankinglogo{
+      margin: 5.5vh 0 0 0;
+      width: 15em;
+    }
+    .prize {
+      width: 1.8em;
+      left: 1.25em;
+      position: absolute;
+    }
+    .backgroundBehind{
+      margin: 3em 0 0 0;
+      /*bottom: 0em;*/
+      z-index: -10;
+      position: absolute;
+      width: 120vw;
+      height: 100vh;
+      background: linear-gradient(#09706b, #188c83, #29a599);
+    }
+}
 
 /*========================================================================*/
 
