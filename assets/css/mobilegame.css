@@ -117,15 +117,15 @@ and (orientation: landscape){
     /*overflow: hidden;*/
   }
   .container{
-    margin: 2% 0 0 0;
+    margin: 0 0 0 0;
+
   }
   #game canvas{
       margin: 0px auto;
   }
 }
-
 @media only screen
-and (min-width:1024px){
+and (min-width:800px){
   body {
       margin: 0 0 0 0;
       background: #2d214d;
@@ -135,13 +135,34 @@ and (min-width:1024px){
     /*overflow: hidden;*/
   }
   .container{
-    margin: 3% 0 0 0 !important;
+    margin: 0 0 0 0;
+
+  }
+  #game canvas{
+      margin: 0px auto;
+  }
+}
+
+@media only screen
+and (min-width:1024px){
+  body {
+      /*margin: 0 0 0 0;*/
+      background: #2d214d;
+      /*overflow: hidden;*/
+  }
+  center{
+    /*overflow: hidden;*/
+  }
+  .container{
+    /*margin: 3% 0 0 0 !important;*/
+    padding: 7vh 0 !important ;
   }
   #game canvas{
       margin: 0px auto;
 
   }
 }
+
 
 @media only screen
 and (min-width:1280px){
@@ -154,7 +175,9 @@ and (min-width:1280px){
     /*overflow: hidden;*/
   }
   .container{
-    margin: 3em 0 0 0;
+    /*margin: 3em 0 0 0;*/
+    padding: 11vh 0;
+
   }
   #game canvas{
       margin: 0px auto;
@@ -172,7 +195,9 @@ and (min-width:1300px){
     /*overflow: hidden;*/
   }
   .container{
-    margin: 3% 0 0 0 !important;
+    /*margin: 3% 0 0 0 !important;*/
+    padding: 11vh 0 ;
+
   }
   #game canvas{
       margin: 0px auto;
@@ -180,23 +205,6 @@ and (min-width:1300px){
 }
 
 
-@media only screen
-and (min-width:1300px){
-  body {
-      margin: 0 0 0 0;
-      background: #2d214d;
-      /*overflow: hidden;*/
-  }
-  center{
-    /*overflow: hidden;*/
-  }
-  .container{
-    margin: 3% 0 0 0 !important;
-  }
-  #game canvas{
-      margin: 0px auto;
-  }
-}
 
 @media only screen
 and (min-width:1440px){
@@ -209,7 +217,8 @@ and (min-width:1440px){
     overflow: hidden;
   }
   .container{
-    margin: 5em 0 0 0;
+    /*margin: 5em 0 0 0;*/
+    padding: 14vh 0;
   }
   #game canvas{
       margin: 0px auto;
@@ -226,7 +235,9 @@ and (min-width:1600px){
     overflow: hidden;
   }
   .container{
-    margin: 6em 0 0 0;
+    /*margin: 6em 0 0 0;*/
+    padding: 16vh 0 0;
+
   }
   #game canvas{
       margin: 0px auto;
@@ -279,7 +290,7 @@ and (orientation: landscape){
     margin: 0 0 0 0;
   }
   .container{
-    margin: 0 0 0 0 !important;
+    /*margin: 0 0 0 0 !important;*/
   }
   .hide{
      width: 0vw;
@@ -346,7 +357,7 @@ and (orientation: landscape){
     margin: 0 0 0 0;
   }
   .container{
-    margin: 0 0 0 0 !important;
+    /*margin: 0 0 0 0 !important;*/
   }
   .hide{
      width: 0vw;
@@ -412,7 +423,7 @@ and (orientation: landscape){
     margin: 0 0 0 0;
   }
   .container{
-    margin: 0 0 0 0 !important;
+    /*margin: 0 0 0 0 !important;*/
   }
   .hide{
      width: 0vw;
@@ -479,7 +490,8 @@ and (orientation: landscape){
     margin: 0 0 0 0;
   }
 .container{
-    margin: 7em 0 0 0 !important;
+    /*margin: 7vh 0 0 0 !important;*/
+    padding: 12vh 0 !important;
 }
 .hide{
    width: 0vw;
@@ -540,7 +552,8 @@ and (orientation: landscape){
     margin: 0 0 0 0;
   }
   .container{
-    margin: 14.5em 0 0 0 !important;
+    margin: 14.5vh 0  !important;
+    padding: 0 0 0 0;
 
   }
   .hide{
