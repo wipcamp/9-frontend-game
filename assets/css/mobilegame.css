@@ -176,7 +176,7 @@ and (min-width:1280px){
   }
   .container{
     /*margin: 3em 0 0 0;*/
-    padding: 11vh 0;
+    padding: 11vh 0!important;
 
   }
   #game canvas{
@@ -196,7 +196,7 @@ and (min-width:1300px){
   }
   .container{
     /*margin: 3% 0 0 0 !important;*/
-    padding: 11vh 0 ;
+    padding: 11vh 0!important;
 
   }
   #game canvas{
