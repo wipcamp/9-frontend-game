@@ -218,7 +218,7 @@ and (min-width:1440px){
   }
   .container{
     /*margin: 5em 0 0 0;*/
-    padding: 15vh 0;
+    padding: 15vh 0 !important;
   }
   #game canvas{
       margin: 0px auto;
@@ -236,7 +236,7 @@ and (min-width:1600px){
   }
   .container{
     /*margin: 6em 0 0 0;*/
-    padding: 15vh 0 ;
+    padding: 15vh 0 !important;
 
   }
   #game canvas{
