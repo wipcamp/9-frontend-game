@@ -17,11 +17,13 @@ var login = {preload : preload , create : createLogin ,update : updateLogin};
 var menu = { preload : preload , create : createMenu};
 var howToPlay = { preload : preload ,create : createHowToPlay ,update : updateHowToPlay};
 var credit = {preload : preload , create : createCredit};
+var report = {preload : preload , create : createReport};
 
 var gameplay = { preload : preload , create : createGameplay , update : updateGameplay};
 
 var resultGame = {preload : preload , create : createResult};
 
+game.state.add('report',report);
 game.state.add('login',login);
 game.state.add('menu', menu);
 game.state.add('howToPlay',howToPlay);
@@ -42,7 +44,7 @@ function preload() {
     game.load.spritesheet('boomGroup','images/boom-group.png',160,200);
     game.load.spritesheet('menu','images/mainmenu.png',2584/2,196);
     game.load.spritesheet('warnning','images/warnning.png',100,100);
-    game.load.spritesheet('playership', 'images/playership.png',500,500);
+    game.load.spritesheet('playership', 'images/playership.png',600,500);
 	game.load.spritesheet('left','images/left.png',283,275);
 	game.load.spritesheet('right','images/right.png',283,275);
 	game.load.spritesheet('report','images/report.png',2584/2,196);
@@ -53,7 +55,10 @@ function preload() {
     game.load.spritesheet('howToPlayButton','images/howtoplay.png',2584/2,196);
 	game.load.spritesheet('creditButton','images/credit.png',2584/2,196);
     game.load.spritesheet('playagain','images/playagain.png',2584/2,196);
-	
+	game.load.spritesheet('kraken','images/boss.png',1191,842);//1191 842
+	game.load.spritesheet('shark','images/shark.png',1000,700);
+
+	game.load.image('openWord','images/openWord.png');
 	game.load.image('wippo','images/wippo.png');
 	game.load.image('sky','images/sky.png');
 	game.load.image('water_bot','images/water_bot.png');
@@ -65,41 +70,32 @@ function preload() {
 	game.load.image('gameOver','images/GAME-OVER-01.png');
 	game.load.image('logoGame','images/escape-01.png');
 	game.load.image('bgHowToPlay','images/bghowtoplay.png');
-    game.load.image('bgEnd','images/endState.png');
+    game.load.image('bgEnd','images/endState.png');1
     game.load.image('bgStart','images/bg-Start.png');
-    game.load.image('kraken','images/boss.png');
     game.load.image('map','images/map.png');
+    game.load.image('ropeResult','images/rope-02.png');
+	game.load.image('ropeMenu','images/rope-01.png');
+    game.load.image('cannonball','images/cannonball.png');
+    game.load.image('obj','images/object.png');
+    game.load.image('bottom','images/bottom.png');
+    game.load.image('textHowToPlay1','images/textHowToPlay1.png');
+    game.load.image('textHowToPlay2','images/textHowToPlay2.png');
 
-    game.load.spritesheet('boom','images/boom2.png',80,90);
-    game.load.spritesheet('boom2','images/boom_1.png',160,200);
-    game.load.spritesheet('startButton','images/start.png',2584/2,196);
-    game.load.spritesheet('howToPlayButton','images/howtoplay.png',2584/2,196);
-    game.load.spritesheet('retry','images/playagain.png',2584/2,196);
-    game.load.spritesheet('menu','images/mainmenu.png',2584/2,196);
-    game.load.spritesheet('wranning','images/wranning.png',100,100);
     game.load.audio('Play','sound/Escape.mp3');
     game.load.audio('Kraken','sound/Kraken.mp3');
     game.load.audio('Death','sound/Death.mp3');
     game.load.audio('buttonPush','sound/Paddling.mp3');
     game.load.image('cannonball','images/enemyship.png');
-    game.load.image('obj','images/tower.png');
-    game.load.image('shark','images/shark.png');
+    game.load.image('obj','images/object.png');
     game.load.image('bottom','images/bottom.png');
     game.load.audio('Login','sound/Login.mp3');
-    game.load.audio('Shark','sound/Shank.mp3');
+    game.load.audio('Shark','sound/Shark.mp3');
     game.load.audio('BombDrop','sound/BombDrop.mp3');
     game.load.audio('dKraken','sound/DeathbyKraken.mp3');
     game.load.audio('dBomb','sound/DeathbyBombDrop.mp3');
     game.load.audio('Warn','sound/Warn.mp3');
     game.load.audio('BombAway','sound/BombAway.mp3');
     game.load.audio('button','sound/pushIt.mp3');
-
-	game.load.image('ropeResult','images/rope-02.png');
-	game.load.image('ropeMenu','images/rope-01.png');
-    game.load.image('cannonball','images/cannonball.png');
-    game.load.image('obj','images/object.png');
-    game.load.image('shark','images/shark.png');
-    game.load.image('bottom','images/bottom.png');
 
 	game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
 
@@ -164,6 +160,8 @@ var textName;
 var wippo;
 var message;
 var random;
+var textHowToPlay1;
+var textHowToPlay2;
 // end Declare Global variable
 
 // CreateGameplay function
@@ -182,7 +180,7 @@ function createGameplay() {
     sharkTimer = 0;
     cannonTime = 40*60;
     bombTime = 10*60;
-    sharkTime = 25*60;
+    sharkTime = /*25*6*/0;
     floor = game.add.sprite(0,game.world.height*(3.75/4),'obj');
     floor.scale.setTo(19.6,0.5);
     game.physics.arcade.enable(floor);
@@ -193,16 +191,20 @@ function createGameplay() {
     game.physics.arcade.enable(player);
     player.body.setCircle(40,10,-5);
     map = game.add.tileSprite(0, 0, 1960, 550, 'sky');
-    enemy = game.add.image(980*(1.5/4),550/2,'enemyShip');
+    enemy = game.add.image(game.world.width/2,550/2-50,'enemyShip');
     enemy.frame = 0;
     enemyAnimations = enemy.animations.add('play',[0,1,2,3,0],5,true);
     water_top = game.add.tileSprite(0,550/2+50,1960,550,'water_top');
     water_mid = game.add.tileSprite(0,550/2+125,1960,550,'water_mid');
+    kraken = game.add.image(0,game.world.height*(1/4)+50,'kraken');
+    kraken.animations.add('move',[0,1,2],3,true);
+    kraken.animations.play('move');
+    kraken.scale.setTo(0.5,0.5);
     water_bot = game.add.tileSprite(0,550/2+200,1960,550,'water_bot');
     warnning = game.add.sprite(20,game.world.height*(3.5/6),'warnning');
     warnning.frame = 0;
-    warnning.anchor.set(0.5);
-    warnning.scale.setTo(0.25,0.25);
+    //warnning.anchor.set(0.5);
+    //warnning.scale.setTo(0.25,0.25);
     warnning.animations.add('play',[0,1],4,true);
     warnning.fixedToCamera = true;
 
@@ -211,10 +213,7 @@ function createGameplay() {
     boomGroup.animations.add('move', [0,1,2,3,4,5], 10, true);
     boomGroup.frame = 0;
 
-    kraken = game.add.image(0,game.world.height*(1/4),'kraken');
-    kraken.scale.setTo(0.2,0.2);
     enemy.anchor.setTo(0.5);
-    enemy.fixedToCamera = true;
     playership = this.add.sprite(game.world.width/2,game.world.height*(2/4), 'playership');
     playershipJump = playership.animations.add('jump',[2,1,0],3,true);
     playershipJump.onComplete.add(startAnimationMove, this);
@@ -232,7 +231,7 @@ function createGameplay() {
     textScore.stroke = "#BAB8B8";
     textScore.strokeThickness = 3;
     textScore.fixedToCamera = true;
-	text = game.add.text(20,50,"HighScore : "+getHighScore(),{fontSize : "24px",fill : "#FFFFFF"});
+	text = game.add.text(20,60,"HighScore : "+getHighScore(),{fontSize : "24px",fill : "#FFFFFF"});
     text.stroke = "#BAB8B8";
     text.strokeThickness = 2;
     text.fixedToCamera = true;
@@ -276,6 +275,7 @@ function createGameplay() {
         shark.anchor.set(0.5);
         shark.events.onOutOfBounds.add(resetBullet, this);
         shark.body.setCircle(25);
+        shark.body.collideWorldBounds = true;
     }
     bottomship = game.add.image(1861,0,'bottom');
     warnSound = game.add.audio('Warn');
@@ -300,11 +300,14 @@ function updateGameplay() {
     game.physics.arcade.overlap(player,cannonGroup, cannonHitPlayer, null , this);
     game.physics.arcade.overlap(player,bombGroup, bombHitPlayer, null , this);
     game.physics.arcade.collide(playership,floor);
-    game.physics.arcade.collide(sharkGroup,floor);
+    //game.physics.arcade.collide(sharkGroup,floor);
+    if(game.physics.arcade.collide(sharkGroup,floor)){
+      console.log("Collide shark&floor")
+    }
     game.physics.arcade.overlap(player,sharkGroup, sharkHitPlayer, null , this);
 
     boomGroup.animations.play('move');
- 
+
     if(bombTime<=0){
         bombSpawn();
     }
@@ -331,19 +334,20 @@ function updateGameplay() {
 
     	playership.body.velocity.x -= 1.5;
         if(!krakenSound.isPlaying) {
+            krakenSound.play();
             if(warnSound.isPlaying){
                 warnSound.stop();
             }
-            krakenSound.play();
-            music.volume = 0.2;
+            if(krakenSound.isPlaying)
+                    music.volume = 0.2;
         }else{
-            sharkSound.volume = 0.4;
-            bombAwaySound.volume = 0.4;
-            bombDropSound.volume = 0.4;
-            buttonPush.volume = 0.4;
-           
+            sharkSound.volume = 0.6;
+            bombAwaySound.volume = 0.6;
+            bombDropSound.volume = 0.6;
+            buttonPush.volume = 0.6;
+
         }
-        
+
     }
     time++;
     if(playership.body.velocity.x<=maxSpeed){
@@ -355,11 +359,11 @@ function updateGameplay() {
         	if(cursors.left.isDown&&(!cursors.right.isDown)){
         		ck=2;
                 buttonPush.play();
-                sharkSound.volume = 0.6;
-                bombAwaySound.volume = 0.6;
-                bombDropSound.volume = 0.6;
+                sharkSound.volume = 1;
+                bombAwaySound.volume = 1;
+                bombDropSound.volume = 1;
                 buttonPush.volume = 1;
-                music.volume = 0.5;
+                music.volume = 1;
         	}
         }
         if(ck==2){
@@ -369,7 +373,7 @@ function updateGameplay() {
         }
     }
 
-    if(playership.x<game.world.width*(1/2)){    
+    if(playership.x<game.world.width*(1/2)){
         if(playership.x<250){
             game.state.start('result');
             allSoundStopFx();
@@ -379,11 +383,12 @@ function updateGameplay() {
     }
 
     if(playership.x>game.world.width*(6/7)){
-        
+
         game.state.start('result');
     }
 
     if (jump.isDown && playership.body.touching.down) {
+        console.log("jump");
         playership.body.velocity.y = -500;
         playershipJump.play(3,false);
     }
@@ -400,7 +405,7 @@ function cannonHitPlayer() {
    allSoundStopFx();
     death = game.add.audio('dBomb');
     death.play();
-    console.log("hit by cannon"); 
+    console.log("hit by cannon");
     game.state.start('result');
 }
 function bombHitPlayer() {
@@ -416,12 +421,12 @@ function sharkHitPlayer() {
     death.play();
     console.log("hit by shark");
     game.state.start('result');
-    
+
 }
 function bombSpawn() {
     if(bombTimer<game.time.now){
         var output = game.rnd.integerInRange(0,20);
-        
+
         if(!bombAwaySound.isPlaying){
             bombAwaySound.play();
         }
@@ -469,7 +474,7 @@ function shootThem() {
 }
 // end support function GameplayState
 
-// createMenu fucntion
+// createMenu function
 function createMenu(){ // menu page
     bg = game.add.image(0,0,'bgStart');
     music.stop();
@@ -490,16 +495,14 @@ function createMenu(){ // menu page
     buttonHowTOPlay = game.add.button(980*(2/10),550*(5/10)+20 , 'howToPlayButton', toHowToPlay, this,1,0,2);
     buttonHowTOPlay.anchor.set(0.5);
     buttonHowTOPlay.scale.setTo(0.25,0.25);
-    buttonScore = game.add.button(980*(2/10),550*(8/10)+20, 'scoreboard', toReport, this,1,0,2);
+    buttonScore = game.add.button(980*(2/10),550*(8/10)+20, 'scoreboard', toScore, this,1,0,2);
     buttonScore.anchor.set(0.5);
     buttonScore.scale.setTo(0.25,0.25);
     buttonReport = game.add.button(980*(2/10),550*(7/10)+20 , 'report', toReport, this,1,0,2);
     buttonReport.anchor.set(0.5);
     buttonReport.scale.setTo(0.25,0.25);
 }
-
 // end createMenu function
-//////////////////////////////////////////////////////////////////////////////////
 
 // createHowToPlay function
 function createHowToPlay(){ //how to play
@@ -512,9 +515,8 @@ function createHowToPlay(){ //how to play
 	oldMap = game.add.image(980/2,550/2,'oldMap');
 	oldMap.anchor.set(0.5);
 	oldMap.scale.setTo(0.22,0.22);
-	text = game.add.text(980/8+19.4,550/4+5,"กด spacebar เพื่อกระโดด",{fontSize : "24px",fill : "#5B3B00"});
-	game.add.text(980*(5/8)-29.4,550/4+5,"กดซ้ายและขวาสลับกัน",{fontSize : "24px",fill : "#5B3B00"});
-	game.add.text(980*(5/8)-5-29.4,550/4+36+5,"เพื่อเคลื่อนที่ไปด้านหน้า",{fontSize : "24px",fill : "#5B3B00"});
+	textHowToPlay1 = game.add.image(980/8+19.4,550/4+5,'textHowToPlay1');
+	textHowToPlay2 = game.add.image(980*(5/8)-29.4+25,550/4+5,'textHowToPlay2');
 	logoGame = game.add.image(980/2,550*(1/4)-55,'howToPlayButton');
 	logoGame.anchor.set(0.5);
 	logoGame.scale.setTo(0.3,0.3);
@@ -553,7 +555,7 @@ function createHowToPlay(){ //how to play
     playership.body.collideWorldBounds = true;
     playership.animations.play('move');
     game.time.events.loop(3000, Jump, this);
-    
+
 
     playershipEx = game.add.sprite(980*(3/4)-115-29.4,550/2-150,'playership');
     playershipEx.anchor.set(0.5);
@@ -632,6 +634,30 @@ function createResult(){ //result
     setScore();
 }
 // end createResult function
+// createReport function
+function createReport() {
+	game.add.image(0,0,'bgHowToPlay');
+	oldMap = game.add.image(980/2,550/2,'oldMap');
+	oldMap.anchor.set(0.5);
+	oldMap.scale.setTo(0.22,0.22);
+	logoGame = game.add.image(980/2,550*(1/4)-65,'report');
+	logoGame.anchor.set(0.5);
+	logoGame.scale.setTo(0.3,0.3);
+	game.add.plugin(PhaserInput.Plugin);
+    input = game.add.inputField(980*0.5/4, 550/4, {
+    //input = game.add.inputField(980/2, 550/2, {
+        font: '22px Arial',
+        fill: '#212121',
+        fontWeight: 'normal',
+        width: 735,
+        height: 250,
+        borderColor: '#000',
+        textAlign: 'center',
+        padding : 10,
+        max : 15
+    });
+}
+//end createReport function
 
 // createLogin function
 function createLogin() { //login
@@ -641,12 +667,13 @@ function createLogin() { //login
     logoGame.anchor.setTo(0.5)
     music = game.add.audio('Login');
     music.loopFull();
-    text = game.add.text(980/2,550*(1/4)+125,"เจ้าหนูผู้โชคร้าย เจ้าชื่ออะไร?",{font : "48px Kanit",fill : "#FFFFFF"});
+    text = game.add.image(980/2+15,550*(1/4)+125,'openWord');
+    text.anchor.set(0.5);
+    text.scale.setTo(1.5,1.5);
     //@import url('fontface-thaisansneue.css');
 	//@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-    text.anchor.set(0.5);
     game.add.plugin(PhaserInput.Plugin);
-    input = game.add.inputField(460-150, game.world.centerY-12.5+50, {
+    input = game.add.inputField(980/2-150, game.world.centerY-12.5+50, {
     //input = game.add.inputField(980/2, 550/2, {
         font: '22px Arial',
         fill: '#212121',
@@ -658,10 +685,10 @@ function createLogin() { //login
         padding : 10,
         max : 15
     });
-    menuButton = game.add.button(980/2-20, game.world.centerY+100+50, 'enter', toMenu, this,1,0,2);
+    menuButton = game.add.button(980/2+15, game.world.centerY+100+50, 'enter', toMenu, this,1,0,2);
     menuButton.anchor.set(0.5);
     menuButton.scale.setTo(0.25,0.25);
-    message = game.add.text(980/2-20,game.world.centerY+100+125,"",{font : "48px Kanit",fill : "#FFFFFF"});
+    message = game.add.text(980/2+5,game.world.centerY+100+125,"",{font : "48px Kanit",fill : "#FFFFFF"});
     message.anchor.set(0.5);
 }
 //end createLogin function
@@ -686,15 +713,15 @@ function createCredit() { //credit
 	wippo = game.add.image(980/2+150,550/2-55,'wippo');
 	wippo.anchor.set(0.5);
 	game.add.text(980*(0.5/4),550*(1/4)-25+10,"Audio Library – No Copyright Music",{fontSize : "20px",fill : "#5B3B00"});
-	game.add.text(980*(0.5/4),550*(1/4)+5+10,"URL : goo.gl/yReazM",{fontSize : "20px",fill : "#5B3B00"});
+	game.add.text(980*(0.5/4),550*(1/4)+5+10,"URL : goo.gl/yReazM",{fontSize : "14px",fill : "#5B3B00"});
 	game.add.text(980*(0.5/4),550*(1/4)+35+10,"Ross Bugden - Music",{fontSize : "20px",fill : "#5B3B00"});
-	game.add.text(980*(0.5/4),550*(1/4)+65+10,"URL : goo.gl/NDMy6w",{fontSize : "20px",fill : "#5B3B00"});
+	game.add.text(980*(0.5/4),550*(1/4)+65+10,"URL : goo.gl/NDMy6w",{fontSize : "14px",fill : "#5B3B00"});
 	game.add.text(980*(0.5/4),550*(1/4)+95+10,"Ship sailing on the sea",{fontSize : "20px",fill : "#5B3B00"});
-	game.add.text(980*(0.5/4),550*(1/4)+125+10,"URL : goo.gl/1YpYo3",{fontSize : "20px",fill : "#5B3B00"});
+	game.add.text(980*(0.5/4),550*(1/4)+125+10,"URL : goo.gl/1YpYo3",{fontSize : "14px",fill : "#5B3B00"});
 	game.add.text(980*(0.5/4),550*(1/4)+155+10,"Beach party wooden sign",{fontSize : "20px",fill : "#5B3B00"});
-	game.add.text(980*(0.5/4),550*(1/4)+185+10,"URL : goo.gl/9kzuhy",{fontSize : "20px",fill : "#5B3B00"});
+	game.add.text(980*(0.5/4),550*(1/4)+185+10,"URL : goo.gl/9kzuhy",{fontSize : "14px",fill : "#5B3B00"});
 	game.add.text(980*(0.5/4),550*(1/4)+215+10,"Father and son illustration",{fontSize : "20px",fill : "#5B3B00"});
-	game.add.text(980*(0.5/4),550*(1/4)+245+10,"URL : goo.gl/js8DkX",{fontSize : "20px",fill : "#5B3B00"});
+	game.add.text(980*(0.5/4),550*(1/4)+245+10,"URL : goo.gl/js8DkX",{fontSize : "14px",fill : "#5B3B00"});
     buttonStart = game.add.button(980*(1/2),550*(3.75/4)-35,'menu',toMenu,this,1,0,2);
     buttonStart.anchor.set(0.5);
     buttonStart.scale.setTo(0.25,0.25);
@@ -703,8 +730,12 @@ function createCredit() { //credit
 // end createCredit function
 
 // Link state function
-function toReport() {
+function toScore() {
     window.open("https://www.facebook.com/volk.maneechote?fref=ts");
+}
+function toReport() {
+	buttonSound();
+    game.state.start('report');
 }
 function toGame() {
     buttonSound();
@@ -793,7 +824,7 @@ function startAnimationMove() {
 // Firebase function
 var highscore;
 var dbEtk = firebase.database().ref().child("etk").child("web");
-    
+
 function getHighScore() {
 	var etk = dbEtk.child(name);
     etk.on('value', function(snapshot) {
