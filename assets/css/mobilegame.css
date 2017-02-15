@@ -138,6 +138,7 @@ and (min-width:1024px){
   }
   #game canvas{
       margin: 0px auto;
+
   }
 }
 
@@ -158,6 +159,25 @@ and (min-width:1280px){
       margin: 0px auto;
   }
 }
+
+@media only screen
+and (min-width:1300px){
+  body {
+      margin: 0 0 0 0;
+      background: #2d214d;
+      /*overflow: hidden;*/
+  }
+  center{
+    /*overflow: hidden;*/
+  }
+  .container{
+    margin: 3% 0 0 0 !important;
+  }
+  #game canvas{
+      margin: 0px auto;
+  }
+}
+
 
 @media only screen
 and (min-width:1300px){
@@ -211,6 +231,7 @@ and (min-width:1600px){
       margin: 0px auto;
   }
 }
+
 
 /* iphone5 */
 @media only screen
@@ -457,7 +478,7 @@ and (orientation: landscape){
     margin: 0 0 0 0;
   }
 .container{
-    margin: 6em 0 0 0 !important;
+    margin: 7em 0 0 0 !important;
 }
 .hide{
    width: 0vw;
@@ -518,7 +539,8 @@ and (orientation: landscape){
     margin: 0 0 0 0;
   }
   .container{
-    margin: 12.5em 0 0 0 !important;
+    margin: 14.5em 0 0 0 !important;
+
   }
   .hide{
      width: 0vw;
