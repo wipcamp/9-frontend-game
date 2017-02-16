@@ -1,3 +1,4 @@
+
 // Firebase config
 var config = {
     apiKey: "AIzaSyAhBOG3nZFT0xjOu5UPm1k-ZVot1IPEfoQ",
@@ -167,6 +168,7 @@ var random;
 var textHowToPlay1;
 var textHowToPlay2;
 var cloud1,cloud2,cloud3;
+var isFirstSubmit;
 // end Declare Global variable
 
 // CreateGameplay function
@@ -380,12 +382,14 @@ function updateGameplay() {
     time++;
     if(playership.body.velocity.x<=maxSpeed){
         if(cursors.right.isDown){
+            console.log('>');
             ck=1;
             buttonPush=  game.add.audio('buttonPush');
         }
         if(ck==1){
         	if(cursors.left.isDown&&(!cursors.right.isDown)){
-        		ck=2;
+        		console.log('>>');
+                ck=2;
                 buttonPush.play();
                 sharkSound.volume = 1;
                 bombAwaySound.volume = 1;
@@ -649,21 +653,21 @@ function createResult(){ //result
     logoGame = game.add.image(980/2,game.world.centerY-125,'gameOver');
     logoGame.anchor.set(0.5);
     logoGame.scale.setTo(0.25,0.25);
-    textName = game.add.text(980/2+135,550*(1/4)+25,name,{fontSize : "48px",fill : "#5B3B00"});
+    textName = game.add.text(980/2+130,550*(1/4)+25,name,{font : "48px Thaisans Neue for Web",fill : "#5B3B00"});
     textName.anchor.set(0.5);
     textName.stroke = "#221702";
-    textName.strokeThickness = 7.5;
-    text = game.add.text(980/2+80+25,550*(1/4)+100,"Score : "+score,{fontSize : "48px",fill : "#5B3B00"});
+    textName.strokeThickness = 3;
+    text = game.add.text(980/2+80+45,550*(1/4)+100,"Score : "+score,{font : "48px Thaisans Neue for Web",fill : "#5B3B00"});
     text.anchor.set(0.5);
     text.stroke = "#221702";
-    text.strokeThickness = 7.5;
+    text.strokeThickness = 3;
     buttonStart = game.add.button(980/2, game.world.centerY+25+50-20, 'playagain', toGame, this,1,0,2);
     buttonStart.anchor.set(0.5);
     buttonStart.scale.setTo(0.3,0.3);
     menuButton = game.add.button(980/2, 550/2+115+125-55, 'menu', tomenu, this,1,0,2);
     menuButton.anchor.set(0.5);
     menuButton.scale.setTo(0.3,0.3);
-    buttonScore = game.add.button(980/2,game.world.centerY+115+25-20, 'scoreboard', toReport, this,1,0,2);
+    buttonScore = game.add.button(980/2,game.world.centerY+115+25-20, 'scoreboard', toScore, this,1,0,2);
     buttonScore.anchor.set(0.5);
     buttonScore.scale.setTo(0.3,0.3);
     setScore();
@@ -681,8 +685,7 @@ function createReport() {
 	logoGame.scale.setTo(0.3,0.3);
 	game.add.plugin(PhaserInput.Plugin);
     input = game.add.inputField(980*0.5/4, 550/4, {
-    //input = game.add.inputField(980/2, 550/2, {
-        font: '22px Arial',
+        font: '22px Thaisans Neue for Web',
         fill: '#212121',
         fontWeight: 'normal',
         width: 735,
@@ -692,11 +695,16 @@ function createReport() {
         padding : 10,
         max : 300,
     });
-
+    if(!isFirstSubmit){
+        text = game.add.text(980/2,550*(3.75/4)-80,"แจ้งข่าวกัปตันเรียบร้อยแล้ว",{font : "36px Thaisans Neue for Web",fill : "#5B3B00"});
+        text.anchor.set(0.5);
+    }
     buttonSubmit = game.add.button(980*(3/4)-29.4, 550*(3.75/4)-35, 'submit', function(){
         if(input.value!=""){
+            isFirstSubmit = false;
             buttonSound();
-            sendReportMessage(input);
+            sendReportMessage(input.value);
+            input.value = null;
             game.state.start('report');
             console.log('send complete');
         }
@@ -743,7 +751,7 @@ function createLogin() { //login
     game.add.plugin(PhaserInput.Plugin);
     input = game.add.inputField(980/2-150, game.world.centerY-12.5+50, {
     //input = game.add.inputField(980/2, 550/2, {
-        font: 'Thaisans Neue for Web',
+        font: '22px Thaisans Neue for Web',
         fill: '#212121',
         fontWeight: 'normal',
         width: 300,
@@ -756,7 +764,7 @@ function createLogin() { //login
     menuButton = game.add.button(980/2+15, game.world.centerY+100+50, 'enter', toMenu, this,1,0,2);
     menuButton.anchor.set(0.5);
     menuButton.scale.setTo(0.25,0.25);
-    message = game.add.text(980/2+5,game.world.centerY+100+125,"",{font : "48px Kanit",fill : "#FFFFFF"});
+    message = game.add.text(980/2+5,game.world.centerY+100+125,"",{font : "48px Thaisans Neue for Web",fill : "#FFFFFF"});
     message.anchor.set(0.5);
 }
 //end createLogin function
@@ -803,6 +811,7 @@ function toScore() {
 }
 function toReport() {
 	buttonSound();
+    isFirstSubmit = true;
     game.state.start('report');
 }
 function toGame() {
@@ -935,8 +944,16 @@ function setScore() {
 }
 
 function sendReportMessage(report){
-    var rnd = game.rnd.integerInRange(0,100000);
-    var etk = dbEtk.child('report').child(rnd);
+    var rndText = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for( var i=0; i < 5; i++ ){
+        rndText += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+
+    var rnd = game.rnd.integerInRange(0,1000000)+ rndText + (new Date()).getTime();
+    var dbEtkReport = firebase.database().ref().child("etk");
+    var etk = dbEtkReport.child('report').child(rnd);
     etk.update(
              {
                  'message' : report
