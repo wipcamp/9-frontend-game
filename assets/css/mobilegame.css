@@ -84,11 +84,13 @@ and (orientation: landscape){
   }
 }
 
+
 @media only screen
 and (min-width:800px)
 and (orientation:portrait){
   body {
       margin: 0 0 0 0;
+      padding: 0 0 0 0 !important;
       background: #2d214d;
       overflow: hidden;
   }
@@ -101,16 +103,36 @@ and (orientation:portrait){
      width: 100vw;
      height: 100vh;
   }
+  .rotate{
+    width: 500px;
+    height: auto;
+    position: absolute;
+    top:600px;
+    left: 250px;
+  }
+  .rotateIpad{
+    width: 0px;
+    height: 0px;
+  }
+  .textHide{
+    font-size: 50px;
+    color: #fff;
+    position: absolute;
+    top: 980px;
+    left: 200px;
+  }
   #game{
       display: none;
   }
 }
+
 @media only screen
 and (min-width:800px)
 and (orientation: landscape){
   body {
       margin: 0 0 0 0;
       background: #2d214d;
+      padding: 0 0 0 0 !important;
       /*overflow: hidden;*/
   }
   center{
@@ -118,28 +140,32 @@ and (orientation: landscape){
   }
   .container{
     margin: 0 0 0 0;
-
   }
-  #game canvas{
-      margin: 0px auto;
+  .hide{
+     width: 100vw;
+     height: 100vh;
+     background-color: red;
   }
-}
-@media only screen
-and (min-width:800px){
-  body {
-      margin: 0 0 0 0;
-      background: #2d214d;
-      /*overflow: hidden;*/
+  .rotate{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top:120px;
+    left: 330px;
   }
-  center{
-    /*overflow: hidden;*/
+  .rotateIpad{
+    width: 0px;
+    height: 0px;
   }
-  .container{
-    margin: 0 0 0 0;
-
+  .textHide{
+    font-size: 35px;
+    color: #fff;
+    position: absolute;
+    top: 350px;
+    left: 250px;
   }
-  #game canvas{
-      margin: 0px auto;
+  #game {
+      display: none;
   }
 }
 
@@ -148,6 +174,8 @@ and (min-width:1024px){
   body {
       /*margin: 0 0 0 0;*/
       background: #2d214d;
+      margin: 0 0 0 0;
+      padding: 0 0 0 0;
       /*overflow: hidden;*/
   }
   center{
@@ -157,9 +185,27 @@ and (min-width:1024px){
     /*margin: 3% 0 0 0 !important;*/
     padding: 7vh 0 !important ;
   }
-  #game canvas{
-      margin: 0px auto;
+  .hide{
+     width: 0vw;
+     height: 0vh;
+  }
 
+  .rotate{
+    width:0;
+    height: 0;
+  }
+  .rotateIpad{
+    width: 0px;
+    height: 0px;
+  }
+  .textHide{
+    font-size: 0px;
+  }
+  #game{
+    display: block;
+  }
+  #game canvas{
+    margin: 0px auto !important;
   }
 }
 
@@ -177,7 +223,21 @@ and (min-width:1280px){
   .container{
     /*margin: 3em 0 0 0;*/
     padding: 11vh 0!important;
-
+  }
+  .hide{
+     width: 0vw;
+     height: 0vh;
+  }
+  .rotate{
+    width:0;
+    height: 0;
+  }
+  .rotateIpad{
+    width: 0px;
+    height: 0px;
+  }
+  .textHide{
+    font-size: 0px;
   }
   #game canvas{
       margin: 0px auto;
@@ -197,14 +257,26 @@ and (min-width:1300px){
   .container{
     /*margin: 3% 0 0 0 !important;*/
     padding: 11vh 0!important;
-
+  }
+  .hide{
+     width: 0vw;
+     height: 0vh;
+  }
+  .rotate{
+    width:0;
+    height: 0;
+  }
+  .rotateIpad{
+    width: 0px;
+    height: 0px;
+  }
+  .textHide{
+    font-size: 0px;
   }
   #game canvas{
       margin: 0px auto;
   }
 }
-
-
 
 @media only screen
 and (min-width:1440px){
@@ -219,6 +291,21 @@ and (min-width:1440px){
   .container{
     /*margin: 5em 0 0 0;*/
     padding: 15vh 0 !important;
+  }
+  .hide{
+     width: 0vw;
+     height: 0vh;
+  }
+  .rotate{
+    width:0;
+    height: 0;
+  }
+  .rotateIpad{
+    width: 0px;
+    height: 0px;
+  }
+  .textHide{
+    font-size: 0px;
   }
   #game canvas{
       margin: 0px auto;
@@ -237,7 +324,21 @@ and (min-width:1600px){
   .container{
     /*margin: 6em 0 0 0;*/
     padding: 15vh 0 !important;
-
+  }
+  .hide{
+     width: 0vw;
+     height: 0vh;
+  }
+  .rotate{
+    width:0;
+    height: 0;
+  }
+  .rotateIpad{
+    width: 0px;
+    height: 0px;
+  }
+  .textHide{
+    font-size: 0px;
   }
   #game canvas{
       margin: 0px auto;
@@ -263,7 +364,7 @@ and (orientation: portrait){
     width: 500px;
     height: auto;
     position: absolute;
-    top:700px;
+    top:600px;
     left: 250px;
   }
   .rotateIpad{
@@ -293,22 +394,30 @@ and (orientation: landscape){
     /*margin: 0 0 0 0 !important;*/
   }
   .hide{
-     width: 0vw;
-     height: 0vh;
+     width: 100vw;
+     height: 100vh;
+     background-color: red;
   }
   .rotate{
-    width: 0px;
-    height: 0px;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top:120px;
+    left: 330px;
   }
   .rotateIpad{
     width: 0px;
     height: 0px;
   }
   .textHide{
-    font-size: 0px;
+    font-size: 35px;
+    color: #fff;
+    position: absolute;
+    top: 350px;
+    left: 250px;
   }
-  #game canvas{
-      margin: 0px auto;
+  #game {
+      display: none;
   }
 }
 
@@ -330,7 +439,7 @@ and (orientation: portrait){
     width: 500px;
     height: auto;
     position: absolute;
-    top:700px;
+    top:600px;
     left: 250px;
   }
   .rotateIpad{
@@ -360,22 +469,30 @@ and (orientation: landscape){
     /*margin: 0 0 0 0 !important;*/
   }
   .hide{
-     width: 0vw;
-     height: 0vh;
+     width: 100vw;
+     height: 100vh;
+     background-color: red;
   }
   .rotate{
-    width: 0px;
-    height: 0px;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top:100px;
+    left: 330px;
   }
   .rotateIpad{
     width: 0px;
     height: 0px;
   }
   .textHide{
-    font-size: 0px;
+    font-size: 35px;
+    color: #fff;
+    position: absolute;
+    top: 330px;
+    left: 250px;
   }
-  #game canvas{
-      margin: 0px auto;
+  #game {
+      display: none;
   }
 }
 /* iphone6 plus */
@@ -396,7 +513,7 @@ and (orientation: portrait){
     width: 500px;
     height: auto;
     position: absolute;
-    top:700px;
+    top:600px;
     left: 250px;
   }
   .rotateIpad{
@@ -426,22 +543,30 @@ and (orientation: landscape){
     /*margin: 0 0 0 0 !important;*/
   }
   .hide{
-     width: 0vw;
-     height: 0vh;
+     width: 100vw;
+     height: 100vh;
+     background-color: red;
   }
   .rotate{
-    width: 0px;
-    height: 0px;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top:120px;
+    left: 330px;
   }
   .rotateIpad{
     width: 0px;
     height: 0px;
   }
   .textHide{
-    font-size: 0px;
+    font-size: 35px;
+    color: #fff;
+    position: absolute;
+    top: 350px;
+    left: 250px;
   }
-  #game canvas{
-      margin: 0px auto;
+  #game {
+      display: none;
   }
 }
 
@@ -492,24 +617,32 @@ and (orientation: landscape){
 .container{
     /*margin: 7vh 0 0 0 !important;*/
     padding: 12vh 0 !important;
-}
-.hide{
-   width: 0vw;
-   height: 0vh;
-}
-.rotate{
-  width: 0px;
-  height: 0px;
-}
-.rotateIpad{
-  width: 0px;
-  height: 0px;
-}
-.textHide{
-  font-size: 0px;
-}
-  #game canvas{
-      margin: 0px auto;
+  }
+  .hide{
+     width: 100vw;
+     height: 100vh;
+     background-color: red;
+  }
+  .rotate{
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top:140px;
+    left: 300px;
+  }
+  .rotateIpad{
+    width: 0px;
+    height: 0px;
+  }
+  .textHide{
+    font-size: 40px;
+    color: #fff;
+    position: absolute;
+    top: 450px;
+    left: 250px;
+  }
+  #game {
+      display: none;
   }
 }
 
@@ -557,21 +690,29 @@ and (orientation: landscape){
 
   }
   .hide{
-     width: 0vw;
-     height: 0vh;
+     width: 100vw;
+     height: 100vh;
+     background-color: red;
   }
   .rotate{
-    width: 0px;
-    height: 0px;
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top:300px;
+    left: 470px;
   }
   .rotateIpad{
     width: 0px;
     height: 0px;
   }
   .textHide{
-    font-size: 0px;
+    font-size: 45px;
+    color: #fff;
+    position: absolute;
+    top: 630px;
+    left: 380px;
   }
-  #game canvas{
-      margin: 0px auto;
+  #game {
+      display: none;
   }
 }
