@@ -151,10 +151,10 @@ and (min-width: 0px){
     font-size:  15px;
     color: white;
   }
-  /*.bubble{
+  .bubble{
     width: 100%;
     height: 1em;
-  }*/
+  }
   .bubble3{
     width: 100%;
     animation-name: wave;
@@ -258,10 +258,10 @@ and (orientation: portrait){
   .gameOnDesktop{
     width: 0px;
   }
-  /*.bubble{
+  .bubble{
     width: 100%;
     height: 1em;
-  }*/
+  }
   .bubble3{
     margin:0 auto;
     width: 9em;
@@ -364,10 +364,10 @@ and (orientation: portrait){
     font-size:  15px;
     color: white;
   }
-  /*.bubble{
+  .bubble{
     width: 100%;
     height: 1em;
-  }*/
+  }
   .bubble3{
     margin:0 auto;
     width: 9em;
@@ -577,10 +577,10 @@ and (orientation: portrait){
     position: absolute;
     z-index: 50;
   }
-  /*.bubble{
+  .bubble{
     width: 100%;
     height: 2em;
-  }*/
+  }
   .bubble3{
     margin:0 auto;
     width: 15em;
@@ -700,10 +700,10 @@ and (orientation: landscape){
     position: absolute;
     z-index: 50;
   }
-  /*.bubble{
+  .bubble{
     width: 100%;
     height: 1em;
-  }*/
+  }
   .bubble3{
     width: 100%;
     animation-name: wave;
@@ -787,7 +787,7 @@ and (orientation: landscape){
     height: 150px;
   }
   .boxGameDesktop{
-    padding: 23% 0 5% 0;
+    padding: 5% 0 5% 0;
   }
   .fixBugDesktop{
     height: 70vh !important;
@@ -819,12 +819,14 @@ and (orientation: landscape){
     position: absolute;
     z-index: 50;
   }
-  /*.bubble{
+  .bubble{
     width: 100%;
     height: 1em;
-  }*/
+  }
   .bubble3{
-    width: 100%;
+    margin: 0 auto;
+    width: 12em !important;
+    height: 11em;
     animation-name: wave;
     animation-duration: 7.3s;
     animation-delay: .1s;
@@ -940,10 +942,10 @@ and (orientation: landscape){
     position: absolute;
     z-index: 50;
   }
-  /*.bubble{
+  .bubble{
     width: 100%;
     height: 1em;
-  }*/
+  }
   .bubble3{
     margin:0 auto;
     width: 15em;
@@ -1037,10 +1039,10 @@ and (orientation: landscape){
     position: absolute;
     z-index: 50;
   }
-  /*.bubble{
+  .bubble{
     width: 100%;
     height: 1em;
-  }*/
+  }
   .bubble3{
     margin:0 auto;
     width: 15em;
@@ -1135,10 +1137,10 @@ and (orientation: landscape){
     position: absolute;
     z-index: 50;
   }
-  /*.bubble{
+  .bubble{
     width: 100%;
     height: 1em;
-  }*/
+  }
   .bubble3{
     margin:0 auto;
     width: 15em;
@@ -1442,7 +1444,9 @@ and (min-width: 1200px){
     }
     .bubble3{
       top: 10;
-      width: 100%;
+      margin: 0 auto;
+      width: 10em !important;
+      height: 10em !important;
       animation-name: wave;
       animation-duration: 7.3s;
       animation-delay: .1s;
@@ -1897,10 +1901,10 @@ and (orientation: portrait){
       position: absolute;
       z-index: 50;
     }
-    /*.bubble{
+    .bubble{
       width: 100%;
       height: 2em;
-    }*/
+    }
     .bubble3{
       margin:0 auto;
       width: 15em;
@@ -2018,10 +2022,10 @@ and (orientation: landscape){
     position: absolute;
     z-index: 50;
   }
-  /*.bubble{
+  .bubble{
     width: 100%;
     height: 4em;
-  }*/
+  }
   .boxGameDesktop{
     padding: 0% 0 0% 0 !important;
   }

@@ -1,3 +1,4 @@
+@import url('fontface-thaisansneue.css');
 body {
     margin: 50px 0 0 0;
     background: #ececec
@@ -9,6 +10,9 @@ body {
 
 a {
     color: #1D3C5C;
+}
+h1{
+  font-family:'Thaisans Neue for Web';
 }
 .container {
     text-align: center;

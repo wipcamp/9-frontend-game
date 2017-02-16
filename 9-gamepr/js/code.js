@@ -17,7 +17,7 @@ var login = {preload : preload , create : createLogin ,update : updateLogin};
 var menu = { preload : preload , create : createMenu};
 var howToPlay = { preload : preload ,create : createHowToPlay ,update : updateHowToPlay};
 var credit = {preload : preload , create : createCredit};
-var report = {preload : preload , create : createReport};
+var report = {preload : preload , create : createReport };
 
 var gameplay = { preload : preload , create : createGameplay , update : updateGameplay};
 
@@ -51,6 +51,7 @@ function preload() {
 	game.load.spritesheet('scoreboard','images/score.png',2584/2,196);
 	game.load.spritesheet('spacebar','images/spacebar.png',2584/2,196);
 	game.load.spritesheet('enter','images/enter.png',851.33,196);
+  game.load.spritesheet('submit','images/submit.png',2584/2,196);
     game.load.spritesheet('startButton','images/start.png',2584/2,196);
     game.load.spritesheet('howToPlayButton','images/howtoplay.png',2584/2,196);
 	game.load.spritesheet('creditButton','images/credit.png',2584/2,196);
@@ -58,7 +59,9 @@ function preload() {
 	game.load.spritesheet('kraken','images/boss.png',1191,842);//1191 842
 	game.load.spritesheet('shark','images/shark.png',1000,700);
 
-	game.load.image('openWord','images/openWord.png');
+    game.load.image('cloud','images/cloud.png');
+	game.load.image('moon','images/moon.png');
+    game.load.image('openWord','images/openWord.png');
 	game.load.image('wippo','images/wippo.png');
 	game.load.image('sky','images/sky.png');
 	game.load.image('water_bot','images/water_bot.png');
@@ -124,6 +127,7 @@ var jump;
 var bomb;
 var bombGroup;
 var bombTimer;
+var moon;
 var shark;
 var sharkGroup;
 var sharkTimer;
@@ -162,11 +166,12 @@ var message;
 var random;
 var textHowToPlay1;
 var textHowToPlay2;
+var cloud1,cloud2,cloud3;
 // end Declare Global variable
 
 // CreateGameplay function
 function createGameplay() {
-    game.world.setBounds(0, 0, 1960, 550);
+    game.world.setBounds(0, 0, 2440, 550);
     music.stop();
     music = game.add.audio('Play');
     music.loopFull();
@@ -180,9 +185,9 @@ function createGameplay() {
     sharkTimer = 0;
     cannonTime = 40*60;
     bombTime = 10*60;
-    sharkTime = /*25*6*/0;
+    sharkTime = 25*60;
     floor = game.add.sprite(0,game.world.height*(3.75/4),'obj');
-    floor.scale.setTo(19.6,0.5);
+    floor.scale.setTo(23.6,0.5);
     game.physics.arcade.enable(floor);
     floor.body.immovable = true;
     player = this.add.sprite((game.world.width/2),(game.world.height*(2/4))+24,'obj');
@@ -190,17 +195,39 @@ function createGameplay() {
     player.scale.setTo(0.95, 0.20);
     game.physics.arcade.enable(player);
     player.body.setCircle(40,10,-5);
-    map = game.add.tileSprite(0, 0, 1960, 550, 'sky');
+    map = game.add.tileSprite(0, 0, 1960+480, 550, 'sky');
+
+    cloud1 = game.add.sprite(800+480,550/4-75,'cloud');
+    cloud1.scale.setTo(0.7,0.7);
+    game.physics.arcade.enable(cloud1);
+    cloud1.body.velocity.x=-50;
+    cloud1.body.maxVelocity.set(200);
+
+    cloud2 = game.add.sprite(1620+540,550/4-75,'cloud');
+    cloud2.scale.setTo(0.7,0.55);
+    game.physics.arcade.enable(cloud2);
+    cloud2.body.velocity.x=-50;
+
+    moon = game.add.image(1500+480,550/4-50,'moon');
+    moon.anchor.set(0.5);
+    moon.scale.setTo(0.5,0.5);
+
+    cloud3 = game.add.sprite(1400+480,550/4-50,'cloud');
+    cloud3.scale.setTo(0.6,0.45);
+    game.physics.arcade.enable(cloud3);
+    cloud3.body.velocity.x=-50;
+
     enemy = game.add.image(game.world.width/2,550/2-50,'enemyShip');
     enemy.frame = 0;
     enemyAnimations = enemy.animations.add('play',[0,1,2,3,0],5,true);
-    water_top = game.add.tileSprite(0,550/2+50,1960,550,'water_top');
-    water_mid = game.add.tileSprite(0,550/2+125,1960,550,'water_mid');
-    kraken = game.add.image(0,game.world.height*(1/4)+50,'kraken');
+    water_top = game.add.tileSprite(0,550/2+50,1960+480,550,'water_top');
+    water_mid = game.add.tileSprite(0,550/2+125,1960+480,550,'water_mid');
+    kraken = game.add.image(980/4+420,game.world.height*(2.75/4)+50,'kraken');
+    kraken.anchor.set(0.5);
     kraken.animations.add('move',[0,1,2],3,true);
     kraken.animations.play('move');
-    kraken.scale.setTo(0.5,0.5);
-    water_bot = game.add.tileSprite(0,550/2+200,1960,550,'water_bot');
+    kraken.scale.setTo(0.75,0.75);
+    water_bot = game.add.tileSprite(0,550/2+200,1960+480,550,'water_bot');
     warnning = game.add.sprite(20,game.world.height*(3.5/6),'warnning');
     warnning.frame = 0;
     //warnning.anchor.set(0.5);
@@ -208,7 +235,7 @@ function createGameplay() {
     warnning.animations.add('play',[0,1],4,true);
     warnning.fixedToCamera = true;
 
-    boomGroup=game.add.image(game.world.width*(7/8)+90,game.world.height*(4.5/6),'boomGroup');
+    boomGroup=game.add.image(game.world.width*(7/8)+180,game.world.height*(4.5/6),'boomGroup');
     boomGroup.scale.setTo(0.6, 0.6);
     boomGroup.animations.add('move', [0,1,2,3,4,5], 10, true);
     boomGroup.frame = 0;
@@ -239,6 +266,7 @@ function createGameplay() {
     cursors = this.input.keyboard.createCursorKeys();
     jump = this.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
     game.camera.follow(playership);
+    //game.camera.deadzone = new Phaser.Rectangle(100, 100, 600, 400);
     cannonGroup = game.add.group();
     cannonGroup.enableBody = true;
     cannonGroup.physicsBodyType = Phaser.Physics.ARCADE;
@@ -273,11 +301,11 @@ function createGameplay() {
         shark.body.bounce.y = 1;
         shark.scale.setTo(0.1, 0.1);
         shark.anchor.set(0.5);
-        shark.events.onOutOfBounds.add(resetBullet, this);
         shark.body.setCircle(25);
         shark.body.collideWorldBounds = true;
     }
-    bottomship = game.add.image(1861,0,'bottom');
+    sharkGroup.callAll('animations.add', 'animations', 'move', [2,2,2,2,2,2,3,0,0,0,0,1,1,1],5.3, true);
+    bottomship = game.add.image(1861+480,0,'bottom');
     warnSound = game.add.audio('Warn');
     krakenSound = game.add.audio('Kraken');
     warnSound.onPlay.add(function () { console.log('WarnSound') });
@@ -285,12 +313,16 @@ function createGameplay() {
     sharkSound = game.add.audio('Shark');
     bombAwaySound = game.add.audio('BombAway');
     bombDropSound = game.add.audio('BombDrop');
+
 }
 
 //end createGameplay function
 
 // updateGameplay function
 function updateGameplay() {
+    game.world.wrap(cloud1, 0);
+    game.world.wrap(cloud2, 0);
+    game.world.wrap(cloud3, 0);
     map.tilePosition.x -= 1;
     water_top.tilePosition.x -= 1;
     water_mid.tilePosition.x -= 2;
@@ -300,10 +332,6 @@ function updateGameplay() {
     game.physics.arcade.overlap(player,cannonGroup, cannonHitPlayer, null , this);
     game.physics.arcade.overlap(player,bombGroup, bombHitPlayer, null , this);
     game.physics.arcade.collide(playership,floor);
-    //game.physics.arcade.collide(sharkGroup,floor);
-    if(game.physics.arcade.collide(sharkGroup,floor)){
-      console.log("Collide shark&floor")
-    }
     game.physics.arcade.overlap(player,sharkGroup, sharkHitPlayer, null , this);
 
     boomGroup.animations.play('move');
@@ -373,17 +401,14 @@ function updateGameplay() {
         }
     }
 
-    if(playership.x<game.world.width*(1/2)){
-        if(playership.x<250){
-            game.state.start('result');
-            allSoundStopFx();
-            death = game.add.audio('dKraken');
-            death.play();
-        }
+    if(playership.x<250+550){
+        game.state.start('result');
+        allSoundStopFx();
+        death = game.add.audio('dKraken');
+        death.play();
     }
 
-    if(playership.x>game.world.width*(6/7)){
-
+    if(playership.x>game.world.width*(6.75/7)-50){
         game.state.start('result');
     }
 
@@ -433,7 +458,7 @@ function bombSpawn() {
         if(output == 0){
             bombTimer = game.time.now + 5000;
             bomby = bombGroup.getFirstExists(false);
-            bomby.reset(1700, game.world.height*(3.75/4)-50);
+            bomby.reset(1900+480, game.world.height*(3.75/4)-50);
             bomby.body.velocity.x = -200;
             bombGroup.callAll('animations.play', 'animations', 'move');
         }
@@ -449,12 +474,23 @@ function sharkSpawn() {
         if(output == 0){
             sharkTimer = game.time.now + 8000;
             bomby = sharkGroup.getFirstExists(false);
-            bomby.reset(1850, game.world.height*(1/6));
+            bomby.reset(1850+480, game.world.height*(1/6));
             bomby.body.gravity.y = 500;
             bomby.body.velocity.x = -200;
+            game.time.events.add(9250, sharkKill, this, bomby);
+            //sharkGroup.callAll('animations.play', 'animations', 'move');
+            bomby.animations.play('move');
         }
     }
+    //sharkTimer
+
 }
+function sharkKill(bomby) {
+    console.log("sharkKill()");
+    bomby.animations.stop();
+    bomby.kill();
+}
+
 function shootThem() {
     if(cannonTimer<game.time.now){
         var output = game.rnd.integerInRange(0,20);
@@ -464,7 +500,7 @@ function shootThem() {
         }
         if(output == 0){
             enemyAnimations.play(5,false);
-            cannonTimer = game.time.now + 10000;
+            cannonTimer = game.time.now + 12000;
             var range = game.rnd.integerInRange(-200, 200);
             bullet = cannonGroup.getFirstExists(false);
             bullet.reset(playership.x+range, 0);
@@ -536,7 +572,7 @@ function createHowToPlay(){ //how to play
 	animJumpSpacebar.onComplete.add(startAnimationMove, this);
 	spacebar.anchor.set(0.5);
 	spacebar.scale.setTo(0.2,0.25);
-	menuButton = game.add.button(980*(1/4)+29.4, 550*(3.75/4)-35, 'menu', toMenu, this,1,0,2);
+	menuButton = game.add.button(980*(1/4)+29.4, 550*(3.75/4)-35, 'menu', tomenu, this,1,0,2);
 	menuButton.anchor.setTo(0.5);
 	menuButton.scale.setTo(0.25,0.25);
     buttonStart = game.add.button(980*(3/4)-29.4, 550*(3.75/4)-35, 'startButton', toGame, this,1,0,2);
@@ -555,7 +591,6 @@ function createHowToPlay(){ //how to play
     playership.body.collideWorldBounds = true;
     playership.animations.play('move');
     game.time.events.loop(3000, Jump, this);
-
 
     playershipEx = game.add.sprite(980*(3/4)-115-29.4,550/2-150,'playership');
     playershipEx.anchor.set(0.5);
@@ -625,7 +660,7 @@ function createResult(){ //result
     buttonStart = game.add.button(980/2, game.world.centerY+25+50-20, 'playagain', toGame, this,1,0,2);
     buttonStart.anchor.set(0.5);
     buttonStart.scale.setTo(0.3,0.3);
-    menuButton = game.add.button(980/2, 550/2+115+125-55, 'menu', toMenu, this,1,0,2);
+    menuButton = game.add.button(980/2, 550/2+115+125-55, 'menu', tomenu, this,1,0,2);
     menuButton.anchor.set(0.5);
     menuButton.scale.setTo(0.3,0.3);
     buttonScore = game.add.button(980/2,game.world.centerY+115+25-20, 'scoreboard', toReport, this,1,0,2);
@@ -634,6 +669,7 @@ function createResult(){ //result
     setScore();
 }
 // end createResult function
+
 // createReport function
 function createReport() {
 	game.add.image(0,0,'bgHowToPlay');
@@ -652,12 +688,44 @@ function createReport() {
         width: 735,
         height: 250,
         borderColor: '#000',
-        textAlign: 'center',
+        textAlign: 'left',
         padding : 10,
-        max : 15
+        max : 300,
     });
+
+    buttonSubmit = game.add.button(980*(3/4)-29.4, 550*(3.75/4)-35, 'submit', function(){
+        if(input.value!=""){
+            buttonSound();
+            sendReportMessage(input);
+            game.state.start('report');
+            console.log('send complete');
+        }
+    }, this,1,0,2);
+    buttonSubmit.anchor.set(0.5);
+    buttonSubmit.scale.setTo(0.25,0.25);
+    menuButton = game.add.button(980*(1/4)+29.4, 550*(3.75/4)-35, 'menu', tomenu, this,1,0,2);
+  	menuButton.anchor.setTo(0.5);
+  	menuButton.scale.setTo(0.25,0.25);
+  //sendReportMessage
 }
 //end createReport function
+
+            // updateReport function
+            /* function updateReport() {
+              var tem='';
+              var text = input.value.split("");
+              for (var i = 0; i < text.length; i++) {
+                  console.log('>');
+                  tem += text[i];
+                  if(i%32==0&&i>0&&){
+                    tem+="\n";
+                    console.log(tem);
+                  }
+              }
+              input.value = tem;
+            }
+*/
+            // end updateReport function
 
 // createLogin function
 function createLogin() { //login
@@ -675,7 +743,7 @@ function createLogin() { //login
     game.add.plugin(PhaserInput.Plugin);
     input = game.add.inputField(980/2-150, game.world.centerY-12.5+50, {
     //input = game.add.inputField(980/2, 550/2, {
-        font: '22px Arial',
+        font: 'Thaisans Neue for Web',
         fill: '#212121',
         fontWeight: 'normal',
         width: 300,
@@ -722,7 +790,7 @@ function createCredit() { //credit
 	game.add.text(980*(0.5/4),550*(1/4)+185+10,"URL : goo.gl/9kzuhy",{fontSize : "14px",fill : "#5B3B00"});
 	game.add.text(980*(0.5/4),550*(1/4)+215+10,"Father and son illustration",{fontSize : "20px",fill : "#5B3B00"});
 	game.add.text(980*(0.5/4),550*(1/4)+245+10,"URL : goo.gl/js8DkX",{fontSize : "14px",fill : "#5B3B00"});
-    buttonStart = game.add.button(980*(1/2),550*(3.75/4)-35,'menu',toMenu,this,1,0,2);
+    buttonStart = game.add.button(980*(1/2),550*(3.75/4)-35,'menu',tomenu,this,1,0,2);
     buttonStart.anchor.set(0.5);
     buttonStart.scale.setTo(0.25,0.25);
 }//toCredit
@@ -731,7 +799,7 @@ function createCredit() { //credit
 
 // Link state function
 function toScore() {
-    window.open("https://www.facebook.com/volk.maneechote?fref=ts");
+    window.open("ranking-etk.html");
 }
 function toReport() {
 	buttonSound();
@@ -740,6 +808,9 @@ function toReport() {
 function toGame() {
     buttonSound();
     game.state.start('gameplay');
+}
+function tomenu() {
+    game.state.start('menu');
 }
 function toMenu() {
 	console.log('name : '+input.value);
@@ -861,5 +932,15 @@ function setScore() {
         );
     }
      console.log("set score complete");
+}
+
+function sendReportMessage(report){
+    var rnd = game.rnd.integerInRange(0,100000);
+    var etk = dbEtk.child('report').child(rnd);
+    etk.update(
+             {
+                 'message' : report
+             }
+    );
 }
 // end Firebase funtion
