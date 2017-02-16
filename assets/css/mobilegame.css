@@ -183,7 +183,7 @@ and (min-width:1024px){
   }
   .container{
     /*margin: 3% 0 0 0 !important;*/
-    padding: 7vh 0 !important ;
+    padding: 10.5vh 0 !important ;
   }
   .hide{
      width: 0vw;
@@ -256,7 +256,7 @@ and (min-width:1300px){
   }
   .container{
     /*margin: 3% 0 0 0 !important;*/
-    padding: 11vh 0!important;
+    padding: 7vh 0!important;
   }
   .hide{
      width: 0vw;
