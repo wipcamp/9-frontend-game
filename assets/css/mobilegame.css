@@ -7,6 +7,16 @@ body{
   background: #2d214d;
 }
 
+blockquote {
+  background-color: rgb(0,0, 0);
+  /*color: rgb(36, 36, 36);*/
+  opacity: 0.6;
+  border-radius: 20px;
+  /*border-style: solid;*/
+  /*border-width: 10px;*/
+  color: #fff;
+}
+
 /* Desktop + Android */
 @media only screen
 and (min-width:0px)
