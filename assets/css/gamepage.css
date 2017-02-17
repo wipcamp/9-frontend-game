@@ -907,7 +907,7 @@ and (orientation: landscape){
   }
   .backButton{
     padding: 5px 0px 0 15px;
-    font-size: 40px;
+    font-size: 3.5em;
     color: white;
     position: absolute;
     z-index: 50;
@@ -1341,7 +1341,7 @@ and (min-width: 1025px){
     }
     .gameOnDesktop{
       position: absolute;
-      width: 130px;
+      width: 100px;
     }
     .bodyIconDesktop{
       padding: 5% 0 5% 0;
@@ -1404,8 +1404,8 @@ and (min-width: 1025px){
       height: 4em;
     }
     .backButton{
-      padding: 1% 0px 0 1%;
-      font-size: 50px;
+      padding: 1% 0px 0 2%;
+      font-size: 3.5em;
       color: white;
       position: absolute;
     }
@@ -1416,9 +1416,6 @@ and (min-width: 1025px){
     }
     .buttonSet{
       margin: 70px 0px 0 0px;
-    }
-    .backButton{
-      display: none;
     }
     .marginSea{
       margin: 90px 0 0 0;
@@ -1573,8 +1570,8 @@ and (min-width: 1200px){
       height: 4em;
     }
     .backButton{
-      padding: 1% 0px 0 1%;
-      font-size: 50px;
+      padding: 1% 0px 0 2.5%;
+      font-size: 4em;
       color: white;
       position: absolute;
     }
@@ -1586,9 +1583,7 @@ and (min-width: 1200px){
     .buttonSet{
       margin: 70px 0px 0 0px;
     }
-    .backButton{
-      display: none;
-    }
+
     .marginSea{
       margin: 80px 0 0px 0;
       height: auto;
@@ -1734,8 +1729,8 @@ and (min-width: 1300px){
       height: 4em;
     }
     .backButton{
-      padding: 1% 0px 0 1%;
-      font-size: 50px;
+      padding: 1% 0px 0 2.5%;
+      font-size: 5em;
       color: white;
       position: absolute;
     }
@@ -1747,9 +1742,7 @@ and (min-width: 1300px){
     .buttonSet{
       margin: 70px 0px 0 0px;
     }
-    .backButton{
-      display: none;
-    }
+
     .marginSea{
       margin: 80px 0 0px 0;
       height: auto;
@@ -1908,9 +1901,7 @@ and (orientation: landscape){
     .buttonSet{
       margin: 70px 0px 0 0px;
     }
-    .backButton{
-      display: none;
-    }
+
     .marginSea{
       margin: 95px 0 0px 0;
       height: auto;
