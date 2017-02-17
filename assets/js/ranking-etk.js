@@ -47,6 +47,8 @@ $(function() {
       users.push(data.val());
       nameUsers.push(data.key);
       // console.log(data.key);
+      console.log(users);
+
     });
     $(document).ready(function() {
       toDayToNight();
@@ -98,8 +100,16 @@ $(function() {
       // console.log("checkindex - "+checkIndex);
       // const tempIndex = checkIndex;
       // console.log("tempindex - "+tempIndex);
+      t.column(1, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+        cell.innerHTML = nameUsers[checkIndex];
+        if(checkIndex>=0){
+          checkIndex--;
+        }
+
+      } );
       t.on( 'order.dt search.dt', function () {
         t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+
           if(i===0){
             cell.innerHTML = '<img src="assets/img/medal-gold.svg" alt="" class="prize">' + (i+1);
           }
@@ -115,13 +125,7 @@ $(function() {
           // cell.innerHTML = i+1;
         } );
 
-        t.column(1, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
-          cell.innerHTML = nameUsers[checkIndex];
-          if(checkIndex>=0){
-            checkIndex--;
-          }
 
-        } );
       } ).draw();
 
     }, delay);
@@ -137,7 +141,7 @@ var d = new Date();
 function toDayToNight(){
   if(d.getHours() >= 6 && d.getHours() < 17) {
     $('body').css({background: 'linear-gradient(#9acbd8, #ade0ee)'});
-    
+
   }
   else {
     $('body').css({background: 'linear-gradient(#141123, #1d3c5c)'});
