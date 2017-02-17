@@ -11,6 +11,9 @@ body {
     background: linear-gradient(#141123, #1d3c5c);
     overflow-x: hidden;
 }
+#addIndex{
+
+}
 
 .wave {
   width: 100%;
