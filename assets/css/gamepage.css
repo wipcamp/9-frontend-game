@@ -1,11 +1,15 @@
 @import url('fontface-thaisansneue.css');
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
+html{
+  overflow-x: hidden !important;
+}
+
 body {
   font-family: 'thaisans_neueregular', sans-serif !important;
   color: white;
   height: auto;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   background: linear-gradient(#141123, #1d3c5c); /* Standard syntax */
 }
 
@@ -418,7 +422,7 @@ and (orientation: portrait){
    width: 85vw;
    height: 50vh;
    position: absolute;
-   z-index: -3 !important;
+   z-index: -5 !important;
    top: 22.5em;
    animation-name: wave;
    animation-duration: 7.3s;
@@ -522,7 +526,7 @@ and (orientation: portrait){
    width: 85vw;
    height: 50vh;
    position: absolute;
-   z-index: -3 !important;
+   z-index: -5 !important;
    top: 19.5em;
    animation-name: wave;
    animation-duration: 7.3s;
