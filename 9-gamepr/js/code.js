@@ -1,4 +1,15 @@
+/*
+* ###### ### ##   ##     #######    ####    ######  #         # ######  #       ######    ######    ######  ######
+*    #    #  # # # #     #     #    #   #   #        #       #  #       #      #      #   #     #   #       #     #
+*    #       #  #  #     #     #    #    #  ######    #     #   ######  #      #      #   #     #   ######  ######
+*    #       #     #     #######    #    #  #          #   #    #       #      #      #   ######    #       ### 
+*    #       #     #           #    #   #   #           # #     #       #      #      #   #         #       #  #
+* ######     #     #     #######    ###     ######       #      ######  ######  ######    #         ######  #    #
+*/
 
+
+(function(){
+    
 // Firebase config
 var config = {
     apiKey: "AIzaSyAhBOG3nZFT0xjOu5UPm1k-ZVot1IPEfoQ",
@@ -52,13 +63,14 @@ function preload() {
 	game.load.spritesheet('scoreboard','images/score.png',2584/2,196);
 	game.load.spritesheet('spacebar','images/spacebar.png',2584/2,196);
 	game.load.spritesheet('enter','images/enter.png',851.33,196);
-  game.load.spritesheet('submit','images/submit.png',2584/2,196);
+    game.load.spritesheet('submit','images/submit.png',2584/2,196);
     game.load.spritesheet('startButton','images/start.png',2584/2,196);
     game.load.spritesheet('howToPlayButton','images/howtoplay.png',2584/2,196);
 	game.load.spritesheet('creditButton','images/credit.png',2584/2,196);
     game.load.spritesheet('playagain','images/playagain.png',2584/2,196);
 	game.load.spritesheet('kraken','images/boss.png',1191,842);//1191 842
 	game.load.spritesheet('shark','images/shark.png',1000,700);
+    game.load.spritesheet('mute','images/mute.png',450,447)
 
     game.load.image('cloud','images/cloud.png');
 	game.load.image('moon','images/moon.png');
@@ -108,6 +120,8 @@ function preload() {
 // end Preload function
 
 // Declare Global variable
+var textMute;
+var isSound;
 var name = "พี่ Wippo";
 var map;
 var player;
@@ -310,18 +324,38 @@ function createGameplay() {
     bottomship = game.add.image(1861+480,0,'bottom');
     warnSound = game.add.audio('Warn');
     krakenSound = game.add.audio('Kraken');
-    warnSound.onPlay.add(function () { console.log('WarnSound') });
-    krakenSound.onPlay.add(function () { console.log('KrakenSound') });
     sharkSound = game.add.audio('Shark');
     bombAwaySound = game.add.audio('BombAway');
     bombDropSound = game.add.audio('BombDrop');
-
+    textMute= game.add.button(900,20,'mute',function () {
+        isSound=!isSound;
+        if(!isSound){
+            game.sound.mute = true;
+            textMute.frame = 1;
+        }
+        else{
+            textMute.frame = 0;
+            game.sound.mute = false;
+        }
+    });
+    textMute.scale.setTo(0.1,0.1);
+    textMute.fixedToCamera = true;
+    if(isSound)
+        textMute.frame = 0;
+    else
+        textMute.frame = 1;
 }
 
 //end createGameplay function
 
 // updateGameplay function
 function updateGameplay() {
+    if(isSound){
+        game.sound.mute = false;
+    }
+    else{
+        game.sound.mute = true;
+    }
     game.world.wrap(cloud1, 0);
     game.world.wrap(cloud2, 0);
     game.world.wrap(cloud3, 0);
@@ -351,10 +385,10 @@ function updateGameplay() {
     bombTime--;
     sharkTime--;
     if(time%720>=480&&time%720<600){
-        warnning.animations.play('play');
-        if(!warnSound.isPlaying) {
-            warnSound.play();
-        }
+        warnning.animations.play('play');   
+            if(!warnSound.isPlaying) {
+                warnSound.play();
+            }
     }
     if(time%720<=600){
     	warnning.frame = 0;
@@ -363,19 +397,21 @@ function updateGameplay() {
     else{
 
     	playership.body.velocity.x -= 1.5;
-        if(!krakenSound.isPlaying) {
-            krakenSound.play();
-            if(warnSound.isPlaying){
-                warnSound.stop();
-            }
-            if(krakenSound.isPlaying)
-                    music.volume = 0.2;
-        }else{
-            sharkSound.volume = 0.6;
-            bombAwaySound.volume = 0.6;
-            bombDropSound.volume = 0.6;
-            buttonPush.volume = 0.6;
+        {
+            if(!krakenSound.isPlaying) {
+                krakenSound.play();
+                if(warnSound.isPlaying){
+                    warnSound.stop();
+                }
+                if(krakenSound.isPlaying)
+                        music.volume = 0.2;
+            }else{
+                sharkSound.volume = 0.6;
+                bombAwaySound.volume = 0.6;
+                bombDropSound.volume = 0.6;
+                buttonPush.volume = 0.6;
 
+            }
         }
 
     }
@@ -390,7 +426,8 @@ function updateGameplay() {
         	if(cursors.left.isDown&&(!cursors.right.isDown)){
         		console.log('>>');
                 ck=2;
-                buttonPush.play();
+                
+                    buttonPush.play();
                 sharkSound.volume = 1;
                 bombAwaySound.volume = 1;
                 bombDropSound.volume = 1;
@@ -409,7 +446,8 @@ function updateGameplay() {
         game.state.start('result');
         allSoundStopFx();
         death = game.add.audio('dKraken');
-        death.play();
+        if (isSound) 
+            death.play();
     }
 
     if(playership.x>game.world.width*(6.75/7)-50){
@@ -433,21 +471,24 @@ function resetBullet(bullet) {
 function cannonHitPlayer() {
    allSoundStopFx();
     death = game.add.audio('dBomb');
-    death.play();
+        
+        death.play();
     console.log("hit by cannon");
     game.state.start('result');
 }
 function bombHitPlayer() {
     allSoundStopFx();
     death = game.add.audio('dBomb');
-    death.play();
+    
+        death.play();
     console.log("hit by bomb");
     game.state.start('result');
 }
 function sharkHitPlayer() {
     allSoundStopFx();
     death = game.add.audio('dKraken');
-    death.play();
+    
+        death.play();
     console.log("hit by shark");
     game.state.start('result');
 
@@ -455,9 +496,9 @@ function sharkHitPlayer() {
 function bombSpawn() {
     if(bombTimer<game.time.now){
         var output = game.rnd.integerInRange(0,20);
-
-        if(!bombAwaySound.isPlaying){
-            bombAwaySound.play();
+        
+            if(!bombAwaySound.isPlaying){
+                bombAwaySound.play();
         }
         if(output == 0){
             bombTimer = game.time.now + 5000;
@@ -471,10 +512,12 @@ function bombSpawn() {
 function sharkSpawn() {
     if(sharkTimer<game.time.now){
         var output = game.rnd.integerInRange(0,20);
-        sharkSound.play();
-        if(!sharkSound.isPlaying){
+        
             sharkSound.play();
-        }
+            if(!sharkSound.isPlaying){
+                sharkSound.play();
+            }
+        
         if(output == 0){
             sharkTimer = game.time.now + 8000;
             bomby = sharkGroup.getFirstExists(false);
@@ -498,9 +541,11 @@ function sharkKill(bomby) {
 function shootThem() {
     if(cannonTimer<game.time.now){
         var output = game.rnd.integerInRange(0,20);
-        bombDropSound.play();
-        if(bombDropSound.isPlaying){
-            bombDropSound.restart();
+        {
+            bombDropSound.play();
+            if(bombDropSound.isPlaying){
+                bombDropSound.restart();
+            }
         }
         if(output == 0){
             enemyAnimations.play(5,false);
@@ -541,12 +586,28 @@ function createMenu(){ // menu page
     buttonReport = game.add.button(980*(2/10),550*(7/10)+20 , 'report', toReport, this,1,0,2);
     buttonReport.anchor.set(0.5);
     buttonReport.scale.setTo(0.25,0.25);
+    textMute= game.add.button(900,20,'mute',function () {
+        isSound=!isSound;
+        if(!isSound){
+            game.sound.mute = true;
+            textMute.frame = 1;
+        }
+        else{
+            textMute.frame = 0;
+            game.sound.mute = false;
+        }
+    });
+    textMute.scale.setTo(0.1,0.1);
+    if(isSound)
+        textMute.frame = 0;
+    else
+        textMute.frame = 1;
 }
 // end createMenu function
 
 // createHowToPlay function
 function createHowToPlay(){ //how to play
-	checkMove = 0;
+    checkMove = 0;
 	floor = game.add.sprite(0,game.world.height/2+75,'obj');
     floor.scale.setTo(9.8,0.5);
     game.physics.arcade.enable(floor);
@@ -607,6 +668,22 @@ function createHowToPlay(){ //how to play
     playershipEx.body.maxVelocity.set(500);
     playershipEx.body.collideWorldBounds = true;
     game.time.events.loop(3000, shipMove, this);
+    textMute= game.add.button(900,20,'mute',function () {
+        isSound=!isSound;
+        if(!isSound){
+            game.sound.mute = true;
+            textMute.frame = 1;
+        }
+        else{
+            textMute.frame = 0;
+            game.sound.mute = false;
+        }
+    });
+    textMute.scale.setTo(0.1,0.1);
+    if(isSound)
+        textMute.frame = 0;
+    else
+        textMute.frame = 1;
 }
 // end createHowtoPlay function
 
@@ -671,6 +748,22 @@ function createResult(){ //result
     buttonScore.anchor.set(0.5);
     buttonScore.scale.setTo(0.3,0.3);
     setScore();
+    textMute= game.add.button(900,20,'mute',function () {
+        isSound=!isSound;
+        if(!isSound){
+            game.sound.mute = true;
+            textMute.frame = 1;
+        }
+        else{
+            textMute.frame = 0;
+            game.sound.mute = false;
+        }
+    });
+    textMute.scale.setTo(0.1,0.1);
+    if(isSound)
+        textMute.frame = 0;
+    else
+        textMute.frame = 1;
 }
 // end createResult function
 
@@ -694,7 +787,9 @@ function createReport() {
         textAlign: 'left',
         padding : 10,
         max : 300,
+        placeHolder : 'แจ้งข้อผิดพลาดได้ที่นี่เลยนะ :)'
     });
+    input.startFocus();
     if(!isFirstSubmit){
         text = game.add.text(980/2,550*(3.75/4)-80,"แจ้งข่าวกัปตันเรียบร้อยแล้ว",{font : "36px Thaisans Neue for Web",fill : "#5B3B00"});
         text.anchor.set(0.5);
@@ -714,6 +809,22 @@ function createReport() {
     menuButton = game.add.button(980*(1/4)+29.4, 550*(3.75/4)-35, 'menu', tomenu, this,1,0,2);
   	menuButton.anchor.setTo(0.5);
   	menuButton.scale.setTo(0.25,0.25);
+    textMute= game.add.button(900,20,'mute',function () {
+        isSound=!isSound;
+        if(!isSound){
+            game.sound.mute = true;
+            textMute.frame = 1;
+        }
+        else{
+            textMute.frame = 0;
+            game.sound.mute = false;
+        }
+    });
+    textMute.scale.setTo(0.1,0.1);
+    if(isSound)
+        textMute.frame = 0;
+    else
+        textMute.frame = 1;
   //sendReportMessage
 }
 //end createReport function
@@ -737,7 +848,9 @@ function createReport() {
 
 // createLogin function
 function createLogin() { //login
-	random = 0;
+	isSound = true;
+
+    random = 0;
 	game.add.image(0,0,'bgLogin');
     logoGame = game.add.image(980/2,550/4,'logoWip');
     logoGame.anchor.setTo(0.5)
@@ -746,26 +859,43 @@ function createLogin() { //login
     text = game.add.image(980/2+15,550*(1/4)+125,'openWord');
     text.anchor.set(0.5);
     text.scale.setTo(1.5,1.5);
-    //@import url('fontface-thaisansneue.css');
-	//@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+    
     game.add.plugin(PhaserInput.Plugin);
     input = game.add.inputField(980/2-150, game.world.centerY-12.5+50, {
-    //input = game.add.inputField(980/2, 550/2, {
         font: '22px Thaisans Neue for Web',
         fill: '#212121',
         fontWeight: 'normal',
         width: 300,
         height: 25,
         borderColor: '#000',
+        borderRadius : 10,
         textAlign: 'center',
         padding : 10,
-        max : 15
+        max : 15,
+        placeHolder : 'ใส่ชื่อของเจ้าที่นี่'
     });
+
     menuButton = game.add.button(980/2+15, game.world.centerY+100+50, 'enter', toMenu, this,1,0,2);
     menuButton.anchor.set(0.5);
     menuButton.scale.setTo(0.25,0.25);
     message = game.add.text(980/2+5,game.world.centerY+100+125,"",{font : "48px Thaisans Neue for Web",fill : "#FFFFFF"});
     message.anchor.set(0.5);
+    textMute= game.add.button(900,20,'mute',function () {
+        isSound=!isSound;
+        if(!isSound){
+            game.sound.mute = true;
+            textMute.frame = 1;
+        }
+        else{
+            textMute.frame = 0;
+            game.sound.mute = false;
+        }
+    });
+    textMute.scale.setTo(0.1,0.1);
+    if(isSound)
+        textMute.frame = 0;
+    else
+        textMute.frame = 1;
 }
 //end createLogin function
 
@@ -801,6 +931,22 @@ function createCredit() { //credit
     buttonStart = game.add.button(980*(1/2),550*(3.75/4)-35,'menu',tomenu,this,1,0,2);
     buttonStart.anchor.set(0.5);
     buttonStart.scale.setTo(0.25,0.25);
+    textMute= game.add.button(900,20,'mute',function () {
+        isSound=!isSound;
+        if(!isSound){
+            game.sound.mute = true;
+            textMute.frame = 1;
+        }
+        else{
+            textMute.frame = 0;
+            game.sound.mute = false;
+        }
+    });
+    textMute.scale.setTo(0.1,0.1);
+    if(isSound)
+        textMute.frame = 0;
+    else
+        textMute.frame = 1;
 }//toCredit
 
 // end createCredit function
@@ -961,3 +1107,4 @@ function sendReportMessage(report){
     );
 }
 // end Firebase funtion
+})();
