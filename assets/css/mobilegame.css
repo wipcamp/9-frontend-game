@@ -5,6 +5,9 @@ html{
   height: 100vh;
   overflow-x: hidden;
 }
+.hide{
+  background-color: rgb(75, 0, 149) !important;
+}
 
 body{
   height: 100vh;
@@ -931,6 +934,14 @@ and (orientation: portrait){
   #game{
       display: none;
   }
+  .backButton{
+    padding: 5px 0px 0 0.5em;
+    font-size: 6em;
+    color: white;
+    position: absolute;
+    left: 0;
+    z-index: 50;
+  }
 }
 @media only screen
 and (device-width:568px)
@@ -976,6 +987,14 @@ and (orientation: landscape){
 and (device-width:375px)
 and (device-height:667px)
 and (orientation: portrait){
+  .backButton{
+    padding: 5px 0px 0 0.5em;
+    font-size: 6em;
+    color: white;
+    position: absolute;
+    left: 0;
+    z-index: 50;
+  }
   body{
     margin: 0 0 0 0;
   }
@@ -1050,6 +1069,14 @@ and (orientation: landscape){
 and (device-width:414px)
 and (device-height:736px)
 and (orientation: portrait){
+  .backButton{
+    padding: 5px 0px 0 0.5em;
+    font-size: 6em;
+    color: white;
+    position: absolute;
+    left: 0;
+    z-index: 50;
+  }
   body{
     margin: 0 0 0 0;
   }
@@ -1125,6 +1152,14 @@ and (orientation: landscape){
 and (device-width:768px)
 and (device-height:1024px)
 and (orientation: portrait){
+  .backButton{
+    padding: 5px 0px 0 0.5em;
+    font-size: 6em;
+    color: white;
+    position: absolute;
+    left: 0;
+    z-index: 50;
+  }
   body{
     margin: 0 0 0 0;
   }
@@ -1164,6 +1199,9 @@ and (orientation: landscape){
     padding: 0 0 0 0;
     margin: 0 0 0 0;
   }
+  .gameLogo{
+    display: none;
+  }
 .container{
     /*margin: 7vh 0 0 0 !important;*/
     padding: 12vh 0 !important;
@@ -1201,8 +1239,19 @@ and (orientation: landscape){
 and (device-width:1024px)
 and (device-height:1366px)
 and (orientation: portrait){
+  .backButton{
+    padding: 5px 0px 0 0.5em;
+    font-size: 6em;
+    color: white;
+    position: absolute;
+    left: 0;
+    z-index: 50;
+  }
   body{
     margin: 0 0 0 0;
+  }
+  .gameLogo{
+    display: none;
   }
   .hide{
      background-color: red;
@@ -1240,6 +1289,9 @@ and (orientation: landscape){
     padding: 0 0 0 0;
     margin: 0 0 0 0;
   }
+  .gameLogo{
+    display: none;
+  }
   .container{
     margin: 14.5vh 0  !important;
     padding: 0 0 0 0;
@@ -1270,5 +1322,8 @@ and (orientation: landscape){
   }
   #game {
       display: none;
+  }
+  .textInvite{
+    display: none;
   }
 }
