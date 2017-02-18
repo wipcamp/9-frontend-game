@@ -351,7 +351,7 @@ and (orientation: portrait){
     height: 75vh;
   }
   .fixBugDesktop{
-    height: 70vh !important;
+    height: 66vh !important;
   }
   .shipCircle{
     margin: 0% 0 0% 0;
@@ -455,7 +455,7 @@ and (orientation: portrait){
     height: 75vh;
   }
   .fixBugDesktop{
-    height: 70vh !important;
+    height: 66vh !important;
   }
   .shipCircle{
     margin: 0% 0 0% 0;
@@ -556,10 +556,10 @@ and (orientation: portrait){
     margin: 10% 0 0 0;
   }
   .fixBugHeight{
-    height: 75vh;
+    height: 65vh;
   }
   .fixBugDesktop{
-    height: 70vh !important;
+    height: 65.5vh !important;
   }
   .shipCircle{
     margin: 0% 0 0% 0;
@@ -667,7 +667,7 @@ and (orientation: portrait){
     height: 80vh;
   }
   .fixBugDesktop{
-    height: 75vh !important;
+    height: 65vh !important;
   }
   .gameOnlyDesktop{
     padding: 0 3px 0 3px;
@@ -1960,7 +1960,7 @@ and (orientation: portrait){
       height: 90vh;
     }
     .fixBugDesktop{
-      height: 85vh !important;
+      height: 68vh !important;
     }
     .gameOnlyDesktop{
       padding: 0 10px 0 10px;
@@ -2087,7 +2087,7 @@ and (orientation: portrait){
     height: 80vh;
   }
   .fixBugDesktop{
-    height: 75vh !important;
+    height: 65vh !important;
   }
   .gameOnlyDesktop{
     padding: 0 10px 0 10px;
@@ -2206,7 +2206,7 @@ and (orientation: landscape){
   }
 
   .fixBugDesktop{
-    height: 65vh !important;
+    height: 66vh !important;
   }
   .fixBugHeight{
     height: 70.5vh !important;
