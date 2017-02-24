@@ -771,13 +771,13 @@ and (orientation: landscape){
       transform: rotate(4deg) scale(1.2);
   }
   .boxGameDesktop{
-    padding: 23% 0 5% 0;
+    padding: 8% 0 5% 0;
   }
   .fixBugDesktop{
     height: 75vh !important;
   }
   .fixBugHeight{
-    height: 130vh !important;
+    height: 160vh !important;
   }
   .gameOnlyDesktop{
     padding: 0 2px 0 2px;
