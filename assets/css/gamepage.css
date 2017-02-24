@@ -136,8 +136,13 @@ and (min-width: 0px){
     height: 65vh !important;
   }
   .shipCircle{
-    margin: 0% 0 0% 0;
+    margin: 0% 0 0 0;
     height: 130px;
+    transition: all .3s;
+  }
+  .shipCircle:hover {
+      -webkit-transform: rotate(4deg) scale(1.2); /* Safari */
+      transform: rotate(4deg) scale(1.2);
   }
   .boxGameDesktop{
     padding: 10% 0 10% 0;
@@ -759,6 +764,11 @@ and (orientation: landscape){
   .shipCircle{
     margin: 0% 0 0 0;
     height: 150px;
+    transition: all .3s;
+  }
+  .shipCircle:hover {
+      -webkit-transform: rotate(4deg) scale(1.2); /* Safari */
+      transform: rotate(4deg) scale(1.2);
   }
   .boxGameDesktop{
     padding: 23% 0 5% 0;
@@ -798,7 +808,8 @@ and (orientation: landscape){
     height: 1em;
   }
   .bubble3{
-    width: 100%;
+    width: 10.5em;
+    height: 10.5em;
     animation-name: wave;
     animation-duration: 7.3s;
     animation-delay: .1s;
@@ -878,6 +889,11 @@ and (orientation: landscape){
   .shipCircle{
     margin: 0% 0 0 0;
     height: 150px;
+    transition: all .3s;
+  }
+  .shipCircle:hover {
+      -webkit-transform: rotate(4deg) scale(1.2); /* Safari */
+      transform: rotate(4deg) scale(1.2);
   }
   .boxGameDesktop{
     padding: 5% 0 5% 0;
@@ -1199,6 +1215,11 @@ and (orientation: landscape){
   .shipCircle{
     margin: 0% 0 0 0;
     height: 110px;
+    transition: all .3s;
+  }
+  .shipCircle:hover {
+      -webkit-transform: rotate(4deg) scale(1.2); /* Safari */
+      transform: rotate(4deg) scale(1.2);
   }
   .fixBugHeight{
     height: 800vh;
@@ -1312,6 +1333,11 @@ and (min-width: 1025px){
     .shipCircle{
       margin: 0% 0 0 0;
       height: 130px;
+      transition: all .3s;
+    }
+    .shipCircle:hover {
+        -webkit-transform: rotate(4deg) scale(1.2); /* Safari */
+        transform: rotate(4deg) scale(1.2);
     }
     .fixBugDesktop{
       height:70vh !important;
@@ -1482,6 +1508,11 @@ and (min-width: 1200px){
     .shipCircle{
       margin: 0% 0 0 0;
       height: 140px;
+      transition: all .3s;
+    }
+    .shipCircle:hover {
+        -webkit-transform: rotate(4deg) scale(1.2); /* Safari */
+        transform: rotate(4deg) scale(1.2);
     }
     .boxGameDesktop{
       padding: 0% 0 0% 0;
@@ -1643,6 +1674,11 @@ and (min-width: 1300px){
     .shipCircle{
       margin: 0% 0 0 0;
       height: 170px;
+      transition: all .3s;
+    }
+    .shipCircle:hover {
+        -webkit-transform: rotate(4deg) scale(1.2); /* Safari */
+        transform: rotate(4deg) scale(1.2);
     }
     .boxGameDesktop{
       padding: 0% 0 0% 0;
@@ -1666,7 +1702,7 @@ and (min-width: 1300px){
     }
     .gameOnDesktop{
       position: absolute;
-      width: 125px;
+      width: 100px;
     }
     .bodyIconDesktop{
       padding: 0 0 2.5% 0;
