@@ -186,7 +186,7 @@ and (orientation:portrait){
 
   .backButton{
     padding: 5px 0px 0 0.5em;
-    font-size: 2em;
+    font-size: 6em;
     color: white;
     position: absolute;
     left: 0;
@@ -211,6 +211,7 @@ and (orientation: landscape){
   .container{
     margin: 0 0 0 0;
   }
+
   .hide{
      width: 100vw;
      height: 100vh;
@@ -260,10 +261,11 @@ and (orientation: landscape){
 
   .backButton{
     padding: 5px 0px 0 0.5em;
-    font-size: 2em;
+    font-size: 4.5em;
     color: white;
     position: absolute;
     left: 0;
+    top: 0;
     z-index: 50;
   }
   .textInvite{
