@@ -146,7 +146,7 @@ and (orientation:portrait){
     width: 500px;
     height: auto;
     position: absolute;
-    top:600px;
+    top:680px;
     left: 250px;
   }
   .rotateIpad{
@@ -213,9 +213,13 @@ and (orientation: landscape){
   }
 
   .hide{
-     width: 100vw;
+     /*width: 100vw;
      height: 100vh;
-     background-color: red;
+     background-color: red;*/
+     display: none;
+  }
+  .backButton{
+    display: none;
   }
   .rotate{
     width: 300px;
@@ -236,7 +240,7 @@ and (orientation: landscape){
     left: 250px;
   }
   #game {
-      display: none;
+      display: block;
   }
   .etkLogo{
     display: none;
@@ -919,7 +923,7 @@ and (orientation: portrait){
     width: 500px;
     height: auto;
     position: absolute;
-    top:600px;
+    top:680px;
     left: 250px;
   }
   .rotateIpad{
@@ -957,9 +961,16 @@ and (orientation: landscape){
     /*margin: 0 0 0 0 !important;*/
   }
   .hide{
-     width: 100vw;
+     /*width: 100vw;
      height: 100vh;
-     background-color: red;
+     background-color: red;*/
+     display: none;
+  }
+  .underwater{
+    display: none;
+  }
+  .backButton{
+    display: none;
   }
   .rotate{
     width: 300px;
@@ -980,7 +991,7 @@ and (orientation: landscape){
     left: 250px;
   }
   #game {
-      display: none;
+      display: block;
   }
 }
 
@@ -1010,7 +1021,7 @@ and (orientation: portrait){
     width: 500px;
     height: auto;
     position: absolute;
-    top:600px;
+    top:680px;
     left: 250px;
   }
   .rotateIpad{
@@ -1040,9 +1051,13 @@ and (orientation: landscape){
     /*margin: 0 0 0 0 !important;*/
   }
   .hide{
-     width: 100vw;
-     height: 100vh;
-     background-color: red;
+     display: none;
+  }
+  .underwater{
+    display: none;
+  }
+  .backButton{
+    display: none;
   }
   .rotate{
     width: 300px;
@@ -1063,7 +1078,7 @@ and (orientation: landscape){
     left: 250px;
   }
   #game {
-      display: none;
+      display: block;
   }
 }
 /* iphone6 plus */
@@ -1092,7 +1107,7 @@ and (orientation: portrait){
     width: 500px;
     height: auto;
     position: absolute;
-    top:600px;
+    top:680px;
     left: 250px;
   }
   .rotateIpad{
@@ -1122,9 +1137,13 @@ and (orientation: landscape){
     /*margin: 0 0 0 0 !important;*/
   }
   .hide{
-     width: 100vw;
-     height: 100vh;
-     background-color: red;
+     display: none;
+  }
+  .underwater{
+    display: none;
+  }
+  .backButton{
+    display: none;
   }
   .rotate{
     width: 300px;
@@ -1145,7 +1164,7 @@ and (orientation: landscape){
     left: 250px;
   }
   #game {
-      display: none;
+      display: block;
   }
 }
 
@@ -1209,10 +1228,14 @@ and (orientation: landscape){
     padding: 12vh 0 !important;
   }
   .hide{
-     width: 100vw;
-     height: 100vh;
-     background-color: red;
+     display: none;
   }
+  /*.underwater{
+    display: none;
+  }
+  .backButton{
+    display: none;
+  }*/
   .rotate{
     width: 400px;
     height: 400px;
@@ -1232,7 +1255,7 @@ and (orientation: landscape){
     left: 250px;
   }
   #game {
-      display: none;
+      display: block;
   }
 }
 
@@ -1300,9 +1323,7 @@ and (orientation: landscape){
 
   }
   .hide{
-     width: 100vw;
-     height: 100vh;
-     background-color: red;
+     display: none;
   }
   .rotate{
     width: 400px;
@@ -1323,7 +1344,7 @@ and (orientation: landscape){
     left: 380px;
   }
   #game {
-      display: none;
+      display: block;
   }
   .textInvite{
     display: none;
