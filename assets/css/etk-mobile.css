@@ -35,22 +35,22 @@ and (orientation: portrait){
     height: 100vh;
  }
  .rotate{
-   width: 100px;
+   width: 500px;
    height: auto;
    position: absolute;
-   top:180px;
-   left: 210px;
+   top:700px;
+   left: 250px;
  }
  .rotateIpad{
    width: 0px;
    height: 0px;
  }
  .textHide{
-   font-size: 25px;
+   font-size: 50px;
    color: #fff;
    position: absolute;
-   top: 400px;
-   left: 70px;
+   top: 980px;
+   left: 200px;
  }
   center{
     overflow: hidden;
@@ -88,7 +88,7 @@ and (orientation: landscape){
     overflow: hidden;
   }
   #game canvas{
-    display: none ;
+      margin: 0px auto;
   }
   .etkLogo{
     display: none;
@@ -143,32 +143,28 @@ and (orientation:portrait){
      height: 100vh;
   }
   .rotate{
-    width: 200px;
+    width: 500px;
     height: auto;
     position: absolute;
-    top:600px;
-    left: 390px;
+    top:680px;
+    left: 250px;
   }
   .rotateIpad{
     width: 0px;
     height: 0px;
   }
+  .etkLogo{
+    display: none;
+  }
   .textHide{
     font-size: 50px;
     color: #fff;
     position: absolute;
-    top: 970px;
-    left: 120px;
+    top: 980px;
+    left: 200px;
   }
   #game{
       display: none;
-  }
-  .etkLogo{
-    display: none;
-  }
-  .gameLogo{
-    /*width: 35%;*/
-    display: none;
   }
   .underwater{
     position: absolute;
@@ -192,9 +188,6 @@ and (orientation:portrait){
     left: 0;
     z-index: 50;
   }
-  .textInvite{
-    display: none;
-  }
 }
 
 @media only screen
@@ -213,19 +206,20 @@ and (orientation: landscape){
   }
 
   .hide{
-     width: 100vw;
+     /*width: 100vw;
      height: 100vh;
-     background-color: red;
+     background-color: red;*/
+     display: none;
   }
   .backButton{
     display: none;
   }
   .rotate{
-    width: 120px;
-    height: auto;;
+    width: 300px;
+    height: 300px;
     position: absolute;
     top:120px;
-    left: 420px;
+    left: 330px;
   }
   .rotateIpad{
     width: 0px;
@@ -236,17 +230,10 @@ and (orientation: landscape){
     color: #fff;
     position: absolute;
     top: 350px;
-    left: 210px;
+    left: 250px;
   }
   #game {
-    display: none ;
-  }
-  .etkLogo{
-    display: none;
-  }
-  .gameLogo{
-    /*width: 35%;*/
-    display: none;
+      display: block;
   }
   .underwater{
     position: absolute;
@@ -270,9 +257,6 @@ and (orientation: landscape){
     left: 0;
     top: 0;
     z-index: 50;
-  }
-  .textInvite{
-    display: none;
   }
 }
 
@@ -903,7 +887,6 @@ and (min-width:1900px){
   }
 }
 
-
 /* iphone5 */
 @media only screen
 and (device-width:320px)
@@ -912,6 +895,9 @@ and (orientation: portrait){
   body{
     margin: 0 0 0 0;
   }
+  .etkLogo{
+    display: none;
+  }
   .hide{
      background-color: red;
      position: absolute;
@@ -919,11 +905,11 @@ and (orientation: portrait){
      height: 100vh;
   }
   .rotate{
-    width: 180px;
+    width: 500px;
     height: auto;
     position: absolute;
-    top:650px;
-    left: 410px;
+    top:680px;
+    left: 250px;
   }
   .rotateIpad{
     width: 0px;
@@ -933,8 +919,8 @@ and (orientation: portrait){
     font-size: 50px;
     color: #fff;
     position: absolute;
-    top: 1000px;
-    left: 130px;
+    top: 980px;
+    left: 200px;
   }
   #game{
       display: none;
@@ -956,32 +942,17 @@ and (orientation: landscape){
     padding: 0 0 0 0;
     margin: 0 0 0 0;
   }
+  .etkLogo{
+    display: none;
+  }
   .container{
     /*margin: 0 0 0 0 !important;*/
   }
   .hide{
-     background-color: red;
-     position: absolute;
-     width: 100vw;
+     /*width: 100vw;
      height: 100vh;
-  }
-  .rotate{
-    width: 120px;
-    height: auto;
-    position: absolute;
-    top:140px;
-    left: 425px;
-  }
-  .rotateIpad{
-    width: 0px;
-    height: 0px;
-  }
-  .textHide{
-    font-size: 40px;
-    color: #fff;
-    position: absolute;
-    top: 350px;
-    left: 180px;
+     background-color: red;*/
+     display: none;
   }
   .underwater{
     display: none;
@@ -989,8 +960,26 @@ and (orientation: landscape){
   .backButton{
     display: none;
   }
+  .rotate{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top:120px;
+    left: 330px;
+  }
+  .rotateIpad{
+    width: 0px;
+    height: 0px;
+  }
+  .textHide{
+    font-size: 35px;
+    color: #fff;
+    position: absolute;
+    top: 350px;
+    left: 250px;
+  }
   #game {
-      display: none;
+      display: block;
   }
 }
 
@@ -1007,6 +996,9 @@ and (orientation: portrait){
     left: 0;
     z-index: 50;
   }
+  .etkLogo{
+    display: none;
+  }
   body{
     margin: 0 0 0 0;
   }
@@ -1017,11 +1009,11 @@ and (orientation: portrait){
      height: 100vh;
   }
   .rotate{
-    width: 180px;
+    width: 500px;
     height: auto;
     position: absolute;
-    top:650px;
-    left: 410px;
+    top:680px;
+    left: 250px;
   }
   .rotateIpad{
     width: 0px;
@@ -1031,8 +1023,8 @@ and (orientation: portrait){
     font-size: 50px;
     color: #fff;
     position: absolute;
-    top: 1000px;
-    left: 130px;
+    top: 980px;
+    left: 200px;
   }
   #game{
       display: none;
@@ -1046,8 +1038,14 @@ and (orientation: landscape){
     padding: 0 0 0 0;
     margin: 0 0 0 0;
   }
+  .etkLogo{
+    display: none;
+  }
   .container{
     /*margin: 0 0 0 0 !important;*/
+  }
+  .hide{
+     display: none;
   }
   .underwater{
     display: none;
@@ -1055,32 +1053,26 @@ and (orientation: landscape){
   .backButton{
     display: none;
   }
-  .hide{
-     background-color: red;
-     position: absolute;
-     width: 100vw;
-     height: 100vh;
-  }
   .rotate{
-    width: 120px;
-    height: auto;
+    width: 300px;
+    height: 300px;
     position: absolute;
-    top:140px;
-    left: 425px;
+    top:100px;
+    left: 330px;
   }
   .rotateIpad{
     width: 0px;
     height: 0px;
   }
   .textHide{
-    font-size: 40px;
+    font-size: 35px;
     color: #fff;
     position: absolute;
-    top: 350px;
-    left: 180px;
+    top: 330px;
+    left: 250px;
   }
   #game {
-      display: none;
+      display: block;
   }
 }
 /* iphone6 plus */
@@ -1096,6 +1088,9 @@ and (orientation: portrait){
     left: 0;
     z-index: 50;
   }
+  .etkLogo{
+    display: none;
+  }
   body{
     margin: 0 0 0 0;
   }
@@ -1106,11 +1101,11 @@ and (orientation: portrait){
      height: 100vh;
   }
   .rotate{
-    width: 180px;
+    width: 500px;
     height: auto;
     position: absolute;
-    top:650px;
-    left: 410px;
+    top:680px;
+    left: 250px;
   }
   .rotateIpad{
     width: 0px;
@@ -1120,8 +1115,8 @@ and (orientation: portrait){
     font-size: 50px;
     color: #fff;
     position: absolute;
-    top: 1000px;
-    left: 130px;
+    top: 980px;
+    left: 200px;
   }
   #game{
       display: none;
@@ -1135,8 +1130,14 @@ and (orientation: landscape){
     padding: 0 0 0 0;
     margin: 0 0 0 0;
   }
+  .etkLogo{
+    display: none;
+  }
   .container{
     /*margin: 0 0 0 0 !important;*/
+  }
+  .hide{
+     display: none;
   }
   .underwater{
     display: none;
@@ -1144,32 +1145,26 @@ and (orientation: landscape){
   .backButton{
     display: none;
   }
-  .hide{
-     background-color: red;
-     position: absolute;
-     width: 100vw;
-     height: 100vh;
-  }
   .rotate{
-    width: 120px;
-    height: auto;
+    width: 300px;
+    height: 300px;
     position: absolute;
-    top:140px;
-    left: 425px;
+    top:120px;
+    left: 330px;
   }
   .rotateIpad{
     width: 0px;
     height: 0px;
   }
   .textHide{
-    font-size: 40px;
+    font-size: 35px;
     color: #fff;
     position: absolute;
     top: 350px;
-    left: 180px;
+    left: 250px;
   }
   #game {
-      display: none;
+      display: block;
   }
 }
 
@@ -1186,6 +1181,9 @@ and (orientation: portrait){
     left: 0;
     z-index: 50;
   }
+  .etkLogo{
+    display: none;
+  }
   body{
     margin: 0 0 0 0;
   }
@@ -1200,18 +1198,18 @@ and (orientation: portrait){
     height: 0px;
   }
   .rotateIpad{
-    width: 180px;
+    width: 380px;
     height: auto;
     position: absolute;
     top:450px;
-    left: 410px;
+    left: 310px;
   }
   .textHide{
     font-size: 50px;
     color: #fff;
     position: absolute;
-    top: 800px;
-    left: 120px;
+    top: 750px;
+    left: 200px;
   }
   #game{
       display: none;
@@ -1225,45 +1223,46 @@ and (orientation: landscape){
     padding: 0 0 0 0;
     margin: 0 0 0 0;
   }
-  .gameLogo{
-    display: none;
-  }
-.container{
+  .container{
     /*margin: 7vh 0 0 0 !important;*/
     padding: 12vh 0 !important;
   }
+  .etkLogo{
+    display: none;
+  }
   .hide{
-     background-color: red;
-     position: absolute;
-     width: 100vw;
-     height: 100vh;
+     display: none;
+  }
+  .underwater{
+    display: block;
+  }
+  .picUnder{
+    width: 100vw;
+    height: 60vh;
+  }
+  .backButton{
+    display: none;
   }
   .rotate{
-    width: 0px;
-    height: 0px;
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top:140px;
+    left: 300px;
   }
   .rotateIpad{
-    width: 150px;
-    height: auto;
-    position: absolute;
-    top: 200px;
-    left: 420px;
+    width: 0px;
+    height: 0px;
   }
   .textHide{
     font-size: 40px;
     color: #fff;
     position: absolute;
-    top: 480px;
-    left: 190px;
+    top: 450px;
+    left: 250px;
   }
-  /*.underwater{
-    display: none;
-  }
-  .backButton{
-    display: none;
-  }*/
   #game {
-      display: none;
+      display: block;
   }
 }
 
@@ -1280,11 +1279,11 @@ and (orientation: portrait){
     left: 0;
     z-index: 50;
   }
+  .etkLogo{
+    display: none;
+  }
   body{
     margin: 0 0 0 0;
-  }
-  .gameLogo{
-    display: none;
   }
   .hide{
      background-color: red;
@@ -1297,18 +1296,21 @@ and (orientation: portrait){
     height: 0px;
   }
   .rotateIpad{
-    width: 180px;
+    width: 380px;
     height: auto;
     position: absolute;
     top:450px;
-    left: 420px;
+    left: 310px;
   }
   .textHide{
     font-size: 50px;
     color: #fff;
     position: absolute;
-    top: 800px;
-    left: 130px;
+    top: 750px;
+    left: 200px;
+  }
+  .etkLogo{
+    display: none;
   }
   #game{
       display: none;
@@ -1322,7 +1324,7 @@ and (orientation: landscape){
     padding: 0 0 0 0;
     margin: 0 0 0 0;
   }
-  .gameLogo{
+  .etkLogo{
     display: none;
   }
   .container{
@@ -1331,33 +1333,31 @@ and (orientation: landscape){
 
   }
   .hide{
-     background-color: red;
-     position: absolute;
-     width: 100vw;
-     height: 100vh;
+     display: none;
   }
   .rotate{
-    width: 0px;
-    height: 0px;
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top:300px;
+    left: 470px;
   }
   .rotateIpad{
-    width: 180px;
-    height: auto;
-    position: absolute;
-    top: 300px;
-    left: 570px;
+    width: 0px;
+    height: 0px;
   }
   .textHide{
     font-size: 45px;
     color: #fff;
     position: absolute;
-    top: 625px;
-    left: 300px;
+    top: 630px;
+    left: 380px;
+  }
+  .picUnder{
+    width: 100vw;
+    height: 60vh;
   }
   #game {
-      display: none;
-  }
-  .textInvite{
-    display: none;
+      display: block;
   }
 }
