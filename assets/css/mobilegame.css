@@ -1311,6 +1311,9 @@ and (orientation: portrait){
     left: 240px;
     letter-spacing: 2px;
   }
+  .underwater{
+    display: none;
+  }
   #game{
       display: none;
   }
