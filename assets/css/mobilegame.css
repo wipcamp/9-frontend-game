@@ -153,14 +153,14 @@ and (orientation:portrait){
     height: auto;
     position: absolute;
     top:440px;
-    left: 410px;
+    left: 400px;
   }
   .textHide{
     font-size: 70px;
     color: #fff;
     position: absolute;
     top:14.5em;
-    left: 3em;
+    left: 2.7em;
 
   }
   #game{
@@ -232,7 +232,7 @@ and (orientation: landscape){
     margin-top: 150px;
   }
   .textHide{
-    font-size: 30px;
+    font-size: 40px;
     color: #fff;
     margin-top: 10px;
   }
@@ -920,7 +920,7 @@ and (orientation: portrait){
     width: 180px;
     height: auto;
     position: absolute;
-    top:650px;
+    text-outline: 520px;
     left: 410px;
   }
   .rotateIpad{
@@ -928,7 +928,7 @@ and (orientation: portrait){
     height: 0px;
   }
   .textHide{
-    font-size: 60px;
+    font-size: 65px;
     color: #fff;
     position: absolute;
     top: 1000px;
@@ -967,7 +967,7 @@ and (orientation: landscape){
     width: 120px;
     height: auto;
     position: absolute;
-    top:140px;
+    top:0px;
     left: 425px;
   }
   .rotateIpad{
@@ -975,11 +975,11 @@ and (orientation: landscape){
     height: 0px;
   }
   .textHide{
-    font-size: 40px;
+    font-size: 38px;
     color: #fff;
     position: absolute;
-    top: 350px;
-    left: 280px;
+    top: 400px;
+    left: 300px;
   }
   .underwater{
     display: none;
@@ -1018,19 +1018,19 @@ and (orientation: portrait){
     width: 180px;
     height: auto;
     position: absolute;
-    top:650px;
+    top:480px;
     left: 410px;
   }
-  .rotateIpad{
-    width: 0px;
-    height: 0px;
-  }
   .textHide{
-    font-size: 55px;
+    font-size: 60px;
     color: #fff;
     position: absolute;
     top: 1000px;
     left: 220px;
+  }
+  .rotateIpad{
+    width: 0px;
+    height: 0px;
   }
   #game{
       display: none;
@@ -1063,7 +1063,7 @@ and (orientation: landscape){
     width: 120px;
     height: auto;
     position: absolute;
-    top:140px;
+    top:-20px;
     left: 425px;
   }
   .rotateIpad{
@@ -1071,11 +1071,11 @@ and (orientation: landscape){
     height: 0px;
   }
   .textHide{
-    font-size: 40px;
+    font-size: 35px;
     color: #fff;
     position: absolute;
-    top: 350px;
-    left: 280px;
+    top: 370px;
+    left: 320px;
   }
   #game {
       display: none;
@@ -1107,19 +1107,19 @@ and (orientation: portrait){
     width: 180px;
     height: auto;
     position: absolute;
-    top:650px;
+    top:480px;
     left: 410px;
   }
-  .rotateIpad{
-    width: 0px;
-    height: 0px;
-  }
   .textHide{
-    font-size: 55px;
+    font-size: 60px;
     color: #fff;
     position: absolute;
     top: 1000px;
     left: 220px;
+  }
+  .rotateIpad{
+    width: 0px;
+    height: 0px;
   }
   #game{
       display: none;
@@ -1148,23 +1148,23 @@ and (orientation: landscape){
      width: 100vw;
      height: 100vh;
   }
-  .rotate{
-    width: 120px;
-    height: auto;
-    position: absolute;
-    top:140px;
-    left: 425px;
-  }
   .rotateIpad{
     width: 0px;
     height: 0px;
   }
+  .rotate{
+    width: 120px;
+    height: auto;
+    position: absolute;
+    top:-20px;
+    left: 425px;
+  }
   .textHide{
-    font-size: 40px;
+    font-size: 35px;
     color: #fff;
     position: absolute;
-    top: 350px;
-    left: 280px;
+    top: 370px;
+    left: 320px;
   }
   #game {
       display: none;
@@ -1208,8 +1208,8 @@ and (orientation: portrait){
     font-size: 55px;
     color: #fff;
     position: absolute;
-    top: 800px;
-    left: 210px;
+    top: 820px;
+    left: 230px;
     letter-spacing: 2px;
   }
   #game{
@@ -1252,8 +1252,8 @@ and (orientation: landscape){
     font-size: 45px;
     color: #fff;
     position: absolute;
-    top: 480px;
-    left: 250px;
+    top: 500px;
+    left: 280px;
     letter-spacing: 2px;
   }
   /*.underwater{
@@ -1307,8 +1307,8 @@ and (orientation: portrait){
     font-size: 55px;
     color: #fff;
     position: absolute;
-    top: 800px;
-    left: 220px;
+    top: 830px;
+    left: 240px;
     letter-spacing: 2px;
   }
   #game{
@@ -1352,8 +1352,8 @@ and (orientation: landscape){
     font-size: 48px;
     color: #fff;
     position: absolute;
-    top: 630px;
-    left: 400px;
+    top: 650px;
+    left: 420px;
     letter-spacing: 2px;
   }
   #game {
