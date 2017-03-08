@@ -35,22 +35,25 @@ and (orientation: portrait){
     height: 100vh;
  }
  .rotate{
-   width: 500px;
-   height: auto;
-   position: absolute;
-   top:700px;
-   left: 250px;
+   width: 0px;
+   height: 0px;
  }
  .rotateIpad{
    width: 0px;
    height: 0px;
  }
- .textHide{
-   font-size: 50px;
+ .hideDesktop{
+   width: 100px;
+   margin-top: 50px;
+ }
+ .textHideDesktop{
+   font-size: 25px;
    color: #fff;
-   position: absolute;
-   top: 980px;
-   left: 200px;
+   margin-top: 10px;
+ }
+ .textHide{
+   font-size: 0px;
+   color: #fff;
  }
   center{
     overflow: hidden;
@@ -70,8 +73,8 @@ and (orientation: landscape){
     margin: 0 0 0 0 !important;
   }
   .hide{
-     width: 0vw;
-     height: 0vh;
+     width: 100vw;
+     height: 100vh;
   }
   .rotate{
     width: 0px;
@@ -84,19 +87,25 @@ and (orientation: landscape){
   .textHide{
     font-size: 0px;
   }
+  .hideDesktop{
+    width: 100px;
+    margin-top: 50px;
+  }
+  .textHideDesktop{
+    font-size: 25px;
+    color: #fff;
+    margin-top: 10px;
+  }
+  .backButton{
+    display: none;
+  }
   center{
     overflow: hidden;
   }
   #game canvas{
       margin: 0px auto;
   }
-  .etkLogo{
-    display: none;
-  }
-  .gameLogo{
-    /*width: 35%;*/
-    display: none;
-  }
+
   .underwater{
     position: absolute;
     width: 100vw;
@@ -104,7 +113,6 @@ and (orientation: landscape){
     height: 75vh;
     z-index: -1;
   }
-
   .picUnder{
     margin: 0;
     z-index: -2;
@@ -118,9 +126,6 @@ and (orientation: landscape){
     position: absolute;
     left: 0;
     z-index: 50;
-  }
-  .textInvite{
-    display: none;
   }
 }
 
@@ -153,15 +158,19 @@ and (orientation:portrait){
     width: 0px;
     height: 0px;
   }
-  .etkLogo{
-    display: none;
-  }
   .textHide{
     font-size: 50px;
     color: #fff;
     position: absolute;
     top: 980px;
     left: 200px;
+  }
+  .hideDesktop{
+    width: 0px;
+    height: 0px;
+  }
+  .textHideDesktop{
+    font-size: 0px;
   }
   #game{
       display: none;
@@ -263,7 +272,6 @@ and (orientation: landscape){
 @media only screen
 and (min-width:1024px){
   body {
-      /*margin: 0 0 0 0;*/
       margin: 0 0 0 0;
       padding: 0 0 0 0;
       /*overflow: hidden;*/
@@ -273,16 +281,18 @@ and (min-width:1024px){
   }
   .container{
     /*margin: 3% 0 0 0 !important;*/
-    padding: 10.5vh 0 !important ;
+    /*display: none;*/
   }
   .hide{
-     width: 0vw;
-     height: 0vh;
+     background-color: red;
+     position: absolute;
+     width: 100vw;
+     height: 100vh;
+     display: block;
   }
-
   .rotate{
-    width:0;
-    height: 0;
+    width: 0px;
+    height: 0px;
   }
   .rotateIpad{
     width: 0px;
@@ -290,601 +300,37 @@ and (min-width:1024px){
   }
   .textHide{
     font-size: 0px;
+  }
+  .hideDesktop{
+    width: 100px;
+    height: auto;
+    margin-top: 150px;
+    /*position: absolute;
+    top: 220px;
+    left:430px;*/
+  }
+  .textHideDesktop{
+    font-size: 35px;
+    color: #fff;
+    margin-top: 20px;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+  .underwater{
+    display: none;
   }
   #game{
     display: block;
   }
-  #game canvas{
-    margin: 0px auto !important;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 6.5em;
-  }
-  .etkLogo{
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 1.8em;
+  /*.backButton{
     display: block;
-  }
-  .gameLogo{
-
-    width: 35%;
-    display: block;
-  }
-  .underwater{
-    position: absolute;
-    width: 100vw;
-    bottom: -5em;
-    height: 75vh;
-    z-index: -1;
-  }
-
-  .picUnder{
-    width: 100vw;
-    margin: 0;
-    z-index: -2;
-    bottom: 0;
-    position: absolute;
-  }
-
-  .backButton{
     padding: 2.5px 0px 0 0.5em;
-    font-size: 3em;
+    font-size: 15em;
     color: white;
     position: absolute;
     left: 0;
     z-index: 50;
-  }
-  .textInvite{
-    display: none;
-  }
-}
-
-
-@media only screen
-and (min-width:1200px){
-  body {
-      margin: 0 0 0 0;
-      /*overflow: hidden;*/
-      height: 100vh;
-  }
-  center{
-    /*overflow: hidden;*/
-  }
-  .container{
-    /*margin: 3em 0 0 0;*/
-    padding: 11vh 0!important;
-  }
-  .hide{
-     width: 0vw;
-     height: 0vh;
-  }
-  .rotate{
-    width:0;
-    height: 0;
-  }
-  .rotateIpad{
-    width: 0px;
-    height: 0px;
-  }
-  .textHide{
-    font-size: 0px;
-  }
-  #game canvas{
-    margin: 0px auto !important;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 6.5em;
-  }
-  .etkLogo{
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 1.8em;
-    display: block;
-  }
-  .gameLogo{
-
-    width: 35%;
-    display: block;
-  }
-  .underwater{
-    position: absolute;
-    width: 100vw;
-    bottom: -5em;
-    height: 75vh;
-    z-index: -1;
-  }
-
-  .picUnder{
-    width: 100vw;
-    margin: 0;
-    z-index: -2;
-    bottom: 0;
-    position: absolute;
-  }
-
-  .backButton{
-    padding: 2.5px 0px 0 0.5em;
-    font-size: 3em;
-    color: white;
-    position: absolute;
-    left: 0;
-    z-index: 50;
-  }
-  .textInvite{
-    display: none;
-  }
-
-}
-
-@media only screen
-and (min-width:1300px){
-  body {
-      margin: 0 0 0 0;
-      /*overflow: hidden;*/
-      height: 100vh;
-  }
-  center{
-    /*overflow: hidden;*/
-  }
-  .container{
-    /*margin: 3% 0 0 0 !important;*/
-    padding: 7vh 0!important;
-  }
-  .hide{
-     width: 0vw;
-     height: 0vh;
-  }
-  .rotate{
-    width:0;
-    height: 0;
-  }
-  .rotateIpad{
-    width: 0px;
-    height: 0px;
-  }
-  .textHide{
-    font-size: 0px;
-  }
-  html{
-    overflow-x: hidden !important;
-  }
-  .etkLogo{
-    display: block;
-  }
-  #game canvas{
-    margin: 0px auto !important;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 8.5em;
-  }
-  .etkLogo{
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 1.8em;
-    display: block;
-  }
-  .gameLogo{
-
-    width: 35%;
-    display: block;
-  }
-  .underwater{
-    position: absolute;
-    width: 100vw;
-    bottom: -15em;
-    height: 75vh;
-    z-index: -1;
-  }
-
-  .picUnder{
-    width: 100vw;
-    margin: 0;
-    z-index: -2;
-    bottom: 0em;
-    position: absolute;
-  }
-
-  .backButton{
-    padding: 2.5px 0px 0 0.5em;
-    font-size: 3em;
-    color: white;
-    position: absolute;
-    left: 0;
-    z-index: 50;
-  }
-  .textInvite{
-    display: none;
-  }
-  .styleLink{
-    display: none;
-  }
-}
-
-@media only screen
-and (min-width:1366px){
-  body {
-      margin: 0 0 0 0;
-      /*overflow: hidden;*/
-  }
-  center{
-    /*overflow: hidden;*/
-  }
-  .container{
-    /*margin: 3% 0 0 0 !important;*/
-    padding: 7vh 0!important;
-  }
-  .hide{
-     width: 0vw;
-     height: 0vh;
-  }
-  .rotate{
-    width:0;
-    height: 0;
-  }
-  .rotateIpad{
-    width: 0px;
-    height: 0px;
-  }
-  .textHide{
-    font-size: 0px;
-  }
-  html{
-    overflow: hidden !important;
-  }
-  .etkLogo{
-    display: none;
-  }
-  .underwater{
-    position: absolute;
-    width: 100vw;
-    bottom: 0;
-    height: 75vh;
-    z-index: -1;
-  }
-
-  .picUnder{
-    width: 100vw;
-    margin: 0;
-    z-index: -2;
-    bottom: 0;
-    position: absolute;
-  }
-
-
-  #game canvas{
-    z-index: 5;
-    top: 1em;
-    left: 0;
-    right: 0;
-    position: absolute;
-    display: block;
-    touch-action: none;
-    user-select: none;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    width: 980px;
-    height: 550px;
-    cursor: inherit;
-  }
-  .backButton{
-    padding: 5px 0px 0 0.5em;
-    font-size: 55px;
-    color: white;
-    position: absolute;
-    left: 0;
-    z-index: 50;
-  }
-  .textInvite{
-    display: block;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    text-align: center;
-    color: white;
-    letter-spacing: 0.02423em;
-    background-color: rgba(24, 23, 22, 0.66);
-  }
-  .styleLink{
-    color: rgb(255, 128, 0);
-    font-size: 1em;
-    display: inline;
-  }
-}
-
-@media only screen
-and (min-width:1440px){
-  body {
-      margin: 0 0 0 0;
-      overflow: hidden;
-  }
-  center{
-    overflow: hidden;
-  }
-  .container{
-    /*margin: 5em 0 0 0;*/
-    padding: 15vh 0 !important;
-  }
-  .hide{
-     width: 0vw;
-     height: 0vh;
-  }
-  .rotate{
-    width:0;
-    height: 0;
-  }
-  .rotateIpad{
-    width: 0px;
-    height: 0px;
-  }
-  .textHide{
-    font-size: 0px;
-  }
-  html{
-    overflow: hidden !important;
-  }
-  .etkLogo{
-    width: auto;
-    top: 2em;
-    left: 0;
-    right: 0;
-    display: block;
-    position: absolute;
-  }
-  .gameLogo{
-    width: 35%;
-  }
-  .underwater{
-    position: absolute;
-    width: 100vw;
-    bottom: 0;
-    height: 75vh;
-    z-index: -1;
-  }
-
-  .picUnder{
-    margin: 0;
-    z-index: -2;
-    bottom: 0;
-    position: absolute;  }
-
-  #game canvas{
-    z-index: 5;
-    top: 9em;
-    left: 0;
-    right: 0;
-    position: absolute;
-    display: block;
-    touch-action: none;
-    user-select: none;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    width: 980px;
-    height: 550px;
-    cursor: inherit;
-  }
-  .backButton{
-    padding: 5px 0px 0 0.5em;
-    font-size: 5em;
-    color: white;
-    position: absolute;
-    left: 0;
-    z-index: 50;
-  }
-  .textInvite{
-    display: block;
-    font-size: 1em;
-    height: auto;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    text-align: center;
-    color: white;
-    letter-spacing: 0.02423em;
-    background-color: rgba(24, 23, 22, 0.66);
-  }
-  .styleLink{
-    color: rgb(255, 128, 0);
-    /*font-size: 1em;*/
-  }
-}
-@media only screen
-and (min-width:1600px){
-  body {
-      margin: 0 0 0 0;
-      overflow: hidden;
-  }
-  center{
-    overflow: hidden;
-  }
-  .container{
-    /*margin: 6em 0 0 0;*/
-    padding: 20vh 0 !important;
-  }
-  .hide{
-     width: 0vw;
-     height: 0vh;
-  }
-  .rotate{
-    width:0;
-    height: 0;
-  }
-  .rotateIpad{
-    width: 0px;
-    height: 0px;
-  }
-  .textHide{
-    font-size: 0px;
-  }
-  html{
-    overflow: hidden !important;
-  }
-  .etkLogo{
-    width: auto;
-    top: 2em;
-    left: 0;
-    right: 0;
-    display: block;
-    position: absolute;
-  }
-  .gameLogo{
-    width: 35%;
-  }
-  .underwater{
-    position: absolute;
-    width: 100vw;
-    bottom: 0;
-    height: 75vh;
-    z-index: -1;
-  }
-
-  .picUnder{
-    margin: 0;
-    z-index: -2;
-    bottom: 0;
-    position: absolute;  }
-
-  #game canvas{
-    z-index: 5;
-    top: 9em;
-    left: 0;
-    right: 0;
-    position: absolute;
-    display: block;
-    touch-action: none;
-    user-select: none;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    width: 980px;
-    height: 550px;
-    cursor: inherit;
-  }
-  .backButton{
-    padding: 5px 0px 0 0.5em;
-    font-size: 5em;
-    color: white;
-    position: absolute;
-    left: 0;
-    z-index: 50;
-  }
-  .textInvite{
-    display: block;
-    font-size: 1.3em;
-    height: auto;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    text-align: center;
-    color: white;
-    letter-spacing: 0.02423em;
-    background-color: rgba(24, 23, 22, 0.66);
-  }
-  .styleLink{
-    color: rgb(255, 128, 0);
-    /*font-size: 1em;*/
-  }
-}
-
-@media only screen
-and (min-width:1900px){
-  body {
-      margin: 0 0 0 0;
-      overflow: hidden;
-  }
-  center{
-    overflow: hidden;
-  }
-  .container{
-    /*margin: 6em 0 0 0;*/
-    padding: 20vh 0 !important;
-  }
-  .hide{
-     width: 0vw;
-     height: 0vh;
-  }
-  .rotate{
-    width:0;
-    height: 0;
-  }
-  .rotateIpad{
-    width: 0px;
-    height: 0px;
-  }
-  .textHide{
-    font-size: 0px;
-  }
-  html{
-    overflow: hidden !important;
-  }
-  .etkLogo{
-    width: auto;
-    top: 2em;
-    left: 0;
-    right: 0;
-    display: block;
-    position: absolute;
-  }
-  .gameLogo{
-    width: 35%;
-  }
-  .underwater{
-    position: absolute;
-    width: 100vw;
-    bottom: 0;
-    height: 75vh;
-    z-index: -1;
-  }
-
-  .picUnder{
-    margin: 0;
-    z-index: -2;
-    bottom: 0;
-    position: absolute;  }
-
-  #game canvas{
-    z-index: 5;
-    top: 12em;
-    left: 0;
-    right: 0;
-    position: absolute;
-    display: block;
-    touch-action: none;
-    user-select: none;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    width: 980px;
-    height: 550px;
-    cursor: inherit;
-  }
-  .backButton{
-    padding: 5px 0px 0 0.5em;
-    font-size: 5em;
-    color: white;
-    position: absolute;
-    left: 0;
-    z-index: 50;
-  }
-  .textInvite{
-    font-size: 1.3em;
-    height: auto;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    text-align: center;
-    color: white;
-    letter-spacing: 0.02423em;
-    background-color: rgba(24, 23, 22, 0.66);
-  }
-  .styleLink{
-    color: rgb(255, 128, 0);
-    /*font-size: 1em;*/
-  }
+  }*/
 }
 
 /* iphone5 */
@@ -894,9 +340,6 @@ and (device-height:568px)
 and (orientation: portrait){
   body{
     margin: 0 0 0 0;
-  }
-  .etkLogo{
-    display: none;
   }
   .hide{
      background-color: red;
@@ -922,6 +365,13 @@ and (orientation: portrait){
     top: 980px;
     left: 200px;
   }
+  .hideDesktop{
+    width: 0px;
+    height: 0px;
+  }
+  .textHideDesktop{
+    font-size: 0px;
+  }
   #game{
       display: none;
   }
@@ -941,9 +391,6 @@ and (orientation: landscape){
   body{
     padding: 0 0 0 0;
     margin: 0 0 0 0;
-  }
-  .etkLogo{
-    display: none;
   }
   .container{
     /*margin: 0 0 0 0 !important;*/
@@ -996,9 +443,6 @@ and (orientation: portrait){
     left: 0;
     z-index: 50;
   }
-  .etkLogo{
-    display: none;
-  }
   body{
     margin: 0 0 0 0;
   }
@@ -1026,6 +470,13 @@ and (orientation: portrait){
     top: 980px;
     left: 200px;
   }
+  .hideDesktop{
+    width: 0px;
+    height: 0px;
+  }
+  .textHideDesktop{
+    font-size: 0px;
+  }
   #game{
       display: none;
   }
@@ -1037,9 +488,6 @@ and (orientation: landscape){
   body{
     padding: 0 0 0 0;
     margin: 0 0 0 0;
-  }
-  .etkLogo{
-    display: none;
   }
   .container{
     /*margin: 0 0 0 0 !important;*/
@@ -1088,9 +536,6 @@ and (orientation: portrait){
     left: 0;
     z-index: 50;
   }
-  .etkLogo{
-    display: none;
-  }
   body{
     margin: 0 0 0 0;
   }
@@ -1118,6 +563,13 @@ and (orientation: portrait){
     top: 980px;
     left: 200px;
   }
+  .hideDesktop{
+    width: 0px;
+    height: 0px;
+  }
+  .textHideDesktop{
+    font-size: 0px;
+  }
   #game{
       display: none;
   }
@@ -1129,9 +581,6 @@ and (orientation: landscape){
   body{
     padding: 0 0 0 0;
     margin: 0 0 0 0;
-  }
-  .etkLogo{
-    display: none;
   }
   .container{
     /*margin: 0 0 0 0 !important;*/
@@ -1181,9 +630,6 @@ and (orientation: portrait){
     left: 0;
     z-index: 50;
   }
-  .etkLogo{
-    display: none;
-  }
   body{
     margin: 0 0 0 0;
   }
@@ -1211,6 +657,13 @@ and (orientation: portrait){
     top: 750px;
     left: 200px;
   }
+  .hideDesktop{
+    width: 0px;
+    height: 0px;
+  }
+  .textHideDesktop{
+    font-size: 0px;
+  }
   #game{
       display: none;
   }
@@ -1226,9 +679,6 @@ and (orientation: landscape){
   .container{
     /*margin: 7vh 0 0 0 !important;*/
     padding: 12vh 0 !important;
-  }
-  .etkLogo{
-    display: none;
   }
   .hide{
      display: none;
@@ -1262,7 +712,7 @@ and (orientation: landscape){
     left: 250px;
   }
   #game {
-      display: block;
+      display: block !important;
   }
 }
 
@@ -1279,9 +729,7 @@ and (orientation: portrait){
     left: 0;
     z-index: 50;
   }
-  .etkLogo{
-    display: none;
-  }
+
   body{
     margin: 0 0 0 0;
   }
@@ -1309,8 +757,12 @@ and (orientation: portrait){
     top: 750px;
     left: 200px;
   }
-  .etkLogo{
-    display: none;
+  .hideDesktop{
+    width: 0px;
+    height: 0px;
+  }
+  .textHideDesktop{
+    font-size: 0px;
   }
   #game{
       display: none;
@@ -1323,9 +775,6 @@ and (orientation: landscape){
   body{
     padding: 0 0 0 0;
     margin: 0 0 0 0;
-  }
-  .etkLogo{
-    display: none;
   }
   .container{
     margin: 14.5vh 0  !important;
@@ -1357,6 +806,12 @@ and (orientation: landscape){
     width: 100vw;
     height: 60vh;
   }
+  .underwater{
+    display: block;
+  }
+  /*.backButton{
+    display: none;
+  }*/
   #game {
       display: block;
   }
