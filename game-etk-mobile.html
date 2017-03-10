@@ -23,7 +23,7 @@
 	<meta name="msapplication-TileColor" content="#463b6b">
 	<meta name="msapplication-TileImage" content="assets/img/favicon/mstile-144x144.png">
 	<meta name="theme-color" content="#463b6b">
-	<link rel="stylesheet" href="assets/css/mobilegame.css">
+	<link rel="stylesheet" href="assets/css/etk-mobile.css">
   <link rel="stylesheet" href="assets/css/fontface-thaisansneue.css">
 	<script src="https://www.gstatic.com/firebasejs/3.6.7/firebase.js"></script>
 	<script src="9-gamepr/js/phaser.min.js" type="text/javascript" ></script>
@@ -33,25 +33,23 @@
 <body>
 	<center>
 		<div class="hide">
-			<img src="assets/img/mobile.png" alt="" class="rotate">
-			<img src="assets/img/mobile.png" alt="" class="rotateIpad">
-			<p class="textHide">ขนาดหน้าจอเล็กเกินไป</p>
+			<img src="assets/img/rotate.png" alt="" class="rotate">
+			<img src="assets/img/rotate-ipad.png" alt="" class="rotateIpad">
+			<p class="textHide">Please Rotate Your Device.</p>
+
+			<img src="assets/img/mobile.png" alt="" class="hideDesktop">
+			<p class="textHideDesktop">กรุณาเล่นในมือถือเท่านั้น</p>
 		</div>
 		<a href="index.html" class="backButton">
 			<i class="fa fa-arrow-left" aria-hidden="true"></i>
 		</a>
-		<div class="etkLogo">
-			<img src="assets/img/etk-logo.svg" alt="" class="gameLogo">
-		</div>
+
 		<div class="container">
 			<div id="game">
 
 			</div>
 		</div>
 	</center>
-	<div class="textInvite">
-		<p>ง่ายใช่มั๊ยล่าา!? เล่นเสร็จแล้วก็อย่าลืมมาสมัครกันเยอะๆ&nbsp;นะครับ ที่ <a href="https://wip.camp" class="styleLink">wip.camp</a> แล้วเจอกัน!</p>
-	</div>
 	<div class="underwater">
 		<img src="assets/img/underwater.svg" alt="" class="picUnder">
 	</div>

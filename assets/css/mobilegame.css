@@ -35,22 +35,18 @@ and (orientation: portrait){
     height: 100vh;
  }
  .rotate{
-   width: 500px;
+   width: 100px;
    height: auto;
-   position: absolute;
-   top:700px;
-   left: 250px;
+   margin-top: 150px;
+ }
+ .textHide{
+   font-size: 30px;
+   color: #fff;
+   margin-top: 10px;
  }
  .rotateIpad{
    width: 0px;
    height: 0px;
- }
- .textHide{
-   font-size: 50px;
-   color: #fff;
-   position: absolute;
-   top: 980px;
-   left: 200px;
  }
   center{
     overflow: hidden;
@@ -70,25 +66,31 @@ and (orientation: landscape){
     margin: 0 0 0 0 !important;
   }
   .hide{
-     width: 0vw;
-     height: 0vh;
-  }
-  .rotate{
-    width: 0px;
-    height: 0px;
+     width: 100vw;
+     height: 100vh;
   }
   .rotateIpad{
     width: 0px;
     height: 0px;
   }
+  .rotate{
+    width: 100px;
+    height: auto;
+    margin-top: 150px;
+  }
   .textHide{
-    font-size: 0px;
+    font-size: 30px;
+    color: #fff;
+    margin-top: 10px;
+  }
+  .backButton{
+    display: none;
   }
   center{
     overflow: hidden;
   }
   #game canvas{
-      margin: 0px auto;
+    display: none ;
   }
   .etkLogo{
     display: none;
@@ -142,23 +144,24 @@ and (orientation:portrait){
      width: 100vw;
      height: 100vh;
   }
-  .rotate{
-    width: 500px;
-    height: auto;
-    position: absolute;
-    top:600px;
-    left: 250px;
-  }
   .rotateIpad{
     width: 0px;
     height: 0px;
   }
+  .rotate{
+    width: 200px;
+    height: auto;
+    position: absolute;
+    top:440px;
+    left: 400px;
+  }
   .textHide{
-    font-size: 50px;
+    font-size: 70px;
     color: #fff;
     position: absolute;
-    top: 980px;
-    left: 200px;
+    top:14.5em;
+    left: 2.7em;
+
   }
   #game{
       display: none;
@@ -177,7 +180,6 @@ and (orientation:portrait){
     height: 75vh;
     z-index: -1;
   }
-
   .picUnder{
     margin: 0;
     z-index: -2;
@@ -217,26 +219,25 @@ and (orientation: landscape){
      height: 100vh;
      background-color: red;
   }
-  .rotate{
-    width: 300px;
-    height: 300px;
-    position: absolute;
-    top:120px;
-    left: 330px;
+  .backButton{
+    display: none;
   }
   .rotateIpad{
     width: 0px;
     height: 0px;
   }
+  .rotate{
+    width: 100px;
+    height: auto;
+    margin-top: 150px;
+  }
   .textHide{
-    font-size: 35px;
+    font-size: 40px;
     color: #fff;
-    position: absolute;
-    top: 350px;
-    left: 250px;
+    margin-top: 10px;
   }
   #game {
-      display: none;
+    display: none ;
   }
   .etkLogo{
     display: none;
@@ -916,21 +917,21 @@ and (orientation: portrait){
      height: 100vh;
   }
   .rotate{
-    width: 500px;
+    width: 180px;
     height: auto;
     position: absolute;
-    top:600px;
-    left: 250px;
+    text-outline: 520px;
+    left: 410px;
   }
   .rotateIpad{
     width: 0px;
     height: 0px;
   }
   .textHide{
-    font-size: 50px;
+    font-size: 65px;
     color: #fff;
     position: absolute;
-    top: 980px;
+    top: 1000px;
     left: 200px;
   }
   #game{
@@ -957,27 +958,34 @@ and (orientation: landscape){
     /*margin: 0 0 0 0 !important;*/
   }
   .hide{
+     background-color: red;
+     position: absolute;
      width: 100vw;
      height: 100vh;
-     background-color: red;
   }
   .rotate{
-    width: 300px;
-    height: 300px;
+    width: 120px;
+    height: auto;
     position: absolute;
-    top:120px;
-    left: 330px;
+    top:0px;
+    left: 425px;
   }
   .rotateIpad{
     width: 0px;
     height: 0px;
   }
   .textHide{
-    font-size: 35px;
+    font-size: 38px;
     color: #fff;
     position: absolute;
-    top: 350px;
-    left: 250px;
+    top: 400px;
+    left: 300px;
+  }
+  .underwater{
+    display: none;
+  }
+  .backButton{
+    display: none;
   }
   #game {
       display: none;
@@ -1007,22 +1015,22 @@ and (orientation: portrait){
      height: 100vh;
   }
   .rotate{
-    width: 500px;
+    width: 180px;
     height: auto;
     position: absolute;
-    top:600px;
-    left: 250px;
+    top:480px;
+    left: 410px;
+  }
+  .textHide{
+    font-size: 60px;
+    color: #fff;
+    position: absolute;
+    top: 1000px;
+    left: 220px;
   }
   .rotateIpad{
     width: 0px;
     height: 0px;
-  }
-  .textHide{
-    font-size: 50px;
-    color: #fff;
-    position: absolute;
-    top: 980px;
-    left: 200px;
   }
   #game{
       display: none;
@@ -1039,17 +1047,24 @@ and (orientation: landscape){
   .container{
     /*margin: 0 0 0 0 !important;*/
   }
+  .underwater{
+    display: none;
+  }
+  .backButton{
+    display: none;
+  }
   .hide{
+     background-color: red;
+     position: absolute;
      width: 100vw;
      height: 100vh;
-     background-color: red;
   }
   .rotate{
-    width: 300px;
-    height: 300px;
+    width: 120px;
+    height: auto;
     position: absolute;
-    top:100px;
-    left: 330px;
+    top:-20px;
+    left: 425px;
   }
   .rotateIpad{
     width: 0px;
@@ -1059,8 +1074,8 @@ and (orientation: landscape){
     font-size: 35px;
     color: #fff;
     position: absolute;
-    top: 330px;
-    left: 250px;
+    top: 370px;
+    left: 320px;
   }
   #game {
       display: none;
@@ -1089,22 +1104,22 @@ and (orientation: portrait){
      height: 100vh;
   }
   .rotate{
-    width: 500px;
+    width: 180px;
     height: auto;
     position: absolute;
-    top:600px;
-    left: 250px;
+    top:480px;
+    left: 410px;
+  }
+  .textHide{
+    font-size: 60px;
+    color: #fff;
+    position: absolute;
+    top: 1000px;
+    left: 220px;
   }
   .rotateIpad{
     width: 0px;
     height: 0px;
-  }
-  .textHide{
-    font-size: 50px;
-    color: #fff;
-    position: absolute;
-    top: 980px;
-    left: 200px;
   }
   #game{
       display: none;
@@ -1121,28 +1136,35 @@ and (orientation: landscape){
   .container{
     /*margin: 0 0 0 0 !important;*/
   }
+  .underwater{
+    display: none;
+  }
+  .backButton{
+    display: none;
+  }
   .hide{
+     background-color: red;
+     position: absolute;
      width: 100vw;
      height: 100vh;
-     background-color: red;
-  }
-  .rotate{
-    width: 300px;
-    height: 300px;
-    position: absolute;
-    top:120px;
-    left: 330px;
   }
   .rotateIpad{
     width: 0px;
     height: 0px;
   }
+  .rotate{
+    width: 120px;
+    height: auto;
+    position: absolute;
+    top:-20px;
+    left: 425px;
+  }
   .textHide{
     font-size: 35px;
     color: #fff;
     position: absolute;
-    top: 350px;
-    left: 250px;
+    top: 370px;
+    left: 320px;
   }
   #game {
       display: none;
@@ -1176,18 +1198,19 @@ and (orientation: portrait){
     height: 0px;
   }
   .rotateIpad{
-    width: 380px;
+    width: 180px;
     height: auto;
     position: absolute;
     top:450px;
-    left: 310px;
+    left: 410px;
   }
   .textHide{
-    font-size: 50px;
+    font-size: 55px;
     color: #fff;
     position: absolute;
-    top: 750px;
-    left: 200px;
+    top: 820px;
+    left: 230px;
+    letter-spacing: 2px;
   }
   #game{
       display: none;
@@ -1209,28 +1232,36 @@ and (orientation: landscape){
     padding: 12vh 0 !important;
   }
   .hide{
+     background-color: red;
+     position: absolute;
      width: 100vw;
      height: 100vh;
-     background-color: red;
   }
   .rotate{
-    width: 400px;
-    height: 400px;
-    position: absolute;
-    top:140px;
-    left: 300px;
-  }
-  .rotateIpad{
     width: 0px;
     height: 0px;
   }
+  .rotateIpad{
+    width: 150px;
+    height: auto;
+    position: absolute;
+    top: 200px;
+    left: 420px;
+  }
   .textHide{
-    font-size: 40px;
+    font-size: 45px;
     color: #fff;
     position: absolute;
-    top: 450px;
-    left: 250px;
+    top: 500px;
+    left: 280px;
+    letter-spacing: 2px;
   }
+  /*.underwater{
+    display: none;
+  }
+  .backButton{
+    display: none;
+  }*/
   #game {
       display: none;
   }
@@ -1266,18 +1297,22 @@ and (orientation: portrait){
     height: 0px;
   }
   .rotateIpad{
-    width: 380px;
+    width: 180px;
     height: auto;
     position: absolute;
     top:450px;
-    left: 310px;
+    left: 420px;
   }
   .textHide{
-    font-size: 50px;
+    font-size: 55px;
     color: #fff;
     position: absolute;
-    top: 750px;
-    left: 200px;
+    top: 830px;
+    left: 240px;
+    letter-spacing: 2px;
+  }
+  .underwater{
+    display: none;
   }
   #game{
       display: none;
@@ -1300,27 +1335,29 @@ and (orientation: landscape){
 
   }
   .hide{
+     background-color: red;
+     position: absolute;
      width: 100vw;
      height: 100vh;
-     background-color: red;
   }
   .rotate{
-    width: 400px;
-    height: 400px;
-    position: absolute;
-    top:300px;
-    left: 470px;
-  }
-  .rotateIpad{
     width: 0px;
     height: 0px;
   }
+  .rotateIpad{
+    width: 180px;
+    height: auto;
+    position: absolute;
+    top: 300px;
+    left: 570px;
+  }
   .textHide{
-    font-size: 45px;
+    font-size: 48px;
     color: #fff;
     position: absolute;
-    top: 630px;
-    left: 380px;
+    top: 650px;
+    left: 420px;
+    letter-spacing: 2px;
   }
   #game {
       display: none;
