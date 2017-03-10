@@ -33,6 +33,7 @@ and (orientation: portrait){
     position: absolute;
     width: 100vw;
     height: 100vh;
+    padding: 10em 0 0 0;
  }
  .rotate{
    width: 0px;
@@ -89,7 +90,7 @@ and (orientation: landscape){
   }
   .hideDesktop{
     width: 100px;
-    margin-top: 50px;
+    margin-top: 15em;
   }
   .textHideDesktop{
     font-size: 25px;
@@ -201,7 +202,8 @@ and (orientation:portrait){
 
 @media only screen
 and (min-width:800px)
-and (orientation: landscape){
+and (orientation: landscape)
+{
   body {
       margin: 0 0 0 0;
       padding: 0 0 0 0 !important;
@@ -218,7 +220,10 @@ and (orientation: landscape){
      /*width: 100vw;
      height: 100vh;
      background-color: red;*/
-     display: none;
+     display: block;
+  }
+  .hideDesktop{
+    margin-top: 15em;
   }
   .backButton{
     display: none;
@@ -229,6 +234,7 @@ and (orientation: landscape){
     position: absolute;
     top:120px;
     left: 330px;
+    display: none;
   }
   .rotateIpad{
     width: 0px;
@@ -240,6 +246,7 @@ and (orientation: landscape){
     position: absolute;
     top: 350px;
     left: 250px;
+    display: none;
   }
   #game {
       display: block;
@@ -304,7 +311,7 @@ and (min-width:1024px){
   .hideDesktop{
     width: 100px;
     height: auto;
-    margin-top: 150px;
+    /*margin-top: 10px;*/
     /*position: absolute;
     top: 220px;
     left:430px;*/
@@ -429,6 +436,28 @@ and (orientation: landscape){
       display: block;
   }
 }
+
+
+@media only screen
+and (device-width: 640px)
+and (orientation: landscape){
+    .hide{
+       width: 100vw;
+       height: 100vh;
+       display: none;
+    }
+}
+
+@media only screen
+and (device-width: 732px)
+and (orientation: landscape){
+    .hide{
+       width: 100vw;
+       height: 100vh;
+       display: none;
+    }
+}
+
 
 /* iphone6 */
 @media only screen
