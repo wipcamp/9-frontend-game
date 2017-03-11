@@ -45,7 +45,7 @@ $(function() {
     usersRef.on("child_added", function(data) {
       // users.push(data.val());
       users.push(data.val());
-      nameUsers.push(data.key);
+      nameUsers.push(data.val().name);
       // console.log(data.key);
       // console.log(users);
 
@@ -115,45 +115,21 @@ $(function() {
       t.on( 'order.dt search.dt', function () {
         var k=1;
         t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
-          /*var j=i+1;
-
-          if(k===0){
-            cell.innerHTML = '<img src="assets/img/medal-gold.svg" alt="" class="prize">' + (k);
-            // k++;
-          }
-          j++;
-          if (users[i].highscore!=users[j].highscore) {
-            // k+=1;
-          }
-          else if(k===2){
-            cell.innerHTML = '<img src="assets/img/medal-silver.svg" alt="" class="prize">' + (k);
-          }
-          else if(k===3){
-            cell.innerHTML = '<img src="assets/img/medal-bronze.svg"  alt="" class="prize">' + (k);
-          }
-          if(k===1){
-            cell.innerHTML = '<img src="assets/img/medal-gold.svg" alt="" class="prize">' + (k);
-          }
-
-          else {
-            cell.innerHTML = k;
-          }*/
-          // cell.innerHTML = i+1;
-          if(i===0)
+          if(i==0)
             cell.innerHTML = '<img src="assets/img/medal-gold.svg" alt="" class="prize">' + (k);
             // print(k name)
           else {
-            if(highscore[i]===highscore[i-1]){
+            if(highscore[i]==highscore[i-1]){
               // console.log(users[i]);
               // print(k name)
-              if (k===1) {
+              if (k==1) {
 
                 cell.innerHTML = '<img src="assets/img/medal-gold.svg" alt="" class="prize">' + (k);
               }
-              else if (k===2) {
+              else if (k==2) {
                 cell.innerHTML = '<img src="assets/img/medal-silver.svg" alt="" class="prize">' + (k);
               }
-              else if(k===3) {
+              else if(k==3) {
                 cell.innerHTML = '<img src="assets/img/medal-bronze.svg" alt="" class="prize">' + (k);
               }
               else {
@@ -163,10 +139,10 @@ $(function() {
             }
               else {
               k=i+1;
-              if (k===2) {
+              if (k==2) {
                 cell.innerHTML = '<img src="assets/img/medal-silver.svg" alt="" class="prize">' + (k);
               }
-              else if(k===3) {
+              else if(k==3) {
                 cell.innerHTML = '<img src="assets/img/medal-bronze.svg" alt="" class="prize">' + (k);
               }
               else {
