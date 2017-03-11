@@ -1,5 +1,6 @@
 $(document).ready(function(){
   toDayToNight();
+  setTimeout(display,3000);
 });
 
 var d = new Date();
@@ -11,4 +12,7 @@ function toDayToNight(){
   else {
     $('body').css({background: 'linear-gradient(#141123, #1d3c5c)'});
   }
+}
+function display() {
+  $('#fbBtn').css({display: 'block'});
 }

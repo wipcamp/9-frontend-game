@@ -28,9 +28,6 @@
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="assets/css/fontface-thaisansneue.css">
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>  
-  <script type="text/javascript" src="assets/js/jquery.session.js"></script>
-  <script src="assets/js/index.min.js" charset="utf-8"></script>
   <title>WIP Camp #9 Game Center</title>
 </head>
 <body class="bg">
@@ -55,8 +52,12 @@
       <div class="row ">
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
           <div id="fb-root"></div>
-          <div id="fbBtn" class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true" onlogin="checkLoginState()"></div>
-          <div id="status"></div>
+          <div id="fbBtn">
+            <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true" onlogin="checkLoginState()">
+          </div>
+            <div id="status"></div>
+          </div>
+          
         </div>
         <div class="col-xs-12 col-sm-offset-2 col-sm-10 col-md-offset-2 col-md-10 ">
           <div class="bubble bubble1 dpNone">
@@ -107,6 +108,11 @@
   </div>
 </div>
 </body>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>  
+<script type="text/javascript" src="assets/js/jquery.session.js"></script>
+<script src="assets/js/index.js" charset="utf-8"></script>
+
 <script>
   console.log('%c9 I\'m Developer.', 'background: #222; color: #f3603f; font-size: 26px; font-style: italic; font-weight:700');
   console.log('If you interest our code 🙂 Join WIP Camp #9.');
@@ -122,19 +128,19 @@
   ga('create', 'UA-28869618-3', 'auto');
   ga('send', 'pageview');
 </script>
+
 <script>
-  
     function statusChangeCallback(response) {
         console.log('statusChangeCallback');
         console.log(response);
         if (response.status === 'connected') {
             testAPI();
         } else if (response.status === 'not_authorized') {
-            document.getElementById('status').innerHTML = 'Please log ' +
-                'into this app.';
+            document.getElementById('status').innerHTML = 'Please log' +
+                ' into this app.';
         } else {
-            document.getElementById('status').innerHTML = 'Please log ' +
-                'into Facebook.';
+            document.getElementById('status').innerHTML = 'Please log' +
+                ' into Facebook.';
         }
     }
 
@@ -183,14 +189,6 @@
         });
         console.log(JSON.parse($.session.get('fb')));
     }
+</script>
 
-</script>
-<script>
-  $(document).ready(function(){
-    function delay() {
-      $("#fbBtn").attr("display","block");
-    }
-    setTimeout(delay(),1000);
-  });
-</script>
 </html>
