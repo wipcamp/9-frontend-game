@@ -7,6 +7,48 @@ body{
     color: white;
     height: auto;
 }
+ /*Table Ranking*/
+#DataTables_Table_0_length{
+  display: none !important;
+}
+.dataTables_info{
+  display: none;
+}
+.paginate_button{
+  display: none;
+}
+.game-body {
+    color: #fff;
+}
+.wipgamebody {
+    width: 100%;
+    padding: 4px 20px 0px 20px;
+    border-radius: 14px;
+    border: 2px solid #9b97a5;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.rankingLogo{
+  width: 180px;
+  height: auto;
+  margin: 0 0 20px 0;
+  opacity: 0.75;
+}
+.prize {
+  display: none;
+}
+.game-tbl {
+    color: #9b97a5 !important;
+}
+.game-fontHeadTable {
+    font-size: 20px;
+    text-align: center;
+}
+.game-fontInTable {
+    font-size: 15px;
+    text-align: center;
+}
+/* End Table Ranking*/
 
 blockquote {
   background-color: rgb(0,0, 0);
@@ -24,29 +66,22 @@ blockquote {
     background: linear-gradient(#141123, #2d214d, #463b6b) !important;
 
 }
-.logo{
-    height: 100%;
-    width : 100%;
-    margin-bottom : 40px;
-}
 #game{
     margin-top : 7%;
     margin-bottom:7.35%;
 }
 .gamesideleft1{
     text-align: left;
-    margin-left :5%;
-    margin-right :2.5%;
-    margin-top :3%;
+    margin: 30px 40px 0 60px;
     color: #eeeeee;
+    /*background-color: pink;*/
 }
+
 .gamesideright1{
-    text-align: left;
-    margin-left :2.5%;
-    margin-right :5%;
-    margin-top :3%;
+    margin: 30px 0 0 50px;
     text-align: center;
     color: #eeeeee;
+    /*background-color: pink;*/
 }
 .btn-custom1{
     margin : 3% 4% 0% 0%;
@@ -96,6 +131,12 @@ blockquote {
 }
 .boxRight{
   width: 300px;
+}
+.logoGame{
+  width: 600px;
+  height: auto;;
+  margin: 30px 0 20px 0;
+
 }
 @media only screen
 and (min-device-width: 320px)
