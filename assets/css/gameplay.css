@@ -20,43 +20,18 @@ body{
 .game-body {
     color: #fff;
 }
-.wipgamebody {
-    width: 100%;
-    padding: 4px 20px 0px 20px;
-    border-radius: 14px;
-    border: 2px solid #9b97a5;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.rankingLogo{
-  width: 180px;
-  height: auto;
-  margin: 0 0 20px 0;
-  opacity: 0.75;
-}
 .prize {
   display: none;
 }
 .game-tbl {
     color: #9b97a5 !important;
 }
-.game-fontHeadTable {
-    font-size: 20px;
-    text-align: center;
-}
-.game-fontInTable {
-    font-size: 15px;
-    text-align: center;
-}
 /* End Table Ranking*/
 
 blockquote {
   background-color: rgb(0,0, 0);
-  /*color: rgb(36, 36, 36);*/
   opacity: 0.6;
   border-radius: 20px;
-  /*border-style: solid;*/
-  /*border-width: 10px;*/
   color: #fff;
 }
 .overFlowHidden{
@@ -64,223 +39,366 @@ blockquote {
 }
 .background{
     background: linear-gradient(#141123, #2d214d, #463b6b) !important;
-
 }
 #game{
     margin-top : 7%;
     margin-bottom:7.35%;
 }
-.gamesideleft1{
-    text-align: left;
-    margin: 30px 40px 0 60px;
-    color: #eeeeee;
-    /*background-color: pink;*/
-}
-
-.gamesideright1{
-    margin: 30px 0 0 50px;
-    text-align: center;
-    color: #eeeeee;
-    /*background-color: pink;*/
-}
-.btn-custom1{
-    margin : 3% 4% 0% 0%;
-    padding-bottom: 10px !important;
-    padding-top: 10px !important;
-    font-size: 18px !important;
-    background-color: #FF964E;
-    color : white;
-}
-.btn-custom2{
-    margin : 3% 4% 0% 0%;
-    padding: 10px 32px 10px 32px !important;
-    font-size : 18px !important;
-    background-color: #F26767;
-    color : white;
-}
-#button3{
-    font-size: 18px;
-    padding: 10px 32px 10px 32px !important;
-}
-.Right{
-  width: 250px;
-  height: auto;
-  margin-top: 10%;
-}
-.register{
-  margin-left : 50px;
-}
-.picWip{
-  margin: 10px 0 0 40px;
-  height: 300px;
-}
 .footer{
     height : 10%;
-}
-.spac{
-  letter-spacing: 1px;
-}
-.tab{
-  text-indent: 50px;
-}
-.gameName{
-  font-size: 25px;
-}
-.boxFontRight{
-  font-size: 15px;
-}
-.boxRight{
-  width: 300px;
 }
 .logoGame{
   width: 600px;
   height: auto;;
   margin: 30px 0 20px 0;
-
-}
-@media only screen
-and (min-device-width: 320px)
-and (max-device-width: 736px)
-and (orientation: landscape) {
-  .textWarn{
-    padding: 50% 0 0 0;
-    color: white;
-    font-size: 365%;
-  }
-  .warn{
-    width: 100%;
-    height: 100%;
-    background-color: rgb(249, 32, 32);
-    z-index: 1 !important;
-    position: absolute;
-  }
 }
 
-/*lock mobile*/
+
+/*-------- Lock Desktop and Android ---------*/
+
+/*@media only screen
+and (min-width:0px)
+and (orientation: portrait){
+  .lock{
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: #4b0095;
+    color: #fff;
+    font-size:23px;
+    display: block;
+  }
+  .sizeCom{
+    width: 230px;
+    height: auto;
+    margin-top: 8000px;
+  }
+}*/
+@media only screen
+and (min-width:0px){
+  .lock{
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: #4b0095;
+    display: block;
+  }
+  .sizeCom{
+    margin-top: 10em;
+    width: 230px;
+    height: auto;
+  }
+  .textHide{
+    font-size:28px;
+    color: #fff;
+    margin-top: -20px;
+  }
+}
+
 
 @media only screen
-  and (min-device-width: 320px)
-  and (max-device-width:  568px)
-  and (orientation: portrait) {
+and (max-width:800px)
+and (orientation:portrait){
+  .lock{
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: #4b0095;
+    display: block;
+  }
+  .sizeCom{
+    width: 230px;
+    height: auto;
+    margin-top: 12em;
+  }
+  .textHide{
+    font-size:25px;
+    color: #fff;
+    margin-top: -20px;
+  }
+}
+
+@media only screen
+and (max-width:800px)
+and (orientation: landscape){
+  .lock{
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: #4b0095;
+    display: block;
+  }
+  .sizeCom{
+    width: 230px;
+    height: auto;
+    margin-top: 3em;
+  }
+  .textHide{
+    font-size:28px;
+    color: #fff;
+    margin-top: -20px;
+  }
+}
+@media only screen
+and (min-width:801px){
+  .lock{
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: #4b0095;
+    display: block;
+  }
+  .sizeCom{
+    width: 300px;
+    height: auto;
+    margin-top: 12em;
+  }
+  .textHide{
+    font-size:35px;
+    color: #fff;
+    margin-top: -20px;
+  }
+  .logoGame{
+    display: none;
+  }
+  .gamesideleft1{
+    display: none;
+  }
+  .gamecenter{
+    display: none;
+  }
+  .gamesideright1{
+    display: none;
+  }
+}
+/*-------- Open Desktop ---------*/
+@media only screen
+and (min-width:1024px){
+  .lock{
+    display: none;
+  }
+  .logoGame{
+    display: block;
+  }
+  .btn-custom1{
+      margin : 3% 4% 0% 0%;
+      padding: 10px 20px !important;
+      font-size: 18px !important;
+      background-color: #FF964E;
+      color : white;
+  }
+  .btn-custom2{
+      margin : 3% 4% 0% 0%;
+      padding: 10px 42px !important;
+      font-size : 18px !important;
+      background-color: #F26767;
+      color : white;
+  }
+  .gamesideleft1{
+    margin: 30px 30px 20px 20px;
+    color: #eeeeee;
+    display: block;
+  }
+  .gamecenter{
+    display: block;
+  }
+  .tab{
+    font-size: 15px;
+    text-indent: 30px;
+  }
+  .spac{
+    letter-spacing: 1px;
+  }
+  .text{
+    font-size: 15px;
+  }
+  .gamesideright1{
+    margin: 30px 0 0 50px;
+    text-align: center;
+    color: #eeeeee;
+    display: block;
+  }
+  .wipgamebody{
+    width: 280px;
+    padding: 4px 20px 0px 20px;
+    border-radius: 14px;
+    border: 2px solid #9b97a5;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .game-fontHeadTable {
+      font-size: 20px;
+      text-align: center;
+  }
+  .game-fontInTable {
+      font-size: 15px;
+      text-align: center;
+  }
+  .rankingLogo{
+    width: 180px;
+    height: auto;
+    margin: 0 0 20px 50px;
+    opacity: 0.75;
+  }
+}
+
+@media only screen
+and (min-width:1200px){
+  .lock{
+    display: none;
+  }
+  .btn-custom1{
+      margin : 3% 4% 0% 0%;
+      padding: 10px 12px !important;
+      font-size: 18px !important;
+      background-color: #FF964E;
+      color : white;
+  }
+  .btn-custom2{
+      margin : 3% 4% 0% 0%;
+      padding: 10px 34px !important;
+      font-size : 18px !important;
+      background-color: #F26767;
+      color : white;
+  }
+  .gamesideleft1{
+    margin: 80px 10px 20px 40px;
+    color: #eeeeee;
+  }
+  .tab{
+    font-size: 18px;
+    text-indent: 30px;
+  }
+  .spac{
+    letter-spacing: 1px;
+  }
+  .text{
+    font-size: 18px;
+  }
+  .gamecenter{
+      margin: 0 0 0 40px;
+  }
+  .gamesideright1{
+    margin: 30px 0 0 50px;
+    text-align: center;
+    color: #eeeeee;
+  }
+  .wipgamebody{
+    width:25vw;
+    padding: 4px 20px 0px 20px;
+    border-radius: 14px;
+    border: 2px solid #9b97a5;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .game-fontHeadTable {
+      font-size: 20px;
+      text-align: center;
+  }
+  .game-fontInTable {
+      font-size: 18px;
+      text-align: center;
+  }
+  .rankingLogo{
+    width: 180px;
+    height: auto;
+    margin: 0 0 20px 40px;
+    opacity: 0.75;
+  }
+}
+
+
+/* lock ipad */
+@media only screen
+and (device-width:768px)
+and (device-height:1024px)
+and (orientation: portrait){
   .lock{
     position: absolute;
     z-index: 1;
-    min-width: 100%;
-    min-height: 100%;
-    background-color: rgb(255, 0, 0);
-    color: #fff;
-    padding-top:50%;
-    font-size:25px;
-    font-family: 'Itim', sans-serif !important;
+    width: 100vw;
+    height: 100vh;
+    background-color: #4b0095;
   }
   .sizeCom{
-    width: 200px;
+    margin-top: 20em;
+    width: 350px;
     height: auto;
   }
+  .textHide{
+    font-size:40px;
+    color: #fff;
+    margin-top: -20px;
+  }
 }
-
 @media only screen
-  and (min-device-width: 568px)
-  and (max-device-width:  736px)
-  and (orientation: landscape) {
+and (device-width:1024px)
+and (device-height:768px)
+and (orientation: landscape){
   .lock{
     position: absolute;
     z-index: 1;
-    min-width: 100%;
-    min-height: 100%;
-    background-color: rgb(255, 0, 0);
-    color: #fff;
-    padding-top:8%;
-    font-size:25px;
-    font-family: 'Itim', sans-serif !important;
+    width: 100vw;
+    height: 100vh;
+    background-color: #4b0095;
+    display: block;
   }
   .sizeCom{
-    width: 200px;
+    margin-top: 11em;
+    width: 350px;
     height: auto;
+  }
+  .textHide{
+    font-size:40px;
+    color: #fff;
+    margin-top: -20px;
   }
 }
 
+/* lock ipadpro */
 @media only screen
-  and (min-device-width: 768px)
-  and (max-device-width: 1024px)
-  and (orientation: portrait) {
-    .lock{
-      position: absolute;
-      z-index: 1;
-      min-width: 100%;
-      min-height: 100%;
-      background-color: rgb(255, 0, 0);
-      color: #fff;
-      padding-top:40%;
-      font-size:40px;
-      font-family: 'Itim', sans-serif !important;
-    }
-    .sizeCom{
-      width: 350px;
-      height: auto;
-    }
+and (device-width:1024px)
+and (device-height:1366px)
+and (orientation: portrait){
+  .lock{
+    position: absolute;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: #4b0095;
+    display: block;
+  }
+  .sizeCom{
+    margin-top: 28em;
+    width: 400px;
+    height: auto;
+  }
+  .textHide{
+    font-size:45px;
+    color: #fff;
+    margin-top: -20px;
+  }
 }
 @media only screen
-  and (min-device-width: 768px)
-  and (max-device-width: 1024px)
-  and (orientation: landscape) {
-    .lock{
-      position: absolute;
-      z-index: 1;
-      min-width: 100%;
-      min-height: 100%;
-      background-color: rgb(255, 0, 0);
-      color: #fff;
-      padding-top:15%;
-      font-size:40px;
-      font-family: 'Itim', sans-serif !important;
-    }
-    .sizeCom{
-      width: 350px;
-      height: auto;
-    }
+and (device-width:1366px)
+and (device-height:1024px)
+and (orientation: landscape){
+  .lock{
+    position: absolute;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: #4b0095;
+    display: block;
+  }
+  .sizeCom{
+    margin-top: 18em;
+    width: 400px;
+    height: auto;
+  }
+  .textHide{
+    font-size:50px;
+    color: #fff;
+    margin-top: -20px;
+  }
 }
-
-@media only screen
-  and (min-device-width: 768px)
-  and (max-device-width: 1024px)
-  and (orientation: portrait) {
-    .lock{
-      position: absolute;
-      z-index: 1;
-      min-width: 100%;
-      min-height: 100%;
-      background-color: rgb(255, 0, 0);
-      color: #fff;
-      padding-top:40%;
-      font-size:40px;
-      font-family: 'Itim', sans-serif !important;
-    }
-    .sizeCom{
-      width: 350px;
-      height: auto;
-    }
-}
-
-/*ทำไม่ได้เว้ยยยยยยยยยยยยยยยยยย*/
-@media only screen
-  and (min-device-width: 1024px)
-  and (max-device-width: 1366px)
-  and (orientation: landscape) {
-    .lock{
-      position: absolute;
-      z-index: 1;
-      min-width: 100%;
-      min-height: 100%;
-      background-color: rgb(255, 0, 0);
-      color: #fff;
-      padding-top:15%;
-      font-size:40px;
-      font-family: 'Itim', sans-serif !important;
-    }
-    .sizeCom{
-      width: 350px;
-      height: auto;
-    }
-}
-/*End lock Mobile*/
