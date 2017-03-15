@@ -48,32 +48,15 @@ blockquote {
     height : 10%;
 }
 .logoGame{
-  width: 600px;
-  height: auto;;
+  width: 550px;
+  height: auto;
   margin: 30px 0 20px 0;
+  opacity: 0.9;
 }
 
 
 /*-------- Lock Desktop and Android ---------*/
 
-/*@media only screen
-and (min-width:0px)
-and (orientation: portrait){
-  .lock{
-    z-index: 1;
-    width: 100vw;
-    height: 100vh;
-    background-color: #4b0095;
-    color: #fff;
-    font-size:23px;
-    display: block;
-  }
-  .sizeCom{
-    width: 230px;
-    height: auto;
-    margin-top: 8000px;
-  }
-}*/
 @media only screen
 and (min-width:0px){
   .lock{
