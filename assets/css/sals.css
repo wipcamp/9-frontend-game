@@ -1,0 +1,167 @@
+@import url('fontface-thaisansneue.css');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+body{
+    font-family: 'Thaisans Neue for Web', sans-serif !important;
+    font-weight: 400;
+    color: white;
+    height: 100vh;
+    background-color: #4b0095;
+}
+.gameZone{
+  display: none;
+}
+.hideGame{
+  width: 100vw;
+  height: 100vh;
+  background-color: #4b0095;
+  /* center by vertical */
+  display: flex;
+  align-items: center; /* align vertical */
+  justify-content: center; /* align horizontal */
+}
+.textHide img{
+  height: 7em;
+}
+.textHide h2 {
+    margin: 0.5em 0;
+    font-size: 1.8em;
+}
+.prize{
+  display: none;
+}
+.sorting_desc::before,.sorting_desc::after{
+  display: none !important;
+}
+.text{
+  font-size: 0.85em;
+}
+.rankingLogo{
+  width: 10em;
+}
+.logoGame{
+  width: 25em;
+}
+#game canvas{
+  margin: 0 auto !important;
+  width: 350px !important;
+  height: 560px !important;
+}
+@media only screen and
+(min-width: 0px) and
+(max-width: 800px){
+  html{
+    overflow: hidden;
+  }
+  body{
+    overflow: hidden;
+  }
+}
+/* ipad */
+@media only screen and
+(min-width: 768px) and
+(max-width: 1024px){
+  .textHide img{
+    height: 15em;
+  }
+  .textHide h2 {
+      margin: 0.5em 0;
+      font-size: 3em;
+  }
+}
+
+/* Desktop */
+
+@media only screen and
+(min-width:1024px) and
+(max-width:1280px){
+  .gameZone{
+    display: block;
+  }
+  .hideGame{
+    display: none;
+  }
+}
+
+@media only screen and
+(min-width:1300px) and
+(max-width:1440px){
+  .gameZone{
+    display: block;
+  }
+  .hideGame{
+    display: none;
+  }
+}
+
+@media only screen and
+(min-width:1440px) and
+(max-width:1600px){
+  .gameZone{
+    display: block;
+  }
+  .hideGame{
+    display: none;
+  }
+}
+
+@media only screen and
+(min-width:1600px){
+  .gameZone{
+    display: block;
+  }
+  .hideGame{
+    display: none;
+  }
+}
+
+/* ipad + ipad pro */
+@media only screen and
+(device-width: 768px) and
+(device-height: 1024px){
+  .gameZone{
+    display: none;
+  }
+  .hideGame{
+    /* center by vertical */
+    display: flex;
+    align-items: center; /* align vertical */
+    justify-content: center; /* align horizontal */
+  }
+}
+
+@media only screen and
+(device-width: 1024px) and
+(device-height: 1366px) and
+(orientation:portrait){
+  .gameZone{
+    display: none;
+  }
+  .hideGame{
+    /* center by vertical */
+    display: flex;
+    align-items: center; /* align vertical */
+    justify-content: center; /* align horizontal */
+  }
+}
+
+@media only screen and
+(device-width: 1366px) and
+(device-height: 1024px) and
+(orientation:landscape){
+  .gameZone{
+    display: none;
+  }
+  .hideGame{
+    /* center by vertical */
+    display: flex;
+    align-items: center; /* align vertical */
+    justify-content: center; /* align horizontal */
+  }
+  .textHide img{
+    height: 15em;
+  }
+  .textHide h2{
+    font-size: 3em;
+  }
+} 

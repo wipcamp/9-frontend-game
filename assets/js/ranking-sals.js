@@ -1,12 +1,12 @@
 // Initialize Firebase
-  const config = {
-      apiKey: "AIzaSyAhBOG3nZFT0xjOu5UPm1k-ZVot1IPEfoQ",
-      authDomain: "wip-camps-game.firebaseapp.com",
-      databaseURL: "https://wip-camps-game.firebaseio.com",
-      storageBucket: "wip-camps-game.appspot.com",
-      messagingSenderId: "768785136426"
-  };
-  firebase.initializeApp(config);
+  // const config = {
+  //     apiKey: "AIzaSyAhBOG3nZFT0xjOu5UPm1k-ZVot1IPEfoQ",
+  //     authDomain: "wip-camps-game.firebaseapp.com",
+  //     databaseURL: "https://wip-camps-game.firebaseio.com",
+  //     storageBucket: "wip-camps-game.appspot.com",
+  //     messagingSenderId: "768785136426"
+  // };
+  // firebase.initializeApp(config);
 
 jQuery.fn.dataTableExt.oApi.fnDataUpdate = function ( oSettings, nRowObject, iRowIndex )
 {
@@ -53,10 +53,10 @@ $(function() {
     $(document).ready(function() {
       toDayToNight();
       setTimeout(function() {
-        var t = $('.game-tbl').DataTable({
+        var t = $('.tenTable').DataTable({
           data: users,
           responsive: true,
-          paging: true,
+          paging: false,
           destroy: true,
           searching: false,
           // orderable: false,
