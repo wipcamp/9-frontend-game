@@ -27,20 +27,53 @@ body{
     margin: 0.5em 0;
     font-size: 1.8em;
 }
+#DataTables_Table_0_length{
+ display: none !important;
+}
+.dataTables_info{
+ display: none;
+}
+.paginate_button{
+ display: none;
+}
+.game-body {
+   color: #fff;
+}
+.prize {
+ display: none;
+}
+.game-tbl {
+   color: #9b97a5 !important;
+}
 .prize{
   display: none;
 }
-.sorting_desc::before,.sorting_desc::after{
-  display: none !important;
+.ranking{
+  width:280px;
+  margin: 5em 0 3em 0;
+  padding: 20px 15px 0px 15px;
+  border-radius: 14px;
+  border: 2px solid #9b97a5;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.game-fontHeadTable {
+    font-size: 18px;
+    text-align: center;
+}
+.game-fontInTable {
+    font-size: 15px;
+    text-align: center;
 }
 .text{
   font-size: 0.85em;
 }
 .rankingLogo{
   width: 10em;
+  margin-bottom: 8px;
 }
-.ranking{
-  margin: 5em 0 3em 0;
+.sorting_desc::before,.sorting_desc::after{
+  display: none !important;
 }
 .logoGame{
   width: 25em;
@@ -60,7 +93,7 @@ blockquote{
 }
 .btn-custom2{
     margin : 3% 4% 0% 0%;
-    padding: 8px 30px !important;
+    padding: 8px 26px !important;
     font-size : 15px !important;
     background-color: #F26767;
     color : white;
@@ -106,6 +139,26 @@ blockquote{
   }
   .hideGame{
     display: none;
+  }
+  .ranking{
+    width:240px;
+    margin: 5em 0 3em 0;
+    padding: 20px 15px 0px 15px;
+    border-radius: 14px;
+    border: 2px solid #9b97a5;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .game-fontHeadTable {
+      font-size: 15px;
+      text-align: center;
+  }
+  .game-fontInTable {
+      font-size: 12px;
+      text-align: center;
+  }
+  .text{
+    font-size: 15px;
   }
 }
 
