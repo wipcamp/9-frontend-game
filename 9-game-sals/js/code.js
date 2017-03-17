@@ -29,39 +29,44 @@ game.state.add('report',report);
 game.state.add('credit',credit);
 game.state.start('menu');
 function preload() {
-	  game.load.image('collider','images/collider.png');
-    game.load.image('bullet', 'images/bullet.png');
-    game.load.image('ship', 'images/playership.png');
-	  game.load.image('boss','images/bossboss.png');
-    game.load.image('enemy_ship','images/enemyship_red.png');
-    game.load.image('background','images/bg.png');
-    game.load.image('laser','images/biglaser.png');
-    game.load.image('text_speed','images/text_move.png');
-    game.load.image('text_fire','images/text_fire.png');
-    game.load.image('text_score','images/text_score.png');
+	  game.load.image('collider','9-game-sals/images/collider.png');
+    game.load.image('bullet', '9-game-sals/images/bullet.png');
+    game.load.image('ship', '9-game-sals/images/playership.png');
+	  game.load.image('boss','9-game-sals/images/bossboss.png');
+    game.load.image('enemyship_red','9-game-sals/images/enemyship_red.png');
+    game.load.image('enemyship_blue','9-game-sals/images/enemyship_blue.png');
+    game.load.image('enemyship_green','9-game-sals/images/enemyship_green.png');
+    game.load.image('background','9-game-sals/images/bg.png');
+    game.load.image('laser','9-game-sals/images/biglaser.png');
+    game.load.image('text_speed','9-game-sals/images/text_move.png');
+    game.load.image('text_fire','9-game-sals/images/text_fire.png');
+    game.load.image('text_score','9-game-sals/images/text_score.png');
+    game.load.image('rock1','9-game-sals/images/rock1.png');
+    game.load.image('rock2','9-game-sals/images/rock2.png');
+    game.load.image('rock3','9-game-sals/images/rock3.png');
 
-    game.load.spritesheet('speed','images/item_move.png',800/8,100);
-    game.load.spritesheet('firerate','images/item_fire.png',800/8,100);
-    game.load.spritesheet('scoreUp','images/item_score.png',800/8,100);
-    game.load.spritesheet('bomb', 'images/boomspritesheet.png',400/5,90);
-    game.load.spritesheet('shark', 'images/shark.png', 50, 50);
-    game.load.spritesheet('mute','images/mute.png',450,447);
-    game.load.spritesheet('start','images/start.png',3876/3,196);
-    game.load.spritesheet('howtoplay','images/howtoplay.png',3876/3,196);
-    game.load.spritesheet('menu','images/mainmenu.png',3876/3,196);
-    game.load.spritesheet('report','images/report.png',3876/3,196);
-    game.load.spritesheet('scoreboard','images/score.png',3876/3,196);
-    game.load.spritesheet('playagain','images/playagain.png',3876/3,196);
-    game.load.spritesheet('submit','images/submit.png',3876/3,196);
-    game.load.spritesheet('credit','images/credit.png',3876/3,196);
+    game.load.spritesheet('speed','9-game-sals/images/item_move.png',800/8,100);
+    game.load.spritesheet('firerate','9-game-sals/images/item_fire.png',800/8,100);
+    game.load.spritesheet('scoreUp','9-game-sals/images/item_score.png',800/8,100);
+    game.load.spritesheet('bomb', '9-game-sals/images/boomspritesheet.png',400/5,90);
+    game.load.spritesheet('shark', '9-game-sals/images/shark.png', 50, 50);
+    game.load.spritesheet('mute','9-game-sals/images/mute.png',450,447);
+    game.load.spritesheet('start','9-game-sals/images/start.png',3876/3,196);
+    game.load.spritesheet('howtoplay','9-game-sals/images/howtoplay.png',3876/3,196);
+    game.load.spritesheet('menu','9-game-sals/images/mainmenu.png',3876/3,196);
+    game.load.spritesheet('report','9-game-sals/images/report.png',3876/3,196);
+    game.load.spritesheet('scoreboard','9-game-sals/images/score.png',3876/3,196);
+    game.load.spritesheet('playagain','9-game-sals/images/playagain.png',3876/3,196);
+    game.load.spritesheet('submit','9-game-sals/images/submit.png',3876/3,196);
+    game.load.spritesheet('credit','9-game-sals/images/credit.png',3876/3,196);
 
-    game.load.audio('Play','sound/WhilePlay.ogg');
-    game.load.audio('Died','sound/You Died.ogg');
-    game.load.audio('intro','sound/Interface.ogg');
-    //game.load.audio('ENshot','sound/EnemyShot(Normal).wav');
-    game.load.audio('Death','sound/Aftergethit.ogg');
-    game.load.audio('BossDeath','sound/BossDeath.ogg');
-    game.load.audio('ENdestroy','sound/EnemyShot(Normal).ogg');
+    game.load.audio('Play','9-game-sals/sound/WhilePlay.ogg');
+    game.load.audio('Died','9-game-sals/sound/You Died.ogg');
+    game.load.audio('intro','9-game-sals/sound/Interface.ogg');
+    //game.load.audio('ENshot','9-game-sals/sound/EnemyShot(Normal).wav');
+    game.load.audio('Death','9-game-sals/sound/Aftergethit.ogg');
+    game.load.audio('BossDeath','9-game-sals/sound/BossDeath.ogg');
+    game.load.audio('ENdestroy','9-game-sals/sound/EnemyShot(Normal).ogg');
 }
 var plan,p1,p2;
 var destroyedCount=0;
@@ -77,6 +82,7 @@ var bombGroup;
 var bombCooldown;
 var itemCooldown;
 var shark;
+var rock1,rock2,rock3;
 var rockGroup;
 var rockCooldown;
 var sharkGroup;
@@ -95,7 +101,7 @@ var countRound = 0;
 var bulletTime = 0;
 var Boss,pause_label;
 var score = 0,textScore;
-var interMu;
+var bgm;
 var buttonStart,buttonHowToPlay;
 var text;
 var isSound = true;
@@ -116,9 +122,9 @@ function createGamePlay() {
 	firerateTime=0;
 	scoreTime=0;
 	scoreMultiplier = 1;
-    interMu.stop();
-    interMu = game.add.audio('Play');
-    interMu.loopFull();
+    bgm.stop();
+    bgm = game.add.audio('Play');
+    bgm.loopFull();
     countRound = 0;
     game.add.sprite(0,0,'background');
     sprite2 = this.add.sprite(game.world.width/2,game.world.height*(3/5), 'collider');
@@ -322,18 +328,77 @@ function createGamePlay() {
         scoreObj.body.setCircle(45);
     }
     bombGroup.callAll('animations.add', 'animations', 'move', [0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,4], 50, true);
-    rockGroup = game.add.group();
+    /*rockGroup = game.add.group();
     rockGroup.enableBody = true;
     rockGroup.physicsBodyType = Phaser.Physics.ARCADE;
-    for (var i = 0; i < 16; i++) {
-        rock = rockGroup.create(0, 0, 'rock');
-        rock.scale.setTo(0.5, 0.5);
+    rock1 = rockGroup.create(0, 0, 'rock1');
+    rock2 = rockGroup.create(0, 0, 'rock2');
+    rock3 = rockGroup.create(0, 0, 'rock3');
+    rockGroup.scale.setTo(1.3, 1.3);
+    rockGroup.exists = false;
+    rockGroup.visible = false;
+    rockGroup.checkWorldBounds = true;
+    rockGroup.events.onOutOfBounds.add(resetBullet, this);
+    rockGroup.body.setCircle(28);*/
+    rock1 = this.add.sprite(0,0, 'rock1');
+    game.physics.arcade.enable(rock1);
+    rock1.enableBody = true;
+    rock1.exists = false;
+    rock1.visible = false;
+    rock1.scale.setTo(1.3,1.3);
+    rock1.anchor.set(0.5);
+    rock1.body.setCircle(22);
+    rock1.checkWorldBounds = true;
+    rock1.events.onOutOfBounds.add(resetBullet, this);
+    rock1.body.velocity.y = 100;
+    //rock1.body.setSize(40,30,0,0);
+
+    rock2 = this.add.sprite(0,0, 'rock2');
+    game.physics.arcade.enable(rock2);
+    rock2.enableBody = true;
+    rock2.exists = false;
+    rock2.visible = false;
+    rock2.scale.setTo(1.3,1.3);
+    rock2.anchor.set(0.5);
+    rock2.body.setCircle(22);
+    rock2.checkWorldBounds = true;
+    rock2.events.onOutOfBounds.add(resetBullet, this);
+    rock2.body.velocity.y = 100;
+    //rock2.body.setSize(40,30,0,0);
+
+    rock3 = this.add.sprite(0,0, 'rock3');
+    game.physics.arcade.enable(rock3);
+    rock3.enableBody = true;
+    rock3.exists = false;
+    rock3.visible = false;
+    rock3.scale.setTo(1.3,1.3);
+    rock3.anchor.set(0.5);
+    rock3.body.setCircle(22);
+    rock3.checkWorldBounds = true;
+    rock3.events.onOutOfBounds.add(resetBullet, this);
+    rock3.body.velocity.y = 100;
+    //rock3.body.setSize(40,30,0,0);
+    //rock2.body.velocity.y = 100;
+    //rock3.body.velocity.y = 100;
+    /*for (var i = 0; i < 16; i++) {
+        var rand = game.rnd.integerInRange(1, 3);
+        console.log("rock type = "+rand);
+        var rock;
+        switch (rand) {
+            case 1:rock = rockGroup.create(0, 0, 'rock1');
+            break;
+            case 2:rock = rockGroup.create(0, 0, 'rock2');
+            break;
+            case 3:rock = rockGroup.create(0, 0, 'rock3');
+            break;
+        }
+        rock.scale.setTo(1.3, 1.3);
         rock.exists = false;
         rock.visible = false;
         rock.checkWorldBounds = true;
         rock.events.onOutOfBounds.add(resetBullet, this);
         rock.body.setCircle(28);
-    }
+    }*/
     sharkGroup = game.add.group();
     sharkGroup.enableBody = true;
     sharkGroup.physicsBodyType = Phaser.Physics.ARCADE;
@@ -453,11 +518,11 @@ function updateGamePlay() {
     game.physics.arcade.overlap(sprite2,speedGroup, getSpeed, null , this);
     game.physics.arcade.overlap(sprite2,firerateGroup, getFirerate, null , this);
     game.physics.arcade.overlap(sprite2,scoreGroup, getScore, null , this);
-    game.physics.arcade.overlap(sprite2, rockGroup, rockOverlapPlayer, null, this);
+
     for (var i = 0; i < enemy.length; i++){
         if(wave%7!=6){
             game.physics.arcade.overlap(enemy[i].enemy_ship,bullets, bulletHitEnemy, null , this);
-            game.physics.arcade.overlap(enemy[i].enemy_ship,sprite2, bulletHitPlayer, null , this);
+            //game.physics.arcade.overlap(enemy[i].enemy_ship,sprite2, bulletHitPlayer, null , this);
         }
         else{
             game.physics.arcade.overlap(enemy[i].boss,bullets,bulletHitBoss,null,this);
@@ -469,12 +534,9 @@ function updateGamePlay() {
         }
     }
     sprite.body.velocity.y=0;
-	sprite.body.velocity.x=0;
+	  sprite.body.velocity.x=0;
   	if(cursors.up.isDown){
   		sprite.body.velocity.y = -speedMove;
-  	}
-  	if(cursors.down.isDown){
-  		sprite.body.velocity.y = speedMove;
   	}
   	if(cursors.left.isDown){
   		sprite.body.velocity.x = -speedMove;
@@ -482,7 +544,12 @@ function updateGamePlay() {
   	if(cursors.right.isDown){
   		sprite.body.velocity.x = speedMove;
   	}
-
+    if(cursors.down.isDown){
+  		sprite.body.velocity.y = speedMove;
+  	}
+    game.physics.arcade.overlap(sprite, rock1, rockOverlapPlayer, null, this);
+    game.physics.arcade.overlap(sprite, rock2, rockOverlapPlayer, null, this);
+    game.physics.arcade.overlap(sprite, rock3, rockOverlapPlayer, null, this);
   	if(this.input.keyboard.addKey(Phaser.KeyCode.ENTER).isDown){
   		game.paused = true;
   	}
@@ -491,6 +558,7 @@ function updateGamePlay() {
         	game.paused = false;
     	}
 	}
+
 }
 
 //EndUpdateGamePlay
@@ -567,9 +635,6 @@ function bulletHitEnemy (enemy_ship, bullet) {
       }
     }
 }
-function rockOverlapPlayer(playership,rock) {
-    //sprite
-}
 function bombSpawn() {
     var output = game.rnd.integerInRange(0, 1);
     console.log("randomBomb output = "+output)
@@ -587,16 +652,47 @@ function bombSpawn() {
 }
 function rockSpawn() {
     var output = game.rnd.integerInRange(0, 1);
-    console.log("randomRock output = "+output)
+    console.log("randomRock output = "+output);
     if (output == 0) {
+        var rand = game.rnd.integerInRange(1, 3);
         console.log("rock spawn");
-        rockCooldown = 400;
-        var rock = rockGroup.getFirstExists(false);
         var rockDropAt = game.rnd.integerInRange(1, 25);
-        rock.reset(game.world.width * (rockDropAt / 26), 0);
-        rock.body.velocity.y = 200;
+        switch (rand) {
+            case 1:rock1.reset(game.world.width * (rockDropAt / 26), 0);
+                  rock1.body.velocity.y = 100;
+            break;
+            case 2:rock2.reset(game.world.width * (rockDropAt / 26), 0);
+                  rock2.body.velocity.y = 100;
+            break;
+            case 3:rock3.reset(game.world.width * (rockDropAt / 26), 0);
+                  rock3.body.velocity.y = 100;
+            break;
+        }
+        rockCooldown = 400;
     }else{
         rockCooldown+=60;
+    }
+}
+function rockOverlapPlayer(playership,rock) {
+    if(sprite.y-rock.y<=40&&sprite.y-rock.y>=-5&&sprite.x-rock.x<=28&&sprite.x-rock.x>=-30){
+        sprite.body.velocity.y = 100;
+        if(cursors.down.isDown){
+            sprite.body.velocity.y = speedMove;
+        }
+        if(sprite.y>=game.world.height-30){
+            bulletHitPlayer();
+        }
+    }else if(rock.y-sprite.y<=40&&rock.y-sprite.y>=-5){
+        if(cursors.down.isDown){
+            sprite.body.velocity.y = 0;
+        }
+    }
+    console.log("rock.x = "+rock.x);
+    console.log("ship.x = "+sprite.x);
+    if(sprite.x-rock.x<=40&&sprite.x-rock.x>=-5&&cursors.left.isDown&&sprite.y-rock.y<=20){
+        sprite.body.velocity.x = 0;
+    }else if(rock.x-sprite.x<=40&&rock.x-sprite.x>=-5&&cursors.right.isDown&&sprite.y-rock.y<=20){
+        sprite.body.velocity.x = 0;
     }
 }
 function sharkSpawn() {
@@ -622,18 +718,21 @@ function sharkSpawn() {
     }
 }
 function sharkLaunch(spawnSide,shark) {
+    ///// sound shark
+    
     console.log("spawnside="+spawnSide);
     if(spawnSide==0){
-        shark.body.velocity.x = 600;
+        shark.body.velocity.x = 800;
         shark.animations.play('moveFromLeft');
     }else {
-        shark.body.velocity.x = -600;
+        shark.body.velocity.x = -800;
         shark.animations.play('moveFromRight');
     }
 }
 
 
 function itemSpawner() {
+  /////// sound item spawn
 	var output = game.rnd.integerInRange(0,2);
 	console.log(output);
 	if(output==0)
@@ -688,8 +787,18 @@ function summonWave(numberWave){
     for(var i=0;i<l;i++)
     	enemy.pop();
     destroyedCount=numberWave;
+    var randColor = game.rnd.integerInRange(1,3);
+    var color;
+    switch (randColor) {
+      case 1:color="red";
+      break;
+      case 2:color="blue";
+      break;
+      case 3:color="green";
+      break;
+    }
     for (var i = 0; i < numberWave; i++){
-        enemy.push(new EnemyShip(i, game, enemyBullets));
+        enemy.push(new EnemyShip(i, game, enemyBullets,color));
     }
 }
 function bulletHitBoss (boss, bullet) {
@@ -708,16 +817,26 @@ function bulletHitBoss (boss, bullet) {
 //subportGamePlay
 
 //ObjectBotShip
-EnemyShip = function (index, game, bullets) {
+EnemyShip = function (index, game, bullets,color) {
     var x = game.world.randomX;
     var y = 0;
     this.game = game;
     this.health = 3;
     this.bullets = bullets;
     this.alive = true;
-    this.enemy_ship = game.add.sprite(x, y, 'enemy_ship');
+    switch (color) {
+      case "red":this.enemy_ship = game.add.sprite(x, y, 'enemyship_red');
+      this.enemy_ship.scale.setTo(0.75, 0.75);
+      break;
+      case "blue":this.enemy_ship = game.add.sprite(x, y, 'enemyship_blue');
+      this.enemy_ship.scale.setTo(0.1, 0.1);
+      break;
+      case "green":this.enemy_ship = game.add.sprite(x, y, 'enemyship_green');
+      this.enemy_ship.scale.setTo(0.1, 0.1);
+      break;
+    }
     this.enemy_ship.anchor.set(0.5);
-    this.enemy_ship.scale.setTo(0.75, 0.75);
+
     this.enemy_ship.name = index.toString();
     this.enemy_ship.count=0;
     this.enemy_ship.countBullet=0;
@@ -1139,8 +1258,8 @@ function summonBoss(){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function createMenu(){
-    interMu = game.add.audio('intro');
-    interMu.loopFull();
+    bgm = game.add.audio('intro');
+    bgm.loopFull();
     buttonStart = game.add.button(game.world.centerX, game.world.centerY, 'start', toGame, this);
     buttonStart.scale.setTo(0.2,0.2);
     buttonHowToPlay = game.add.button(game.world.centerX, game.world.centerY+100, 'howtoplay', toHowToPlay, this);
@@ -1161,9 +1280,9 @@ function createMenu(){
 }
 
 function createHowtoPlay(){
-    interMu.stop();
-    interMu = game.add.audio('intro');
-    interMu.loopFull();
+    bgm.stop();
+    bgm = game.add.audio('intro');
+    bgm.loopFull();
     text = game.add.text(game.world.centerX,game.world.centerY*(1/5),"How To Play",{fontSize : "20px",fill : "#ed3465"});
     text.anchor.set(0.5);
     buttonStart = game.add.button(game.world.centerX, game.world.centerY, 'start', toGame, this);
@@ -1179,9 +1298,9 @@ function createHowtoPlay(){
     fireButton = this.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
 }
 function createReport(){
-    interMu.stop();
-    interMu = game.add.audio('intro');
-    interMu.loopFull();
+    bgm.stop();
+    bgm = game.add.audio('intro');
+    bgm.loopFull();
     text = game.add.text(game.world.centerX,game.world.centerY*(1/5),"Report",{fontSize : "20px",fill : "#ed3465"});
     text.anchor.set(0.5);
     buttonSubmit = game.add.button(game.world.centerX, game.world.centerY, 'submit', toSubmit, this);
@@ -1197,9 +1316,9 @@ function createReport(){
     fireButton = this.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
 }
 function createCredit(){
-    interMu.stop();
-    interMu = game.add.audio('intro');
-    interMu.loopFull();
+    bgm.stop();
+    bgm = game.add.audio('intro');
+    bgm.loopFull();
     text = game.add.text(game.world.centerX,game.world.centerY*(1/5),"credit",{fontSize : "20px",fill : "#ed3465"});
     text.anchor.set(0.5);
     buttonStart = game.add.button(game.world.centerX, game.world.centerY, 'start', toGame, this);
@@ -1215,9 +1334,9 @@ function createCredit(){
     fireButton = this.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
 }
 function createResult(){
-    interMu.stop();
-    interMu = game.add.audio('Died');
-    interMu.loopFull();
+    bgm.stop();
+    bgm = game.add.audio('Died');
+    bgm.loopFull();
     text = game.add.text(game.world.centerX,game.world.centerY,"Score : "+score,{fontSize : "20px",fill : "#ed3465"});
     text.anchor.set(0.5);
     buttonPlayagain = game.add.button(game.world.centerX, game.world.centerY, 'playagain', toGame, this);
