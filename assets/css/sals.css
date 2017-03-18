@@ -1,13 +1,15 @@
 @import url('fontface-thaisansneue.css');
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-
+html{
+  overflow-x: hidden;
+}
 body{
     font-family: 'Thaisans Neue for Web', sans-serif !important;
     font-weight: 400;
     color: white;
     height: 100vh;
     background: black;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
 }
 .gameZone{
   display: none;
@@ -78,6 +80,7 @@ body{
 }
 .logoGame{
   width: 25em;
+  margin-bottom: 2em;
 }
 blockquote{
   background-color: rgb(0,0, 0);
@@ -108,20 +111,22 @@ blockquote{
 .bg-sals-page-1{
   position: absolute;
   z-index: -2;
-  bottom: 0;
+  bottom: 1em;
   left: 0;
 }
 .bg-sals-page-2{
   position: absolute;
   z-index: -2;
-  bottom: 0em;
+  bottom: 1em;
   right: -3em;
 }
 .bg-sals{
+  display: none;
   bottom: 0;
+  overflow-x: hidden;
 }
 .ship-wip{
-  width: 35em;  
+  width: 25em;  
   animation-name: ship;
   animation-duration: 6s;
   animation-delay: .1s;
@@ -173,15 +178,15 @@ blockquote{
   }
 }
 .wave {
-  width: 100%;
+  /*width: 100%;*/
   height: 5em;
 }
 .wave1{
   background-image: url('../img/object/wave1.svg');
   background-repeat: repeat-x;
   position: absolute;
-  width: 160%;
-  left: -10px;
+  width: 100vw;
+  left: -3em;
   bottom: 1.5em;
   z-index: -3;
   animation-name: wave;
@@ -196,9 +201,9 @@ blockquote{
   background-repeat: repeat-x;
   background-position: -42px 0;
   position: absolute;
-  width: 170%;
+  width: 105vw;
   bottom: 1em;
-  left: -50%;
+  left: -2em;
   z-index: -2;
   animation-name: wave;
   animation-duration: 4s;
@@ -212,8 +217,8 @@ blockquote{
   background-repeat: repeat-x;
   position: absolute;
   bottom: 0;
-  width: 170%;
-  left: -50%;
+  width: 105vw;
+  left: -3em;
   z-index: -1;
   animation-name: wave;
   animation-duration: 3s;
@@ -222,7 +227,14 @@ blockquote{
   animation-timing-function: linear;
   animation-play-state: running;
 }
-
+.water{
+  z-index: -1;
+  position: absolute;
+  bottom: -3em;
+  height: 4em;
+  width: 100vw;
+  background-color: #09706b;
+}
 @media only screen and
 (min-width: 0px) and
 (max-width: 800px){
@@ -251,6 +263,12 @@ blockquote{
 @media only screen and
 (min-width:1024px) and
 (max-width:1280px){
+    body{
+    overflow-x: hidden;
+  }
+  .bg-sals{
+    display: block;
+  }
   .gameZone{
     display: block;
   }
@@ -280,8 +298,11 @@ blockquote{
 }
 
 @media only screen and
-(min-width:1300px) and
+(min-width:1280px) and
 (max-width:1440px){
+  .bg-sals{
+    display: block;
+  }  
   .gameZone{
     display: block;
   }
@@ -293,8 +314,14 @@ blockquote{
 @media only screen and
 (min-width:1440px) and
 (max-width:1600px){
+  .bg-sals{
+    display: block;
+  }  
   .gameZone{
     display: block;
+  }
+  #game canvas{
+    margin-top: 2em;  
   }
   .hideGame{
     display: none;
@@ -303,7 +330,19 @@ blockquote{
 
 @media only screen and
 (min-width:1600px){
+  body{
+    overflow: hidden !important;
+  }
+  .bg-sals{
+    display: block;
+  }  
+  .logoGame{
+    width: 30em;
+    margin-bottom: 2em;
+  }
   .gameZone{
+    margin-top: 3em;
+    /* center by vertical */
     display: block;
   }
   .hideGame{

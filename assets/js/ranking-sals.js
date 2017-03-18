@@ -45,7 +45,7 @@ $(function() {
     usersRef.on("child_added", function(data) {
       // users.push(data.val());
       users.push(data.val());
-      nameUsers.push(data.key);
+      nameUsers.push(data.val().name);
       // console.log(data.key);
       // console.log(users);
 
