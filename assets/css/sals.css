@@ -6,7 +6,7 @@ body{
     font-weight: 400;
     color: white;
     height: 100vh;
-    background: linear-gradient(#9acbd8, #a1d3e0, #abddeb);
+    background: black;
 }
 .gameZone{
   display: none;
@@ -78,6 +78,14 @@ body{
 .logoGame{
   width: 25em;
 }
+.bg-sals-page{
+  position: absolute;
+  z-index: -1;
+  top: 15em;
+}
+.ship-wip{
+  width: 20em;
+}
 blockquote{
   background-color: rgb(0,0, 0);
   opacity: 0.6;
@@ -106,6 +114,8 @@ blockquote{
   width: 350px !important;
   height: 560px !important;
 }
+
+
 @media only screen and
 (min-width: 0px) and
 (max-width: 800px){
