@@ -24,7 +24,7 @@
   <meta name="msapplication-TileColor" content="#463b6b">
   <meta name="msapplication-TileImage" content="assets/img/favicon/mstile-144x144.png">
   <meta name="theme-color" content="#463b6b">
-  <link rel="stylesheet" href="assets/css/gamepage.min.css">
+  <link rel="stylesheet" href="assets/css/gamepage.css">
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="assets/css/fontface-thaisansneue.css">
@@ -52,9 +52,13 @@
       <div class="row ">
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
           <div id="fb-root"></div>
+          <button type="button" class="btn btn-block btn-social btn-facebook text-center" onclick="FB.login()">
+            <span class="fa fa-facebook-square"></span>
+            <span class="signin"> เข้าสู่ระบบด้วย Facebook </span>
+          </button>
           <div id="fbBtn">
             <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true" onlogin="checkLoginState()">
-          </div>
+          </div>  
             <div id="status"></div>
           </div>
           
@@ -83,7 +87,9 @@
         </div>
         <div class="col-xs-12 col-sm-offset-9 col-sm-3 col-md-offset-3 col-md-9">
           <div class="bubble bubble5 dpNone">
-            <img src="assets/img/ungame.png" alt="" class="bub5 gameOnDesktop">
+           <a href="game-sals.html">
+              <img src="assets/img/sals-btn.png" alt="" class="bub5 gameOnDesktop">
+           </a>
           </div>
         </div>
         <div class="objUnder">
@@ -95,7 +101,7 @@
           </div>
         </div>
         <div class="col-xs-12 center boxGameDesktop">
-          <img src="assets/img/ungame.png" alt="" class="gameOnlyDesktop">
+          <a href="game-sals.html"><img src="assets/img/sals-btn.png" alt="" class="gameOnlyDesktop"></a>
           <img src="assets/img/ungame.png" alt="" class="gameOnlyDesktop">
           <img src="assets/img/ungame.png" alt="" class="gameOnlyDesktop">
           <img src="assets/img/ungame.png" alt="" class="gameOnlyDesktop">
@@ -111,7 +117,7 @@
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>  
 <script type="text/javascript" src="assets/js/jquery.session.js"></script>
-<script src="assets/js/index.min.js" charset="utf-8"></script>
+<script src="assets/js/index.js" charset="utf-8"></script>
 
 <script>
   console.log('%c9 I\'m Developer.', 'background: #222; color: #f3603f; font-size: 26px; font-style: italic; font-weight:700');
@@ -129,66 +135,6 @@
   ga('send', 'pageview');
 </script>
 
-<script>
-    function statusChangeCallback(response) {
-        console.log('statusChangeCallback');
-        console.log(response);
-        if (response.status === 'connected') {
-            testAPI();
-        } else if (response.status === 'not_authorized') {
-            document.getElementById('status').innerHTML = 'Please log' +
-                ' into this app.';
-        } else {
-            document.getElementById('status').innerHTML = 'Please log' +
-                ' into Facebook.';
-        }
-    }
 
-    function checkLoginState() {
-        FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
-        });
-        console.log('checkLoginState activated');
-    }
-
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId: '432705477069426',
-            cookie: true,
-            xfbml: true,
-            version: 'v2.8'
-        });
-
-        FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
-        });
-
-    };
-
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v2.8&appId=432705477069426";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-
-    function testAPI() {
-        console.log('Welcome!  Fetching your information.... ');
-        FB.api('/me', function(response) {
-            console.log('Successful login for: ' + response.name);
-            document.getElementById('status').innerHTML =
-                'Thanks for logging in, ' + response.name + '!';
-            console.log(response);
-            // modify function
-            $.session.set('fb', JSON.stringify({
-                id: response.id,
-                name: response.name,
-            }));
-        });
-        console.log(JSON.parse($.session.get('fb')));
-    }
-</script>
 
 </html>
