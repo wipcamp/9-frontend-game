@@ -7,7 +7,7 @@ body{
     color: white;
     height: 100vh;
     background: black;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 .gameZone{
   display: none;
@@ -104,8 +104,6 @@ blockquote{
 }
 #game canvas{
   margin: 0 auto !important;
-  width: 350px !important;
-  height: 560px !important;
 }
 .bg-sals-page-1{
   position: absolute;

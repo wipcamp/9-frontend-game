@@ -1,12 +1,12 @@
 // Initialize Firebase
-  const config = {
-      apiKey: "AIzaSyAhBOG3nZFT0xjOu5UPm1k-ZVot1IPEfoQ",
-      authDomain: "wip-camps-game.firebaseapp.com",
-      databaseURL: "https://wip-camps-game.firebaseio.com",
-      storageBucket: "wip-camps-game.appspot.com",
-      messagingSenderId: "768785136426"
-  };
-  firebase.initializeApp(config);
+//   const config = {
+//       apiKey: "AIzaSyAhBOG3nZFT0xjOu5UPm1k-ZVot1IPEfoQ",
+//       authDomain: "wip-camps-game.firebaseapp.com",
+//       databaseURL: "https://wip-camps-game.firebaseio.com",
+//       storageBucket: "wip-camps-game.appspot.com",
+//       messagingSenderId: "768785136426"
+//   };
+//   firebase.initializeApp(config);
 
 jQuery.fn.dataTableExt.oApi.fnDataUpdate = function ( oSettings, nRowObject, iRowIndex )
 {
@@ -35,7 +35,7 @@ $(function() {
 
     // get data form database ( child - users )
     // 1000 = 1 second
-    const usersRef = dbRef.child("sals").orderByChild("highscore").limitToLast(100);
+    const usersRef = dbRef.child("sals").orderByChild("highscore").limitToLast(10);
     // const getUsers = usersRef.on('value', snap => test.innerText = JSON.stringify(snap.val(), null, 3));
 
     // get score < only > !
@@ -53,10 +53,10 @@ $(function() {
     $(document).ready(function() {
       toDayToNight();
       setTimeout(function() {
-        var t = $('.game-tbl').DataTable({
+        var t = $('.tenTable').DataTable({
           data: users,
           responsive: true,
-          paging: true,
+          paging: false,
           destroy: true,
           searching: false,
           // orderable: false,
@@ -192,9 +192,12 @@ var d = new Date();
 function toDayToNight(){
   if(d.getHours() >= 6 && d.getHours() < 17) {
     $('body').css({background: 'linear-gradient(#9acbd8, #ade0ee)'});
-
+    $('.ship-wip').attr('src','assets/img/object/ship-day.svg');
+    $('.ship-enemy').attr('src','assets//img/object/enemy1.svg');
   }
   else {
     $('body').css({background: 'linear-gradient(#141123, #1d3c5c)'});
+    $('.ship-wip').attr('src','assets/img/object/ship-night.svg');
+    $('.ship-enemy').attr('src','assets/img/object/enemy2.svg');
   }
 }

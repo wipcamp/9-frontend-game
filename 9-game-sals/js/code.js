@@ -17,9 +17,9 @@ var name = "aaaaaa";
 var game = new Phaser.Game(350, 560, Phaser.AUTO, "game");
 var gamePlay = { preload : preload , create: createGamePlay , update : updateGamePlay};
 var menu = { preload : preload , create : createMenu};
-var howtoPlay = { preload : preload , create : createHowtoPlay};
+var howtoPlay = { preload : preload , create : createHowtoPlay ,update : updateHowtoPlay};
 var result = {preload : preload , create : createResult , update : updateResult};
-var report = {preload : preload ,create : createReport};
+var report = {preload : preload ,create : createReport , update : updateReport};
 var credit = {preload : preload ,create : createCredit};
 game.state.add('gamePlay', gamePlay);
 game.state.add('menu', menu);
@@ -29,49 +29,67 @@ game.state.add('report',report);
 game.state.add('credit',credit);
 game.state.start('menu');
 function preload() {
-	  game.load.image('collider','images/collider.png');
-    game.load.image('bullet', 'images/bullet.png');
-	  game.load.image('boss','images/bossboss.png');
-    game.load.image('bullet_blue','images/bullet_blue.png');
-    game.load.image('bullet_green','images/bullet_green.png');
-    game.load.image('bullet_red','images/bullet_red.png');
-    game.load.image('bullet_yellow','images/bullet_yellow.png');
-    game.load.image('enemyship_red','images/enemyship_red.png');
-    game.load.image('enemyship_blue','images/enemyship_blue.png');
-    game.load.image('enemyship_green','images/enemyship_green.png');
-    game.load.image('background','images/bg.png');
-    game.load.image('laser','images/biglaser.png');
-    game.load.image('text_speed','images/text_move.png');
-    game.load.image('text_fire','images/text_fire.png');
-    game.load.image('text_score','images/text_score.png');
-    game.load.image('rock1','images/rock1.png');
-    game.load.image('rock2','images/rock2.png');
-    game.load.image('rock3','images/rock3.png');
+	game.load.image('collider','9-game-sals/images/collider.png');
+    game.load.image('bullet', '9-game-sals/images/bullet.png');
+	  game.load.image('boss','9-game-sals/images/bossboss.png');
+    game.load.image('bullet_blue','9-game-sals/images/bullet_blue.png');
+    game.load.image('bullet_green','9-game-sals/images/bullet_green.png');
+    game.load.image('bullet_red','9-game-sals/images/bullet_red.png');
+    game.load.image('bullet_yellow','9-game-sals/images/bullet_yellow.png');
+    game.load.image('enemyship_red','9-game-sals/images/enemyship_red.png');
+    game.load.image('enemyship_blue','9-game-sals/images/enemyship_blue.png');
+    game.load.image('enemyship_green','9-game-sals/images/enemyship_green.png');
+    game.load.image('background','9-game-sals/images/bg.png');
+    game.load.image('laser','9-game-sals/images/biglaser.png');
+    game.load.image('text_speed','9-game-sals/images/text_move.png');
+    game.load.image('text_fire','9-game-sals/images/text_fire.png');
+    game.load.image('text_score','9-game-sals/images/text_score.png');
+    game.load.image('rock1','9-game-sals/images/rock1.png');
+    game.load.image('rock2','9-game-sals/images/rock2.png');
+    game.load.image('bgGame','9-game-sals/images/bgGame.png');
+    game.load.image('oldMap','9-game-sals/images/oldMap.png');
+    game.load.image('gameover','9-game-sals/images/GAME-OVER-01.png');
+    game.load.image('pause','9-game-sals/images/pause.png');
+    game.load.spritesheet('wip','9-game-sals/images/wip.png');
 
-    game.load.spritesheet('ship', 'images/playership.png',56/3,96);
-    game.load.spritesheet('speed','images/item_move.png',800/8,100,8);
-    game.load.spritesheet('firerate','images/item_fire.png',800/8,100,8);
-    game.load.spritesheet('scoreUp','images/item_score.png',800/8,100,8);
-    game.load.spritesheet('bomb', 'images/boomspritesheet.png',400/5,90);
-    game.load.spritesheet('shark', 'images/shark.png', 50, 50);
-    game.load.spritesheet('mute','images/mute.png',450,447);
-    game.load.spritesheet('start','images/start.png',3876/3,196);
-    game.load.spritesheet('howtoplay','images/howtoplay.png',3876/3,196);
-    game.load.spritesheet('menu','images/mainmenu.png',3876/3,196);
-    game.load.spritesheet('report','images/report.png',3876/3,196);
-    game.load.spritesheet('scoreboard','images/score.png',3876/3,196);
-    game.load.spritesheet('playagain','images/playagain.png',3876/3,196);
-    game.load.spritesheet('submit','images/submit.png',3876/3,196);
-    game.load.spritesheet('credit','images/credit.png',3876/3,196);
+    game.load.spritesheet('ship', '9-game-sals/images/playership.png',350/5,96,5);
+    game.load.spritesheet('speed','9-game-sals/images/item_move.png',50,50,8);
+    game.load.spritesheet('firerate','9-game-sals/images/item_fire.png',50,50,8);
+    game.load.spritesheet('scoreUp','9-game-sals/images/item_score.png',50,50,8);
+    game.load.spritesheet('bomb', '9-game-sals/images/boomspritesheet.png',400/5,90);
+    game.load.spritesheet('shark', '9-game-sals/images/shark.png', 50, 50);
+    game.load.spritesheet('mute','9-game-sals/images/mute.png',450,447);
+    game.load.spritesheet('start','9-game-sals/images/start.png',3876/3,196);
+    game.load.spritesheet('howtoplay','9-game-sals/images/howtoplay.png',3876/3,196);
+    game.load.spritesheet('menu','9-game-sals/images/mainmenu.png',3876/3,196);
+    game.load.spritesheet('report','9-game-sals/images/report.png',3876/3,196);
+    game.load.spritesheet('scoreboard','9-game-sals/images/score.png',3876/3,196);
+    game.load.spritesheet('playagain','9-game-sals/images/playagain.png',3876/3,196);
+    game.load.spritesheet('submit','9-game-sals/images/submit.png',3876/3,196);
+    game.load.spritesheet('credit','9-game-sals/images/credit.png',3876/3,196);
+    game.load.spritesheet('seawave','9-game-sals/images/wave.png',165/11,4);
+    game.load.spritesheet('up','9-game-sals/images/up.png',50,46);
+    game.load.spritesheet('right','9-game-sals/images/right.png',50,46);
+    game.load.spritesheet('left','9-game-sals/images/left.png',50,46);
+    game.load.spritesheet('down','9-game-sals/images/down.png',50,46);
+    game.load.spritesheet('spacebar','9-game-sals/images/spacebar.png',2584/2,196);
+    game.load.spritesheet('enter','9-game-sals/images/enter.png',2553/3,196);
+    game.load.spritesheet('bossBoom','9-game-sals/images/bossBoom.png',1750/5,(520/5)-2);
 
-    game.load.audio('Play','sound/WhilePlay.ogg');
-    game.load.audio('Died','sound/You Died.ogg');
-    game.load.audio('intro','sound/Interface.ogg');
-    //game.load.audio('ENshot','sound/EnemyShot(Normal).wav');
-    game.load.audio('Death','sound/Aftergethit.ogg');
-    game.load.audio('BossDeath','sound/BossDeath.ogg');
-    game.load.audio('ENdestroy','sound/EnemyShot(Normal).ogg');
+    game.load.audio('play','9-game-sals/sound/WhilePlay.ogg');
+    game.load.audio('Died','9-game-sals/sound/You Died.ogg');
+    game.load.audio('intro','9-game-sals/sound/Interface.ogg');
+    //game.load.audio('ENshot','9-game-sals/sound/EnemyShot(Normal).wav');
+    game.load.audio('Death','9-game-sals/sound/Aftergethit.ogg');
+    game.load.audio('BossDeath','9-game-sals/sound/BossDeath.ogg');
+    game.load.audio('ENdestroy','9-game-sals/sound/EnemyShot(Normal).ogg');
+    game.load.audio('shark','9-game-sals/sound/Shark.mp3');
+    game.load.audio('click','9-game-sals/sound/ButtonPush.mp3');
+    game.load.audio('bossBGM','9-game-sals/sound/BossBGM.mp3');
+    game.load.audio('beam','9-game-sals/sound/Beam.mp3');
+    game.load.audio('pickItem','9-game-sals/sound/ItemPick.mp3');
 }
+var ckShoot;
 var plan,p1,p2;
 var destroyedCount=0;
 var wave=-1;
@@ -86,9 +104,10 @@ var bombGroup;
 var bombCooldown;
 var itemCooldown;
 var shark;
-var rock1,rock2,rock3;
+var rock1,rock2;
 var rockGroup;
 var rockCooldown;
+var isRockActive;
 var sharkGroup;
 var sharkCooldown;
 var sprite,sprite2;
@@ -105,9 +124,17 @@ var countRound = 0;
 var bulletTime = 0;
 var Boss,pause_label;
 var score = 0,textScore;
-var interMu;
 var buttonStart,buttonHowToPlay;
 var text;
+var menuBGM;
+var gameBGM;
+var bossBGM;
+var resultBGM;
+var clickSound;
+var sharkSound;
+var beamSound;
+var pickItem;
+var isFirstTimeMenu = true;
 var isSound = true;
 var speedGroup;
 var firerateGroup;
@@ -121,19 +148,40 @@ var firerateOutput;
 var seawaveGroup;
 var seawaveCooldown;
 var seawaveDropAt = [];
+var isPause;
+var isFirstSubmit;
 //createGamePlay
 function createGamePlay() {
     firerateOutput = 100;
     speedMove=300;
     speedTime=0;
-	firerateTime=0;
-	scoreTime=0;
-	scoreMultiplier = 1;
-    interMu.stop();
-    interMu = game.add.audio('Play');
-    interMu.loopFull();
+	  firerateTime=0;
+	  scoreTime=0;
+	  scoreMultiplier = 1;
+    isFirstTimeMenu=true;
+    gameBGM = game.add.audio('play');
+    bossBGM = game.add.audio('bossBGM');
+    sharkSound = game.add.audio('shark');
+    beamSound = game.add.audio('beam');
+    pickItem = game.add.audio('pickItem');
+    menuBGM.stop();
+    resultBGM.stop();
+    gameBGM.loopFull();
     countRound = 0;
     game.add.sprite(0,0,'background');
+    seawaveGroup = game.add.group();
+    seawaveGroup.enableBody = true;
+    seawaveGroup.physicsBodyType = Phaser.Physics.ARCADE;
+    for (var i = 0; i < 100; i++){
+        var wave = seawaveGroup.create(0, 0, 'seawave');
+        wave.anchor.set(0.5);
+        wave.scale.setTo(1.5,1.5);
+        wave.exists = false;
+        wave.visible = false;
+        wave.checkWorldBounds = true;
+        wave.events.onOutOfBounds.add(resetBullet, this);
+    }
+    seawaveGroup.callAll('animations.add', 'animations', 'default', [0,1,2,3,4,5,6,7,8,9], 6, true);
     sprite2 = this.add.sprite(game.world.width/2,game.world.height*(3/5), 'collider');
     sprite2.anchor.set(0.5);
     sprite2.scale.setTo(0.20, 0.20);
@@ -144,10 +192,13 @@ function createGamePlay() {
     sprite.scale.setTo(0.50, 0.50);
     game.physics.arcade.enable(sprite);
     sprite.body.drag.set(70);
+    sprite.animations.add('moveLeft',[1,2],10,false);
+    sprite.animations.add('moveRight',[3,4],10,false);
     bombCooldown = 0;
     itemCooldown = game.rnd.integerInRange(0,240);
     sharkCooldown = 0;
     rockCooldown = 0;
+    isRockActive = true;
     seawaveCooldown = 60;
     score=0;
     textScore = game.add.text(20,20,"Score : "+score,{fontSize : "20px",fill : "#ed3465"});
@@ -198,9 +249,61 @@ function createGamePlay() {
     bullets.enableBody = true;
     bullets.physicsBodyType = Phaser.Physics.ARCADE;
     for (var i = 0; i < 100; i++){
-        var b = bullets.create(0, 0, 'bullet');
+        var b = bullets.create(0, 0, 'bullet_yellow');
         b.anchor.set(0.5);
-        b.scale.setTo(0.70,0.70);
+        b.scale.setTo(0.2,0.2);
+        b.name = 'bullet' + i;
+        b.exists = false;
+        b.visible = false;
+        b.checkWorldBounds = true;
+        b.events.onOutOfBounds.add(resetBullet, this);
+    }
+    bullets_green = game.add.group();
+    bullets_green.enableBody = true;
+    bullets_green.physicsBodyType = Phaser.Physics.ARCADE;
+    for (var i = 0; i < 100; i++){
+        var b = bullets_green.create(0, 0, 'bullet_green');
+        b.anchor.set(0.5);
+        b.scale.setTo(0.2,0.2);
+        b.name = 'bullet' + i;
+        b.exists = false;
+        b.visible = false;
+        b.checkWorldBounds = true;
+        b.events.onOutOfBounds.add(resetBullet, this);
+    }
+    bullets_blue = game.add.group();
+    bullets_blue.enableBody = true;
+    bullets_blue.physicsBodyType = Phaser.Physics.ARCADE;
+    for (var i = 0; i < 100; i++){
+        var b = bullets_blue.create(0, 0, 'bullet_blue');
+        b.anchor.set(0.5);
+        b.scale.setTo(0.2,0.2);
+        b.name = 'bullet' + i;
+        b.exists = false;
+        b.visible = false;
+        b.checkWorldBounds = true;
+        b.events.onOutOfBounds.add(resetBullet, this);
+    }
+    bullets_red = game.add.group();
+    bullets_red.enableBody = true;
+    bullets_red.physicsBodyType = Phaser.Physics.ARCADE;
+    for (var i = 0; i < 100; i++){
+        var b = bullets_red.create(0, 0, 'bullet_red');
+        b.anchor.set(0.5);
+        b.scale.setTo(0.2,0.2);
+        b.name = 'bullet' + i;
+        b.exists = false;
+        b.visible = false;
+        b.checkWorldBounds = true;
+        b.events.onOutOfBounds.add(resetBullet, this);
+    }
+    bullets_green = game.add.group();
+    bullets_green.enableBody = true;
+    bullets_green.physicsBodyType = Phaser.Physics.ARCADE;
+    for (var i = 0; i < 100; i++){
+        var b = bullets_green.create(0, 0, 'bullet_green');
+        b.anchor.set(0.5);
+        b.scale.setTo(0.2,0.2);
         b.name = 'bullet' + i;
         b.exists = false;
         b.visible = false;
@@ -213,7 +316,7 @@ function createGamePlay() {
     for (var i = 0; i < 100; i++){
         var b = enemyBullets.create(0, 0, 'bullet');
         b.anchor.set(0.5);
-        b.scale.setTo(0.70,0.70);
+        b.scale.setTo(0.7,0.7);
         b.name = 'bullet' + i;
         b.exists = false;
         b.visible = false;
@@ -262,7 +365,7 @@ function createGamePlay() {
     bossBullets4 = game.add.group();
     bossBullets4.enableBody = true;
     bossBullets4.physicsBodyType = Phaser.Physics.ARCADE;
-    for (var i = 0; i < 100; i++){
+    for (var i = 0; i < 120; i++){
         var b = bossBullets4.create(0, 0, 'bullet');
         b.name = 'bullet' + i;
         b.anchor.set(0.5);
@@ -275,7 +378,7 @@ function createGamePlay() {
     bossBullets5 = game.add.group();
     bossBullets5.enableBody = true;
     bossBullets5.physicsBodyType = Phaser.Physics.ARCADE;
-    for (var i = 0; i < 100; i++){
+    for (var i = 0; i < 120; i++){
         var b = bossBullets5.create(0, 0, 'bullet');
         b.anchor.set(0.5);
         b.scale.setTo(0.70,0.70);
@@ -309,7 +412,7 @@ function createGamePlay() {
         speed.visible = false;
         speed.checkWorldBounds = true;
         speed.events.onOutOfBounds.add(resetBullet, this);
-        speed.body.setCircle(45);
+        speed.body.setSize(50,70,0,-15);
     }
     speedGroup.callAll('animations.add', 'animations', 'shake', [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,4,5,6,7,0], 60, true);
     //firerate
@@ -322,7 +425,7 @@ function createGamePlay() {
         fireObj.visible = false;
         fireObj.checkWorldBounds = true;
         fireObj.events.onOutOfBounds.add(resetBullet, this);
-        fireObj.body.setCircle(45);
+        fireObj.body.setSize(50,70,0,-15);
     }
     firerateGroup.callAll('animations.add', 'animations', 'shake', [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,4,5,6,7,0], 60, true);
     //score
@@ -335,7 +438,7 @@ function createGamePlay() {
         scoreObj.visible = false;
         scoreObj.checkWorldBounds = true;
         scoreObj.events.onOutOfBounds.add(resetBullet, this);
-        scoreObj.body.setCircle(45);
+        scoreObj.body.setSize(50,70,0,-15);
     }
     scoreGroup.callAll('animations.add', 'animations', 'shake', [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,4,5,6,7,0], 60, true);
     rock1 = this.add.sprite(0,0, 'rock1');
@@ -362,18 +465,6 @@ function createGamePlay() {
     rock2.events.onOutOfBounds.add(resetBullet, this);
     rock2.body.velocity.y = 100;
 
-    rock3 = this.add.sprite(0,0, 'rock3');
-    game.physics.arcade.enable(rock3);
-    rock3.enableBody = true;
-    rock3.exists = false;
-    rock3.visible = false;
-    rock3.scale.setTo(1.3,1.3);
-    rock3.anchor.set(0.5);
-    rock3.body.setCircle(22);
-    rock3.checkWorldBounds = true;
-    rock3.events.onOutOfBounds.add(resetBullet, this);
-    rock3.body.velocity.y = 100;
-
     sharkGroup = game.add.group();
     sharkGroup.enableBody = true;
     sharkGroup.physicsBodyType = Phaser.Physics.ARCADE;
@@ -387,22 +478,9 @@ function createGamePlay() {
         shark.checkWorldBounds = true;
         shark.events.onOutOfBounds.add(resetBullet, this);
     }
-    sharkGroup.callAll('animations.add', 'animations', 'moveFromLeft', [13,12,11,10,9,8,7,6,5,4,3,2,1,0], 50, true);
-    sharkGroup.callAll('animations.add', 'animations', 'moveFromRight', [13,12,11,10,9,8,7,6,5,4,3,2,1,0], 50, true);
+    sharkGroup.callAll('animations.add', 'animations', 'moveFromLeft', [26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51], 100, true);
+    sharkGroup.callAll('animations.add', 'animations', 'moveFromRight', [25,24,23,22,21,20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1,0], 100, true);
 
-    seawaveGroup = game.add.group();
-    seawaveGroup.enableBody = true;
-    seawaveGroup.physicsBodyType = Phaser.Physics.ARCADE;
-    for (var i = 0; i < 100; i++){
-        var wave = seawaveGroup.create(0, 0, 'seawave');
-        wave.anchor.set(0.5);
-        wave.scale.setTo(0.70,0.70);
-        wave.exists = false;
-        wave.visible = false;
-        wave.checkWorldBounds = true;
-        wave.events.onOutOfBounds.add(resetBullet, this);
-    }
-    seawaveGroup.callAll('animations.add', 'animations', 'default', [0,1,2,3,4,5,6,7], 3, true);
     //test animation item
     //pause_label = this.input.keyboard.addKey(Phaser.KeyCode.ENTER);
     //pause_label.events.onInputUp.add(function () {game.paused = true;});
@@ -410,7 +488,7 @@ function createGamePlay() {
     sprite2.body.collideWorldBounds = true;
     enemy = [];
     mute = game.add.button(300,20,'mute',muteSounds,this);
-    mute.scale.setTo(0.1,0.1);
+    mute.scale.setTo(0.08,0.08);
     if(isSound)
     	mute.frame = 0;
     else
@@ -455,23 +533,27 @@ function updateGamePlay() {
 	if(destroyedCount==0){
 		wave++;
     //wave == 6;
-        plan = game.rnd.integerInRange(1, 10);
+    //    plan = game.rnd.integerInRange(1, 10);
 
-        if(wave%7==0)
+    if(wave%7==0){
+      bossBGM.stop();
+      gameBGM.play();
 			summonWave(4);
-		else if(wave%7==1)
+		}else if(wave%7==1)
 			summonWave(5);
 		else if(wave%7==2)
 			summonWave(6);
-        else if(wave%7==3)
-      		summonWave(7);
-        else if(wave%7==4)
-        	summonWave(8);
-        else if(wave%7==5)
-        	summonWave(9);
-    	else{	///boss
-    		summonBoss();
-        }
+    else if(wave%7==3)
+      summonWave(7);
+    else if(wave%7==4)
+      summonWave(8);
+    else if(wave%7==5)
+      summonWave(9);
+    else{
+      gameBGM.stop();
+      bossBGM.play();
+    	summonBoss();
+    }
 	}
   if (bombCooldown <= 0) {
       bombSpawn();
@@ -479,8 +561,11 @@ function updateGamePlay() {
   if (sharkCooldown <= 0) {
       sharkSpawn();
   }
-  if (rockCooldown <= 0){
-      rockSpawn();
+  if(isRockActive){
+      if (rockCooldown <= 0){
+          rockSpawn();
+      }
+      rockCooldown--;
   }
   if (seawaveCooldown <= 0) {
       seawaveSpawn();
@@ -491,7 +576,6 @@ function updateGamePlay() {
   	if(itemCooldown <= 0)
   		itemSpawner();
   	itemCooldown--;
-  rockCooldown--;
     if (fireButton.isDown)
     {
         fire();
@@ -527,32 +611,41 @@ function updateGamePlay() {
     }
     sprite.body.velocity.y=0;
 	  sprite.body.velocity.x=0;
-    sprite.frame = 0;
   	if(cursors.up.isDown){
   		sprite.body.velocity.y = -speedMove;
   	}
   	if(cursors.left.isDown){
   		sprite.body.velocity.x = -speedMove;
-      sprite.frame = 1;
-  	}
-  	if(cursors.right.isDown){
+      if(sprite.frame!=2)
+        sprite.animations.play('moveLeft');
+  	}else if(cursors.right.isDown){
   		sprite.body.velocity.x = speedMove;
-      sprite.frame = 2;
-  	}
+      if(sprite.frame!=4)
+        sprite.animations.play('moveRight');
+  	}else{
+      sprite.frame = 0;
+    }
     if(cursors.down.isDown){
   		sprite.body.velocity.y = speedMove;
   	}
     game.physics.arcade.overlap(sprite, rock1, rockOverlapPlayer, null, this);
     game.physics.arcade.overlap(sprite, rock2, rockOverlapPlayer, null, this);
-    game.physics.arcade.overlap(sprite, rock3, rockOverlapPlayer, null, this);
   	if(this.input.keyboard.addKey(Phaser.KeyCode.ENTER).isDown){
-  		game.paused = true;
+  		isPause = game.add.image(game.world.width/2,game.world.height/2,'pause');
+        isPause.anchor.set(0.5);
+        isPause.scale.setTo(0.95);
+        isPause.alpha = 0.8;
+        textPause = game.add.text(game.world.width/2,game.world.height/2,'press enter to resume',{font : "24px",fill : "#FFFFFF"});
+        textPause.anchor.set(0.5);
+        game.paused = true;
   	}
   	window.onkeydown = function(event) {
     	if (game.input.keyboard.event.keyCode == 13){
-        	game.paused = false;
+        	isPause.kill();
+            textPause.kill();
+            game.paused = false;
     	}
-	}
+	  }
 
 }
 
@@ -560,7 +653,7 @@ function updateGamePlay() {
 
 //subportGamePlay
 function getScore(player,item) {
-	console.log("score");
+  pickItem.play();
 	var scale = 0.7;
 	var obj = game.add.image(item.x,item.y,'text_score');
 	obj.anchor.set(0.5);
@@ -577,12 +670,12 @@ function getScore(player,item) {
 	}, this);
 }
 function getFirerate(player,item) {
+  pickItem.play();
 	item.kill();
 	var scale = 0.7;
 	var obj = game.add.image(item.x,item.y,'text_fire');
 	obj.anchor.set(0.5);
 	obj.scale.setTo(scale);
-	console.log("firerate");
 	firerateTime = 120;
 	game.time.events.loop(Phaser.Timer.SECOND * 0.0625, function(){
 		scale+=0.025;
@@ -594,12 +687,12 @@ function getFirerate(player,item) {
 	}, this);
 }
 function getSpeed(player,item) {
+  pickItem.play();
 	item.kill();
 	var scale = 0.7;
 	var obj = game.add.image(item.x,item.y,'text_speed');
 	obj.anchor.set(0.5);
 	obj.scale.setTo(scale);
-	console.log("speed");
 	speedTime = 120;
 	game.time.events.loop(Phaser.Timer.SECOND * 0.0625, function(){
 		scale+=0.025;
@@ -632,9 +725,7 @@ function bulletHitEnemy (enemy_ship, bullet) {
 }
 function bombSpawn() {
     var output = game.rnd.integerInRange(0, 1);
-    console.log("randomBomb output = "+output)
     if (output == 0) {
-        console.log("bomb spawn");
         bombCooldown = 400;
         var bomb = bombGroup.getFirstExists(false);
         var bombDropAt = game.rnd.integerInRange(1, 25);
@@ -647,10 +738,8 @@ function bombSpawn() {
 }
 function rockSpawn() {
     var output = game.rnd.integerInRange(0, 1);
-    console.log("randomRock output = "+output);
     if (output == 0) {
         var rand = game.rnd.integerInRange(1, 3);
-        console.log("rock spawn");
         var rockDropAt = game.rnd.integerInRange(1, 25);
         switch (rand) {
             case 1:rock1.reset(game.world.width * (rockDropAt / 26), 0);
@@ -659,9 +748,6 @@ function rockSpawn() {
             case 2:rock2.reset(game.world.width * (rockDropAt / 26), 0);
                   rock2.body.velocity.y = 100;
             break;
-            case 3:rock3.reset(game.world.width * (rockDropAt / 26), 0);
-                  rock3.body.velocity.y = 100;
-            break;
         }
         rockCooldown = 400;
     }else{
@@ -669,7 +755,7 @@ function rockSpawn() {
     }
 }
 function rockOverlapPlayer(playership,rock) {
-    if(sprite.y-rock.y<=50&&sprite.y-rock.y>=-5&&sprite.x-rock.x<=28&&sprite.x-rock.x>=-28){
+    if(sprite.y-rock.y<=50&&sprite.y-rock.y>=-5&&sprite.x-rock.x<=30&&sprite.x-rock.x>=-30){
         sprite.body.velocity.y = 100;
         if(cursors.down.isDown){
             sprite.body.velocity.y = speedMove;
@@ -682,19 +768,15 @@ function rockOverlapPlayer(playership,rock) {
             sprite.body.velocity.y = 0;
         }
     }
-    console.log("rock.x = "+rock.x);
-    console.log("ship.x = "+sprite.x);
-    if(sprite.x-rock.x<=40&&sprite.x-rock.x>=-5&&cursors.left.isDown&&sprite.y-rock.y<=20){
+    if(sprite.x-rock.x<=50&&sprite.x-rock.x>=-5&&cursors.left.isDown&&sprite.y-rock.y<=20){
         sprite.body.velocity.x = 0;
-    }else if(rock.x-sprite.x<=40&&rock.x-sprite.x>=-5&&cursors.right.isDown&&sprite.y-rock.y<=20){
+    }else if(rock.x-sprite.x<=50&&rock.x-sprite.x>=-5&&cursors.right.isDown&&sprite.y-rock.y<=20){
         sprite.body.velocity.x = 0;
     }
 }
 function sharkSpawn() {
     var output = game.rnd.integerInRange(0, 1);
-    console.log("randomShark output = "+output)
     if (output == 0) {
-        console.log("shark spawn");
         sharkCooldown = 180;
         var shark = sharkGroup.getFirstExists(false);
         var sharkLaunchAt = game.rnd.integerInRange(1, 31);
@@ -702,9 +784,11 @@ function sharkSpawn() {
         if(spawnSide==0){
             shark.reset(0, game.world.width * (sharkLaunchAt / 30));
             shark.animations.stop();
+            shark.animations.frame = 26;
         }else{
             shark.reset(game.world.width, game.world.height * (sharkLaunchAt / 30));
             shark.animations.stop();
+            shark.animations.frame = 25;
         }
         game.time.events.add(Phaser.Timer.SECOND * 3.0, sharkLaunch, this, spawnSide, shark);
 
@@ -713,8 +797,7 @@ function sharkSpawn() {
     }
 }
 function sharkLaunch(spawnSide,shark) {
-    ///// sound shark
-    console.log("spawnside="+spawnSide);
+    sharkSound.play();
     if(spawnSide==0){
         shark.body.velocity.x = 800;
         shark.animations.play('moveFromLeft');
@@ -724,7 +807,7 @@ function sharkLaunch(spawnSide,shark) {
     }
 }
 function seawaveSpawn(){
-    seawaveCooldown=30;
+    seawaveCooldown=20;
     if(seawaveDropAt.length==0){
         seawaveDropAt=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
         seawaveDropAt=shuffle(seawaveDropAt);
@@ -750,7 +833,6 @@ function shuffle(array) {
 function itemSpawner() {
   /////// sound item spawn
 	var output = game.rnd.integerInRange(0,2);
-	console.log(output);
 	if(output==0)
 		speedUp();
 	else if(output==1)
@@ -819,18 +901,31 @@ function summonWave(numberWave){
     for (var i = 0; i < numberWave; i++){
         enemy.push(new EnemyShip(i, game, enemyBullets,color));
     }
+    isRockActive=true;
 }
 function bulletHitBoss (boss, bullet) {
 
     if(boss.alive){
-      bullet.kill();
-      var destroyed = enemy[0].damage();
-      if(destroyed){
-          ////play anime
-          shot = game.add.audio('BossDeath');
-          shot.play();
-          destroyedCount--;
-      }
+        bullet.kill();
+        var destroyed = enemy[0].damage();
+        if(destroyed){
+            ////play anime
+            shot = game.add.audio('BossDeath');
+            shot.play();
+            //destroyedCount--;
+            var death = game.add.sprite(0,-9,'bossBoom');
+            var bossDeath = death.animations.add('play',[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24],6.25,true);
+            mute.bringToTop();
+            textScore.bringToTop();
+            bossBGM.fadeOut(3500);
+            bossDeath.onComplete.add(function() {
+                death.kill();
+                game.time.events.add(Phaser.Timer.SECOND * 1, function(){
+                    destroyedCount--;
+                },this);
+            }, this);
+            bossDeath.play(6.25,false);
+        }
     }
 }
 //subportGamePlay
@@ -846,17 +941,18 @@ EnemyShip = function (index, game, bullets,color) {
     switch (color) {
       case "red":this.enemy_ship = game.add.sprite(x, y, 'enemyship_red');
       this.enemy_ship.scale.setTo(0.75, 0.75);
+      this.enemy_ship.name = index.toString()+"red";
       break;
       case "blue":this.enemy_ship = game.add.sprite(x, y, 'enemyship_blue');
-      this.enemy_ship.scale.setTo(0.1, 0.1);
+      this.enemy_ship.scale.setTo(0.75, 0.75);
+      this.enemy_ship.name = index.toString()+"blue";
       break;
       case "green":this.enemy_ship = game.add.sprite(x, y, 'enemyship_green');
-      this.enemy_ship.scale.setTo(0.1, 0.1);
+      this.enemy_ship.scale.setTo(0.75, 0.75);
+      this.enemy_ship.name = index.toString()+"green";
       break;
     }
     this.enemy_ship.anchor.set(0.5);
-
-    this.enemy_ship.name = index.toString();
     this.enemy_ship.count=0;
     this.enemy_ship.countBullet=0;
     game.physics.enable(this.enemy_ship);
@@ -864,6 +960,8 @@ EnemyShip = function (index, game, bullets,color) {
     this.enemy_ship.body.collideWorldBounds = true;
     this.enemy_ship.body.bounce.setTo(1, 1);
     this.enemy_ship.body.maxVelocity.set(200);
+    mute.bringToTop();
+    textScore.bringToTop();
 };
 EnemyShip.prototype.damage = function() {
 
@@ -912,7 +1010,7 @@ function reposition() {
 function bulletHitEnemy (enemy_ship, bullet) {
     if(enemy_ship.alive){
       bullet.kill();
-      var destroyed = enemy[enemy_ship.name].damage();
+      var destroyed = enemy[enemy_ship.name.substring(0,1)].damage();
       if(destroyed){
           ////play anime
           shot = game.add.audio('ENdestroy');
@@ -924,20 +1022,17 @@ function bulletHitEnemy (enemy_ship, bullet) {
 
 var shot;
 function fireBot (enemy_ship) {
-    if(plan==1||plan==2){
+    if(enemy_ship.name.substring(1) == "red"){
         if(enemy_ship.count%60==0){
-
-            bullet = enemyBullets.getFirstExists(false);
+            bullet = bullets_red.getFirstExists(false);
             bullet.reset(enemy_ship.x, enemy_ship.y);
             bullet.body.velocity.y = 200;
             bullet.rotation = this.game.physics.arcade.moveToObject(bullet, sprite, 350);
-
         }
     }
-    else if(plan==3||plan==4){
-
+    else if(enemy_ship.name.substring(1) == "green"){
         if(enemy_ship.count%30==0){
-            bullet = enemyBullets.getFirstExists(false);
+            bullet = bullets_green.getFirstExists(false);
             bullet.reset(enemy_ship.x, enemy_ship.y);
             if(enemy_ship.countBullet%5==0){
                 bullet.body.velocity.y = 100;
@@ -960,11 +1055,9 @@ function fireBot (enemy_ship) {
             }
             enemy_ship.countBullet++;
         }
-    }
-    else{
-
+    }else{
         if(enemy_ship.count%50==0){
-            bullet = enemyBullets.getFirstExists(false);
+            bullet = bullets_blue.getFirstExists(false);
             bullet.reset(enemy_ship.x, enemy_ship.y);
             bullet.body.velocity.y = 100;
         }
@@ -981,18 +1074,16 @@ EnemyBoss = function (game) {
     this.health = 500;
     this.countPlan=0;
     this.alive = true;
-    this.boss = game.add.sprite(0,0,'boss');
-    this.cannon1 = game.add.sprite((x*(1/4)), y, 'enemy_ship');
-    this.cannon2 = game.add.sprite(x, y, 'enemy_ship');
-    this.cannon3 = game.add.sprite((x*(7/4)), y, 'enemy_ship');
+    this.boss = game.add.sprite(0,-8.5,'boss');
+    //this.boss.anchor.set(0,0.2);
+    this.cannon1 = [x*(1/4), y];
+    this.cannon2 = [x,y];
+    this.cannon3 = [x*(7/4), y];
     this.cannon1.name = 1;
     this.cannon2.name = 2;
     this.cannon3.name = 3;
     //this.boss.anchor.set(0.5);
     this.boss.scale.setTo(1.0,1.0); //ปรับ scale boss
-    this.cannon1.anchor.set(0.5);
-    this.cannon2.anchor.set(0.5);
-    this.cannon3.anchor.set(0.5);
     this.cannon1.count=0;
     this.cannon2.count=0;
     this.cannon3.count=0;
@@ -1004,20 +1095,19 @@ EnemyBoss = function (game) {
     this.boss.body.collideWorldBounds = true;
     this.boss.body.bounce.setTo(1, 1);
     this.boss.body.maxVelocity.set(200);
+    mute.bringToTop();
+    textScore.bringToTop();
 };
 
 EnemyBoss.prototype.damage = function() {
 
     this.health -= 1;
-    score += 100;
+    score += 100*scoreMultiplier;
     textScore.text = "Score : "+score;
     if (this.health <= 0)
     {
         this.alive = false;
         this.boss.kill();
-        this.cannon1.kill();
-        this.cannon2.kill();
-        this.cannon3.kill();
         return true;
     }
     return false;
@@ -1050,6 +1140,8 @@ function fireBoss(cannon1,cannon2,cannon3,countPlan){
         }
     }
     else if(countPlan%3600>800&&countPlan%3600<=1060){//180
+        if(countPlan%3600==801)
+            beamSound.play();
         if(countPlan%6==0){
             laserOnTheMove(cannon1,laserBeam1);
             laserOnTheMove(cannon2,laserBeam2);
@@ -1089,6 +1181,8 @@ function fireBoss(cannon1,cannon2,cannon3,countPlan){
         if(countPlan==2521){
             p1=game.rnd.integerInRange(1,2);
         }
+        if(countPlan%3600==2521)
+            beamSound.play();
         if(countPlan%6==0){
             laserOnTheMove(cannon1,laserBeam1);
             if(p1==1)
@@ -1101,6 +1195,8 @@ function fireBoss(cannon1,cannon2,cannon3,countPlan){
         if(countPlan==2751){
             p1=game.rnd.integerInRange(1,2);
         }
+        if(countPlan%3600==2751)
+            beamSound.play();
         if(countPlan%6==0){
             laserOnTheMove(cannon2,laserBeam2);
             if(p1==1)
@@ -1136,14 +1232,14 @@ function laserOnTheMove (cannon,bullets) { //40<7
     shot = game.add.audio('laser');
     shot.play();
     bullet = bullets.getFirstExists(false);
-    bullet.reset(cannon.x+15, cannon.y+20);
+    bullet.reset(cannon[0]+15, cannon[1]+20);
     bullet.body.velocity.y = 1200;
     //bullet.rotation = this.game.physics.arcade.moveToObject(bullet, sprite, 200);
 }
 
 function superSplash (cannon,bullets) { //10
     bullet = bullets.getFirstExists(false);
-    bullet.reset(cannon.x+15, cannon.y+20);
+    bullet.reset(cannon[0]+15, cannon[1]+20);
     if(cannon.countBullet%9==0){
         bullet.body.velocity.y = 100;
         bullet.body.velocity.x = 200;
@@ -1183,7 +1279,7 @@ function superSplash (cannon,bullets) { //10
 }
 function fireBounceAndSplit(cannon,bullets){
     bullet = bullets.getFirstExists(false);
-    bullet.reset(cannon.x+15, cannon.y+20);
+    bullet.reset(cannon[0]+15, cannon[1]+20);
     bullet.body.velocity.y = 200;
 }
 function BounceAndSplit (bullet) {
@@ -1237,12 +1333,11 @@ function BounceAndSplit2 (bullet) {
 
 function fireWorks (cannon,bullets) {
     bullet = bullets.getFirstExists(false);
-    bullet.reset(cannon.x, cannon.y);
+    bullet.reset(cannon[0], cannon[1]);
     bullet.body.velocity.y = 100;
     game.time.events.add(Phaser.Timer.SECOND * 3.3, boom,this,cannon);
 }
 function boom(cannon){
-
     var x = cannon.x;
     var y = game.world.height*(3/5);
     bullet.kill();
@@ -1272,26 +1367,41 @@ function summonBoss(){
         enemy.pop();
     destroyedCount=1;
     enemy.push(new EnemyBoss(game));
+    isRockActive=false;
 }
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function createMenu(){
-    interMu = game.add.audio('intro');
-    interMu.loopFull();
-    buttonStart = game.add.button(game.world.centerX, game.world.centerY, 'start', toGame, this);
-    buttonStart.scale.setTo(0.2,0.2);
-    buttonHowToPlay = game.add.button(game.world.centerX, game.world.centerY+100, 'howtoplay', toHowToPlay, this);
-    buttonHowToPlay.scale.setTo(0.2,0.2);
-    buttonReport = game.add.button(game.world.centerX, game.world.centerY+200,'report',toReport,this);
-    buttonReport.scale.setTo(0.2,0.2);
-    buttonScore = game.add.button(game.world.centerX, game.world.centerY-200,'scoreboard',toScoreboard,this)
-    buttonScore.scale.setTo(0.2,0.2);
-    buttonCredit = game.add.button(game.world.centerX, game.world.centerY-100,'credit',toCredit,this)
-    buttonCredit.scale.setTo(0.2,0.2);
-    fireButton = this.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
+    if(isFirstTimeMenu){
+        clickSound = game.add.audio('click');
+        resultBGM = game.add.audio('Died');
+        menuBGM = game.add.audio('intro');
+        menuBGM.loopFull();
+        isFirstTimeMenu=false;
+    }
+    bg = game.add.image(0,0,'bgGame');
+    bg.scale.setTo(0.17,0.18);
+    logo = game.add.image(game.world.width/2, game.world.height*(0.75/4),'wip');
+    logo.anchor.set(0.5);
+    logo.scale.setTo(0.5);
+    buttonStart = game.add.button(game.world.width/2, game.world.height*(3/4)+15, 'start', toGame, this);
+    buttonStart.scale.setTo(0.12);
+    buttonStart.anchor.set(0.5);
+    buttonHowToPlay = game.add.button(game.world.width*(1/4), game.world.height*(3.25/4)+15, 'howtoplay', toHowToPlay, this);
+    buttonHowToPlay.scale.setTo(0.12);
+    buttonHowToPlay.anchor.set(0.5);
+    buttonReport = game.add.button(game.world.width*(1/4), game.world.height*(3.5/4)+15,'report',toReport,this);
+    buttonReport.scale.setTo(0.12);
+    buttonReport.anchor.set(0.5);
+    buttonScore = game.add.button(game.world.width*(3/4), game.world.height*(3.25/4)+15,'scoreboard',toScoreboard,this)
+    buttonScore.scale.setTo(0.12);
+    buttonScore.anchor.set(0.5);
+    buttonCredit = game.add.button(game.world.width*(3/4), game.world.height*(3.5/4)+15,'credit',toCredit,this)
+    buttonCredit.scale.setTo(0.12);
+    buttonCredit.anchor.set(0.5);
     mute = game.add.button(300,20,'mute',muteSounds,this);
-    mute.scale.setTo(0.1,0.1);
+    mute.scale.setTo(0.08,0.08);
     if(isSound)
     	mute.frame = 0;
     else
@@ -1299,53 +1409,270 @@ function createMenu(){
 }
 
 function createHowtoPlay(){
-    interMu.stop();
-    interMu = game.add.audio('intro');
-    interMu.loopFull();
-    text = game.add.text(game.world.centerX,game.world.centerY*(1/5),"How To Play",{fontSize : "20px",fill : "#ed3465"});
+    bg = game.add.image(0,0,'bgGame');
+    bg.scale.setTo(0.17,0.18);
+    map = game.add.image(game.world.width/2,game.world.height/2,'oldMap');
+    map.anchor.set(0.5);
+    map.scale.setTo(0.95);
+    text = game.add.image(game.world.centerX,game.world.centerY*(1.2/5),"howtoplay");
     text.anchor.set(0.5);
-    buttonStart = game.add.button(game.world.centerX, game.world.centerY, 'start', toGame, this);
-    buttonStart.scale.setTo(0.2,0.2);
-    buttonMenu = game.add.button(game.world.centerX, game.world.centerY+100, 'menu', toMenu, this);
-    buttonMenu.scale.setTo(0.2,0.2);
+    text.scale.setTo(0.19);
+    enemyBullets = game.add.group();
+    enemyBullets.enableBody = true;
+    enemyBullets.physicsBodyType = Phaser.Physics.ARCADE;
+    for (var i = 0; i < 100; i++){
+        var b = enemyBullets.create(0, 0, 'bullet');
+        b.anchor.set(0.5);
+        b.scale.setTo(0.70,0.70);
+        b.name = 'bullet' + i;
+        b.exists = false;
+        b.visible = false;
+        b.checkWorldBounds = true;
+        b.events.onOutOfBounds.add(resetBullet, this);
+    }
+    buttonStart = game.add.button(game.world.width*(2.25/3), game.world.height*(4.6/5), 'start', toGame, this);
+    buttonStart.scale.setTo(0.11);
+    buttonStart.anchor.set(0.5);
+    buttonMenu = game.add.button(game.world.width*(0.75/3), game.world.height*(4.6/5), 'menu', toMenu, this);
+    buttonMenu.scale.setTo(0.11);
+    buttonMenu.anchor.set(0.5);
+
+    sprite = game.add.sprite(game.world.width/7+25, game.world.height*(1.5/5)+25 ,'ship');
+    sprite.anchor.set(0.5);
+    sprite.frame = 0;
+    game.physics.arcade.enable(sprite);
+
+    up = game.add.sprite(game.world.width/7+45, game.world.height*(2.5/5)+25, 'up');
+    up.scale.setTo(0.5);
+    up.anchor.set(0.5);
+
+    down = game.add.sprite(game.world.width/7+45, game.world.height*(2.75/5)+25, 'down');
+    down.scale.setTo(0.5);
+    down.anchor.set(0.5);
+
+    left = game.add.sprite(game.world.width*(0.4/7)+45, game.world.height*(2.75/5)+25, 'left');
+    left.scale.setTo(0.5);
+    left.anchor.set(0.5);
+
+    right = game.add.sprite(game.world.width*(1.6/7)+45, game.world.height*(2.75/5)+25, 'right');
+    right.scale.setTo(0.5);
+    right.anchor.set(0.5);
+
+    spriteShoot = game.add.sprite(game.world.width*(4.5/7)+25, game.world.height*(1.5/5)+25 ,'ship');
+    spriteShoot.anchor.set(0.5);
+    spriteShoot.frame = 0;
+
+    spacebar = game.add.sprite(game.world.width*(4.5/7)+25, game.world.height*(2.75/5)+25,'spacebar');
+    spacebar.scale.setTo(0.1,0.15);
+    spacebar.anchor.set(0.5);
+    spacebarAnimation = spacebar.animations.add('play',[0,1],2,true);
+    spacebarAnimation.onComplete.add(function() {
+        spacebar.frame = 0;
+    }, this);
+
+    enter = game.add.sprite(game.world.width/2, game.world.height*(3.65/5)+25,'enter');
+    enter.scale.setTo(0.15);
+    enter.anchor.set(0.5);
+    enterAnimation = enter.animations.add('play',[0,1],2,true);
+    enterAnimation.onComplete.add(function() {
+        enter.frame = 0;
+    }, this);
+
+    text = game.add.text(game.world.width/2, game.world.height*(3.95/5)+25,'press to pause and resume game',{font : "24px",fill : "#5B3B00"});
+    text.anchor.set(0.5);
+
+    game.time.events.loop(1500, function() {//enter
+        enterAnimation.play(2,false);
+    }, this);
+    ckShoot = true;
+    game.time.events.loop(3000, function() {//shoot
+        if(ckShoot)
+            spacebar.frame = 1;
+        else
+            spacebar.frame = 0;
+        ckShoot=!ckShoot;
+    }, this);
+    var ck = 0;
+    game.time.events.loop(500, function() {//move
+        if(ck%5 == 0){
+            up.frame = 1;
+            right.frame = 0;
+            down.frame = 0;
+            left.frame = 0;
+            sprite.body.velocity.x = 0;
+            sprite.body.velocity.y = -100;
+        }
+        else if(ck%5 == 1){
+            up.frame = 0;
+            right.frame = 1;
+            down.frame = 0;
+            left.frame = 0;
+            sprite.body.velocity.x = 100;
+            sprite.body.velocity.y = 0;
+        }
+        else if(ck%5 == 2){
+            up.frame = 0;
+            right.frame = 0;
+            down.frame = 1;
+            left.frame = 0;
+            sprite.body.velocity.x = 0;
+            sprite.body.velocity.y = 100;
+        }
+        else if(ck%5 == 3){
+            up.frame = 0;
+            right.frame = 0;
+            down.frame = 0;
+            left.frame = 1;
+            sprite.body.velocity.x = -100;
+            sprite.body.velocity.y = 0;
+        }
+        else if(ck%5 == 4){
+            up.frame = 0;
+            right.frame = 0;
+            down.frame = 0;
+            left.frame = 0;
+            sprite.body.velocity.x = 0;
+            sprite.body.velocity.y = 0;
+        }
+        ck++;
+    }, this);
     mute = game.add.button(300,20,'mute',muteSounds,this);
-    mute.scale.setTo(0.1,0.1);
+    mute.scale.setTo(0.08,0.08);
     if(isSound)
     	mute.frame = 0;
     else
     	mute.frame = 1;
     fireButton = this.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
+    bulletTime = 0;
 }
+function updateHowtoPlay() {
+    if(!ckShoot){
+        var vv = game.rnd.integerInRange(-75, 75);
+        if (game.time.now > bulletTime)
+        {
+            bullet = enemyBullets.getFirstExists(false);
+            if (bullet)
+            {
+                bullet.reset(spriteShoot.x, spriteShoot.y-10);
+                bullet.body.velocity.x = vv;
+                bullet.body.velocity.y = -900;
+                bulletTime = game.time.now + 100;
+            }
+        }
+    }
+}
+
 function createReport(){
-    interMu.stop();
-    interMu = game.add.audio('intro');
-    interMu.loopFull();
-    text = game.add.text(game.world.centerX,game.world.centerY*(1/5),"Report",{fontSize : "20px",fill : "#ed3465"});
+    ckReport = false;
+    bg = game.add.image(0,0,'bgGame');
+    bg.scale.setTo(0.17,0.18);
+    map = game.add.image(game.world.width/2,game.world.height/2,'oldMap');
+    map.anchor.set(0.5);
+    map.scale.setTo(0.95);
+    text = game.add.image(game.world.centerX,game.world.centerY*(1.2/5),"report");
     text.anchor.set(0.5);
-    buttonSubmit = game.add.button(game.world.centerX, game.world.centerY, 'submit', toSubmit, this);
-    buttonSubmit.scale.setTo(0.2,0.2);
-    buttonMenu = game.add.button(game.world.centerX, game.world.centerY+100, 'menu', toMenu, this);
-    buttonMenu.scale.setTo(0.2,0.2);
+    text.scale.setTo(0.19);
+    buttonSubmit = game.add.button(game.world.width*(2.25/3), game.world.height*(4.6/5), 'submit', sendReport, this);
+    buttonSubmit.scale.setTo(0.11);
+    buttonSubmit.anchor.set(0.5);
+    buttonMenu = game.add.button(game.world.width*(0.75/3), game.world.height*(4.6/5), 'menu', toMenu, this);
+    buttonMenu.scale.setTo(0.11);
+    buttonMenu.anchor.set(0.5);
+    game.add.plugin(PhaserInput.Plugin);
+    input = game.add.inputField(game.world.width * 0.5 / 4, game.world.height / 4, {
+        font: '16px',
+        fill: '#212121',
+        fontWeight: 'normal',
+        width: 240,
+        height: 250,
+        borderColor: '#000',
+        textAlign: 'left',
+        padding: 10,
+        max: 300,
+        placeHolder: 'แจ้งข้อผิดพลาดได้ที่นี่เลยนะ :)'
+    });
+    input.startFocus();
     mute = game.add.button(300,20,'mute',muteSounds,this);
-    mute.scale.setTo(0.1,0.1);
+    mute.scale.setTo(0.08,0.08);
     if(isSound)
     	mute.frame = 0;
     else
     	mute.frame = 1;
     fireButton = this.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
 }
+function updateReport() {
+    if(ckReport)
+        debugReport();
+}
+function sendReport() {
+    if (input.value != "") {
+        isFirstSubmit = false;
+        ckReport = true;
+        //sendReportMessage(input.value);
+        input.value = null;
+        input.destroy();
+    }
+}
+
+function debugReport() {
+    if (input.value != "") {
+        console.log("!!!!");
+        isFirstSubmit = false;
+        ckReport = false;
+        //buttonSound();
+        //sendReportMessage(input.value);
+        input.value = null;
+        input = game.add.inputField(game.world.width * 0.5 / 4, game.world.height / 4, {
+            font: '22px Thaisans Neue for Web',
+            fill: '#212121',
+            fontWeight: 'normal',
+            width: 240,
+            height: 250,
+            borderColor: '#000',
+            textAlign: 'left',
+            padding: 10,
+            max: 300,
+            placeHolder: 'แจ้งข้อผิดพลาดได้ที่นี่เลยนะ :)'
+        });
+        input.startFocus();
+        text = game.add.text(game.world.width / 2, 550 * (3.75 / 4) - 80, "แจ้งข่าวกัปตันเรียบร้อยแล้ว", { font: "18px Thaisans Neue for Web", fill: "#5B3B00" });
+        text.anchor.set(0.5);
+    }
+}
+
 function createCredit(){
-    interMu.stop();
-    interMu = game.add.audio('intro');
-    interMu.loopFull();
-    text = game.add.text(game.world.centerX,game.world.centerY*(1/5),"credit",{fontSize : "20px",fill : "#ed3465"});
+    bg = game.add.image(0,0,'bgGame');
+    bg.scale.setTo(0.17,0.18);
+    map = game.add.image(game.world.width/2,game.world.height/2,'oldMap');
+    map.anchor.set(0.5);
+    map.scale.setTo(0.95);
+    text = game.add.image(game.world.centerX,game.world.centerY*(1.2/5),"credit");
     text.anchor.set(0.5);
-    buttonStart = game.add.button(game.world.centerX, game.world.centerY, 'start', toGame, this);
-    buttonStart.scale.setTo(0.2,0.2);
-    buttonMenu = game.add.button(game.world.centerX, game.world.centerY+100, 'menu', toMenu, this);
-    buttonMenu.scale.setTo(0.2,0.2);
+    text.scale.setTo(0.19);
+    buttonStart = game.add.button(game.world.width*(2.25/3), game.world.height*(4.6/5), 'start', toGame, this);
+    buttonStart.scale.setTo(0.11);
+    buttonStart.anchor.set(0.5);
+    buttonMenu = game.add.button(game.world.width*(0.75/3), game.world.height*(4.6/5), 'menu', toMenu, this);
+    buttonMenu.scale.setTo(0.11);
+    buttonMenu.anchor.set(0.5);
+    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) - 25 + 10, "Audio Library – No Copyright Music", { fontSize: "16px", fill: "#5B3B00" });
+    textCredit.anchor.set(0.5);
+    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 5 + 10, "URL : goo.gl/yReazM", { fontSize: "12px", fill: "#5B3B00" });
+    textCredit.anchor.set(0.5);
+    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 35 + 10, "Ross Bugden - Music", { fontSize: "16px", fill: "#5B3B00" });
+    textCredit.anchor.set(0.5);
+    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 65 + 10, "URL : goo.gl/NDMy6w", { fontSize: "12px", fill: "#5B3B00" });
+    textCredit.anchor.set(0.5);
+    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 95 + 10, "Ship sailing on the sea", { fontSize: "16px", fill: "#5B3B00" });
+    textCredit.anchor.set(0.5);
+    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 125 + 10, "URL : goo.gl/1YpYo3", { fontSize: "12px", fill: "#5B3B00" });
+    textCredit.anchor.set(0.5);
+    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 155 + 10, "Beach party wooden sign", { fontSize: "16px", fill: "#5B3B00" });
+    textCredit.anchor.set(0.5);
+    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 185 + 10, "URL : goo.gl/9kzuhy", { fontSize: "12px", fill: "#5B3B00" });
+    textCredit.anchor.set(0.5);
     mute = game.add.button(300,20,'mute',muteSounds,this);
-    mute.scale.setTo(0.1,0.1);
+    mute.scale.setTo(0.08,0.08);
     if(isSound)
     	mute.frame = 0;
     else
@@ -1353,19 +1680,30 @@ function createCredit(){
     fireButton = this.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
 }
 function createResult(){
-    interMu.stop();
-    interMu = game.add.audio('Died');
-    interMu.loopFull();
-    text = game.add.text(game.world.centerX,game.world.centerY,"Score : "+score,{fontSize : "20px",fill : "#ed3465"});
+    bg = game.add.image(0,0,'bgGame');
+    bg.scale.setTo(0.17,0.18);
+    logo = game.add.image(game.world.width/2,game.world.height*(1/4),'gameover');
+    logo.anchor.set(0.5);
+    logo.scale.setTo(0.1);
+    text = game.add.text(game.world.width/2+50,game.world.height*(1.25/4),"Score : "+score,{fontSize : "20px",fill : "#5B3B00"});
+    gameBGM.stop();
+    bossBGM.stop();
+    resultBGM.loopFull();
     text.anchor.set(0.5);
-    buttonPlayagain = game.add.button(game.world.centerX, game.world.centerY, 'playagain', toGame, this);
-    buttonPlayagain.scale.setTo(0.2,0.2);
-    buttonReport = game.add.button(game.world.centerX, game.world.centerY+100, 'report', toReport, this);
-    buttonReport.scale.setTo(0.2,0.2);
-    buttonMenu = game.add.button(game.world.centerX, game.world.centerY+200, 'menu', toMenu, this);
-    buttonMenu.scale.setTo(0.2,0.2);
+    buttonPlayagain = game.add.button(game.world.width/2, game.world.height*(3/4), 'playagain', toGame, this);
+    buttonPlayagain.scale.setTo(0.12);
+    buttonPlayagain.anchor.set(0.5);
+    buttonScore = game.add.button(game.world.width/2, game.world.height*(3.22/4),'scoreboard',toScoreboard,this)
+    buttonScore.scale.setTo(0.12);
+    buttonScore.anchor.set(0.5);
+    buttonReport = game.add.button(game.world.width/2, game.world.height*(3.44/4), 'report', toReport, this);
+    buttonReport.scale.setTo(0.12);
+    buttonReport.anchor.set(0.5);
+    buttonMenu = game.add.button(game.world.width/2, game.world.height*(3.66/4), 'menu', toMenu, this);
+    buttonMenu.scale.setTo(0.12);
+    buttonMenu.anchor.set(0.5);
     mute = game.add.button(300,20,'mute',muteSounds,this);
-    mute.scale.setTo(0.1,0.1);
+    mute.scale.setTo(0.08,0.08);
     if(isSound)
     	mute.frame = 0;
     else
@@ -1379,25 +1717,34 @@ function updateResult(){
 }
 
 function toSubmit(){
+    clickSound.play();
     game.state.start('gamePlay');
 }
 function toGame(){
+    clickSound.play();
     game.state.start('gamePlay');
 }
 function toHowToPlay(){
+    clickSound.play();
     game.state.start('howtoPlay');
 }
 function toMenu() {
-	game.state.start('menu');
+    clickSound.play();
+    resultBGM.stop();
+  	game.state.start('menu');
 }
 function toReport() {
-	game.state.start('report');
+    clickSound.play();
+	isFirstSubmit = true;
+    game.state.start('report');
 }
 function toScoreboard() {
-	game.state.start('gamePlay');
+    clickSound.play();
+    window.open("ranking-sals.html");
 }
 function toCredit() {
-	game.state.start('credit');
+    clickSound.play();
+    game.state.start('credit');
 }
 
 function muteSounds() {
