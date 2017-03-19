@@ -10,10 +10,20 @@
 
 var dbSals = firebase.database().ref().child("sals");
 
-// mock up name
-var token = "qqqq";
-var name = "aaaaaa";
+if ($.session.get('fb')!==null){
+    $.session.set('fb', JSON.stringify({
+        id : 0,
+        name : "Guest"
+    }));
+}
 
+let {id, fbname } = JSON.parse($.session.get('fb'));
+// mock up name
+var token = id;
+var name = fbname;
+if(name === "undefined"){
+    name = "Guest";
+}
 var game = new Phaser.Game(350, 560, Phaser.AUTO, "game");
 var gamePlay = { preload : preload , create: createGamePlay , update : updateGamePlay};
 var menu = { preload : preload , create : createMenu};
@@ -79,7 +89,7 @@ function preload() {
     game.load.audio('play','9-game-sals/sound/WhilePlay.ogg');
     game.load.audio('Died','9-game-sals/sound/You Died.ogg');
     game.load.audio('intro','9-game-sals/sound/Interface.ogg');
-    //game.load.audio('ENshot','9-game-sals/sound/EnemyShot(Normal).wav');
+    //game.load.audio('ENshot','sound/EnemyShot(Normal).wav');
     game.load.audio('Death','9-game-sals/sound/Aftergethit.ogg');
     game.load.audio('BossDeath','9-game-sals/sound/BossDeath.ogg');
     game.load.audio('ENdestroy','9-game-sals/sound/EnemyShot(Normal).ogg');
@@ -92,7 +102,7 @@ function preload() {
 var ckShoot;
 var plan,p1,p2;
 var destroyedCount=0;
-var wave=-1;
+var wave;
 var enemy;
 var enemyBullets;
 var bossBullets1;
@@ -150,6 +160,8 @@ var seawaveCooldown;
 var seawaveDropAt = [];
 var isPause;
 var isFirstSubmit;
+var causeOfDeath;
+var difficulty;
 //createGamePlay
 function createGamePlay() {
     firerateOutput = 100;
@@ -159,8 +171,8 @@ function createGamePlay() {
 	  scoreTime=0;
 	  scoreMultiplier = 1;
     isFirstTimeMenu=true;
-    gameBGM = game.add.audio('play');
-    bossBGM = game.add.audio('bossBGM');
+    //gameBGM = game.add.audio('play');
+    //bossBGM = game.add.audio('bossBGM');
     sharkSound = game.add.audio('shark');
     beamSound = game.add.audio('beam');
     pickItem = game.add.audio('pickItem');
@@ -173,31 +185,32 @@ function createGamePlay() {
     seawaveGroup.enableBody = true;
     seawaveGroup.physicsBodyType = Phaser.Physics.ARCADE;
     for (var i = 0; i < 100; i++){
-        var wave = seawaveGroup.create(0, 0, 'seawave');
-        wave.anchor.set(0.5);
-        wave.scale.setTo(1.5,1.5);
-        wave.exists = false;
-        wave.visible = false;
-        wave.checkWorldBounds = true;
-        wave.events.onOutOfBounds.add(resetBullet, this);
+        var seawave = seawaveGroup.create(0, 0, 'seawave');
+        seawave.anchor.set(0.5);
+        seawave.scale.setTo(1.5,1.5);
+        seawave.exists = false;
+        seawave.visible = false;
+        seawave.checkWorldBounds = true;
+        seawave.events.onOutOfBounds.add(resetBullet, this);
     }
     seawaveGroup.callAll('animations.add', 'animations', 'default', [0,1,2,3,4,5,6,7,8,9], 6, true);
     sprite2 = this.add.sprite(game.world.width/2,game.world.height*(3/5), 'collider');
     sprite2.anchor.set(0.5);
-    sprite2.scale.setTo(0.20, 0.20);
+    sprite2.scale.setTo(0.3, 0.3);
     game.physics.arcade.enable(sprite2);
-    sprite2.body.drag.set(70);
+    //sprite2.body.drag.set(70);
     sprite = this.add.sprite(game.world.width/2,game.world.height*(3/5), 'ship');
     sprite.anchor.set(0.5);
-    sprite.scale.setTo(0.50, 0.50);
+    sprite.scale.setTo(0.4, 0.4);
     game.physics.arcade.enable(sprite);
-    sprite.body.drag.set(70);
+    //sprite.body.drag.set(70);
     sprite.animations.add('moveLeft',[1,2],10,false);
     sprite.animations.add('moveRight',[3,4],10,false);
     bombCooldown = 0;
     itemCooldown = game.rnd.integerInRange(0,240);
     sharkCooldown = 0;
     rockCooldown = 0;
+    difficulty = 0;
     isRockActive = true;
     seawaveCooldown = 60;
     score=0;
@@ -212,7 +225,8 @@ function createGamePlay() {
     for (var i = 0; i < 100; i++){
         var b = laserBeam1.create(0, 0, 'laser');
         b.anchor.set(0.5);
-        b.scale.setTo(3,2.7);
+        b.scale.setTo(2.5,2.7);
+        b.body.setSize(75,121.5);
         b.name = 'laser' + i;
         b.exists = false;
         b.visible = false;
@@ -225,7 +239,8 @@ function createGamePlay() {
     for (var i = 0; i < 100; i++){
         var b = laserBeam2.create(0, 0, 'laser');
         b.anchor.set(0.5);
-        b.scale.setTo(3,2.7);
+        b.scale.setTo(2.5,2.7);
+        b.body.setSize(75,121.5);
         b.name = 'laser' + i;
         b.exists = false;
         b.visible = false;
@@ -238,7 +253,8 @@ function createGamePlay() {
     for (var i = 0; i < 100; i++){
         var b = laserBeam3.create(0, 0, 'laser');
         b.anchor.set(0.5);
-        b.scale.setTo(3,2.7);
+        b.scale.setTo(2.5,2.7);
+        b.body.setSize(75,121.5);
         b.name = 'laser' + i;
         b.exists = false;
         b.visible = false;
@@ -257,6 +273,7 @@ function createGamePlay() {
         b.visible = false;
         b.checkWorldBounds = true;
         b.events.onOutOfBounds.add(resetBullet, this);
+        b.body.setCircle(5);
     }
     bullets_green = game.add.group();
     bullets_green.enableBody = true;
@@ -270,6 +287,7 @@ function createGamePlay() {
         b.visible = false;
         b.checkWorldBounds = true;
         b.events.onOutOfBounds.add(resetBullet, this);
+        b.body.setCircle(5);
     }
     bullets_blue = game.add.group();
     bullets_blue.enableBody = true;
@@ -283,6 +301,7 @@ function createGamePlay() {
         b.visible = false;
         b.checkWorldBounds = true;
         b.events.onOutOfBounds.add(resetBullet, this);
+        b.body.setCircle(5);
     }
     bullets_red = game.add.group();
     bullets_red.enableBody = true;
@@ -296,6 +315,7 @@ function createGamePlay() {
         b.visible = false;
         b.checkWorldBounds = true;
         b.events.onOutOfBounds.add(resetBullet, this);
+        b.body.setCircle(5);
     }
     bullets_green = game.add.group();
     bullets_green.enableBody = true;
@@ -309,11 +329,12 @@ function createGamePlay() {
         b.visible = false;
         b.checkWorldBounds = true;
         b.events.onOutOfBounds.add(resetBullet, this);
+        b.body.setCircle(5);
     }
     enemyBullets = game.add.group();
     enemyBullets.enableBody = true;
     enemyBullets.physicsBodyType = Phaser.Physics.ARCADE;
-    for (var i = 0; i < 100; i++){
+    for (var i = 0; i < 120; i++){
         var b = enemyBullets.create(0, 0, 'bullet');
         b.anchor.set(0.5);
         b.scale.setTo(0.7,0.7);
@@ -399,7 +420,7 @@ function createGamePlay() {
         bomb.visible = false;
         bomb.checkWorldBounds = true;
         bomb.events.onOutOfBounds.add(resetBullet, this);
-        bomb.body.setCircle(22);
+        bomb.body.setCircle(18);
     }
     bombGroup.callAll('animations.add', 'animations', 'move', [0, 1], 4, true);
     //speed
@@ -468,13 +489,13 @@ function createGamePlay() {
     sharkGroup = game.add.group();
     sharkGroup.enableBody = true;
     sharkGroup.physicsBodyType = Phaser.Physics.ARCADE;
-    for (var i = 0; i < 16; i++) {
+    for (var i = 0; i < 100; i++) {
         shark = sharkGroup.create(0, 0, 'shark');
         shark.exists = false;
         shark.visible = false;
         shark.scale.setTo(1,1);
         shark.anchor.set(0.5);
-        shark.body.setCircle(25);
+        shark.body.setCircle(16.5);
         shark.checkWorldBounds = true;
         shark.events.onOutOfBounds.add(resetBullet, this);
     }
@@ -538,21 +559,22 @@ function updateGamePlay() {
     if(wave%7==0){
       bossBGM.stop();
       gameBGM.play();
-			summonWave(4);
+			summonWave(4+difficulty);
 		}else if(wave%7==1)
-			summonWave(5);
+			summonWave(5+difficulty);
 		else if(wave%7==2)
-			summonWave(6);
+			summonWave(6+difficulty);
     else if(wave%7==3)
-      summonWave(7);
+      summonWave(7+difficulty);
     else if(wave%7==4)
-      summonWave(8);
+      summonWave(8+difficulty);
     else if(wave%7==5)
-      summonWave(9);
+      summonWave(9+difficulty);
     else{
       gameBGM.stop();
-      bossBGM.play();
     	summonBoss();
+      bossBGM.play();
+      bossBGM.fadeIn(1500);
     }
 	}
   if (bombCooldown <= 0) {
@@ -580,17 +602,48 @@ function updateGamePlay() {
     {
         fire();
     }
-    /*game.physics.arcade.overlap(sprite2,laserBeam1, bulletHitPlayer, null , this);
-    game.physics.arcade.overlap(sprite2,laserBeam2, bulletHitPlayer, null , this);
-    game.physics.arcade.overlap(sprite2,laserBeam3, bulletHitPlayer, null , this);
-    game.physics.arcade.overlap(sprite2,enemyBullets, bulletHitPlayer, null , this);
-    game.physics.arcade.overlap(sprite2,bossBullets1, bulletHitPlayer, null , this);
-    game.physics.arcade.overlap(sprite2,bossBullets2, bulletHitPlayer, null , this);
-    game.physics.arcade.overlap(sprite2,bossBullets3, bulletHitPlayer, null , this);
-    game.physics.arcade.overlap(sprite2,bossBullets4, bulletHitPlayer, null , this);
-    game.physics.arcade.overlap(sprite2,bossBullets5, bulletHitPlayer, null , this);
-    game.physics.arcade.overlap(sprite2, bombGroup, bulletHitPlayer, null, this);
-    game.physics.arcade.overlap(sprite2, sharkGroup, bulletHitPlayer, null, this);*/
+    game.physics.arcade.overlap(sprite2,laserBeam1, function(){
+        bulletHitPlayer("โอ๊ย!!! เรือบ้าอะไรยิงเลเซอร์ได้ด้วย!!");
+    }, null, this);
+    game.physics.arcade.overlap(sprite2,laserBeam2,  function(){
+        bulletHitPlayer("โอ๊ย!!! เรือบ้าอะไรยิงเลเซอร์ได้ด้วย!!");
+    }, null , this);
+    game.physics.arcade.overlap(sprite2,laserBeam3,  function(){
+        bulletHitPlayer("โอ๊ย!!! เรือบ้าอะไรยิงเลเซอร์ได้ด้วย!!");
+    }, null , this);
+    game.physics.arcade.overlap(sprite2,enemyBullets,  function(){
+        bulletHitPlayer("นี่มันบ้าอะไรเนี่ย!!");
+    }, null , this);
+    game.physics.arcade.overlap(sprite2,bullets_red,  function(){
+        bulletHitPlayer("นี่มันจะโกงเกินไปแล้ว!");
+    }, null , this);
+    game.physics.arcade.overlap(sprite2,bullets_blue,  function(){
+        bulletHitPlayer("เจ็บใจนัก ข้าจะกลับมาแก้แค้น.");
+    }, null , this);
+    game.physics.arcade.overlap(sprite2,bullets_green,  function(){
+        bulletHitPlayer("นี่ข้าหลบไม่พ้นได้ยังไง!?");
+    }, null , this);
+    game.physics.arcade.overlap(sprite2,bossBullets1,  function(){
+        bulletHitPlayer("เจ็บใจนัก ข้าจะกลับมาแก้แค้น.");
+    },null, this);
+    game.physics.arcade.overlap(sprite2,bossBullets2,  function(){
+        bulletHitPlayer("เจ็บใจนัก ข้าจะกลับมาแก้แค้น.");
+    },null,this);
+    game.physics.arcade.overlap(sprite2,bossBullets3,  function(){
+        bulletHitPlayer("เจ็บใจนัก ข้าจะกลับมาแก้แค้น.");
+    },null,this);
+    game.physics.arcade.overlap(sprite2,bossBullets4,  function(){
+        bulletHitPlayer("แบบนี้ก็ได้หรอ!?");
+    }, null , this);
+    game.physics.arcade.overlap(sprite2,bossBullets5,  function(){
+        bulletHitPlayer("โถ่เอ๊ย! หลบได้ก็เทพและ");
+    }, null , this);
+    game.physics.arcade.overlap(sprite2,bombGroup,  function(){
+        bulletHitPlayer("เรือข้าพังหมดแล้ว TT");
+    }, null, this);
+    game.physics.arcade.overlap(sprite2,sharkGroup,  function(){
+        bulletHitPlayer("ฉลามมาได้ไงเนี่ยยยยยย!?");
+    }, null, this);
     game.physics.arcade.overlap(sprite2,speedGroup, getSpeed, null , this);
     game.physics.arcade.overlap(sprite2,firerateGroup, getFirerate, null , this);
     game.physics.arcade.overlap(sprite2,scoreGroup, getScore, null , this);
@@ -598,11 +651,15 @@ function updateGamePlay() {
     for (var i = 0; i < enemy.length; i++){
         if(wave%7!=6){
             game.physics.arcade.overlap(enemy[i].enemy_ship,bullets, bulletHitEnemy, null , this);
-            //game.physics.arcade.overlap(enemy[i].enemy_ship,sprite2, bulletHitPlayer, null , this);
+            game.physics.arcade.overlap(enemy[i].enemy_ship,sprite2,function() {
+                bulletHitPlayer("นี่เจ้าบ้ารึเปล่า!!");
+            } , null , this);
         }
         else{
             game.physics.arcade.overlap(enemy[i].boss,bullets,bulletHitBoss,null,this);
-            game.physics.arcade.overlap(enemy[i].boss,sprite2, bulletHitPlayer, null , this);
+            game.physics.arcade.overlap(enemy[i].boss,sprite2, function() {
+                bulletHitPlayer("นี่เจ้าเสียสติไปแล้วเรอะ!!");
+            }, null , this);
 
         }
         if(enemy[i].alive){
@@ -704,10 +761,10 @@ function getSpeed(player,item) {
 	}, this);
 }
 
-function bulletHitPlayer () {
+function bulletHitPlayer (cause) {
+    causeOfDeath = cause;
     shot = game.add.audio('Death');
     shot.play();
-    ///
     game.state.start('result');
 }
 
@@ -730,7 +787,7 @@ function bombSpawn() {
         var bomb = bombGroup.getFirstExists(false);
         var bombDropAt = game.rnd.integerInRange(1, 25);
         bomb.reset(game.world.width * (bombDropAt / 26), 0);
-        bomb.body.velocity.y = 200;
+        bomb.body.velocity.y = 100;
         bombGroup.callAll('animations.play', 'animations', 'move');
     }else{
         bombCooldown+=60;
@@ -761,7 +818,7 @@ function rockOverlapPlayer(playership,rock) {
             sprite.body.velocity.y = speedMove;
         }
         if(sprite.y>=game.world.height-30){
-            bulletHitPlayer();
+            bulletHitPlayer("หัดคุมเรือให้มันดีๆหน่อยสิ!");
         }
     }else if(rock.y-sprite.y<=40&&rock.y-sprite.y>=-5){
         if(cursors.down.isDown){
@@ -777,7 +834,10 @@ function rockOverlapPlayer(playership,rock) {
 function sharkSpawn() {
     var output = game.rnd.integerInRange(0, 1);
     if (output == 0) {
-        sharkCooldown = 180;
+        if(difficulty*60*0.2<120)
+          sharkCooldown = 180-(difficulty*60*0.2);
+        else
+          sharkCooldown = 60;
         var shark = sharkGroup.getFirstExists(false);
         var sharkLaunchAt = game.rnd.integerInRange(1, 31);
         var spawnSide = game.rnd.integerInRange(0,1);
@@ -812,10 +872,10 @@ function seawaveSpawn(){
         seawaveDropAt=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
         seawaveDropAt=shuffle(seawaveDropAt);
     }
-    var wave = seawaveGroup.getFirstExists(false);
-    wave.reset(game.world.width * (seawaveDropAt.pop() / 21), 0);
-    wave.body.velocity.y = 100;
-    wave.animations.play('default');
+    var seawave = seawaveGroup.getFirstExists(false);
+    seawave.reset(game.world.width * (seawaveDropAt.pop() / 21), 0);
+    seawave.body.velocity.y = 100;
+    seawave.animations.play('default');
 
 }
 function shuffle(array) {
@@ -842,7 +902,7 @@ function itemSpawner() {
 }
 function speedUp() {
 	itemCooldown = game.rnd.integerInRange(240,400);
-	var position = game.rnd.integerInRange(0,game.world.width);
+	var position = game.rnd.integerInRange(20,game.world.width-20);
 	speed = speedGroup.getFirstExists(false);
 	speed.reset(position,0);
 	speed.body.velocity.y = 150;
@@ -850,7 +910,7 @@ function speedUp() {
 }
 function firerateUp() {
 	itemCooldown = game.rnd.integerInRange(240,400);
-	var position = game.rnd.integerInRange(0,game.world.width);
+	var position = game.rnd.integerInRange(20,game.world.width-20);
 	fireRate = firerateGroup.getFirstExists(false);
 	fireRate.reset(position,0);
 	fireRate.body.velocity.y = 150;
@@ -858,7 +918,7 @@ function firerateUp() {
 }
 function scoreUp() {
 	itemCooldown = game.rnd.integerInRange(240,400);
-	var position = game.rnd.integerInRange(0,game.world.width);
+	var position = game.rnd.integerInRange(20,game.world.width-20);
 	scoreObj = scoreGroup.getFirstExists(false);
 	scoreObj.reset(position,0);
 	scoreObj.body.velocity.y = 150;
@@ -866,7 +926,7 @@ function scoreUp() {
 }
 
 function fire () {
-	var vv = game.rnd.integerInRange(-75, 75);
+	var variance = game.rnd.integerInRange(-75, 75);
     if (game.time.now > bulletTime)
     {
         bullet = bullets.getFirstExists(false);
@@ -874,7 +934,7 @@ function fire () {
         if (bullet)
         {
             bullet.reset(sprite.x, sprite.y-10);
-            bullet.body.velocity.x = vv;
+            bullet.body.velocity.x = variance;
             bullet.body.velocity.y = -900;
             bulletTime = game.time.now + firerateOutput;
         }
@@ -922,6 +982,7 @@ function bulletHitBoss (boss, bullet) {
                 death.kill();
                 game.time.events.add(Phaser.Timer.SECOND * 1, function(){
                     destroyedCount--;
+                    difficulty++;
                 },this);
             }, this);
             bossDeath.play(6.25,false);
@@ -935,23 +996,21 @@ EnemyShip = function (index, game, bullets,color) {
     var x = game.world.randomX;
     var y = 0;
     this.game = game;
-    this.health = 3;
+    this.health = 3+difficulty;
     this.bullets = bullets;
     this.alive = true;
     switch (color) {
       case "red":this.enemy_ship = game.add.sprite(x, y, 'enemyship_red');
-      this.enemy_ship.scale.setTo(0.75, 0.75);
       this.enemy_ship.name = index.toString()+"red";
       break;
       case "blue":this.enemy_ship = game.add.sprite(x, y, 'enemyship_blue');
-      this.enemy_ship.scale.setTo(0.75, 0.75);
       this.enemy_ship.name = index.toString()+"blue";
       break;
       case "green":this.enemy_ship = game.add.sprite(x, y, 'enemyship_green');
-      this.enemy_ship.scale.setTo(0.75, 0.75);
       this.enemy_ship.name = index.toString()+"green";
       break;
     }
+    this.enemy_ship.scale.setTo(0.5, 0.5);
     this.enemy_ship.anchor.set(0.5);
     this.enemy_ship.count=0;
     this.enemy_ship.countBullet=0;
@@ -964,12 +1023,11 @@ EnemyShip = function (index, game, bullets,color) {
     textScore.bringToTop();
 };
 EnemyShip.prototype.damage = function() {
-
     this.health -= 1;
 
     if (this.health <= 0)
     {
-        score += 100*scoreMultiplier;
+        score += 108*scoreMultiplier;
         textScore.text = "Score : "+score;
         this.alive = false;
         this.enemy_ship.kill();
@@ -982,16 +1040,16 @@ EnemyShip.prototype.update = function(i) {
     this.enemy_ship.body.velocity.y=0;
     this.enemy_ship.body.velocity.x=0;
     if(this.enemy_ship.x - randPositionX[i] <= 10){
-        this.enemy_ship.body.velocity.x = 150;
+        this.enemy_ship.body.velocity.x = 150+difficulty*10;
     }else
     if(this.enemy_ship.x - randPositionX[i] >= 20){
-        this.enemy_ship.body.velocity.x = -150;
+        this.enemy_ship.body.velocity.x = -150+difficulty*10;
     }
     if(this.enemy_ship.y - randPositionY[i] <= 10){
-        this.enemy_ship.body.velocity.y = 150;
+        this.enemy_ship.body.velocity.y = 150+difficulty*10;
     }else
     if(this.enemy_ship.y - randPositionY[i] >= 20){
-        this.enemy_ship.body.velocity.y = -150;
+        this.enemy_ship.body.velocity.y = -150+difficulty*10;
     }
     if(this.alive){
         fireBot(this.enemy_ship);
@@ -1026,8 +1084,7 @@ function fireBot (enemy_ship) {
         if(enemy_ship.count%60==0){
             bullet = bullets_red.getFirstExists(false);
             bullet.reset(enemy_ship.x, enemy_ship.y);
-            bullet.body.velocity.y = 200;
-            bullet.rotation = this.game.physics.arcade.moveToObject(bullet, sprite, 350);
+            bullet.rotation = this.game.physics.arcade.moveToObject(bullet, sprite, 350+difficulty*10);
         }
     }
     else if(enemy_ship.name.substring(1) == "green"){
@@ -1035,22 +1092,22 @@ function fireBot (enemy_ship) {
             bullet = bullets_green.getFirstExists(false);
             bullet.reset(enemy_ship.x, enemy_ship.y);
             if(enemy_ship.countBullet%5==0){
-                bullet.body.velocity.y = 100;
+                bullet.body.velocity.y = 120+difficulty*10;
                 bullet.body.velocity.x = 200;
             }
             else if(enemy_ship.countBullet%5==1){
-                bullet.body.velocity.y = 100;
+                bullet.body.velocity.y = 120+difficulty*10;
                 bullet.body.velocity.x = 100;
             }
             else if(enemy_ship.countBullet%5==2){
-                bullet.body.velocity.y = 100;
+                bullet.body.velocity.y = 120+difficulty*10;
             }
             else if(enemy_ship.countBullet%5==3){
-                bullet.body.velocity.y = 100;
+                bullet.body.velocity.y = 120+difficulty*10;
                 bullet.body.velocity.x = -100;
             }
             else if(enemy_ship.countBullet%5==4){
-                bullet.body.velocity.y = 100;
+                bullet.body.velocity.y = 120+difficulty*10;
                 bullet.body.velocity.x = -200;
             }
             enemy_ship.countBullet++;
@@ -1059,7 +1116,7 @@ function fireBot (enemy_ship) {
         if(enemy_ship.count%50==0){
             bullet = bullets_blue.getFirstExists(false);
             bullet.reset(enemy_ship.x, enemy_ship.y);
-            bullet.body.velocity.y = 100;
+            bullet.body.velocity.y = 120+difficulty*10;
         }
     }
     enemy_ship.count++;
@@ -1068,17 +1125,15 @@ function fireBot (enemy_ship) {
 
 
 EnemyBoss = function (game) {
-    var x = game.world.centerX;
-    var y = 10;
     this.game = game;
-    this.health = 500;
+    this.health = (500*(difficulty*2.5))+500
     this.countPlan=0;
     this.alive = true;
     this.boss = game.add.sprite(0,-8.5,'boss');
     //this.boss.anchor.set(0,0.2);
-    this.cannon1 = [x*(1/4), y];
-    this.cannon2 = [x,y];
-    this.cannon3 = [x*(7/4), y];
+    this.cannon1 = [175/2, 30];
+    this.cannon2 = [175,30];
+    this.cannon3 = [175*3/2, 20];
     this.cannon1.name = 1;
     this.cannon2.name = 2;
     this.cannon3.name = 3;
@@ -1102,7 +1157,7 @@ EnemyBoss = function (game) {
 EnemyBoss.prototype.damage = function() {
 
     this.health -= 1;
-    score += 100*scoreMultiplier;
+    score += 9*scoreMultiplier;
     textScore.text = "Score : "+score;
     if (this.health <= 0)
     {
@@ -1111,25 +1166,22 @@ EnemyBoss.prototype.damage = function() {
         return true;
     }
     return false;
-
 }
 
 EnemyBoss.prototype.update = function(){
-
     if(this.alive){
         fireBoss(this.cannon1,this.cannon2,this.cannon3,this.countPlan);
     }
     this.countPlan++;
 }
 
-
 //+60
 function fireBoss(cannon1,cannon2,cannon3,countPlan){
     if(countPlan%3600<=300){//300
         if(countPlan%45==0){
-            lockOn(cannon1,bossBullets1,400);
-            lockOn(cannon2,bossBullets2,400);
-            lockOn(cannon3,bossBullets3,400);
+            lockOn(cannon1,bossBullets1,400+difficulty*10);
+            lockOn(cannon2,bossBullets2,400+difficulty*10);
+            lockOn(cannon3,bossBullets3,400+difficulty*10);
         }
     }
     else if(countPlan%3600>360&&countPlan%3600<=720){//360
@@ -1139,7 +1191,7 @@ function fireBoss(cannon1,cannon2,cannon3,countPlan){
             superSplash(cannon3,bossBullets3);
         }
     }
-    else if(countPlan%3600>800&&countPlan%3600<=1060){//180
+    else if(countPlan%3600>800&&countPlan%3600<=1040){//180
         if(countPlan%3600==801)
             beamSound.play();
         if(countPlan%6==0){
@@ -1148,7 +1200,7 @@ function fireBoss(cannon1,cannon2,cannon3,countPlan){
             laserOnTheMove(cannon3,laserBeam3);
         }
     }
-    else if(countPlan%3600>1070+60&&countPlan%3600<=1250+60){//180
+    else if(countPlan%3600>1070&&countPlan%3600<=1250+60){//180
         if(countPlan%30==0){
             fireBounceAndSplit(cannon1,bossBullets4);
             fireBounceAndSplit(cannon2,bossBullets4);
@@ -1164,17 +1216,17 @@ function fireBoss(cannon1,cannon2,cannon3,countPlan){
     }
     else if(countPlan%3600>1660+60&&countPlan%3600<=1780+60){//120
         if(countPlan%30==0){
-            lockOn(cannon1,bossBullets1,200);
+            lockOn(cannon1,bossBullets1,200+difficulty*10);
         }
     }
     else if(countPlan%3600>1840+60&&countPlan%3600<=1960+60){//120
         if(countPlan%30==0){
-            lockOn(cannon2,bossBullets2,200);
+            lockOn(cannon2,bossBullets2,200+difficulty*10);
         }
     }
     else if(countPlan%3600>2060+60&&countPlan%3600<=2340){//120
         if(countPlan%30==0){
-            lockOn(cannon2,bossBullets2,200);
+            lockOn(cannon3,bossBullets2,200+difficulty*10);
         }
     }
     else if(countPlan%3600>2520&&countPlan%3600<=2640+60){//180
@@ -1223,7 +1275,7 @@ function fireBoss(cannon1,cannon2,cannon3,countPlan){
 
 function lockOn (cannon,bullets,speed) {//30 400
     bullet = bullets.getFirstExists(false);
-    bullet.reset(cannon.x+15, cannon.y+20);
+    bullet.reset(cannon[0], cannon[1]);
     bullet.rotation = this.game.physics.arcade.moveToObject(bullet, sprite, speed);
 }
 
@@ -1234,6 +1286,7 @@ function laserOnTheMove (cannon,bullets) { //40<7
     bullet = bullets.getFirstExists(false);
     bullet.reset(cannon[0]+15, cannon[1]+20);
     bullet.body.velocity.y = 1200;
+    console.log(cannon[0]);
     //bullet.rotation = this.game.physics.arcade.moveToObject(bullet, sprite, 200);
 }
 
@@ -1280,7 +1333,7 @@ function superSplash (cannon,bullets) { //10
 function fireBounceAndSplit(cannon,bullets){
     bullet = bullets.getFirstExists(false);
     bullet.reset(cannon[0]+15, cannon[1]+20);
-    bullet.body.velocity.y = 200;
+    bullet.body.velocity.y = 200+difficulty*5;
 }
 function BounceAndSplit (bullet) {
     var x = bullet.x;
@@ -1295,16 +1348,16 @@ function BounceAndSplit (bullet) {
     b3.reset(x,y-10);
     b4.reset(x,y-10);
     b1.body.velocity.x = -200;
-    b1.body.velocity.y = -100;
+    b1.body.velocity.y = -100-difficulty*2;
 
     b2.body.velocity.x = -100;
-    b2.body.velocity.y = -100;
+    b2.body.velocity.y = -100-difficulty*2;
 
     b3.body.velocity.x = 100;
-    b3.body.velocity.y = -100;
+    b3.body.velocity.y = -100-difficulty*2;
 
     b4.body.velocity.x = 200;
-    b4.body.velocity.y = -100;
+    b4.body.velocity.y = -100-difficulty*2;
 }
 function BounceAndSplit2 (bullet) {
     var x = bullet.x;
@@ -1319,16 +1372,16 @@ function BounceAndSplit2 (bullet) {
     b3.reset(x,y+10);
     b4.reset(x,y+10);
     b1.body.velocity.x = -200;
-    b1.body.velocity.y = 100;
+    b1.body.velocity.y = 100-difficulty*2;
 
     b2.body.velocity.x = -100;
-    b2.body.velocity.y = 100;
+    b2.body.velocity.y = 100-difficulty*2;
 
     b3.body.velocity.x = 100;
-    b3.body.velocity.y = 100;
+    b3.body.velocity.y = 100-difficulty*2;
 
     b4.body.velocity.x = 200;
-    b4.body.velocity.y = 100;
+    b4.body.velocity.y = 100-difficulty*2;
 }
 
 function fireWorks (cannon,bullets) {
@@ -1338,9 +1391,8 @@ function fireWorks (cannon,bullets) {
     game.time.events.add(Phaser.Timer.SECOND * 3.3, boom,this,cannon);
 }
 function boom(cannon){
-    var x = cannon.x;
+    var x = cannon[0];
     var y = game.world.height*(3/5);
-    bullet.kill();
     var b1 = bossBullets1.getFirstExists(false);
     var b4 = bossBullets2.getFirstExists(false);
     var b3 = bossBullets3.getFirstExists(false);
@@ -1377,6 +1429,8 @@ function createMenu(){
         clickSound = game.add.audio('click');
         resultBGM = game.add.audio('Died');
         menuBGM = game.add.audio('intro');
+        gameBGM = game.add.audio('play');
+        bossBGM = game.add.audio('bossBGM');
         menuBGM.loopFull();
         isFirstTimeMenu=false;
     }
@@ -1690,6 +1744,10 @@ function createResult(){
     bossBGM.stop();
     resultBGM.loopFull();
     text.anchor.set(0.5);
+    text = game.add.text(game.world.width/2+50,game.world.height*(1/4)+5,""+name,{fontSize : "20px",fill : "#5B3B00"});
+    text.anchor.set(0.5);
+    text = game.add.text(game.world.width/2,game.world.height*(1.5/4),""+causeOfDeath,{fontSize : "14px",fill : "#5B3B00"});
+    text.anchor.set(0.5);
     buttonPlayagain = game.add.button(game.world.width/2, game.world.height*(3/4), 'playagain', toGame, this);
     buttonPlayagain.scale.setTo(0.12);
     buttonPlayagain.anchor.set(0.5);
@@ -1785,4 +1843,19 @@ function setScore() {
         );
     }
      console.log("set score complete");
+}
+function sendReportMessage(report) {
+    var rndText = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < 5; i++) {
+        rndText += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+
+    var rnd = game.rnd.integerInRange(0, 1000000) + rndText + (new Date()).getTime();
+    var dbEtkReport = firebase.database().ref().child("report-sals");
+    var sals = dbEtkReport.child(rnd);
+    sals.update({
+        'message': report
+    });
 }
