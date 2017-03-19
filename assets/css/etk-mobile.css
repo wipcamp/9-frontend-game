@@ -17,7 +17,6 @@ body{
   overflow-y: hidden;
 }
 
-/* Desktop + Android */
 @media only screen
 and (min-width:0px)
 and (orientation: portrait){
@@ -207,19 +206,14 @@ and (orientation: landscape)
   body {
       margin: 0 0 0 0;
       padding: 0 0 0 0 !important;
-      /*overflow: hidden;*/
   }
   center{
-    /*overflow: hidden;*/
   }
   .container{
     margin: 0 0 0 0;
   }
 
   .hide{
-     /*width: 100vw;
-     height: 100vh;
-     background-color: red;*/
      display: block;
   }
   .hideDesktop{
@@ -281,14 +275,12 @@ and (min-width:1024px){
   body {
       margin: 0 0 0 0;
       padding: 0 0 0 0;
-      /*overflow: hidden;*/
   }
   center{
-    /*overflow: hidden;*/
+
   }
   .container{
-    /*margin: 3% 0 0 0 !important;*/
-    /*display: none;*/
+
   }
   .hide{
      background-color: red;
@@ -311,10 +303,6 @@ and (min-width:1024px){
   .hideDesktop{
     width: 100px;
     height: auto;
-    /*margin-top: 10px;*/
-    /*position: absolute;
-    top: 220px;
-    left:430px;*/
   }
   .textHideDesktop{
     font-size: 35px;
@@ -329,15 +317,6 @@ and (min-width:1024px){
   #game{
     display: block;
   }
-  /*.backButton{
-    display: block;
-    padding: 2.5px 0px 0 0.5em;
-    font-size: 15em;
-    color: white;
-    position: absolute;
-    left: 0;
-    z-index: 50;
-  }*/
 }
 
 /* iphone5 */
@@ -400,12 +379,9 @@ and (orientation: landscape){
     margin: 0 0 0 0;
   }
   .container{
-    /*margin: 0 0 0 0 !important;*/
+
   }
   .hide{
-     /*width: 100vw;
-     height: 100vh;
-     background-color: red;*/
      display: none;
   }
   .underwater{
@@ -459,7 +435,6 @@ and (orientation: landscape){
 }
 
 
-/* iphone6 */
 @media only screen
 and (device-width:375px)
 and (device-height:667px)
@@ -519,7 +494,6 @@ and (orientation: landscape){
     margin: 0 0 0 0;
   }
   .container{
-    /*margin: 0 0 0 0 !important;*/
   }
   .hide{
      display: none;
@@ -552,7 +526,7 @@ and (orientation: landscape){
       display: block;
   }
 }
-/* iphone6 plus */
+
 @media only screen
 and (device-width:414px)
 and (device-height:736px)
@@ -612,7 +586,7 @@ and (orientation: landscape){
     margin: 0 0 0 0;
   }
   .container{
-    /*margin: 0 0 0 0 !important;*/
+
   }
   .hide{
      display: none;
@@ -646,7 +620,7 @@ and (orientation: landscape){
   }
 }
 
-/* ipad */
+
 @media only screen
 and (device-width:768px)
 and (device-height:1024px)
@@ -706,7 +680,6 @@ and (orientation: landscape){
     margin: 0 0 0 0;
   }
   .container{
-    /*margin: 7vh 0 0 0 !important;*/
     padding: 12vh 0 !important;
   }
   .hide{
@@ -838,9 +811,6 @@ and (orientation: landscape){
   .underwater{
     display: block;
   }
-  /*.backButton{
-    display: none;
-  }*/
   #game {
       display: block;
   }

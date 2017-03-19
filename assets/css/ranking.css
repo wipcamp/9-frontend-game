@@ -120,13 +120,7 @@ table.dataTable thead th.sorting_desc:after {
     display: none !important;
     padding-right: 0em!important;
 }
-/* front_game */
 
-
-/* all in leaderboard */
-
-
-/*========================================================================*/
 @media only screen
 and (min-height:0px)
 and (max-height:800px) {
@@ -199,10 +193,7 @@ and (max-height:800px) {
       color: white;
     }
     .buttonSet{
-      /*padding: 5px 0px 0 5px;
-      font-size: 30px;
-      color: white;
-      position: absolute;*/
+
     }
     .rankinglogo{
       margin: 10vh 0 0 0;
@@ -215,7 +206,7 @@ and (max-height:800px) {
     }
     .backgroundBehind{
       margin: 3em 0 0 0;
-      /*bottom: 0em;*/
+
       z-index: -10;
       position: relative;
       width: 101vw;
@@ -286,7 +277,6 @@ and (max-height:800px) {
     }
     .backgroundBehind{
       margin: 3em 0 0 0;
-      /*bottom: 0em;*/
       z-index: -10;
       position: relative;
       width: 101vw;
@@ -357,7 +347,6 @@ and (max-height:800px) {
     }
     .backgroundBehind{
       margin: 3em 0 0 0;
-      /*bottom: 0em;*/
       z-index: -10;
       position: relative;
       width: 101vw;
@@ -368,7 +357,6 @@ and (max-height:800px) {
 @media (min-width:1200px) {
   .backgroundBehind{
     margin: 3em 0 0 0;
-    /*bottom: 0em;*/
     z-index: -10;
     position: relative;
     width: 101vw;
@@ -458,7 +446,6 @@ and (max-height:800px) {
     }
     .backgroundBehind{
       margin: 3em 0 0 0;
-      /*bottom: 0em;*/
       z-index: -10;
       position: relative;
       width: 101vw;
@@ -535,7 +522,6 @@ and (max-height:800px) {
     }
     .backgroundBehind{
       margin: 3em 0 0 0;
-      /*bottom: 0em;*/
       z-index: -10;
       position: relative;
       width: 105vw;
@@ -625,7 +611,6 @@ and (max-height:800px) {
     }
     .backgroundBehind{
       margin: 3em 0 0 0;
-      /*bottom: 0em;*/
       z-index: -10;
       position: relative;
       width: 100vw;
@@ -652,7 +637,6 @@ and (max-height:800px) {
     }
     .backgroundBehind{
       margin: 3em 0 0 0;
-      /*bottom: 0em;*/
       z-index: -10;
       position: relative;
       width: 100vw;
@@ -679,7 +663,6 @@ and (max-height:800px) {
     }
     .backgroundBehind{
       margin: 3em 0 0 0;
-      /*bottom: 0em;*/
       z-index: -10;
       position: relative;
       width: 120vw;
@@ -688,7 +671,6 @@ and (max-height:800px) {
     }
 }
 
-/* Mobile ******************************************** */
 @media only screen
 and (device-width: 320px)
 and (device-height: 568px)
@@ -753,7 +735,6 @@ and (orientation : portrait){
     }
     .backgroundBehind{
       margin: 3em 0 0 0;
-      /*bottom: 0em;*/
       z-index: -10;
       position: absolute;
       width: 100vw;
@@ -826,7 +807,6 @@ and (orientation : landscape){
     }
     .backgroundBehind{
       margin: 3em 0 0 0;
-      /*bottom: 0em;*/
       z-index: -10;
       position: absolute;
       width: 100vw;
@@ -900,7 +880,6 @@ and (orientation : landscape){
     }
     .backgroundBehind{
       margin: 3em 0 0 0;
-      /*bottom: 0em;*/
       z-index: -10;
       position: absolute;
       width: 100vw;
@@ -973,7 +952,6 @@ and (orientation : portrait){
     }
     .backgroundBehind{
       margin: 3em 0 0 0;
-      /*bottom: 0em;*/
       z-index: -10;
       position: absolute;
       width: 120vw;
@@ -1046,7 +1024,6 @@ and (orientation : portrait){
     }
     .backgroundBehind{
       margin: 3em 0 0 0;
-      /*bottom: 0em;*/
       z-index: -10;
       position: absolute;
       width: 120vw;
@@ -1120,7 +1097,6 @@ and (orientation : landscape){
     }
     .backgroundBehind{
       margin: 3em 0 0 0;
-      /*bottom: 0em;*/
       z-index: -10;
       position: absolute;
       width: 100vw;
@@ -1193,7 +1169,6 @@ and (orientation : portrait) {
     }
     .backgroundBehind{
       margin: 3em 0 0 0;
-      /*bottom: 0em;*/
       z-index: -10;
       position: absolute;
       width: 120vw;
@@ -1202,7 +1177,6 @@ and (orientation : portrait) {
     }
     .backgroundBehind{
       margin: 3em 0 0 0;
-      /*bottom: 0em;*/
       z-index: -10;
       position: absolute;
       width: 120vw;
@@ -1275,7 +1249,6 @@ and (orientation : landscape){
     }
     .backgroundBehind{
       margin: 3em 0 0 0;
-      /*bottom: 0em;*/
       z-index: -10;
       position: absolute;
       width: 100vw;
@@ -1351,7 +1324,6 @@ and (orientation : portrait) {
     }
     .backgroundBehind{
       margin: 3em 0 0 0;
-      /*bottom: 0em;*/
       z-index: -10;
       position: absolute;
       width: 120vw;
@@ -1360,7 +1332,7 @@ and (orientation : portrait) {
     }
 }
 
-/*========================================================================*/
+
 
 .fa-arrow-left{
   font-size: 18px !important;

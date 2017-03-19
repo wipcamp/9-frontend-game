@@ -17,7 +17,6 @@ body{
   overflow-y: hidden;
 }
 
-/* Desktop + Android */
 @media only screen
 and (min-width:0px)
 and (orientation: portrait){
@@ -96,7 +95,6 @@ and (orientation: landscape){
     display: none;
   }
   .gameLogo{
-    /*width: 35%;*/
     display: none;
   }
   .underwater{
@@ -170,7 +168,6 @@ and (orientation:portrait){
     display: none;
   }
   .gameLogo{
-    /*width: 35%;*/
     display: none;
   }
   .underwater{
@@ -205,10 +202,8 @@ and (orientation: landscape){
   body {
       margin: 0 0 0 0;
       padding: 0 0 0 0 !important;
-      /*overflow: hidden;*/
   }
   center{
-    /*overflow: hidden;*/
   }
   .container{
     margin: 0 0 0 0;
@@ -243,7 +238,6 @@ and (orientation: landscape){
     display: none;
   }
   .gameLogo{
-    /*width: 35%;*/
     display: none;
   }
   .underwater{
@@ -277,16 +271,13 @@ and (orientation: landscape){
 @media only screen
 and (min-width:1024px){
   body {
-      /*margin: 0 0 0 0;*/
       margin: 0 0 0 0;
       padding: 0 0 0 0;
-      /*overflow: hidden;*/
   }
   center{
-    /*overflow: hidden;*/
+
   }
   .container{
-    /*margin: 3% 0 0 0 !important;*/
     padding: 10.5vh 0 !important ;
   }
   .hide{
@@ -361,14 +352,12 @@ and (min-width:1024px){
 and (min-width:1200px){
   body {
       margin: 0 0 0 0;
-      /*overflow: hidden;*/
       height: 100vh;
   }
   center{
-    /*overflow: hidden;*/
+
   }
   .container{
-    /*margin: 3em 0 0 0;*/
     padding: 11vh 0!important;
   }
   .hide{
@@ -439,14 +428,12 @@ and (min-width:1200px){
 and (min-width:1300px){
   body {
       margin: 0 0 0 0;
-      /*overflow: hidden;*/
       height: 100vh;
   }
   center{
-    /*overflow: hidden;*/
+
   }
   .container{
-    /*margin: 3% 0 0 0 !important;*/
     padding: 7vh 0!important;
   }
   .hide{
@@ -525,13 +512,11 @@ and (min-width:1300px){
 and (min-width:1366px){
   body {
       margin: 0 0 0 0;
-      /*overflow: hidden;*/
   }
   center{
-    /*overflow: hidden;*/
+
   }
   .container{
-    /*margin: 3% 0 0 0 !important;*/
     padding: 7vh 0!important;
   }
   .hide{
@@ -622,7 +607,6 @@ and (min-width:1440px){
     overflow: hidden;
   }
   .container{
-    /*margin: 5em 0 0 0;*/
     padding: 15vh 0 !important;
   }
   .hide{
@@ -705,7 +689,6 @@ and (min-width:1440px){
   }
   .styleLink{
     color: rgb(255, 128, 0);
-    /*font-size: 1em;*/
   }
 }
 @media only screen
@@ -718,7 +701,6 @@ and (min-width:1600px){
     overflow: hidden;
   }
   .container{
-    /*margin: 6em 0 0 0;*/
     padding: 20vh 0 !important;
   }
   .hide{
@@ -801,7 +783,6 @@ and (min-width:1600px){
   }
   .styleLink{
     color: rgb(255, 128, 0);
-    /*font-size: 1em;*/
   }
 }
 
@@ -815,7 +796,6 @@ and (min-width:1900px){
     overflow: hidden;
   }
   .container{
-    /*margin: 6em 0 0 0;*/
     padding: 20vh 0 !important;
   }
   .hide{
@@ -897,12 +877,11 @@ and (min-width:1900px){
   }
   .styleLink{
     color: rgb(255, 128, 0);
-    /*font-size: 1em;*/
   }
 }
 
 
-/* iphone5 */
+
 @media only screen
 and (device-width:320px)
 and (device-height:568px)
@@ -955,7 +934,7 @@ and (orientation: landscape){
     margin: 0 0 0 0;
   }
   .container{
-    /*margin: 0 0 0 0 !important;*/
+
   }
   .hide{
      background-color: red;
@@ -992,7 +971,7 @@ and (orientation: landscape){
   }
 }
 
-/* iphone6 */
+
 @media only screen
 and (device-width:375px)
 and (device-height:667px)
@@ -1045,7 +1024,7 @@ and (orientation: landscape){
     margin: 0 0 0 0;
   }
   .container{
-    /*margin: 0 0 0 0 !important;*/
+
   }
   .underwater{
     display: none;
@@ -1081,7 +1060,7 @@ and (orientation: landscape){
       display: none;
   }
 }
-/* iphone6 plus */
+
 @media only screen
 and (device-width:414px)
 and (device-height:736px)
@@ -1134,7 +1113,7 @@ and (orientation: landscape){
     margin: 0 0 0 0;
   }
   .container{
-    /*margin: 0 0 0 0 !important;*/
+
   }
   .underwater{
     display: none;
@@ -1171,7 +1150,7 @@ and (orientation: landscape){
   }
 }
 
-/* ipad */
+
 @media only screen
 and (device-width:768px)
 and (device-height:1024px)
@@ -1228,7 +1207,6 @@ and (orientation: landscape){
     display: none;
   }
 .container{
-    /*margin: 7vh 0 0 0 !important;*/
     padding: 12vh 0 !important;
   }
   .hide{
@@ -1256,18 +1234,12 @@ and (orientation: landscape){
     left: 280px;
     letter-spacing: 2px;
   }
-  /*.underwater{
-    display: none;
-  }
-  .backButton{
-    display: none;
-  }*/
   #game {
       display: none;
   }
 }
 
-/* ipadpro */
+
 @media only screen
 and (device-width:1024px)
 and (device-height:1366px)

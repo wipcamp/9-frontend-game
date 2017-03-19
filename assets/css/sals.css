@@ -24,10 +24,9 @@ body{
   width: 100vw;
   height: 100vh;
   background-color: #4b0095;
-  /* center by vertical */
   display: flex;
-  align-items: center; /* align vertical */
-  justify-content: center; /* align horizontal */
+  align-items: center;
+  justify-content: center;
 }
 .textHide img{
   height: 7em;
@@ -136,7 +135,7 @@ blockquote{
   overflow-x: hidden;
 }
 .ship-wip{
-  width: 25em;  
+  width: 25em;
   animation-name: ship;
   animation-duration: 6s;
   animation-delay: .1s;
@@ -188,7 +187,6 @@ blockquote{
   }
 }
 .wave {
-  /*width: 100%;*/
   height: 5em;
 }
 .wave1{
@@ -258,7 +256,6 @@ blockquote{
 }
 
 
-/* Desktop */
 @media only screen and
 (min-width:800px) and
 (max-width:1024px){
@@ -266,7 +263,7 @@ blockquote{
     padding: 9px 5px;
   }
   blockquote p{
-    font-size: 12px !important; 
+    font-size: 12px !important;
   }
 }
 @media only screen and
@@ -315,7 +312,7 @@ blockquote{
 (max-width:1440px){
   .bg-sals{
     display: block;
-  }  
+  }
   .logoGame{
     margin-top: 1em;
   }
@@ -332,7 +329,7 @@ blockquote{
 (max-width:1600px){
   .bg-sals{
     display: block;
-  }  
+  }
   .gameZone{
     display: block;
   }
@@ -351,14 +348,13 @@ blockquote{
   }
   .bg-sals{
     display: block;
-  }  
+  }
   .logoGame{
     width: 30em;
     margin-bottom: 2em;
   }
   .gameZone{
     margin-top: 3em;
-    /* center by vertical */
     display: block;
   }
   .hideGame{
@@ -367,16 +363,15 @@ blockquote{
 }
 
 
-/* ipad + ipad pro */
-@media only screen 
-and (device-width : 768px) 
-and (device-height : 1024px) 
+@media only screen
+and (device-width : 768px)
+and (device-height : 1024px)
 and (orientation : portrait){
   .textHide h2 {
       margin: 0.5em 0;
       font-size: 3em;
   }
-  .textHide h5{ 
+  .textHide h5{
     font-size: 2em;
   }
   .detailHide h5{
@@ -392,15 +387,14 @@ and (orientation : portrait){
     display: none !important;
   }
   .hideGame{
-    /* center by vertical */
     display: flex !important;
-    align-items: center; /* align vertical */
-    justify-content: center; /* align horizontal */
+    align-items: center;
+    justify-content: center;
   }
 }
-@media only screen 
-and (device-height : 768px) 
-and (device-width : 1024px) 
+@media only screen
+and (device-height : 768px)
+and (device-width : 1024px)
 and (orientation : landscape) {
   .textHide h5{
     font-size: 1.65em;
@@ -418,10 +412,9 @@ and (orientation : landscape) {
     display: none !important;
   }
   .hideGame{
-    /* center by vertical */
     display: flex !important;
-    align-items: center; /* align vertical */
-    justify-content: center; /* align horizontal */
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -445,10 +438,9 @@ and (orientation : landscape) {
     display: none !important;
   }
   .hideGame{
-    /* center by vertical */
     display: flex !important;
-    align-items: center; /* align vertical */
-    justify-content: center; /* align horizontal */
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -472,10 +464,10 @@ and (orientation : landscape) {
     display: none !important;
   }
   .hideGame{
-    /* center by vertical */
+
     display: flex !important;
-    align-items: center; /* align vertical */
-    justify-content: center; /* align horizontal */
+    align-items: center;
+    justify-content: center;
   }
   .textHide img{
     height: 15em;

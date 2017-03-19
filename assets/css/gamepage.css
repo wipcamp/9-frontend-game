@@ -10,7 +10,7 @@ body {
   color: white;
   height: auto;
   overflow-x: hidden !important;
-  background: linear-gradient(#141123, #1d3c5c); /* Standard syntax */
+  background: linear-gradient(#141123, #1d3c5c);
 }
 #fbBtn{
   display: none !important;
@@ -119,7 +119,7 @@ body {
 }
 
 .bodyColorSea{
-  background: linear-gradient(#09706b, #188c83, #29a599); /* Standard syntax */
+  background: linear-gradient(#09706b, #188c83, #29a599);
   position: relative;
   top: -10px;
   z-index: 3;
@@ -177,7 +177,6 @@ body {
 and (min-width: 0px){
   .bg{
     overflow-x: hidden !important;
-    /*overflow-y: hidden;*/
   }
   .setSit{
     height: 35px;
@@ -201,14 +200,14 @@ and (min-width: 0px){
     transition: all .3s;
   }
   .shipCircle:hover {
-      -webkit-transform: rotate(4deg) scale(1.2); /* Safari */
+      -webkit-transform: rotate(4deg) scale(1.2);
       transform: rotate(4deg) scale(1.2);
   }
   .bub5{
     transition: all .3s;
   }
   .bub5:hover {
-      -webkit-transform: rotate(4deg) scale(1.2); /* Safari */
+      -webkit-transform: rotate(4deg) scale(1.2);
       transform: rotate(4deg) scale(1.2);
   }
   .boxGameDesktop{
@@ -297,9 +296,6 @@ and (orientation: portrait){
     overflow-x: hidden !important;
     overflow-y: hidden !important;
   }
-  /*.over {
-    overflow-y: hidden;
-  }*/
   .setSit{
     height: 2.5em;
   }
@@ -834,7 +830,7 @@ and (orientation: landscape){
     transition: all .3s;
   }
   .shipCircle:hover {
-      -webkit-transform: rotate(4deg) scale(1.2); /* Safari */
+      -webkit-transform: rotate(4deg) scale(1.2);
       transform: rotate(4deg) scale(1.2);
   }
   .boxGameDesktop{
@@ -959,7 +955,7 @@ and (orientation: landscape){
     transition: all .3s;
   }
   .shipCircle:hover {
-      -webkit-transform: rotate(4deg) scale(1.2); /* Safari */
+      -webkit-transform: rotate(4deg) scale(1.2);
       transform: rotate(4deg) scale(1.2);
   }
   .boxGameDesktop{
@@ -1285,7 +1281,7 @@ and (orientation: landscape){
     transition: all .3s;
   }
   .shipCircle:hover {
-      -webkit-transform: rotate(4deg) scale(1.2); /* Safari */
+      -webkit-transform: rotate(4deg) scale(1.2);
       transform: rotate(4deg) scale(1.2);
   }
   .fixBugHeight{
@@ -1404,7 +1400,7 @@ and (min-width: 1025px){
       transition: all .3s;
     }
     .shipCircle:hover {
-        -webkit-transform: rotate(4deg) scale(1.2); /* Safari */
+        -webkit-transform: rotate(4deg) scale(1.2);
         transform: rotate(4deg) scale(1.2);
     }
     .fixBugDesktop{
@@ -1452,8 +1448,6 @@ and (min-width: 1025px){
       animation-play-state: running;
     }
     .bubble2{
-      /*margin: 0 0 0 70px;*/
-      /*top: 10;*/
       width: 100%;
       animation-name: wave;
       animation-duration: 5.5s;
@@ -1473,8 +1467,6 @@ and (min-width: 1025px){
       animation-play-state: running;
     }
     .bubble4{
-      /*margin: 0px 0 0 70px;*/
-      /*top: -250px;*/
       width: 100%;
       animation-name: wave;
       animation-duration: 5.5s;
@@ -1579,7 +1571,7 @@ and (min-width: 1200px){
       transition: all .3s;
     }
     .shipCircle:hover {
-        -webkit-transform: rotate(4deg) scale(1.2); /* Safari */
+        -webkit-transform: rotate(4deg) scale(1.2);
         transform: rotate(4deg) scale(1.2);
     }
     .boxGameDesktop{
@@ -1621,8 +1613,6 @@ and (min-width: 1200px){
       animation-play-state: running;
     }
     .bubble2{
-      /*margin: 0 0 0 70px;*/
-      /*top: 10;*/
       width: 100%;
       animation-name: wave;
       animation-duration: 5.5s;
@@ -1644,8 +1634,6 @@ and (min-width: 1200px){
       animation-play-state: running;
     }
     .bubble4{
-      /*margin: 0px 0 0 70px;*/
-      /*top: -250px;*/
       width: 100%;
       animation-name: wave;
       animation-duration: 5.5s;
@@ -1748,7 +1736,7 @@ and (min-width: 1300px){
       transition: all .3s;
     }
     .shipCircle:hover {
-        -webkit-transform: rotate(4deg) scale(1.2); /* Safari */
+        -webkit-transform: rotate(4deg) scale(1.2);
         transform: rotate(4deg) scale(1.2);
     }
     .boxGameDesktop{
@@ -1790,8 +1778,6 @@ and (min-width: 1300px){
       animation-play-state: running;
     }
     .bubble2{
-      /*margin: 0 0 0 70px;*/
-      /*top: 10;*/
       width: 100%;
       animation-name: wave;
       animation-duration: 5.5s;
@@ -1811,8 +1797,6 @@ and (min-width: 1300px){
       animation-play-state: running;
     }
     .bubble4{
-      /*margin: 0px 0 0 70px;*/
-      /*top: -250px;*/
       width: 100%;
       animation-name: wave;
       animation-duration: 5.5s;
@@ -1951,8 +1935,6 @@ and (orientation: landscape){
       animation-play-state: running;
     }
     .bubble2{
-      /*margin: 0 0 0 70px;*/
-      /*top: 10;*/
       width: 100%;
       animation-name: wave;
       animation-duration: 5.5s;
@@ -1973,8 +1955,6 @@ and (orientation: landscape){
       animation-play-state: running;
     }
     .bubble4{
-      /*margin: 0px 0 0 70px;*/
-      /*top: -250px;*/
       width: 100%;
       animation-name: wave;
       animation-duration: 5.5s;
