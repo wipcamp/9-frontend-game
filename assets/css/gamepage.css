@@ -29,6 +29,9 @@ body {
   color: #fff !important;
   background-color: #31559f;
 }
+.logout{
+  display: none;
+}
 .signin{
   margin: 0 0.3em;
 }

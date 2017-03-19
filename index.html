@@ -52,9 +52,13 @@
       <div class="row ">
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
           <div id="fb-root"></div>
-          <button type="button" class="btn btn-block btn-social btn-facebook text-center" onclick="FB.login()">
+          <button type="button" class="btn btn-block btn-social btn-facebook text-center login" onclick="login()">
             <span class="fa fa-facebook-square"></span>
-            <span class="signin"> เข้าสู่ระบบด้วย Facebook </span>
+            <span class="signin "> เข้าสู่ระบบด้วย Facebook </span>
+          </button>
+          <button type="button" class="btn btn-block btn-social btn-facebook text-center logout"  onclick="logout()">  
+            <span class="fa fa-facebook-square"></span>
+            <span class="signin "> ออกจากระบบ </span>
           </button>
           <div id="fbBtn">
             <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true" onlogin="checkLoginState()">
@@ -123,6 +127,7 @@
   console.log('%c9 I\'m Developer.', 'background: #222; color: #f3603f; font-size: 26px; font-style: italic; font-weight:700');
   console.log('If you interest our code 🙂 Join WIP Camp #9.');
   console.log('%c## Powered by Alchemist ##','font-style: italic');
+  $('.logout').css('display','none');
 </script>
 
 <script>

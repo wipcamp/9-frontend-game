@@ -1,6 +1,6 @@
 $(document).ready(function(){
-  toDayToNight();
-  setTimeout(display,3000);
+    toDayToNight();
+    setTimeout(display,3000);
 });
 
 var d = new Date();
@@ -22,11 +22,14 @@ function display() {
         console.log('statusChangeCallback');
         console.log(response);
         if (response.status === 'connected') {
-            testAPI();
+            logout();
+            testAPI();  
         } else if (response.status === 'not_authorized') {
+            login();
             document.getElementById('status').innerHTML = 'Please log' +
                 ' into this app.';
         } else {
+            login();
             document.getElementById('status').innerHTML = 'Please log' +
                 ' into Facebook.';
         }
@@ -35,8 +38,12 @@ function display() {
     function checkLoginState() {
         FB.getLoginStatus(function(response) {
             statusChangeCallback(response);
+            console.log('getLoginStatus');
         });
         console.log('checkLoginState activated');
+
+
+
     }
 
     window.fbAsyncInit = function() {
@@ -50,7 +57,8 @@ function display() {
         FB.getLoginStatus(function(response) {
             statusChangeCallback(response);
         });
-
+            
+        
     };
 
     (function(d, s, id) {
@@ -76,4 +84,19 @@ function display() {
             }));
         });
         console.log(JSON.parse($.session.get('fb')));
+    }
+
+    function login(){
+        FB.login();
+        setTimeout(function(){
+            $('.login').css('display','none');
+            $('.logout').css('display','block');
+        },5000);
+    }
+    function logout(){
+        FB.logout();
+        setTimeout(function(){
+            $('.logout').css('display','none');
+            $('.login').css('display','block');
+        },1000);
     }
