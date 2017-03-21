@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="assets/css/fontface-thaisansneue.css">
   <title>WIP Camp #9 Game Center</title>
 </head>
-<body class="bg">
+<body onload="checkLoginState()"  class="bg">
   <a href="https://wip.camp" class="backButton"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
 <div class="over">
   <div class="container-fluid ">
@@ -50,23 +50,7 @@
 
     <div class="container-fluid bodyIconDesktop bodyColorSea fixBugHeight">
       <div class="row ">
-        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-          <div id="fb-root"></div>
-          <button type="button" class="btn btn-block btn-social btn-facebook text-center login" onclick="login()">
-            <span class="fa fa-facebook-square"></span>
-            <span class="signin "> เข้าสู่ระบบด้วย Facebook </span>
-          </button>
-          <button type="button" class="btn btn-block btn-social btn-facebook text-center logout"  onclick="logout()">
-            <span class="fa fa-facebook-square"></span>
-            <span class="signin "> ออกจากระบบ </span>
-          </button>
-          <div id="fbBtn">
-            <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true" onlogin="checkLoginState()">
-          </div>
-            <div id="status"></div>
-          </div>
-
-        </div>
+        
         <div class="col-xs-12 col-sm-offset-2 col-sm-10 col-md-offset-2 col-md-10 ">
           <div class="bubble bubble1 dpNone">
             <img src="assets/img/ungame.png" alt="" class="bub1 gameOnDesktop">
@@ -117,10 +101,59 @@
     </div>
   </div>
 </div>
+  <div class="modal fade" id="loading" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body text-center">
+          <h4>กำลังตรวจสอบ</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body text-center">
+          <h4>ล็อคอินสำเร็จ</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title text-center" id="myModalLabel">กรุณา Login ก่อนเล่นเกม</h4>
+        </div>
+        <div class="modal-body">
+          <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+            <div id="fb-root"></div>
+            <button type="button" id="login" class="btn btn-block btn-social btn-facebook text-center login" onclick="login()">
+              <span class="fa fa-facebook-square"></span>
+              <span class="signin "> เข้าสู่ระบบด้วย Facebook </span>
+            </button>
+            <button type="button" id="logout" class="btn btn-block btn-social btn-facebook text-center logout"  onclick="logout()">
+              <span class="fa fa-facebook-square"></span>
+              <span class="signin "> ออกจากระบบ </span>
+            </button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+  
+  <div id="fbBtn">
+    <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true" onlogin="checkLoginState()">
+  </div>
+  <div id="status"></div>
+</div>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="assets/js/jquery.session.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/index.js" charset="utf-8"></script>
 
 <script>

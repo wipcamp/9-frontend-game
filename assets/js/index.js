@@ -1,6 +1,7 @@
 $(document).ready(function(){
-    toDayToNight();
     setTimeout(display,3000);
+    $('#loading').modal('show');
+    toDayToNight();
 });
 
 var d = new Date();
@@ -22,30 +23,29 @@ function display() {
         console.log('statusChangeCallback');
         console.log(response);
         if (response.status === 'connected') {
-            logout();
-            testAPI();  
+            loadLogin();
         } else if (response.status === 'not_authorized') {
-            login();
+            forceLogin();
             document.getElementById('status').innerHTML = 'Please log' +
                 ' into this app.';
         } else {
-            login();
+            forceLogin();
             document.getElementById('status').innerHTML = 'Please log' +
                 ' into Facebook.';
         }
     }
 
     function checkLoginState() {
-        FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
-            console.log('getLoginStatus');
-        });
+        setTimeout(function(){
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+                console.log('getLoginStatus');
+            });
+        },2000);
         console.log('checkLoginState activated');
 
-
-
     }
-
+    var authRes;
     window.fbAsyncInit = function() {
         FB.init({
             appId: '432705477069426',
@@ -53,12 +53,13 @@ function display() {
             xfbml: true,
             version: 'v2.8'
         });
-
-        FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
+        FB.Event.subscribe('auth.statusChange', function(response) {
+            console.log("Response : "+JSON.stringify(response.authResponse));
+            if(JSON.stringify(response.authResponse).userId!=null||JSON.stringify(response.authResponse)!=undefined){
+                $('#login').modal('hide');
+                checkLoginState();
+            }
         });
-            
-        
     };
 
     (function(d, s, id) {
@@ -88,15 +89,25 @@ function display() {
 
     function login(){
         FB.login();
-        setTimeout(function(){
-            $('.login').css('display','none');
-            $('.logout').css('display','block');
-        },5000);
     }
-    function logout(){
+    function logout(response){
         FB.logout();
-        setTimeout(function(){
-            $('.logout').css('display','none');
+        setTimeout((function(){    
+            checkLoginState();
             $('.login').css('display','block');
-        },1000);
+            $('.logout').css('display','none');
+        }),1000);
+    }
+
+    function loadLogin(){
+        $('#loading').modal('hide');
+        $('#success').modal('show');
+        setTimeout((function(){   
+            $('#success').modal('hide');
+        }),1000);
+    }
+    function forceLogin(){
+        FB.Event.subscribe();
+        $('#loading').modal('hide');
+        $('#login').modal('show');
     }

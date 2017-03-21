@@ -173,6 +173,20 @@ body {
   border-color: rgba(0,0,0,0.2) !important;
 }
 
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 15em auto !important;
+}
+.modal-content{
+    margin: 0 1em;
+}
+.modal-body{
+  height: 6em;
+}
+#logout{
+  display: none;
+}
 @media only screen
 and (min-width: 0px){
   .bg{
