@@ -193,7 +193,7 @@ function createGamePlay() {
     isRockActive = true;
     seawaveCooldown = 60;
     score=0;
-    textScore = game.add.text(20,20,"Score : "+score,{fontSize : "20px",fill : "#ed3465"});
+    textScore = game.add.text(20,20,"Score : "+score,{fontSize : "20px Thaisans Neue for Web",fill : "#ed3465"});
     cursors = this.input.keyboard.createCursorKeys();
     fireButton = this.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
     destroyedCount=0;
@@ -659,7 +659,7 @@ function updateGamePlay() {
         isPause.anchor.set(0.5);
         isPause.scale.setTo(0.95);
         isPause.alpha = 0.8;
-        textPause = game.add.text(game.world.width/2,game.world.height/2,'press enter to resume',{font : "24px",fill : "#FFFFFF"});
+        textPause = game.add.text(game.world.width/2,game.world.height/2,'press enter to resume ',{font : "24px Thaisans Neue for Web",fill : "#FFFFFF"});
         textPause.anchor.set(0.5);
         game.paused = true;
   	}
@@ -1386,7 +1386,6 @@ function createMenu(){
         isFirstTimeMenu=false;
     }
     bg = game.add.image(0,0,'bgGame');
-    bg.scale.setTo(0.17,0.18);
     logo = game.add.image(game.world.width/2, game.world.height*(0.75/4),'wip');
     logo.anchor.set(0.5);
     logo.scale.setTo(0.5);
@@ -1415,7 +1414,6 @@ function createMenu(){
 
 function createHowtoPlay(){
     bg = game.add.image(0,0,'bgGame');
-    bg.scale.setTo(0.17,0.18);
     map = game.add.image(game.world.width/2,game.world.height/2,'oldMap');
     map.anchor.set(0.5);
     map.scale.setTo(0.95);
@@ -1483,7 +1481,7 @@ function createHowtoPlay(){
         enter.frame = 0;
     }, this);
 
-    text = game.add.text(game.world.width/2, game.world.height*(3.95/5)+25,'press to pause and resume game',{font : "24px",fill : "#5B3B00"});
+    text = game.add.text(game.world.width/2, game.world.height*(3.95/5)+25,'press to pause and resume game',{font : "24px Thaisans Neue for Web",fill : "#5B3B00"});
     text.anchor.set(0.5);
 
     game.time.events.loop(1500, function() {
@@ -1570,7 +1568,6 @@ function updateHowtoPlay() {
 function createReport(){
     ckReport = false;
     bg = game.add.image(0,0,'bgGame');
-    bg.scale.setTo(0.17,0.18);
     map = game.add.image(game.world.width/2,game.world.height/2,'oldMap');
     map.anchor.set(0.5);
     map.scale.setTo(0.95);
@@ -1585,7 +1582,7 @@ function createReport(){
     buttonMenu.anchor.set(0.5);
     game.add.plugin(PhaserInput.Plugin);
     input = game.add.inputField(game.world.width * 0.5 / 4, game.world.height / 4, {
-        font: '16px',
+        font: '22px Thaisans Neue for Web',
         fill: '#212121',
         fontWeight: 'normal',
         width: 240,
@@ -1639,14 +1636,13 @@ function debugReport() {
             placeHolder: 'แจ้งข้อผิดพลาดได้ที่นี่เลยนะ :)'
         });
         input.startFocus();
-        text = game.add.text(game.world.width / 2, 550 * (3.75 / 4) - 80, "แจ้งข่าวกัปตันเรียบร้อยแล้ว", { font: "18px Thaisans Neue for Web", fill: "#5B3B00" });
+        text = game.add.text(game.world.width / 2, 550 * (3.75 / 4) - 80, "แจ้งข่าวกัปตันเรียบร้อยแล้ว", { font: "22px Thaisans Neue for Web", fill: "#5B3B00" });
         text.anchor.set(0.5);
     }
 }
 
 function createCredit(){
     bg = game.add.image(0,0,'bgGame');
-    bg.scale.setTo(0.17,0.18);
     map = game.add.image(game.world.width/2,game.world.height/2,'oldMap');
     map.anchor.set(0.5);
     map.scale.setTo(0.95);
@@ -1659,21 +1655,21 @@ function createCredit(){
     buttonMenu = game.add.button(game.world.width*(0.75/3), game.world.height*(4.6/5), 'menu', toMenu, this);
     buttonMenu.scale.setTo(0.11);
     buttonMenu.anchor.set(0.5);
-    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) - 25 + 10, "Audio Library – No Copyright Music", { fontSize: "16px", fill: "#5B3B00" });
+    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) - 25 + 10, "Audio Library – No Copyright Music", { fontSize: "22px Thaisans Neue for Web", fill: "#5B3B00" });
     textCredit.anchor.set(0.5);
-    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 5 + 10, "URL : goo.gl/yReazM", { fontSize: "12px", fill: "#5B3B00" });
+    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 5 + 10, "URL : goo.gl/yReazM", { fontSize: "16px Thaisans Neue for Web", fill: "#5B3B00" });
     textCredit.anchor.set(0.5);
-    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 35 + 10, "Ross Bugden - Music", { fontSize: "16px", fill: "#5B3B00" });
+    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 35 + 10, "Ross Bugden - Music", { fontSize: "22px Thaisans Neue for Web", fill: "#5B3B00" });
     textCredit.anchor.set(0.5);
-    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 65 + 10, "URL : goo.gl/NDMy6w", { fontSize: "12px", fill: "#5B3B00" });
+    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 65 + 10, "URL : goo.gl/NDMy6w", { fontSize: "16px Thaisans Neue for Web", fill: "#5B3B00" });
     textCredit.anchor.set(0.5);
-    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 95 + 10, "Ship sailing on the sea", { fontSize: "16px", fill: "#5B3B00" });
+    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 95 + 10, "Ship sailing on the sea", { fontSize: "22px Thaisans Neue for Web", fill: "#5B3B00" });
     textCredit.anchor.set(0.5);
-    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 125 + 10, "URL : goo.gl/1YpYo3", { fontSize: "12px", fill: "#5B3B00" });
+    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 125 + 10, "URL : goo.gl/1YpYo3", { fontSize: "16px Thaisans Neue for Web", fill: "#5B3B00" });
     textCredit.anchor.set(0.5);
-    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 155 + 10, "Beach party wooden sign", { fontSize: "16px", fill: "#5B3B00" });
+    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 155 + 10, "Beach party wooden sign", { fontSize: "22px Thaisans Neue for Web", fill: "#5B3B00" });
     textCredit.anchor.set(0.5);
-    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 185 + 10, "URL : goo.gl/9kzuhy", { fontSize: "12px", fill: "#5B3B00" });
+    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 185 + 10, "URL : goo.gl/9kzuhy", { fontSize: "16px Thaisans Neue for Web", fill: "#5B3B00" });
     textCredit.anchor.set(0.5);
     mute = game.add.button(300,20,'mute',muteSounds,this);
     mute.scale.setTo(0.08,0.08);
@@ -1685,18 +1681,17 @@ function createCredit(){
 }
 function createResult(){
     bg = game.add.image(0,0,'bgGame');
-    bg.scale.setTo(0.17,0.18);
     logo = game.add.image(game.world.width/2,game.world.height*(1/4),'gameover');
     logo.anchor.set(0.5);
     logo.scale.setTo(0.1);
-    text = game.add.text(game.world.width/2+50,game.world.height*(1.25/4),"Score : "+score,{fontSize : "20px",fill : "#5B3B00"});
+    text = game.add.text(game.world.width/2+50,game.world.height*(1.25/4),"Score : "+score,{fontSize : "48px Thaisans Neue for Web",fill : "#5B3B00"});
     gameBGM.stop();
     bossBGM.stop();
     resultBGM.loopFull();
     text.anchor.set(0.5);
-    text = game.add.text(game.world.width/2+50,game.world.height*(1/4)+5,""+name,{fontSize : "20px",fill : "#5B3B00"});
+    text = game.add.text(game.world.width/2+50,game.world.height*(1/4)+5,""+name,{fontSize : "36px Thaisans Neue for Web",fill : "#5B3B00"});
     text.anchor.set(0.5);
-    text = game.add.text(game.world.width/2,game.world.height*(1.5/4),""+causeOfDeath,{fontSize : "14px",fill : "#5B3B00"});
+    text = game.add.text(game.world.width/2,game.world.height*(1.5/4),""+causeOfDeath,{fontSize : "16px Thaisans Neue for Web",fill : "#5B3B00"});
     text.anchor.set(0.5);
     buttonPlayagain = game.add.button(game.world.width/2, game.world.height*(3/4), 'playagain', toGame, this);
     buttonPlayagain.scale.setTo(0.12);
