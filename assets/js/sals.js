@@ -1,3 +1,7 @@
+var users = JSON.parse($.session.get('fb'));
+if(users.name===undefined){
+  document.location="index.html";
+}
 jQuery.fn.dataTableExt.oApi.fnDataUpdate = function ( oSettings, nRowObject, iRowIndex )
 {
     jQuery(nRowObject).find("TD").each( function(i) {
