@@ -57,7 +57,8 @@ function display() {
             console.log("Response : "+JSON.stringify(response.authResponse));
             if(JSON.stringify(response.authResponse).userId!=null||JSON.stringify(response.authResponse)!=undefined){
                 $('#login').modal('hide');
-                checkLoginState();
+                // checkLoginState();
+                testAPI();
             }
         });
     };
