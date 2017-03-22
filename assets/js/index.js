@@ -45,7 +45,6 @@ function display() {
         console.log('checkLoginState activated');
 
     }
-    var authRes;
     window.fbAsyncInit = function() {
         FB.init({
             appId: '432705477069426',
@@ -55,10 +54,11 @@ function display() {
         });
         FB.Event.subscribe('auth.statusChange', function(response) {
             console.log("Response : "+JSON.stringify(response.authResponse));
-            if(JSON.stringify(response.authResponse).userId!=null||JSON.stringify(response.authResponse)!=undefined){
+            var tempId = JSON.stringify(response.authResponse).userId;
+            if(tempId!==null||tempId!==undefined){
                 $('#login').modal('hide');
-                // checkLoginState();
                 testAPI();
+                $('#logout').css('display','block');
             }
         });
     };
@@ -95,8 +95,7 @@ function display() {
         FB.logout();
         setTimeout((function(){    
             checkLoginState();
-            $('.login').css('display','block');
-            $('.logout').css('display','none');
+            $('.logout').css('display','block');
         }),1000);
     }
 
