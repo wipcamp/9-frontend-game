@@ -19,9 +19,11 @@ function display() {
 }
 
 /* ============================= */
+    var getRes;
     function statusChangeCallback(response) {
         console.log('statusChangeCallback');
         console.log(response);
+        getRes=response;
         if (response.status === 'connected') {
             loadLogin();
         } else if (response.status === 'not_authorized') {
@@ -91,12 +93,22 @@ function display() {
     function login(){
         FB.login();
     }
-    function logout(response){
+    function logout(){
+        console.log('click logout');
+        $('#loadLogout').modal('show');
         FB.logout();
-        setTimeout((function(){    
-            checkLoginState();
-            $('.logout').css('display','block');
-        }),1000);
+        checkLoginState();
+        FB.Event.subscribe();
+        if(getRes.name===undefined){
+            console.log('Load Logout');
+            setTimeout(function(){
+                $('#loadLogout').modal('hide');
+                $('#logoutSuccess').modal('show');
+            },1000);
+            setTimeout(function(){   
+                $('#logoutSuccess').modal('hide');
+            },2000);
+        }
     }
 
     function loadLogin(){

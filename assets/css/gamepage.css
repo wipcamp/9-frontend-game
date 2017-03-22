@@ -4,7 +4,6 @@
 html{
   overflow-x: hidden !important;
 }
-
 body {
   font-family: 'thaisans_neueregular', sans-serif !important;
   color: white;
@@ -34,6 +33,21 @@ body {
 }
 .signin{
   margin: 0 0.3em;
+}
+#loadLogout{
+  display: none;
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+.fa-circle-o-notch{
+  font-size: 5em !important;
+  animation-name: spin;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-delay: 0.3s;
+  animation-iteration-count: infinite;
 }
 .fa-facebook-square{
   filter: invert(100%),grayscale(100%);
@@ -142,7 +156,6 @@ body {
     transform: translate(-3px, 6.25px);
   }
 }
-
 .downButton{
   display: none;
 }
@@ -173,16 +186,12 @@ body {
   border-color: rgba(0,0,0,0.2) !important;
 }
 
-.modal-dialog {
-    position: relative;
-    width: auto;
+.modal-content{
     margin: 15em auto !important;
 }
-.modal-content{
-    margin: 0 1em;
-}
 .modal-body{
-  height: 6em;
+    height: auto;
+    min-height: 6em;
 }
 #logout{
   display: none;

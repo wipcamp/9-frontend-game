@@ -2,6 +2,7 @@ var users = JSON.parse($.session.get('fb'));
 if(users.name===undefined){
   document.location="index.html";
 }
+
 jQuery.fn.dataTableExt.oApi.fnDataUpdate = function ( oSettings, nRowObject, iRowIndex )
 {
     jQuery(nRowObject).find("TD").each( function(i) {
@@ -29,8 +30,6 @@ $(function() {
     usersRef.on("child_added", function(data) {
       users.push(data.val());
       nameUsers.push(data.val().name);
-
-
     });
     $(document).ready(function() {
       toDayToNight();
