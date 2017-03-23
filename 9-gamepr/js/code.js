@@ -351,6 +351,12 @@ function createGameplay() {
     buttonFullSc.scale.setTo(0.15, 0.15);
     buttonFullSc.fixedToCamera = true;
     buttonFullSc.anchor.set(0.5);
+    if (game.scale.isFullScreen){
+        buttonFullSc.frame = 1;
+    }
+    else{
+        buttonFullSc.frame = 0;
+    }
 }
 
 //end createGameplay function
@@ -608,6 +614,12 @@ function createMenu(){ // menu page
     buttonFullSc.scale.setTo(0.15, 0.15);
     buttonFullSc.fixedToCamera = true;
     buttonFullSc.anchor.set(0.5);
+    if (game.scale.isFullScreen){
+        buttonFullSc.frame = 1;
+    }
+    else{
+        buttonFullSc.frame = 0;
+    }
 }
 // end createMenu function
 
@@ -695,6 +707,12 @@ function createHowToPlay(){ //how to play
     buttonFullSc.scale.setTo(0.15, 0.15);
     buttonFullSc.fixedToCamera = true;
     buttonFullSc.anchor.set(0.5);
+    if (game.scale.isFullScreen){
+        buttonFullSc.frame = 1;
+    }
+    else{
+        buttonFullSc.frame = 0;
+    }
 }
 // end createHowtoPlay function
 
@@ -780,6 +798,12 @@ function createResult(){ //result
     buttonFullSc.scale.setTo(0.15, 0.15);
     buttonFullSc.fixedToCamera = true;
     buttonFullSc.anchor.set(0.5);
+    if (game.scale.isFullScreen){
+        buttonFullSc.frame = 1;
+    }
+    else{
+        buttonFullSc.frame = 0;
+    }
 }
 // end createResult function
 
@@ -835,6 +859,12 @@ function createReport() {
     buttonFullSc.scale.setTo(0.15, 0.15);
     buttonFullSc.fixedToCamera = true;
     buttonFullSc.anchor.set(0.5);
+    if (game.scale.isFullScreen){
+        buttonFullSc.frame = 1;
+    }
+    else{
+        buttonFullSc.frame = 0;
+    }
 }
 //end createReport function
 
@@ -943,6 +973,12 @@ function createLogin() { //login
     buttonFullSc.fixedToCamera = true;
     buttonFullSc.anchor.set(0.5);
     game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
+    if (game.scale.isFullScreen){
+        buttonFullSc.frame = 1;
+    }
+    else{
+        buttonFullSc.frame = 0;
+    }
 }
 //end createLogin function
 
@@ -999,6 +1035,12 @@ function createCredit() { //credit
     buttonFullSc.scale.setTo(0.15, 0.15);
     buttonFullSc.fixedToCamera = true;
     buttonFullSc.anchor.set(0.5);
+    if (game.scale.isFullScreen){
+        buttonFullSc.frame = 1;
+    }
+    else{
+        buttonFullSc.frame = 0;
+    }
 }//toCredit
 
 // end createCredit function
@@ -1078,10 +1120,12 @@ function changeScreenMode(){
     if (game.scale.isFullScreen)
         {
             game.scale.stopFullScreen();
+            buttonFullSc.frame = 0;
         }
         else
         {
             game.scale.startFullScreen(false,false);
+            buttonFullSc.frame = 1;
         }
 }
 //end support function

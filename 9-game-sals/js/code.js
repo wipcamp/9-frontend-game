@@ -1709,20 +1709,21 @@ function createResult(){
     bossBGM.stop();
     resultBGM.loopFull();
     text.anchor.set(0.5);
-    if(name.indexOf(" ")==null){
-        if(name.length>12){
-            name = name.substring(0,12)+"...";
+    nameResult = name;
+    if(nameResult.indexOf(" ")==null){
+        if(nameResult.length>12){
+            nameResult = nameResult.substring(0,12)+"...";
         }
     }
     else{
-        if(name.indexOf(" ")>12){
-            name = name.substring(0,12)+"...";
+        if(nameResult.indexOf(" ")>12){
+            nameResult = nameResult.substring(0,12)+"...";
         }
         else{
-            name = name.substring(0,name.indexOf(" "));
+            nameResult = nameResult.substring(0,nameResult.indexOf(" "));
         }
     }
-    text = game.add.text(game.world.width/2+50,game.world.height*(1/4)+5,""+name,{font : "22px Thaisans Neue for Web",fill : "#4d3200"});
+    text = game.add.text(game.world.width/2+50,game.world.height*(1/4)+5,""+nameResult,{font : "22px Thaisans Neue for Web",fill : "#4d3200"});
     text.anchor.set(0.5);
     text.stroke = "#332100";
     text.strokeThickness = 1;
