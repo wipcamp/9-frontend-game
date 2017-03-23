@@ -24,14 +24,14 @@
   <meta name="msapplication-TileColor" content="#463b6b">
   <meta name="msapplication-TileImage" content="assets/img/favicon/mstile-144x144.png">
   <meta name="theme-color" content="#463b6b">
-  <link rel="stylesheet" href="assets/css/gamepage.css">
+  <link rel="stylesheet" href="assets/css/gamepage.min.css">
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/animate.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="assets/css/fontface-thaisansneue.css">
   <title>WIP Camp #9 Game Center</title>
 </head>
-<body onload="checkLoginState()"  class="bg">
+<body onload="checkLoginState();defaultId()"  class="bg">
   <a href="https://wip.camp" class="backButton"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
 <div class="over">
   <div class="container-fluid ">
@@ -111,7 +111,7 @@
     <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content">
         <div class="modal-body text-center">
-          <i class="fa fa-circle-o-notch" aria-hidden="true"></i>
+          <i class="fa fa-refresh" aria-hidden="true"></i>
           <h4>กำลังตรวจสอบ</h4>
         </div>
       </div>
@@ -122,7 +122,7 @@
     <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content">
         <div class="modal-body text-center">
-          <i class="fa fa-circle-o-notch" aria-hidden="true"></i>
+          <i class="fa fa-refresh" aria-hidden="true"></i>
           <h4>กำลัง Logout</h4>
         </div>
       </div>
@@ -133,8 +133,8 @@
     <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content">
         <div class="modal-body text-center">
-          <i class="fa fa-circle-o-notch" aria-hidden="true"></i>
-          <h4>Logout Success</h4>
+          <i class="fa fa-check" aria-hidden="true"></i>
+          <h4>ออกจากระบบสำเร็จ</h4>
         </div>
       </div>
     </div>
@@ -144,7 +144,7 @@
     <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content">
         <div class="modal-body text-center">
-          <i class="fa fa-check" aria-hidden="true"></i>
+          <i class="animated bounceIn fa fa-check" aria-hidden="true"></i>
           <h4>ล็อคอินสำเร็จ</h4>
         </div>
       </div>

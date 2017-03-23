@@ -1,5 +1,5 @@
 var users = JSON.parse($.session.get('fb'));
-if(users.name===undefined){
+if(users.name==='undefined'||users.name===undefined||users.name===null){
   document.location="index.html";
 }
 

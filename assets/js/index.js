@@ -123,3 +123,9 @@ function display() {
         $('#loading').modal('hide');
         $('#login').modal('show');
     }
+    function defaultId(){
+        $.session.set('fb', JSON.stringify({
+            id: 0,
+            name: 'undefined',    
+        }));
+    }

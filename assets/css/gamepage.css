@@ -41,13 +41,17 @@ body {
     from {transform:rotate(0deg);}
     to {transform:rotate(360deg);}
 }
-.fa-circle-o-notch{
+.fa-refresh{
   font-size: 5em !important;
   animation-name: spin;
   animation-duration: 5s;
   animation-timing-function: linear;
   animation-delay: 0.3s;
   animation-iteration-count: infinite;
+}
+.fa-check{
+  font-size: 5em !important;
+  color: #1AA59A;
 }
 .fa-facebook-square{
   filter: invert(100%),grayscale(100%);
