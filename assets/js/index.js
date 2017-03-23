@@ -49,7 +49,7 @@ function display() {
     }
     window.fbAsyncInit = function() {
         FB.init({
-            appId: '432705477069426',
+            appId: '43270547706 426',
             cookie: true,
             xfbml: true,
             version: 'v2.8'
@@ -84,10 +84,10 @@ function display() {
             // modify function
             $.session.set('fb', JSON.stringify({
                 id: response.id,
-                name: response.name,
+                name: response.name,    
             }));
         });
-        console.log(JSON.parse($.session.get('fb')));
+        // console.log(JSON.parse($.session.get('fb')));
     }
 
     function login(){
