@@ -1481,7 +1481,7 @@ function createHowtoPlay(){
         enter.frame = 0;
     }, this);
 
-    text = game.add.text(game.world.width/2, game.world.height*(3.95/5)+25,'press to pause and resume game',{font : "24px Thaisans Neue for Web",fill : "#5B3B00"});
+    text = game.add.text(game.world.width/2, game.world.height*(3.95/5)+25,'press to pause and resume game',{font : "18px Thaisans Neue for Web",fill : "#5B3B00"});
     text.anchor.set(0.5);
 
     game.time.events.loop(1500, function() {
