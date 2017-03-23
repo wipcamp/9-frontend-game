@@ -347,16 +347,6 @@ function createGameplay() {
     else
         textMute.frame = 1;
     //fullScreen button
-    buttonFullSc = game.add.button(850, 40, 'fullscreen', changeScreenMode, this);
-    buttonFullSc.scale.setTo(0.15, 0.15);
-    buttonFullSc.fixedToCamera = true;
-    buttonFullSc.anchor.set(0.5);
-    if (game.scale.isFullScreen){
-        buttonFullSc.frame = 1;
-    }
-    else{
-        buttonFullSc.frame = 0;
-    }
 }
 
 //end createGameplay function
@@ -610,16 +600,6 @@ function createMenu(){ // menu page
     else
         textMute.frame = 1;
     //fullScreen button
-    buttonFullSc = game.add.button(850, 40, 'fullscreen', changeScreenMode, this);
-    buttonFullSc.scale.setTo(0.15, 0.15);
-    buttonFullSc.fixedToCamera = true;
-    buttonFullSc.anchor.set(0.5);
-    if (game.scale.isFullScreen){
-        buttonFullSc.frame = 1;
-    }
-    else{
-        buttonFullSc.frame = 0;
-    }
 }
 // end createMenu function
 
@@ -703,16 +683,6 @@ function createHowToPlay(){ //how to play
     else
         textMute.frame = 1;
     //fullScreen button
-    buttonFullSc = game.add.button(850, 40, 'fullscreen', changeScreenMode, this);
-    buttonFullSc.scale.setTo(0.15, 0.15);
-    buttonFullSc.fixedToCamera = true;
-    buttonFullSc.anchor.set(0.5);
-    if (game.scale.isFullScreen){
-        buttonFullSc.frame = 1;
-    }
-    else{
-        buttonFullSc.frame = 0;
-    }
 }
 // end createHowtoPlay function
 
@@ -794,16 +764,6 @@ function createResult(){ //result
     else
         textMute.frame = 1;
     //fullScreen button
-    buttonFullSc = game.add.button(850, 40, 'fullscreen', changeScreenMode, this);
-    buttonFullSc.scale.setTo(0.15, 0.15);
-    buttonFullSc.fixedToCamera = true;
-    buttonFullSc.anchor.set(0.5);
-    if (game.scale.isFullScreen){
-        buttonFullSc.frame = 1;
-    }
-    else{
-        buttonFullSc.frame = 0;
-    }
 }
 // end createResult function
 
@@ -855,16 +815,6 @@ function createReport() {
         textMute.frame = 1;
   //sendReportMessage
   //fullScreen button
-    buttonFullSc = game.add.button(850, 40, 'fullscreen', changeScreenMode, this);
-    buttonFullSc.scale.setTo(0.15, 0.15);
-    buttonFullSc.fixedToCamera = true;
-    buttonFullSc.anchor.set(0.5);
-    if (game.scale.isFullScreen){
-        buttonFullSc.frame = 1;
-    }
-    else{
-        buttonFullSc.frame = 0;
-    }
 }
 //end createReport function
 
@@ -968,17 +918,6 @@ function createLogin() { //login
     else
         textMute.frame = 1;
     //fullScreen button
-    buttonFullSc = game.add.button(850, 40, 'fullscreen', changeScreenMode, this);
-    buttonFullSc.scale.setTo(0.15, 0.15);
-    buttonFullSc.fixedToCamera = true;
-    buttonFullSc.anchor.set(0.5);
-    game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
-    if (game.scale.isFullScreen){
-        buttonFullSc.frame = 1;
-    }
-    else{
-        buttonFullSc.frame = 0;
-    }
 }
 //end createLogin function
 
@@ -1031,16 +970,6 @@ function createCredit() { //credit
     else
         textMute.frame = 1;
     //fullScreen button
-    buttonFullSc = game.add.button(850, 40, 'fullscreen', changeScreenMode, this);
-    buttonFullSc.scale.setTo(0.15, 0.15);
-    buttonFullSc.fixedToCamera = true;
-    buttonFullSc.anchor.set(0.5);
-    if (game.scale.isFullScreen){
-        buttonFullSc.frame = 1;
-    }
-    else{
-        buttonFullSc.frame = 0;
-    }
 }//toCredit
 
 // end createCredit function
