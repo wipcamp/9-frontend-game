@@ -46,6 +46,7 @@ function preload() {
     game.load.image('oldMap','9-game-sals/images/oldMap.png');
     game.load.image('gameover','9-game-sals/images/GAME-OVER-01.png');
     game.load.image('pause','9-game-sals/images/pause.png');
+    game.load.image('layerBlack','9-game-sals/images/layerBlack.png');
     game.load.spritesheet('wip','9-game-sals/images/wip.png');
     game.load.spritesheet('ship', '9-game-sals/images/playership.png',350/5,96,5);
     game.load.spritesheet('speed','9-game-sals/images/item_move.png',50,50,8);
@@ -193,7 +194,7 @@ function createGamePlay() {
     isRockActive = true;
     seawaveCooldown = 60;
     score=0;
-    textScore = game.add.text(20,20,"Score : "+score,{fontSize : "20px",fill : "#ed3465"});
+    textScore = game.add.text(20,20,"Score : "+score,{font : "20px Thaisans Neue for Web",fill : "#ed3465"});
     cursors = this.input.keyboard.createCursorKeys();
     fireButton = this.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
     destroyedCount=0;
@@ -655,11 +656,10 @@ function updateGamePlay() {
     game.physics.arcade.overlap(sprite, rock1, rockOverlapPlayer, null, this);
     game.physics.arcade.overlap(sprite, rock2, rockOverlapPlayer, null, this);
   	if(this.input.keyboard.addKey(Phaser.KeyCode.ENTER).isDown){
-  		isPause = game.add.image(game.world.width/2,game.world.height/2,'pause');
+  		isPause = game.add.image(game.world.width/2,game.world.height/2,'layerBlack');
         isPause.anchor.set(0.5);
-        isPause.scale.setTo(0.95);
-        isPause.alpha = 0.8;
-        textPause = game.add.text(game.world.width/2,game.world.height/2,'press enter to resume ',{font : "24px",fill : "#FFFFFF"});
+        isPause.alpha = 0.5;
+        textPause = game.add.text(game.world.width/2,game.world.height/2,'press enter to resume ',{font : "24px Thaisans Neue for Web",fill : "#FFFFFF"});
         textPause.anchor.set(0.5);
         game.paused = true;
   	}
@@ -1481,7 +1481,7 @@ function createHowtoPlay(){
         enter.frame = 0;
     }, this);
 
-    text = game.add.text(game.world.width/2, game.world.height*(3.95/5)+25,'press to pause and resume game',{font : "24px",fill : "#5B3B00"});
+    text = game.add.text(game.world.width/2, game.world.height*(3.95/5)+25,'press to pause and resume game',{font : "24px Thaisans Neue for Web",fill : "#5B3B00"});
     text.anchor.set(0.5);
 
     game.time.events.loop(1500, function() {
@@ -1582,7 +1582,7 @@ function createReport(){
     buttonMenu.anchor.set(0.5);
     game.add.plugin(PhaserInput.Plugin);
     input = game.add.inputField(game.world.width * 0.5 / 4, game.world.height / 4, {
-        font: '16px',
+        font: '16px Thaisans Neue for Web',
         fill: '#212121',
         fontWeight: 'normal',
         width: 240,
@@ -1624,7 +1624,7 @@ function debugReport() {
         sendReportMessage(input.value);
         input.value = null;
         input = game.add.inputField(game.world.width * 0.5 / 4, game.world.height / 4, {
-            font: '16px',
+            font: '16px Thaisans Neue for Web',
             fill: '#212121',
             fontWeight: 'normal',
             width: 240,
@@ -1636,7 +1636,7 @@ function debugReport() {
             placeHolder: 'แจ้งข้อผิดพลาดได้ที่นี่เลยนะ :)'
         });
         input.startFocus();
-        text = game.add.text(game.world.width / 2, 550 * (3.75 / 4) - 80, "แจ้งข่าวกัปตันเรียบร้อยแล้ว", { font: "22px", fill: "#5B3B00" });
+        text = game.add.text(game.world.width / 2, 550 * (3.75 / 4) - 80, "แจ้งข่าวกัปตันเรียบร้อยแล้ว", { font: "22px Thaisans Neue for Web", fill: "#5B3B00" });
         text.anchor.set(0.5);
     }
 }
@@ -1655,21 +1655,37 @@ function createCredit(){
     buttonMenu = game.add.button(game.world.width*(0.75/3), game.world.height*(4.6/5), 'menu', toMenu, this);
     buttonMenu.scale.setTo(0.11);
     buttonMenu.anchor.set(0.5);
-    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) - 25 + 10, "Audio Library – No Copyright Music", { fontSize: "16px", fill: "#5B3B00" });
+    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) - 25 + 10, "Audio Library – No Copyright Music", { font: "16px Thaisans Neue for Web", fill: "#5B3B00"});
+    textCredit.stroke = "#332100";
+    textCredit.strokeThickness = 0.1;
     textCredit.anchor.set(0.5);
-    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 5 + 10, "URL : goo.gl/yReazM", { fontSize: "12px", fill: "#5B3B00" });
+    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 5 + 10, "URL : goo.gl/yReazM", { font: "12px Thaisans Neue for Web", fill: "#5B3B00" });
+    textCredit.stroke = "#332100";
+    textCredit.strokeThickness = 0.1;
     textCredit.anchor.set(0.5);
-    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 35 + 10, "Ross Bugden - Music", { fontSize: "16px", fill: "#5B3B00" });
+    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 35 + 10, "Ross Bugden - Music", { font: "16px Thaisans Neue for Web", fill: "#5B3B00" });
+    textCredit.stroke = "#332100";
+    textCredit.strokeThickness = 0.1;
     textCredit.anchor.set(0.5);
-    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 65 + 10, "URL : goo.gl/NDMy6w", { fontSize: "12px", fill: "#5B3B00" });
+    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 65 + 10, "URL : goo.gl/NDMy6w", { font: "12px Thaisans Neue for Web", fill: "#5B3B00" });
+    textCredit.stroke = "#332100";
+    textCredit.strokeThickness = 0.1;
     textCredit.anchor.set(0.5);
-    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 95 + 10, "Ship sailing on the sea", { fontSize: "16px", fill: "#5B3B00" });
+    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 95 + 10, "Ship sailing on the sea", { font: "16px Thaisans Neue for Web", fill: "#5B3B00" });
+    textCredit.stroke = "#332100";
+    textCredit.strokeThickness = 0.1;
     textCredit.anchor.set(0.5);
-    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 125 + 10, "URL : goo.gl/1YpYo3", { fontSize: "12px", fill: "#5B3B00" });
+    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 125 + 10, "URL : goo.gl/1YpYo3", { font: "12px Thaisans Neue for Web", fill: "#5B3B00" });
+    textCredit.stroke = "#332100";
+    textCredit.strokeThickness = 0.1;
     textCredit.anchor.set(0.5);
-    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 155 + 10, "Beach party wooden sign", { fontSize: "16px", fill: "#5B3B00" });
+    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 155 + 10, "Beach party wooden sign", { font: "16px Thaisans Neue for Web", fill: "#5B3B00" });
+    textCredit.stroke = "#332100";
+    textCredit.strokeThickness = 0.1;
     textCredit.anchor.set(0.5);
-    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 185 + 10, "URL : goo.gl/9kzuhy", { fontSize: "12px", fill: "#5B3B00" });
+    textCredit = game.add.text(game.world.width /2, 550 * (1 / 4) + 185 + 10, "URL : goo.gl/9kzuhy", { font: "12px Thaisans Neue for Web", fill: "#5B3B00" });
+    textCredit.stroke = "#332100";
+    textCredit.strokeThickness = 0.1;
     textCredit.anchor.set(0.5);
     mute = game.add.button(300,20,'mute',muteSounds,this);
     mute.scale.setTo(0.08,0.08);
@@ -1681,28 +1697,40 @@ function createCredit(){
 }
 function createResult(){
     bg = game.add.image(0,0,'bgGame');
+    layer = game.add.image(0,0,'layerBlack');
+    layer.alpha = 0.35;
     logo = game.add.image(game.world.width/2,game.world.height*(1/4),'gameover');
     logo.anchor.set(0.5);
     logo.scale.setTo(0.1);
-    text = game.add.text(game.world.width/2+50,game.world.height*(1.25/4),"Score : "+score,{fontSize : "22px",fill : "#5B3B00"});
+    text = game.add.text(game.world.width/2+50,game.world.height*(1.25/4),"Score : "+score,{font : "22px Thaisans Neue for Web",fill : "#4d3200"});
+    text.stroke = "#332100";
+    text.strokeThickness = 1;
     gameBGM.stop();
     bossBGM.stop();
     resultBGM.loopFull();
     text.anchor.set(0.5);
-    text = game.add.text(game.world.width/2+50,game.world.height*(1/4)+5,""+name,{fontSize : "22px",fill : "#5B3B00"});
+    text = game.add.text(game.world.width/2+50,game.world.height*(1/4)+5,""+name,{font : "22px Thaisans Neue for Web",fill : "#4d3200"});
     text.anchor.set(0.5);
-    text = game.add.text(game.world.width/2,game.world.height*(1.5/4),""+causeOfDeath,{fontSize : "14px",fill : "#5B3B00"});
+    text.stroke = "#332100";
+    text.strokeThickness = 1;
+    text = game.add.text(game.world.width/2,game.world.height*(1.5/4)+10,""+causeOfDeath,{font : "18px Thaisans Neue for Web",fill : "#FFFFFF"});
     text.anchor.set(0.5);
-    buttonPlayagain = game.add.button(game.world.width/2, game.world.height*(3/4), 'playagain', toGame, this);
+    text.stroke = "#000000";
+    text.strokeThickness = 0.5;
+    text = game.add.text(game.world.width/2,game.world.height*(2.75/4)+10+20,"กด spacebar เพื่อเล่นอีกครั้ง",{font : "18px Thaisans Neue for Web",fill : "#FFFFFF"});
+    text.anchor.set(0.5);
+    text.stroke = "#000000";
+    text.strokeThickness = 0.5;
+    buttonPlayagain = game.add.button(game.world.width/2, game.world.height*(3/4)+20, 'playagain', toGame, this);
     buttonPlayagain.scale.setTo(0.12);
     buttonPlayagain.anchor.set(0.5);
-    buttonScore = game.add.button(game.world.width/2, game.world.height*(3.22/4),'scoreboard',toScoreboard,this)
+    buttonScore = game.add.button(game.world.width/2, game.world.height*(3.22/4)+20,'scoreboard',toScoreboard,this)
     buttonScore.scale.setTo(0.12);
     buttonScore.anchor.set(0.5);
-    buttonReport = game.add.button(game.world.width/2, game.world.height*(3.44/4), 'report', toReport, this);
+    buttonReport = game.add.button(game.world.width/2, game.world.height*(3.44/4)+20, 'report', toReport, this);
     buttonReport.scale.setTo(0.12);
     buttonReport.anchor.set(0.5);
-    buttonMenu = game.add.button(game.world.width/2, game.world.height*(3.66/4), 'menu', toMenu, this);
+    buttonMenu = game.add.button(game.world.width/2, game.world.height*(3.66/4)+20, 'menu', toMenu, this);
     buttonMenu.scale.setTo(0.12);
     buttonMenu.anchor.set(0.5);
     mute = game.add.button(300,20,'mute',muteSounds,this);

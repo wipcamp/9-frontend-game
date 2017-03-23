@@ -116,6 +116,7 @@ blockquote{
 }
 #game canvas{
   margin: 0 auto !important;
+  font-family: 'Thaisans Neue for Web', sans-serif !important;
 }
 .bg-sals-page-1{
   position: absolute;
