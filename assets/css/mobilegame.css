@@ -10,13 +10,19 @@ html{
 }
 
 body{
+  margin: 0 !important;
   height: 100vh;
   margin: 0 0 0 0;
   font-family: 'Thaisans Neue for Web', sans-serif !important;
   background: linear-gradient(#188c83, #003a37, #000);
   overflow-y: hidden;
 }
-
+#game{
+  margin: 0 !important;
+}
+#game canvas{
+  margin: 0 !important;
+}
 @media only screen
 and (min-width:0px)
 and (orientation: portrait){
