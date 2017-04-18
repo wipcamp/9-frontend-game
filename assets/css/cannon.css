@@ -1,0 +1,480 @@
+@import url('fontface-thaisansneue.css');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+html{
+  overflow-x: hidden;
+}
+body{
+    font-family: 'Thaisans Neue for Web', sans-serif !important;
+    font-weight: 400;
+    color: white;
+    height: 100vh;
+    background-image:  url("../img/bg.png");
+    background-size: cover;
+    overflow-x: hidden !important;
+}
+.return{
+  position: absolute;
+  font-size: 3em;
+  margin: 0.15em 0 0 0.25em;
+  color: white;
+}
+.gameZone{
+  display: none;
+}
+.hideGame{
+  width: 100vw;
+  height: 100vh;
+  background-color: #4b0095;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.textHide img{
+  height: 7em;
+}
+.textHide h2 {
+    margin: 0.5em 0;
+    font-size: 1.8em;
+}
+.detailHide{
+  position: absolute;
+  bottom: 3em;
+}
+#DataTables_Table_0_length{
+  display: none !important;
+}
+.dataTables_info{
+  display: none;
+}
+.paginate_button{
+  display: none;
+}
+.game-body {
+  color: #fff;
+}
+.prize {
+  display: none;
+}
+.game-tbl {
+  color: #9b97a5 !important;
+}
+.prize{
+  display: none;
+}
+.ranking{
+  width:280px;
+  margin: 5em 0 3em 0;
+  padding: 20px 15px 0px 15px;
+  border-radius: 14px;
+  border: 2px solid #9b97a5;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.game-fontHeadTable {
+    font-size: 18px;
+    text-align: center;
+}
+.game-fontInTable {
+    font-size: 15px;
+    text-align: center;
+}
+.text{
+  font-size: 0.85em;
+}
+.rankingLogo{
+  width: 10em;
+  margin-bottom: 8px;
+}
+.sorting_desc::before,.sorting_desc::after{
+  display: none !important;
+}
+.logoGame{
+  margin: 0.5em 0;
+  width: 25em;
+}
+blockquote{
+  background-color: rgb(0,0, 0);
+  opacity: 0.6;
+  border-radius: 20px;
+  color: #fff;
+}
+.btn-custom1{
+    margin : 3% 4% 0% 0%;
+    padding: 8px 8px !important;
+    font-size: 15px !important;
+    background-color: #FF964E;
+    color : white;
+}
+.btn-custom2{
+    margin : 3% 4% 0% 0%;
+    padding: 8px 26px !important;
+    font-size : 15px !important;
+    background-color: #F26767;
+    color : white;
+}
+.sideLeft{
+  margin: 5em 0 3em 0;
+}
+#game canvas{
+  margin: 0 auto !important;
+  font-family: 'Thaisans Neue for Web', sans-serif !important;
+}
+.bg-sals-page-1{
+  position: absolute;
+  z-index: -2;
+  bottom: 1em;
+  left: 0;
+}
+.bg-sals-page-2{
+  position: absolute;
+  z-index: -2;
+  bottom: 1em;
+  right: -3em;
+}
+.bg-sals{
+  display: none;
+  bottom: 0;
+  overflow-x: hidden;
+}
+.ship-wip{
+  width: 25em;
+  animation-name: ship;
+  animation-duration: 6s;
+  animation-delay: .1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-play-state: running;
+}
+.ship-enemy{
+  width: 35em;
+  animation-name: wave;
+  animation-duration: 6s;
+  animation-delay: .1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-play-state: running;
+}
+@keyframes wave {
+  0% {
+    transform: translate(-3px, 6.25px);
+  }
+  25% {
+    transform: translate(10px, 12.25px);
+  }
+  50% {
+    transform: translate(18px, 6.25px);
+  }
+  75% {
+    transform: translate(10px, -3.25px);
+  }
+  100% {
+    transform: translate(-3px, 6.25px);
+  }
+}
+@keyframes ship {
+  0% {
+    transform: translate(-3px, 6.25px);
+  }
+  25% {
+    transform: translate(10px, 12.25px);
+  }
+  50% {
+    transform: translate(18px, 6.25px);
+  }
+  75% {
+    transform: translate(10px, -3.25px);
+  }
+  100% {
+    transform: translate(-3px, 6.25px);
+  }
+}
+.wave {
+  height: 5em;
+}
+.wave1{
+  background-image: url('../img/object/wave1.svg');
+  background-repeat: repeat-x;
+  position: absolute;
+  width: 100vw;
+  left: -3em;
+  bottom: 1.5em;
+  z-index: -3;
+  animation-name: wave;
+  animation-duration: 6s;
+  animation-delay: .1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-play-state: running;
+}
+.wave2{
+  background-image: url('../img/object/wave2.svg');
+  background-repeat: repeat-x;
+  background-position: -42px 0;
+  position: absolute;
+  width: 105vw;
+  bottom: 1em;
+  left: -2em;
+  z-index: -2;
+  animation-name: wave;
+  animation-duration: 4s;
+  animation-delay: .1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-play-state: running;
+}
+.wave3{
+  background-image: url('../img/object/wave3.svg');
+  background-repeat: repeat-x;
+  position: absolute;
+  bottom: 0;
+  width: 105vw;
+  left: -3em;
+  z-index: -1;
+  animation-name: wave;
+  animation-duration: 3s;
+  animation-delay: .1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-play-state: running;
+}
+.water{
+  z-index: -1;
+  position: absolute;
+  bottom: -1em;
+  height: 3em;
+  width: 100vw;
+  background-color: #09706b;
+}
+
+@media only screen and
+(min-width: 0px) and
+(max-width: 800px){
+  html{
+    overflow: hidden;
+  }
+  body{
+    overflow: hidden;
+  }
+}
+
+
+@media only screen and
+(min-width:800px) and
+(max-width:1024px){
+  blockquote{
+    padding: 9px 5px;
+  }
+  blockquote p{
+    font-size: 12px !important;
+  }
+}
+@media only screen and
+(min-width:1024px) and
+(max-width:1280px){
+  .return{
+    font-size: 3em;
+    margin: 0.15em 0 0 0.5em;
+  }
+  body{
+    overflow-x: hidden;
+  }
+  .bg-sals{
+    display: block !important;
+  }
+  .gameZone{
+    display: block !important;
+  }
+  .hideGame{
+    display: none !important;
+  }
+  .ranking{
+    width:240px;
+    margin: 5em 0 3em 0;
+    padding: 20px 15px 0px 15px;
+    border-radius: 14px;
+    border: 2px solid #9b97a5;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .game-fontHeadTable {
+      font-size: 15px;
+      text-align: center;
+  }
+  .game-fontInTable {
+      font-size: 12px;
+      text-align: center;
+  }
+  .text{
+    font-size: 15px;
+  }
+}
+
+@media only screen and
+(min-width:1280px) and
+(max-width:1440px){
+  .bg-sals{
+    display: block;
+  }
+  .logoGame{
+    margin-top: 1em;
+  }
+  .gameZone{
+    display: block;
+  }
+  .hideGame{
+    display: none;
+  }
+}
+
+@media only screen and
+(min-width:1440px) and
+(max-width:1600px){
+  .bg-sals{
+    display: block;
+  }
+  .gameZone{
+    display: block;
+  }
+  .logoGame{
+    margin: 3em 0 2em 0;
+  }
+  .hideGame{
+    display: none;
+  }
+}
+
+@media only screen and
+(min-width:1600px){
+  body{
+    overflow: hidden !important;
+  }
+  .bg-sals{
+    display: block;
+  }
+  .logoGame{
+    width: 30em;
+    margin-bottom: 2em;
+  }
+  .gameZone{
+    margin-top: 3em;
+    display: block;
+  }
+  .hideGame{
+    display: none;
+  }
+}
+
+
+@media only screen
+and (device-width : 768px)
+and (device-height : 1024px)
+and (orientation : portrait){
+  .textHide h2 {
+      margin: 0.5em 0;
+      font-size: 3em;
+  }
+  .textHide h5{
+    font-size: 2em;
+  }
+  .detailHide h5{
+    font-size: 1.5em;
+  }
+  .return{
+    font-size: 6em;
+  }
+  .bg-sals{
+    display: none !important;
+  }
+  .gameZone{
+    display: none !important;
+  }
+  .hideGame{
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media only screen
+and (device-height : 768px)
+and (device-width : 1024px)
+and (orientation : landscape) {
+  .textHide h5{
+    font-size: 1.65em;
+  }
+  .detailHide h5{
+    font-size: 1.5em;
+  }
+  .return{
+    font-size: 3em;
+  }
+  .bg-sals{
+    display: none !important;
+  }
+  .gameZone{
+    display: none !important;
+  }
+  .hideGame{
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media only screen and
+(device-width: 1024px) and
+(device-height: 1366px) and
+(orientation:portrait){
+  .textHide h5{
+    font-size: 2em;
+  }
+  .detailHide h5{
+    font-size: 2em;
+  }
+  .return{
+    font-size: 6em;
+  }
+  .bg-sals{
+    display: none !important;
+  }
+  .gameZone{
+    display: none !important;
+  }
+  .hideGame{
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media only screen and
+(device-width: 1366px) and
+(device-height: 1024px) and
+(orientation:landscape){
+  .textHide h5{
+    font-size: 1.65em;
+  }
+  .detailHide h5{
+    font-size: 2em;
+  }
+  .return{
+    font-size: 6em;
+  }
+  .bg-sals{
+    display: none !important;
+  }
+  .gameZone{
+    display: none !important;
+  }
+  .hideGame{
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+  .textHide img{
+    height: 15em;
+  }
+  .textHide h2{
+    font-size: 3em;
+  }
+}
