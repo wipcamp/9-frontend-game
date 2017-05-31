@@ -20,11 +20,11 @@ body{
 }
 .spin1{
   position: absolute;
-  animation: movePic 2s infinite linear;
+  animation: movePic 6s infinite linear;
 }
 .spin2{
   position: absolute;
-  animation: movePic 3s infinite linear;
+  animation: movePic 6s infinite linear;
 }
 @keyframes movePic {
     0%   {top: 0px;}
@@ -112,7 +112,7 @@ transform:   rotate(360deg) ;
       height: 1200px;
       overflow-y: hidden;
       margin-top: -100px;
-      animation: animationFrames 10s  infinite linear;
+      animation: animationFrames 90s  infinite linear;
   }
   .return{
     font-size: 3em;
@@ -181,7 +181,7 @@ transform:   rotate(360deg) ;
       height: 1200px;
       overflow-y: hidden;
       margin-top: -100px;
-      animation: animationFrames 10s  infinite linear;
+      animation: animationFrames 90s  infinite linear;
   }
   .gameZone{
     display: block !important;
@@ -212,7 +212,7 @@ transform:   rotate(360deg) ;
       height: 1200px;
       overflow-y: hidden;
       margin-top: -100px;
-      animation: animationFrames 10s  infinite linear;
+      animation: animationFrames 90s  infinite linear;
   }
   .star{
     position: absolute;
@@ -258,7 +258,7 @@ transform:   rotate(360deg) ;
       height: 1200px;
       overflow-y: hidden;
       margin-top: -100px;
-      animation: animationFrames 10s  infinite linear;
+      animation: animationFrames 90s  infinite linear;
   }
   .star{
     position: absolute;
@@ -304,7 +304,7 @@ transform:   rotate(360deg) ;
       height: 1200px;
       overflow-y: hidden;
       margin-top: -100px;
-      animation: animationFrames 10s  infinite linear;
+      animation: animationFrames 90s  infinite linear;
   }
   .star{
     position: absolute;
@@ -353,7 +353,7 @@ transform:   rotate(360deg) ;
       height: 1200px;
       overflow-y: hidden;
       margin-top: -100px;
-      animation: animationFrames 10s  infinite linear;
+      animation: animationFrames 90s  infinite linear;
   }
   .star{
     position: absolute;
